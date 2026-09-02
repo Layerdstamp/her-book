@@ -276,6 +276,40 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
 .rline .w{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;
   padding:8px 10px;font-size:14.5px;background:var(--cream)}
 .rline input:focus{outline:2px solid var(--rose);outline-offset:0}
+/* Symptom index — deliberately dense. You read this while worried. */
+.symwrap{position:relative}
+.symq{width:100%;font-size:16px;padding:13px 14px 13px 40px;border:2px solid var(--line);
+  border-radius:999px;background:var(--cream);-webkit-appearance:none}
+.symq:focus{outline:none;border-color:var(--rose)}
+.symwrap .mag{position:absolute;left:15px;top:50%;transform:translateY(-50%);
+  width:16px;height:16px;color:var(--taupe);pointer-events:none}
+.symhint{font-size:12px;color:var(--taupe);margin:8px 2px 0}
+.symcount{font-size:11.5px;font-weight:700;color:var(--rose-dk);margin:14px 2px 8px}
+.sym{border:1px solid var(--line);border-radius:13px;margin-bottom:8px;background:var(--cream);
+  overflow:hidden}
+.sym>summary{list-style:none;cursor:pointer;padding:10px 12px;display:flex;gap:9px;
+  align-items:flex-start}
+.sym>summary::-webkit-details-marker{display:none}
+.sym .u{flex:none;font-size:9px;font-weight:800;letter-spacing:.03em;text-transform:uppercase;
+  padding:4px 7px;border-radius:6px;margin-top:1px;white-space:nowrap}
+.u-emergency{background:var(--alert);color:#fff}
+.u-sameday{background:var(--honey);color:#fff}
+.u-vetsoon{background:var(--sage);color:#fff}
+.u-monitor{background:#E6DCD3;color:var(--bark)}
+.sym .nm{font-size:14px;font-weight:700;line-height:1.3}
+.sym .why{font-size:11.5px;color:var(--bark);margin-top:3px;line-height:1.45}
+.sym .why b{color:var(--rose-dk)}
+.sym .breed{display:inline-block;font-size:9.5px;font-weight:800;background:var(--blush);
+  color:var(--rose-dk);padding:2px 6px;border-radius:5px;margin-left:6px;vertical-align:1px}
+.sym .body{padding:0 12px 12px;font-size:12.5px;line-height:1.55}
+.sym .body h4{font-family:var(--ui);font-size:10.5px;font-weight:800;color:var(--taupe);
+  text-transform:uppercase;letter-spacing:.04em;margin:11px 0 4px}
+.sym .body ul{margin:0;padding-left:17px}
+.sym .body li{margin-bottom:2px}
+.sym .src{font-size:10.5px;color:var(--taupe);line-height:1.5;margin-top:4px}
+.sym .src a{color:var(--taupe)}
+.sym .note{font-size:11.5px;padding:8px 10px;margin:8px 0 0}
+.symnone{font-size:13px;color:var(--bark);padding:14px 2px}
 .badge{position:absolute;top:4px;right:calc(50% - 20px);background:var(--alert);color:#fff;
   font-size:9.5px;min-width:17px;height:17px;border-radius:999px;display:grid;
   place-items:center;padding:0 4px;font-weight:800}
@@ -347,7 +381,7 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
     </div>
     <dl class="facts" id="facts"></dl>
     <div class="hero-acts">
-      <button class="pillbtn urgent" data-act="sheet" data-sheet="bloat"><svg><use href="#i-alert"/></svg>Bloat</button>
+      <button class="pillbtn urgent" data-act="sheet" data-sheet="symptoms"><svg><use href="#i-alert"/></svg>Something's wrong</button>
       <button class="pillbtn" data-act="sheet" data-sheet="profile"><svg><use href="#i-paw"/></svg>Her details</button>
       <button class="pillbtn" data-act="sheet" data-sheet="people"><svg><use href="#i-share"/></svg>Who's using this</button>
       <button class="pillbtn" data-act="sheet" data-sheet="sync"><svg><use href="#i-cog"/></svg>Backup</button>
@@ -715,6 +749,19 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
 
 <!-- ===================== GUIDE ===================== -->
 <section class="panel" id="p-guide" role="tabpanel" aria-labelledby="t-guide">
+  <div class="card">
+    <h2>What could this be?</h2>
+    <p class="hint">Type what you can see — "swollen belly", "limping", "won't eat", "swollen toe".
+      Searches 1,100+ described signs. This tells you how urgent something might be and what to ask for.
+      It is not a diagnosis.</p>
+    <div class="symwrap">
+      <svg class="mag" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input class="symq" type="search" id="symQg" data-sym="symOutg" placeholder="Describe what she's doing…"
+             autocomplete="off" enterkeyhint="search" aria-label="Search her symptoms">
+    </div>
+    <div id="symOutg"></div>
+  </div>
+
   <p style="font-size:14px;color:var(--bark);margin:0 0 18px">Everything from the book the kennel sent home with her,
     plus what the links inside it lead to — written for the whole of her life, not just this month.</p>
 
@@ -2265,31 +2312,19 @@ const View = {
 
 /* -------------------------------------------------------- sheets */
 const Sheets = {
-  bloat: () => `
-    <h2 id="sheetTitle">Bloat (GDV)</h2>
-    <p style="font-size:14px;color:var(--bark);margin-bottom:16px">The emergency a Giant Schnauzer owner has to know
-      cold. Large, deep-chested dogs are at highest risk, and it can go from first sign to fatal in hours.</p>
-    <div class="book">
-      <div class="note stop"><b>Signs — go now, don't wait and see</b>
-        <ul style="margin:.6em 0 0;padding-left:1.2em">
-          <li>Retching or trying to vomit with nothing coming up</li>
-          <li>A swollen, hard, distended belly</li>
-          <li>Restlessness, pacing, unable to settle</li>
-          <li>Drooling more than normal</li>
-          <li>Standing hunched or with an arched back, clearly in pain</li>
-          <li>Fast or laboured breathing</li>
-          <li>Pale gums, weakness, collapse</li>
-        </ul></div>
-      <p><strong>What to do:</strong> phone the nearest emergency vet, say you suspect GDV in a large deep-chested dog
-        and that you're on your way so they can prepare. Go straight there. Don't try to make her vomit and don't wait
-        to see if it passes.</p>
-      <p><strong>Why speed matters:</strong> the stomach fills with gas and rotates, cutting off its own blood supply
-        and blocking blood returning to the heart. Shock develops fast. Treated early, many dogs recover fully.</p>
-      <p><strong>Prevention:</strong> ask for a gastropexy when she's spayed. The kennel recommends it and it's the
-        single most effective preventive measure. Avoid hard exercise straight after a big meal.</p>
+  symptoms: () => `
+    <h2 id="sheetTitle">Something's wrong</h2>
+    <p style="font-size:14px;color:var(--bark);margin-bottom:14px">Type what you can see. If she is
+      collapsed, struggling to breathe, has white or grey gums, or is retching with nothing coming up —
+      stop reading and go to an emergency vet now.</p>
+    <div class="symwrap">
+      <svg class="mag" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 16l4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input class="symq" type="search" id="symQ" data-sym="symOut" placeholder="e.g. swollen belly, limping, won't eat"
+             autocomplete="off" enterkeyhint="search" aria-label="Search her symptoms">
     </div>
-    <div class="card"><h2 style="font-size:17px">Your emergency vet</h2>
-      <p class="hint">Fill this in now, not at 2am. It also appears on the care sheet.</p>
+    <div id="symOut"></div>
+    <div class="card" style="margin-top:16px"><h2 style="font-size:17px">Her emergency vet</h2>
+      <p class="hint">Fill this in now, not at 2am.</p>
       <label class="f"><span>Clinic</span><input type="text" data-bind="care.erName"></label>
       <div class="row2">
         <label class="f"><span>Phone</span><input type="text" data-bind="care.erPhone"></label>
@@ -2409,11 +2444,120 @@ const Sheets = {
     </div>`
 };
 
+/* ---------------------------------------------------------- symptoms */
+/* A reference index, not a diagnosis. Loaded from data/symptoms.json so the
+   research can be corrected without touching the app, cached in localStorage
+   so it still works with no signal.                                        */
+const SYM_KEY = "her-book-symptoms-v1";
+
+const Symptoms = {
+  data: null, _tried: false,
+
+  async load(){
+    if (this.data) return this.data;
+    try { const c = localStorage.getItem(SYM_KEY); if (c) this.data = JSON.parse(c); } catch {}
+    if (this._tried) return this.data;
+    this._tried = true;
+    try {
+      const res = await fetch("data/symptoms.json", { cache:"no-cache" });
+      if (res.ok){
+        this.data = await res.json();
+        try { localStorage.setItem(SYM_KEY, JSON.stringify(this.data)); } catch {}
+      }
+    } catch { /* offline: whatever was cached */ }
+    return this.data;
+  },
+
+  /* Every word you type has to match something, so "swollen toe" doesn't
+     return everything swollen and everything about toes. */
+  search(q){
+    const terms = loose(q).split(" ").filter(t => t.length > 1);
+    if (!terms.length) return null;
+    const out = [];
+    for (const c of (this.data?.conditions || [])){
+      const name = loose(c.name), sys = loose(c.system);
+      const aka = (c.aka || []).map(loose), signs = (c.signs || []).map(loose);
+      let score = 0, ok = true;
+      const hits = new Set();
+      for (const t of terms){
+        let best = 0;
+        if (name.includes(t)) best = 10;
+        if (aka.some(a => a.includes(t))) best = Math.max(best, 9);
+        signs.forEach((sg, i) => { if (sg.includes(t)){ best = Math.max(best, 7); hits.add(i); } });
+        if (sys.includes(t)) best = Math.max(best, 3);
+        if (!best){ ok = false; break; }
+        score += best;
+      }
+      if (!ok) continue;
+      if (c.urgency === "emergency") score += 5;
+      if (c.urgency === "same-day") score += 2;
+      if (c.breedRisk === "high") score += 3;
+      out.push({ c, score, hits: [...hits] });
+    }
+    return out.sort((a, b) => b.score - a.score).slice(0, 30);
+  },
+
+  card(c, hits = []){
+    const cls = "u-" + c.urgency.replace("-", "");
+    const label = { emergency:"Go now", "same-day":"Today", "vet-soon":"Book in", monitor:"Watch" }[c.urgency] || c.urgency;
+    const matched = hits.length
+      ? `<div class="why">${hits.slice(0, 3).map(i => "<b>" + esc(c.signs[i]) + "</b>").join(" · ")}</div>` : "";
+    return `<details class="sym">
+      <summary>
+        <span class="u ${cls}">${esc(label)}</span>
+        <span style="flex:1;min-width:0">
+          <span class="nm">${esc(c.name)}${c.breedRisk === "high" ? '<span class="breed">breed risk</span>' : ""}</span>
+          ${matched}
+        </span>
+      </summary>
+      <div class="body">
+        ${c.breedNote ? `<div class="note">${esc(c.breedNote)}</div>` : ""}
+        <h4>What you might see</h4>
+        <ul>${(c.signs || []).map(x => `<li>${esc(x)}</li>`).join("")}</ul>
+        <h4>What to do</h4>
+        <p style="margin:0">${esc(c.whatToDo)}</p>
+        <h4>Sources</h4>
+        <div class="src">${(c.sources || []).map(x => {
+          const m = /^(.*?)\s+—\s+(https?:\S+)$/.exec(x);
+          return m ? `${esc(m[1])} — <a href="${esc(m[2])}" target="_blank" rel="noopener">link</a>` : esc(x);
+        }).join("<br>")}</div>
+      </div>
+    </details>`;
+  },
+
+  async render(q, sel){
+    const el = $(sel);
+    if (!el) return;
+    await this.load();
+    if (!this.data){ el.innerHTML = `<div class="symnone">Couldn't load the index. Connect once and it will be saved for offline use.</div>`; return; }
+
+    const res = this.search(q);
+    if (res === null){
+      const urgent = this.data.conditions.filter(c => c.urgency === "emergency" && c.system === "Emergency");
+      el.innerHTML =
+        `<div class="symcount">Start typing, or read these first</div>` +
+        urgent.map(c => this.card(c)).join("") +
+        `<div class="symhint">${this.data.conditions.length} conditions indexed. Every entry names its sources.</div>`;
+      return;
+    }
+    if (!res.length){
+      el.innerHTML = `<div class="symnone">Nothing matched every word. Try fewer words, or plainer ones —
+        "swollen" rather than "distended".</div>`;
+      return;
+    }
+    el.innerHTML =
+      `<div class="symcount">${res.length} possible match${res.length === 1 ? "" : "es"}, most urgent first</div>` +
+      res.map(r => this.card(r.c, r.hits)).join("") +
+      `<div class="symhint">This is a reference, not a diagnosis. When in doubt, phone the vet — it costs nothing.</div>`;
+  }
+};
+
 let lastFocus = null;
 function openSheet(which){
   lastFocus = document.activeElement;
   $("#sheetBody").innerHTML = (Sheets[which] || (() => ""))();
   View.bindings();
+  if (which === "symptoms") Symptoms.render("", "#symOut");
   $(".veil").classList.add("on");
   $("#sheet").classList.add("on");
   document.body.style.overflow = "hidden";
@@ -2758,6 +2902,7 @@ function editItem(t){
 
 document.addEventListener("input", e => {
   const t = e.target;
+  if (t.dataset.sym){ Symptoms.render(t.value, "#" + t.dataset.sym); return; }
   if (t.dataset.edit){ editItem(t); return; }
   if (!t.dataset.bind) return;
   if (t.dataset.owner === "1" && !Repo.isOwner()) return;
@@ -2796,6 +2941,7 @@ window.addEventListener("focus", () => Sync.pull());
   await Repo.init();
   View.render();
   View.stages();
+  Symptoms.render("", "#symOutg");
 
   for (const id of ["#wDate","#mDate","#oDate"]) $(id).value = today();
 

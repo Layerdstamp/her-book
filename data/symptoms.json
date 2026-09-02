@@ -1,0 +1,3662 @@
+{
+ "version": 1,
+ "note": "Reference index for looking up what a sign might mean. Not a diagnosis. Every entry names its sources. breedRisk is only 'high' where the evidence genuinely names Giant Schnauzers or giant/deep-chested breeds.",
+ "conditions": [
+  {
+   "name": "Acute haemorrhagic diarrhoea syndrome (AHDS/HGE)",
+   "aka": [
+    "AHDS",
+    "HGE",
+    "haemorrhagic gastroenteritis",
+    "raspberry jam diarrhoea"
+   ],
+   "system": "Digestive",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "Small and toy breeds including Miniature Schnauzers are over-represented; that risk is not documented in Giant Schnauzers.",
+   "signs": [
+    "sudden bloody diarrhoea",
+    "diarrhoea like raspberry jam",
+    "vomiting and blood in the stool",
+    "gone flat very quickly",
+    "pale or tacky gums",
+    "won't eat at all",
+    "belly seems painful",
+    "collapsed or wobbly",
+    "went downhill in hours"
+   ],
+   "whatToDo": "Emergency — profuse bloody diarrhoea with lethargy can cause life-threatening fluid loss within hours. Go to a vet or emergency clinic immediately for IV fluids. Do not wait it out.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/digestive-system/diseases-of-the-large-intestine-in-small-animals/acute-hemorrhagic-diarrhea-syndrome-in-dogs",
+    "Veterinary Partner (VIN) — https://veterinarypartner.vin.com/default.aspx?pid=19239&catId=254092&id=4952857"
+   ]
+  },
+  {
+   "name": "Acute kidney injury",
+   "aka": [
+    "AKI",
+    "acute renal failure",
+    "sudden kidney failure"
+   ],
+   "system": "Urinary",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "suddenly stopped eating",
+    "vomiting repeatedly",
+    "drinking loads then barely weeing",
+    "hardly any wee at all",
+    "very flat and weak",
+    "breath smells odd or chemical",
+    "wobbly on her legs",
+    "sore mouth or ulcers",
+    "got into antifreeze, grapes, raisins or lily plants"
+   ],
+   "whatToDo": "Go to a vet immediately and say what she may have eaten or been given — some causes such as antifreeze and grapes have a very short treatment window. Take the packaging or plant with you.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/urinary-system/noninfectious-diseases-of-the-urinary-system-in-small-animals/renal-dysfunction-in-dogs-and-cats",
+    "IRIS Kidney — https://www.iris-kidney.com/iris-guidelines-1"
+   ]
+  },
+  {
+   "name": "Acute pancreatitis",
+   "aka": [
+    "inflamed pancreas",
+    "pancreas attack"
+   ],
+   "system": "Digestive",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "The well-documented pancreatitis risk in Miniature Schnauzers belongs to that separate breed and does not transfer to Giant Schnauzers.",
+   "signs": [
+    "vomiting over and over",
+    "praying position with front legs down and bottom up",
+    "hunched and won't straighten up",
+    "cries when i touch her belly",
+    "she got into fatty scraps or grease",
+    "won't eat and gone very quiet",
+    "greasy yellow diarrhoea",
+    "shivering and feels hot",
+    "drooling and lip smacking"
+   ],
+   "whatToDo": "Have her seen the same day, and go to an ER immediately if she is collapsing, retching without producing, or her belly is swelling — those signs cannot be told apart from bloat at home. Withhold food until a vet advises and give no human painkillers.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/digestive-system/the-exocrine-pancreas/pancreatitis-in-dogs-and-cats",
+    "VCA — https://vcahospitals.com/know-your-pet/pancreatitis-in-dogs",
+    "Cridge et al., JVIM 2021 — https://onlinelibrary.wiley.com/doi/10.1111/jvim.16292"
+   ]
+  },
+  {
+   "name": "Anaphylaxis (severe allergic reaction)",
+   "aka": [
+    "allergic reaction",
+    "bee sting reaction",
+    "vaccine reaction",
+    "hives",
+    "anaphylactic shock"
+   ],
+   "system": "Emergency",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "sudden vomiting and diarrhoea minutes after a sting, drug or vaccine",
+    "diarrhoea with blood in it",
+    "drooling heavily all of a sudden",
+    "swollen muzzle, eyelids or lips",
+    "raised itchy welts or hives over the body",
+    "gums going pale and legs feeling cold",
+    "sudden weakness or collapse",
+    "struggling to breathe"
+   ],
+   "whatToDo": "Go to an emergency vet immediately and say what she was exposed to and when. In dogs the liver, not the lungs, is the main shock organ, so severe anaphylaxis often looks like sudden vomiting, bloody diarrhoea and collapse rather than the wheezing people expect — normal-looking breathing does not mean she is fine.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/dog-owners/immune-disorders-of-dogs/disorders-involving-anaphylactic-reactions-type-i-reactions-atopy-in-dogs"
+   ]
+  },
+  {
+   "name": "Antifreeze poisoning",
+   "aka": [
+    "ethylene glycol",
+    "antifreeze",
+    "radiator coolant",
+    "engine coolant"
+   ],
+   "system": "Poisoning",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "found licking a puddle in the garage or driveway",
+    "wobbly like she's drunk",
+    "drinking and peeing a lot",
+    "vomiting",
+    "drooling",
+    "seems to sober up and look better after a few hours",
+    "very fast breathing the next day",
+    "peeing very little or not at all",
+    "very quiet, flat and cold",
+    "seizures"
+   ],
+   "whatToDo": "One of the most time-critical poisons there is — the antidote must start within hours. Drive to an emergency vet immediately on suspicion alone, and even if she seems to recover. Call ASPCA Animal Poison Control on 888-426-4435 or Pet Poison Helpline on 855-764-7661 from the car.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/toxicology/ethylene-glycol-toxicosis/ethylene-glycol-toxicosis-in-animals",
+    "VCA — https://vcahospitals.com/know-your-pet/ethylene-glycol-poisoning-in-dogs"
+   ]
+  },
+  {
+   "name": "Bleeding that won't stop",
+   "aka": [
+    "haemorrhage",
+    "uncontrolled bleeding",
+    "wound bleeding",
+    "internal bleeding"
+   ],
+   "system": "Emergency",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "bleeding that won't stop after 5 minutes of firm pressure",
+    "blood spurting or pumping from a wound",
+    "blood soaking through dressing after dressing",
+    "nosebleed that keeps going",
+    "coughing up or vomiting blood",
+    "black tarry stool or fresh blood in stool",
+    "belly swelling up with pale gums and no wound to see",
+    "big spreading bruises under the skin"
+   ],
+   "whatToDo": "Press firmly with a clean cloth and hold for at least 5 minutes without lifting to peek; add layers rather than removing soaked ones. Do not use a tourniquet unless a vet on the phone tells you to. Internal bleeding shows no blood at all — pale gums, weakness and a swelling belly after trauma is an emergency even if she looks intact.",
+   "sources": [
+    "AVMA first aid — https://www.avma.org/resources-tools/pet-owners/emergencycare/first-aid-tips-pet-owners",
+    "Merck Veterinary Manual, bleeding disorders — https://www.merckvetmanual.com/dog-owners/blood-disorders-of-dogs/bleeding-disorders-of-dogs"
+   ]
+  },
+  {
+   "name": "Cannabis or THC poisoning",
+   "aka": [
+    "marijuana",
+    "weed",
+    "THC",
+    "edibles",
+    "ate an edible"
+   ],
+   "system": "Poisoning",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "found an edible, a gummy or a joint end",
+    "wobbly, rocking on her feet",
+    "dribbling urine without meaning to",
+    "startles at sounds or touch",
+    "glazed eyes with wide pupils",
+    "very dull, sleepy and hard to rouse",
+    "drooling",
+    "slow heartbeat",
+    "cold to the touch",
+    "head bobbing or tremors"
+   ],
+   "whatToDo": "Most dogs recover with supportive care, but she still needs a vet — and edibles often also contain chocolate, raisins or xylitol, which are far more dangerous than the THC. Be honest with the vet about what she ate so she is treated correctly. Call ASPCA Animal Poison Control on 888-426-4435.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/toxicology/toxicoses-from-human-recreational-drugs/toxicosis-in-dogs-and-cats-from-tetrahydrocannabinol-thc",
+    "AVMA — https://www.avma.org/news/marijuana-other-recreational-drugs-debut-pet-toxins-top-10-list"
+   ]
+  },
+  {
+   "name": "Checking her gums",
+   "aka": [
+    "gum colour",
+    "capillary refill",
+    "CRT",
+    "pale gums",
+    "white gums",
+    "blue gums"
+   ],
+   "system": "Emergency",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "gums are pale, white or washed out",
+    "gums look blue, purple or muddy grey",
+    "gums are yellow, or the whites of her eyes look yellow",
+    "gums are dark brick red",
+    "colour takes more than 2 seconds to come back after you press",
+    "gums feel dry and tacky instead of slick",
+    "tiny red pinpoint dots or bruise patches on the gums",
+    "cold at the ears and paws with pale gums"
+   ],
+   "whatToDo": "Lift her lip, press the pink gum above a canine tooth until it blanches, release, and count how long the colour takes to come back. Normal is pink and under 2 seconds. Pale, white, blue, grey, yellow or brick-red gums, or a refill over 2 seconds, means go now. Normal pink gums do not rule out internal bleeding or early shock.",
+   "sources": [
+    "Merck Veterinary Manual, triage parameters — https://www.merckvetmanual.com/multimedia/table/parameters-to-evaluate-during-triage",
+    "UC Davis CVET normal vital signs — https://cvet.vetmed.ucdavis.edu/sites/g/files/dgvnsk13661/files/inline-files/CVET%20Vital%20Signs%2006_2024.pdf"
+   ]
+  },
+  {
+   "name": "Chocolate poisoning",
+   "aka": [
+    "theobromine",
+    "cocoa",
+    "chocolate toxicity",
+    "ate chocolate"
+   ],
+   "system": "Poisoning",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "chewed wrappers or foil on the floor",
+    "vomiting, sometimes smelling of chocolate",
+    "diarrhoea",
+    "restless and can't settle",
+    "drinking and peeing more than usual",
+    "racing heart you can feel through her chest",
+    "panting and hot to the touch",
+    "muscle twitching or trembling",
+    "seizures"
+   ],
+   "whatToDo": "Call your vet or emergency clinic straight away, and phone ASPCA Animal Poison Control on 888-426-4435 or Pet Poison Helpline on 855-764-7661 with the wrapper, the type of chocolate and her weight in front of you. Do not induce vomiting unless a vet or poison line tells you to.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/toxicology/food-hazards/chocolate-toxicosis-in-animals",
+    "VCA — https://vcahospitals.com/know-your-pet/chocolate-poisoning-in-dogs"
+   ]
+  },
+  {
+   "name": "Congestive heart failure",
+   "aka": [
+    "CHF",
+    "fluid on the lungs",
+    "pulmonary oedema"
+   ],
+   "system": "Heart",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "Not breed-specific in itself, but it is the usual end point of DCM, to which this breed is predisposed.",
+   "signs": [
+    "breathing fast or hard at rest",
+    "more than 30 breaths a minute while asleep",
+    "coughing, worse at night or after lying down",
+    "gums or tongue look blue, grey or very pale",
+    "belly swollen and firm",
+    "sitting up with elbows out to breathe",
+    "collapsed or fainted",
+    "won't lie down or sleep",
+    "coughing up pink froth"
+   ],
+   "whatToDo": "An emergency — go straight to a vet and keep her cool, calm and carried rather than walked. Once stable, a sleeping breathing-rate count at home is the single most useful thing to track between visits.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/circulatory-system/heart-failure-in-dogs-and-cats/heart-failure-in-dogs-and-cats",
+    "Veterinary Partner (VIN), resting respiratory rates — https://veterinarypartner.vin.com/default.aspx?pid=19239&id=8401142"
+   ]
+  },
+  {
+   "name": "Corneal ulcer",
+   "aka": [
+    "scratched eye",
+    "ulcerated cornea",
+    "melting ulcer",
+    "sore eye"
+   ],
+   "system": "Eyes",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "holding the eye shut",
+    "squinting and watering",
+    "rubbing the eye with a paw",
+    "rubbing her face along the carpet",
+    "dull or pitted spot on the surface",
+    "cloudy or hazy patch on the eye",
+    "eye looks jelly-like or gooey",
+    "very sensitive to bright light",
+    "green or yellow discharge",
+    "came on after a walk in long grass"
+   ],
+   "whatToDo": "See a vet the same day for a fluorescein dye test — a deep or infected ulcer can melt through the cornea and rupture the eye within a day or two. Never use leftover or human steroid eye drops; steroids stop an ulcer healing and can make it perforate. Fit a cone to stop further rubbing on the way.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/corneal-ulcers-in-dogs",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/dog-owners/eye-disorders-of-dogs/disorders-of-the-cornea-in-dogs"
+   ]
+  },
+  {
+   "name": "Distemper",
+   "aka": [
+    "CDV",
+    "canine distemper",
+    "hard pad disease"
+   ],
+   "system": "Infectious",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "Not breed-linked. The vaccine series is not considered protective until the last dose at 16 weeks or older.",
+   "signs": [
+    "goopy yellow-green gunk in both eyes",
+    "thick snotty nose and sneezing",
+    "hot, off food, and sleeping all day",
+    "coughing and rattly breathing",
+    "vomiting and watery diarrhoea",
+    "crusty nose and thickened, cracked paw pads",
+    "twitching in the face or one leg that won't stop",
+    "chewing-gum jaw movements",
+    "wobbly, drunk-looking walking",
+    "circling or pressing her head into the wall"
+   ],
+   "whatToDo": "Go in today, and the same hour if there is twitching, wobbliness or a seizure. Phone ahead — distemper is airborne and she must not sit in the lobby. Neurological signs can follow weeks later even after she seems to recover.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/infectious-diseases/canine-distemper/canine-distemper",
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/canine-distemper-virus"
+   ]
+  },
+  {
+   "name": "Fluid around the lungs",
+   "aka": [
+    "pleural effusion",
+    "fluid in the chest",
+    "pyothorax",
+    "chylothorax"
+   ],
+   "system": "Breathing",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "fast shallow breathing with almost no cough",
+    "belly and chest moving in opposite directions with each breath",
+    "won't lie down flat, only sits or stands",
+    "stretching her neck out to breathe",
+    "elbows held out from her body",
+    "blue or grey gums",
+    "breathing hard but the cough is missing",
+    "suddenly quiet, weak or off her food",
+    "open-mouth breathing at rest"
+   ],
+   "whatToDo": "A go-now emergency: fluid around the lungs stops them expanding and often needs draining with a needle before anything else. Carry her, keep the car cool and quiet, and call ahead so the clinic can meet you with oxygen.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/pleural-effusion-in-dogs",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/dog-owners/lung-and-airway-disorders-of-dogs/accumulation-of-fluid-or-air-in-the-chest-cavity-in-dogs"
+   ]
+  },
+  {
+   "name": "Gastric dilatation-volvulus (GDV)",
+   "aka": [
+    "bloat",
+    "twisted stomach",
+    "gastric torsion",
+    "stomach flip"
+   ],
+   "system": "Digestive",
+   "urgency": "emergency",
+   "breedRisk": "high",
+   "breedNote": "Giant, deep-chested breeds carry the highest documented GDV risk, and having a first-degree relative that bloated raises it further.",
+   "signs": [
+    "retching with nothing coming up",
+    "swollen hard belly",
+    "belly tight like a drum",
+    "pacing and can't settle",
+    "drooling a lot all of a sudden",
+    "trying to vomit but only foam comes out",
+    "standing with elbows out and back arched",
+    "keeps turning to look at her side",
+    "panting and restless soon after eating",
+    "pale or grey gums",
+    "weak wobbly legs with a racing heart",
+    "collapsed suddenly"
+   ],
+   "whatToDo": "A true drop-everything emergency. Drive to the nearest 24-hour vet immediately and phone ahead so they can prepare. Do not wait to see if it passes, give nothing by mouth, and do not try home remedies.",
+   "sources": [
+    "American College of Veterinary Surgeons — https://www.acvs.org/small-animal/gastric-dilatation-volvulus/",
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/gastric-dilatation-volvulus-gdv-or-bloat",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/digestive-system/surgical-problems-of-the-gastrointestinal-tract-in-small-animals/gastric-dilation-and-volvulus-in-small-animals",
+    "Glickman et al., JAVMA 2000 — https://avmajournals.avma.org/view/journals/javma/217/10/javma.2000.217.1492.xml"
+   ]
+  },
+  {
+   "name": "Gastrointestinal foreign body obstruction",
+   "aka": [
+    "blockage",
+    "swallowed object",
+    "intestinal obstruction",
+    "linear foreign body",
+    "string obstruction"
+   ],
+   "system": "Digestive",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "throwing up every time she eats or drinks",
+    "vomiting yellow bile over and over",
+    "hasn't pooped in days",
+    "she ate a sock or a chunk of toy",
+    "won't eat and just lies there",
+    "belly hurts when i lift her",
+    "hunched up and tense",
+    "string or thread hanging from her mouth or bottom",
+    "straining and only passing liquid",
+    "getting more lethargic each day"
+   ],
+   "whatToDo": "Go to a vet today — an obstruction can kill bowel tissue within hours, and swallowed string is especially dangerous. Never pull on a string you can see, and never give a laxative or induce vomiting unless a vet tells you to.",
+   "sources": [
+    "American College of Veterinary Surgeons — https://www.acvs.org/small-animal/gastrointestinal-foreign-bodies/",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/digestive-system/surgical-problems-of-the-gastrointestinal-tract-in-small-animals/gastrointestinal-obstruction-in-small-animals",
+    "VCA — https://vcahospitals.com/know-your-pet/ingestion-of-foreign-bodies-in-dogs"
+   ]
+  },
+  {
+   "name": "Glaucoma",
+   "aka": [
+    "raised eye pressure",
+    "high IOP",
+    "acute glaucoma",
+    "bulging eye"
+   ],
+   "system": "Eyes",
+   "urgency": "emergency",
+   "breedRisk": "moderate",
+   "breedNote": "VCA lists the Giant Schnauzer among breeds associated with glaucoma. No prevalence figures exist.",
+   "signs": [
+    "eye looks bigger than the other",
+    "eye is bulging",
+    "white of the eye is very red",
+    "cornea looks cloudy or bluish",
+    "pupil is wide and won't shrink in light",
+    "squinting and rubbing at the eye",
+    "eye feels hard to the touch",
+    "suddenly can't see on that side",
+    "off her food and hiding"
+   ],
+   "whatToDo": "Go to a vet or emergency clinic now, tonight, not tomorrow — pressure this high blinds an eye within hours and is severely painful. Ask specifically that they measure intraocular pressure in both eyes, since the second eye is often at risk too.",
+   "sources": [
+    "Merck Veterinary Manual, acute glaucoma — https://www.merckvetmanual.com/emergency-medicine-and-critical-care/ophthalmic-emergencies-in-small-animals/acute-glaucoma-in-small-animals",
+    "VCA — https://vcahospitals.com/know-your-pet/glaucoma-in-dogs"
+   ]
+  },
+  {
+   "name": "Go to an emergency vet now",
+   "aka": [
+    "red flags",
+    "emergency signs",
+    "when not to wait",
+    "is this an emergency"
+   ],
+   "system": "Emergency",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "gums are white, grey, blue or bright brick red",
+    "collapsed, won't stand, or can't get up",
+    "breathing hard, fast or open-mouthed at rest",
+    "trying to vomit but nothing comes up",
+    "belly is hard, swollen or drum-tight",
+    "bleeding that won't stop after 5 minutes of pressure",
+    "seizure, or more than one seizure in a day",
+    "unresponsive, dazed, or won't wake up properly",
+    "hit by a car, big fall, or attacked by another dog",
+    "straining to pee and nothing comes out",
+    "screaming, panting and can't settle at all",
+    "swollen face and hives within minutes of a sting or vaccine",
+    "temperature under 99F (37.2C) or over 104F (40C)",
+    "you think something is badly wrong even if you can't say why"
+   ],
+   "whatToDo": "Call the nearest 24-hour hospital, say you are on the way, and go now. Her normal numbers: temperature 101-102.5F (38.3-39.2C), resting heart rate 70-120 bpm, resting breathing 18-34 a minute, gums pink with colour returning in under 2 seconds. A dog can have completely normal-looking vitals and still be in serious trouble — never let a normal reading talk you out of going in.",
+   "sources": [
+    "Merck Veterinary Manual, triage parameters — https://www.merckvetmanual.com/multimedia/table/parameters-to-evaluate-during-triage",
+    "Merck Veterinary Manual, normal values — https://www.merckvetmanual.com/multimedia/table/normal-physiological-values-for-dogs",
+    "AVMA first aid — https://www.avma.org/resources-tools/pet-owners/emergencycare/first-aid-tips-pet-owners"
+   ]
+  },
+  {
+   "name": "Grapes, raisins and sultanas",
+   "aka": [
+    "raisin toxicity",
+    "grapes",
+    "sultanas",
+    "currants",
+    "tartaric acid"
+   ],
+   "system": "Poisoning",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "raisin box, trail mix or fruit cake torn open",
+    "vomiting within a few hours of eating grapes",
+    "diarrhoea",
+    "off her food",
+    "very quiet and flat",
+    "belly pain, standing hunched",
+    "drinking a lot and then barely peeing",
+    "peeing much less than normal, or not at all",
+    "weak and shaky a day or two later"
+   ],
+   "whatToDo": "There is no known safe amount — treat any ingestion as an emergency and get her seen the same day for decontamination and fluids. Call ASPCA Animal Poison Control on 888-426-4435 or Pet Poison Helpline on 855-764-7661. Do not induce vomiting unless told to.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/toxicology/food-hazards/grape-raisin-and-tamarind-vitis-spp-tamarindus-spp-toxicosis-in-dogs",
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-information/grape-and-raisin-toxicity"
+   ]
+  },
+  {
+   "name": "Haemangiosarcoma",
+   "aka": [
+    "HSA",
+    "hemangiosarcoma",
+    "bleeding tumour",
+    "splenic tumour"
+   ],
+   "system": "Cancer",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "No Giant Schnauzer link found — the UK pathology registry named German Shepherds, Mastiffs and Bullmastiffs.",
+   "signs": [
+    "sudden weakness and pale gums",
+    "collapsed then seemed to recover",
+    "belly looks swollen or drooped",
+    "breathing fast for no reason",
+    "gums look white or grey",
+    "suddenly won't get up",
+    "wobbly back end",
+    "a soft blood-blister lump on the skin"
+   ],
+   "whatToDo": "Collapse with pale gums is a go-now emergency even if she picks up again within minutes — a bleeding spleen can stop and restart before bleeding fatally. Phone the emergency vet on the way rather than waiting to see if she improves.",
+   "sources": [
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-information/hemangiosarcoma-dogs",
+    "Rodriguez et al., SAVSNET, Vet Comp Oncol 2026 — https://pubmed.ncbi.nlm.nih.gov/41736492/"
+   ]
+  },
+  {
+   "name": "Head injury",
+   "aka": [
+    "traumatic brain injury",
+    "TBI",
+    "concussion",
+    "knock to the head"
+   ],
+   "system": "Neurological",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "hit by a car, kicked, or fell hard",
+    "bleeding from her nose, ears or mouth",
+    "one pupil bigger than the other",
+    "dazed, glazed over or won't wake up",
+    "circling or pressing her head into the wall",
+    "a seizure after a bang to the head",
+    "suddenly blind and bumping into things",
+    "staggering or falling to one side",
+    "vomiting after the injury"
+   ],
+   "whatToDo": "Go to an emergency vet immediately, keeping her as still as possible with her head slightly higher than her heart. Avoid anything pressing on her neck — no collar, no lead pressure — and never give human painkillers.",
+   "sources": [
+    "Veterinary Partner (VIN) — https://veterinarypartner.vin.com/default.aspx?pid=19239&catId=254069&id=11544562",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/dog-owners/brain-spinal-cord-and-nerve-disorders-of-dogs/nervous-system-disorders-and-effects-of-injuries-in-dogs"
+   ]
+  },
+  {
+   "name": "Heat stroke",
+   "aka": [
+    "heatstroke",
+    "overheating",
+    "hyperthermia",
+    "too hot"
+   ],
+   "system": "Environment",
+   "urgency": "emergency",
+   "breedRisk": "moderate",
+   "breedNote": "Raised heat-illness odds are documented in giant and double-coated breeds and in dogs heavier than average. Black coat colour itself is NOT supported — black and yellow Labradors showed no difference in body temperature.",
+   "signs": [
+    "panting frantically and won't stop",
+    "bright red or brick-coloured gums",
+    "drooling thick ropey saliva",
+    "wobbly on her feet in the heat",
+    "collapsed after a walk on a warm day",
+    "hot to the touch through the coat",
+    "vomiting or bloody diarrhoea after exertion",
+    "glazed eyes, not responding to her name",
+    "seizure or twitching after overheating"
+   ],
+   "whatToDo": "Cool her FIRST, then travel. Pour or hose cold water over her whole body continuously, or immerse a fit adult dog in cold water, and keep air moving over her while someone phones the vet. Do NOT drape her in wet towels or blankets, do not use ice packs, and do not delay cooling in order to drive to the clinic.",
+   "sources": [
+    "Hall et al., Scientific Reports 2020 (VetCompass) — https://www.nature.com/articles/s41598-020-66015-8",
+    "RVC VetCompass, cool first transport second — https://www.rvc.ac.uk/vetcompass/news/the-rvc-urges-owners-of-hot-dogs-to-cool-first-transport-second",
+    "Risk factors for severe and fatal heat-related illness, Animals 2022 — https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9144152/"
+   ]
+  },
+  {
+   "name": "Hit by a car, a fall, or a dog fight",
+   "aka": [
+    "trauma",
+    "road accident",
+    "RTA",
+    "bite wounds",
+    "dog attack",
+    "fell"
+   ],
+   "system": "Environment",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "won't put weight on a leg after an accident",
+    "pale white gums",
+    "breathing fast, shallow or with effort",
+    "puncture holes in the skin after a scuffle",
+    "swelling under the skin that crackles",
+    "blood in her urine",
+    "belly looks tight or she flinches when touched",
+    "limb hanging at a strange angle",
+    "seems fine but is hiding away and shivering"
+   ],
+   "whatToDo": "Treat every road accident, fall or fight as an emergency even if she looks fine — internal bleeding, chest injury and deep bite damage often show up hours later. Cover open wounds with a clean cloth, apply gentle pressure to bleeding, move her on a flat rigid surface if she can't walk, and go straight to a vet.",
+   "sources": [
+    "Merck Veterinary Manual, trauma — https://www.msdvetmanual.com/emergency-medicine-and-critical-care/specific-diagnostics-and-therapy/trauma-in-emergency-medicine-in-small-animals",
+    "Merck Veterinary Manual, wound management — https://www.msdvetmanual.com/emergency-medicine-and-critical-care/wound-management-in-small-animals"
+   ]
+  },
+  {
+   "name": "Human painkiller poisoning",
+   "aka": [
+    "ibuprofen",
+    "Advil",
+    "naproxen",
+    "Aleve",
+    "paracetamol",
+    "acetaminophen",
+    "Tylenol",
+    "NSAID"
+   ],
+   "system": "Poisoning",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "chewed pill bottle or blister pack",
+    "vomiting, sometimes with blood or coffee-ground bits",
+    "black tarry poo",
+    "off her food",
+    "belly pain, hunched or stretching front-down",
+    "pale gums",
+    "brown or muddy-looking gums",
+    "swollen face, muzzle or paws",
+    "peeing much less than normal",
+    "wobbly or disoriented",
+    "seizures"
+   ],
+   "whatToDo": "Even one or two human tablets can burn holes in the gut, damage the kidneys, or destroy red blood cells. Go to a vet now with the packet and count what is missing. Call ASPCA Animal Poison Control on 888-426-4435 or Pet Poison Helpline on 855-764-7661. Never give a dog human painkillers.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/toxicology/toxicoses-from-human-analgesics/toxicoses-from-human-analgesics-in-animals",
+    "VCA ibuprofen — https://vcahospitals.com/know-your-pet/ibuprofen-poisoning-in-dogs",
+    "VCA acetaminophen — https://vcahospitals.com/know-your-pet/acetaminophen-toxicity-in-dogs"
+   ]
+  },
+  {
+   "name": "Hypothermia",
+   "aka": [
+    "too cold",
+    "low body temperature",
+    "chilled",
+    "exposure"
+   ],
+   "system": "Environment",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "Her dense harsh double coat is genuinely insulating, but that protection largely disappears once the coat is soaked through or clipped short.",
+   "signs": [
+    "shivering that won't stop",
+    "ears, feet and tail feel icy",
+    "very sleepy and hard to rouse",
+    "stiff, slow, clumsy movement",
+    "pale or greyish gums",
+    "breathing slow and shallow",
+    "stops shivering but stays cold and floppy",
+    "collapsed after being wet and cold outdoors"
+   ],
+   "whatToDo": "Dry her thoroughly, wrap her in warmed blankets, move her somewhere warm and call the vet — a dog who has stopped shivering and gone floppy is an emergency. Do not use hairdryers, heat pads or hot water directly on her, and give nothing by mouth.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/frostbite-in-dogs",
+    "Merck Veterinary Manual, triage — https://www.msdvetmanual.com/emergency-medicine-and-critical-care/evaluation-and-initial-treatment-of-small-animal-emergency-patients/initial-triage-and-resuscitation-of-small-animal-emergency-patients"
+   ]
+  },
+  {
+   "name": "Immune-mediated haemolytic anaemia (IMHA)",
+   "aka": [
+    "IMHA",
+    "autoimmune anaemia"
+   ],
+   "system": "Blood",
+   "urgency": "emergency",
+   "breedRisk": "moderate",
+   "breedNote": "No established Giant Schnauzer predisposition, but middle-aged female dogs are over-represented in reported cases.",
+   "signs": [
+    "gums look white, pale or yellow",
+    "whites of the eyes look yellow",
+    "urine looks orange, brown or like tea",
+    "very tired, sleeping all day",
+    "collapsed or won't get up",
+    "breathing fast without exercising",
+    "heart pounding fast at rest",
+    "off her food",
+    "recently unwell or on a new medicine"
+   ],
+   "whatToDo": "Go to an emergency vet now and ask for a PCV, blood smear, saline agglutination and Coombs test — this needs immunosuppressive treatment and often a transfusion, and delay costs lives. Bring a list of every medication, supplement, vaccine and tick exposure in the last month.",
+   "sources": [
+    "ACVIM consensus statement on IMHA diagnosis, JVIM 2019 — https://onlinelibrary.wiley.com/doi/10.1111/jvim.15441",
+    "ACVIM consensus on IMHA treatment — https://onlinelibrary.wiley.com/doi/10.1111/jvim.15463"
+   ]
+  },
+  {
+   "name": "Infectious canine hepatitis",
+   "aka": [
+    "ICH",
+    "CAV-1",
+    "adenovirus",
+    "Rubarth's disease"
+   ],
+   "system": "Infectious",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "Dogs under one year are hit hardest, and unvaccinated puppies can die within hours of the first signs.",
+   "signs": [
+    "sudden fever and won't get up",
+    "stopped eating and looks miserable",
+    "yellow gums or yellow whites of the eyes",
+    "belly swollen and sore to touch",
+    "vomiting and diarrhoea, sometimes bloody",
+    "swollen glands under the jaw",
+    "tiny bruises or bleeding from the gums",
+    "one or both eyes turn cloudy blue",
+    "swollen face, neck or legs"
+   ],
+   "whatToDo": "Yellow gums, a painful belly or any bruising in an unvaccinated puppy is a same-hour emergency. Signs appear 2-5 days after exposure, and the milky-blue 'hepatitis eye' shows up 1-2 weeks in, sometimes as the only clue after a mild illness.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/infectious-diseases/infectious-canine-hepatitis/infectious-canine-hepatitis",
+    "VCA — https://vcahospitals.com/know-your-pet/hepatitis-adenovirus-infection-in-dogs"
+   ]
+  },
+  {
+   "name": "Insect sting",
+   "aka": [
+    "bee sting",
+    "wasp sting",
+    "stung"
+   ],
+   "system": "Environment",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "face swelling up",
+    "muzzle or eyes puffy within minutes",
+    "pawing at her face or mouth",
+    "raised lumpy bumps all over her",
+    "sudden intense itching",
+    "chewing at one foot after being in the grass",
+    "wheezing or struggling to breathe",
+    "collapse within half an hour of a sting"
+   ],
+   "whatToDo": "Scrape a bee sting out sideways with a card rather than squeezing it with tweezers, and apply something cool. Any facial or throat swelling, breathing difficulty, pale gums, vomiting or collapse is anaphylaxis — go straight to the vet. Never give human antihistamines without a dose from your vet.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/insect-stings-in-dogs"
+   ]
+  },
+  {
+   "name": "Intervertebral disc disease",
+   "aka": [
+    "IVDD",
+    "slipped disc",
+    "ruptured disc",
+    "disc herniation"
+   ],
+   "system": "Neurological",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "Large breeds like hers typically get the slower type II disc protrusion after about age 5, rather than the sudden dachshund-type rupture.",
+   "signs": [
+    "sudden yelp then won't move",
+    "hunched back and tense belly",
+    "trembling and can't get comfortable",
+    "won't jump into the car or onto the sofa",
+    "dragging one or both back feet",
+    "knuckling over onto the tops of her paws",
+    "back legs give out under her",
+    "holds her head low and won't look up",
+    "can't pee, or urine just dribbles out"
+   ],
+   "whatToDo": "Stop all exercise and confine her to a small quiet space; if you must move her, support her whole spine. Go to an emergency vet straight away if she cannot stand, has no feeling in her back feet, or cannot urinate — the window for surgery is measured in hours.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/nervous-system/diseases-of-the-spinal-column-and-cord/degenerative-diseases-of-the-spinal-column-and-cord-in-animals",
+    "Veterinary Partner (VIN) — https://veterinarypartner.vin.com/default.aspx?pid=19239&catId=254100&id=4953012"
+   ]
+  },
+  {
+   "name": "Intussusception",
+   "aka": [
+    "telescoped bowel",
+    "bowel slipping inside itself"
+   ],
+   "system": "Digestive",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "vomiting that won't stop",
+    "bloody jelly-like diarrhoea",
+    "poop like raspberry jam",
+    "firm sausage-shaped lump in her belly",
+    "straining to poop with nothing coming out",
+    "started with diarrhoea and now she won't eat",
+    "belly pain and hunched back",
+    "getting weaker by the hour",
+    "something red poking out of her bottom"
+   ],
+   "whatToDo": "Get to a vet or emergency clinic now — the trapped bowel loses its blood supply and this usually needs surgery. Bring a photo or sample of any bloody stool.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/intussusception-in-dogs",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/digestive-system/surgical-problems-of-the-gastrointestinal-tract-in-small-animals/gastrointestinal-obstruction-in-small-animals"
+   ]
+  },
+  {
+   "name": "Laryngeal paralysis",
+   "aka": [
+    "lar par",
+    "GOLPP",
+    "paralysis of the voice box",
+    "hoarse bark"
+   ],
+   "system": "Breathing",
+   "urgency": "emergency",
+   "breedRisk": "moderate",
+   "breedNote": "Documented in middle-aged to older large and giant breeds. The best-documented breeds are Labradors, Irish Setters and Great Danes; Giant Schnauzers sit in the size group but are not named.",
+   "signs": [
+    "noisy raspy breathing in, like a snore while awake",
+    "her bark sounds hoarse or has changed",
+    "loud harsh breathing that gets worse in heat",
+    "gets winded and loud on short walks",
+    "gagging or coughing when she eats or drinks",
+    "stretching her neck out to breathe",
+    "panting hard and can't settle",
+    "blue or grey gums, or collapse in warm weather",
+    "hind legs seem weaker or she scuffs her back feet"
+   ],
+   "whatToDo": "If she is in noisy respiratory distress, overheated, or has blue or grey gums, go to an emergency vet now, keep her cool and calm, and do not muzzle or restrain her neck. For milder noisy breathing or a changed bark, book an exam soon and keep her cool and harness-walked.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/respiratory-system/respiratory-diseases-of-small-animals/laryngeal-paralysis-in-dogs-and-cats",
+    "VCA — https://vcahospitals.com/know-your-pet/laryngeal-paralysis-in-dogs"
+   ]
+  },
+  {
+   "name": "Leptospirosis",
+   "aka": [
+    "lepto",
+    "Leptospira",
+    "rat urine disease"
+   ],
+   "system": "Infectious",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "Lepto is not always given at the first puppy visit — confirm whether her series includes it before assuming she is covered. It spreads to people.",
+   "signs": [
+    "fever, then suddenly flat and sore all over",
+    "drinking and peeing far more than usual",
+    "then barely peeing at all",
+    "vomiting and refusing food",
+    "yellow gums, eyes or skin",
+    "dark orange or brown pee",
+    "stiff, hunched, painful when handled",
+    "red, bloodshot eyes",
+    "drank from a puddle, pond or ditch a few days ago"
+   ],
+   "whatToDo": "Go the same hour if she is vomiting, yellow, or has changed how much she pees — lepto kidney failure moves fast and is treatable with prompt antibiotics and fluids. Signs begin about 4-12 days after contact with infected urine or water. Wear gloves for urine cleanup.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/infectious-diseases/leptospirosis/leptospirosis-in-dogs",
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/canine-leptospirosis",
+    "CDC — https://www.cdc.gov/leptospirosis/pets/index.html"
+   ]
+  },
+  {
+   "name": "Parvovirus",
+   "aka": [
+    "parvo",
+    "CPV",
+    "parvoviral enteritis"
+   ],
+   "system": "Infectious",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "No breed link. Being 9 weeks old and mid-series is the real risk factor — maternal antibody is fading but vaccine protection is not yet complete.",
+   "signs": [
+    "won't eat and is flat",
+    "vomiting over and over",
+    "bloody diarrhoea with an awful smell",
+    "watery brown diarrhoea that soaks the bedding",
+    "went from playful to limp in a day",
+    "belly hurts when you pick her up",
+    "gums look pale, dry or tacky",
+    "cold ears and paws, shivering",
+    "skin stays tented when you pinch it",
+    "no interest in her favourite food or toy"
+   ],
+   "whatToDo": "A same-hour emergency in a puppy mid-series — go now, and phone ahead so they can meet you outside and keep her out of the waiting room. Signs start 5-7 days after exposure and she can shed virus 4-5 days before looking sick, so isolate her and disinfect with dilute bleach.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/digestive-system/infectious-diseases-of-the-gastrointestinal-tract-in-small-animals/canine-parvovirus-infection-parvoviral-enteritis-in-dogs",
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/parvovirus-transmission-treatment",
+    "AAHA 2022 Canine Vaccination Guidelines — https://www.aaha.org/resources/2022-aaha-canine-vaccination-guidelines/"
+   ]
+  },
+  {
+   "name": "Pericardial effusion",
+   "aka": [
+    "fluid around the heart",
+    "tamponade"
+   ],
+   "system": "Heart",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "Documented as a large- and giant-breed problem generally rather than in Giant Schnauzers specifically.",
+   "signs": [
+    "belly swollen and getting bigger",
+    "suddenly very weak or wobbly",
+    "gums look white or muddy",
+    "collapsed",
+    "breathing fast and shallow",
+    "very quiet and cold to touch",
+    "retching or a soft cough",
+    "off food and hiding away",
+    "seems fine one hour, crashing the next"
+   ],
+   "whatToDo": "Go to an emergency vet immediately and ask for a point-of-care ultrasound of the heart — draining the fluid can be lifesaving within minutes. Do not let her walk in.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/circulatory-system/various-heart-diseases-in-dogs-and-cats/pericardial-disease-in-dogs-and-cats"
+   ]
+  },
+  {
+   "name": "Pneumonia",
+   "aka": [
+    "lung infection",
+    "bronchopneumonia",
+    "chest infection",
+    "aspiration pneumonia"
+   ],
+   "system": "Breathing",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "Aspiration risk rises with laryngeal paralysis or megaoesophagus, both documented in large-breed dogs, and after anaesthesia or repeated vomiting.",
+   "signs": [
+    "wet rattly cough",
+    "breathing fast even when resting",
+    "belly heaving with each breath",
+    "fever, hot ears, shivering",
+    "won't eat and won't get up",
+    "stretching her neck out to breathe",
+    "elbows held out from her body",
+    "blue or grey gums",
+    "green or yellow gunk from her nose",
+    "coughing that started right after vomiting or choking"
+   ],
+   "whatToDo": "Go to a vet or emergency clinic now if she is breathing fast or hard at rest — pneumonia worsens quickly and often needs chest x-rays, oxygen and antibiotics. Keep her cool and quiet in the car and do not make her walk in.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/respiratory-system/respiratory-diseases-of-small-animals/pneumonia-in-dogs-and-cats",
+    "Veterinary Partner (VIN) — https://veterinarypartner.vin.com/default.aspx?pid=19239&id=4952113"
+   ]
+  },
+  {
+   "name": "Poisonous plants",
+   "aka": [
+    "sago palm",
+    "azalea",
+    "rhododendron",
+    "lily of the valley",
+    "garden plant poisoning",
+    "ate a plant"
+   ],
+   "system": "Poisoning",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "chewed leaves, or a dug-up seed, nut or bulb",
+    "vomiting, sometimes with blood",
+    "black tarry poo",
+    "drooling",
+    "off her food",
+    "very quiet and flat",
+    "yellow tinge to gums or eyes",
+    "wobbly or trembling",
+    "slow or irregular heartbeat",
+    "seizures"
+   ],
+   "whatToDo": "Photograph or bag the plant, then call a vet the same day — sago palm seeds cause liver failure and azalea or lily-of-the-valley can slow the heart dangerously. Call ASPCA Animal Poison Control on 888-426-4435 or Pet Poison Helpline on 855-764-7661 for plant identification.",
+   "sources": [
+    "ASPCA toxic plants for dogs — https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/toxicology/poisonous-plants/houseplants-and-ornamentals-toxic-to-animals",
+    "UC Davis — https://www.ucdavis.edu/one-health/garden-plants-toxic-to-pets"
+   ]
+  },
+  {
+   "name": "Pyometra (womb infection)",
+   "aka": [
+    "pyo",
+    "womb infection",
+    "infected uterus",
+    "closed pyometra"
+   ],
+   "system": "Female",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "No Giant Schnauzer figure exists, but around 1 in 4 entire bitches develop pyometra by age 10 in Swedish insurance data. She will be entire until at least 24 months.",
+   "signs": [
+    "pus or smelly discharge from her vulva, often weeks after a season",
+    "drinking loads and weeing far more than usual",
+    "off her food and very flat, four to eight weeks after a season",
+    "swollen, tight or painful belly",
+    "vomiting or runny poo",
+    "licking her private parts constantly",
+    "panting, shivery or feels hot",
+    "pale gums, wobbly or collapsing",
+    "no discharge at all but getting sicker by the hour"
+   ],
+   "whatToDo": "Treat any unspayed bitch who is unwell within about two months of a season as pyometra until a vet rules it out, and phone the emergency vet now rather than waiting for morning. Closed pyometra produces no discharge at all and deteriorates fastest — absence of discharge is not reassurance.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/reproductive-system/reproductive-diseases-of-the-female-small-animal/cystic-endometrial-hyperplasia-pyometra-complex-in-small-animals",
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/pyometra",
+    "Egenvall et al., JVIM 2001 — https://academic.oup.com/jvim/article/15/6/530/8453242"
+   ]
+  },
+  {
+   "name": "Rabies exposure",
+   "aka": [
+    "rabies",
+    "lyssavirus",
+    "bitten by a wild animal",
+    "bat contact"
+   ],
+   "system": "Infectious",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "A 9-week-old is normally too young for the rabies vaccine (usually 12-16 weeks), so any bite from a wild animal or unknown dog is treated as an exposure.",
+   "signs": [
+    "bitten, scratched or found mouthing a bat, raccoon or stray",
+    "chewing or licking at one spot on her body",
+    "personality flipped, clingy puppy now hiding or snappy",
+    "snapping at the air",
+    "drooling a lot and dropping food",
+    "jaw hangs open and she can't swallow",
+    "bark or cry sounds different",
+    "restless pacing, spooked by light and noise",
+    "wobbly or dragging back legs"
+   ],
+   "whatToDo": "Any bat contact or bite from a wild, stray or unknown-vaccination animal is a same-hour call to your vet and your local health department, even with no symptoms. Do not destroy the biting animal's head if it can be tested. Once signs appear rabies is essentially always fatal — handle her with gloves.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/nervous-system/rabies/rabies-in-animals",
+    "AVMA — https://www.avma.org/resources-tools/pet-owners/petcare/vaccinations"
+   ]
+  },
+  {
+   "name": "Rat and mouse bait poisoning",
+   "aka": [
+    "rat poison",
+    "rodenticide",
+    "warfarin",
+    "brodifacoum",
+    "mouse bait"
+   ],
+   "system": "Poisoning",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "green, blue or pink pellets or blocks found chewed",
+    "bruising under the skin",
+    "bleeding gums",
+    "nosebleed",
+    "coughing or wheezing",
+    "breathing fast or with effort",
+    "pale gums",
+    "sudden weakness or collapse",
+    "blood in her pee or poo",
+    "tired and won't walk like she used to"
+   ],
+   "whatToDo": "Signs are often delayed 3 to 7 days, so call the vet the moment you suspect she got into bait rather than waiting for bleeding. Take the packet so the exact chemical can be identified. Call ASPCA Animal Poison Control on 888-426-4435 or Pet Poison Helpline on 855-764-7661.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/toxicology/rodenticide-poisoning/anticoagulant-rodenticide-poisoning-in-animals",
+    "VCA — https://vcahospitals.com/know-your-pet/rodenticide-warfarin-poisoning-in-dogs"
+   ]
+  },
+  {
+   "name": "Ruptured splenic mass (bleeding into the belly)",
+   "aka": [
+    "bleeding spleen tumour",
+    "internal bleeding",
+    "haemoabdomen"
+   ],
+   "system": "Abdominal",
+   "urgency": "emergency",
+   "breedRisk": "moderate",
+   "breedNote": "Large breeds over about eight years old are at elevated risk for splenic masses; Giant Schnauzers are not separately named in the published breed data.",
+   "signs": [
+    "collapsed then got up like nothing happened",
+    "white or grey gums",
+    "suddenly very weak in the back legs",
+    "belly swelling but no retching",
+    "belly feels full of fluid",
+    "cold ears and paws",
+    "breathing fast and shallow",
+    "wobbly and fainting",
+    "quiet and off food for days then crashed"
+   ],
+   "whatToDo": "Emergency. A dog who collapses then seems to recover is still bleeding inside. Go straight to an ER, carry her rather than letting her walk, and keep her quiet in the car.",
+   "sources": [
+    "American College of Veterinary Surgeons — https://www.acvs.org/small-animal/splenic-masses/",
+    "Veterinary Partner (VIN) — https://veterinarypartner.vin.com/default.aspx?pid=19239&id=4951872"
+   ]
+  },
+  {
+   "name": "Seizure (happening now)",
+   "aka": [
+    "fit",
+    "convulsion",
+    "status epilepticus",
+    "cluster seizures"
+   ],
+   "system": "Neurological",
+   "urgency": "emergency",
+   "breedRisk": "high",
+   "breedNote": "Idiopathic epilepsy is a documented Giant Schnauzer concern, so a seizure in this breed is not a rare event.",
+   "signs": [
+    "collapsed and paddling on her side",
+    "stiff legs and jerking all over",
+    "chomping or chewing at nothing",
+    "drooling or foaming at the mouth",
+    "peed or pooped herself during it",
+    "eyes open but glassy and not there",
+    "another one before she has recovered",
+    "won't wake up properly afterwards",
+    "dazed, pacing and bumping into things after"
+   ],
+   "whatToDo": "Keep your hands away from her mouth — she cannot swallow her tongue. Move furniture and other pets clear, dim the lights, note the start time and film it if you can. Go to an emergency vet if it passes 5 minutes, if she has more than one in 24 hours, or if she does not fully come round between them.",
+   "sources": [
+    "ACVIM consensus on status epilepticus, JVIM 2024 — https://onlinelibrary.wiley.com/doi/10.1111/jvim.16928",
+    "Veterinary Partner (VIN) — https://veterinarypartner.vin.com/default.aspx?pid=19239&id=4951339"
+   ]
+  },
+  {
+   "name": "Shock",
+   "aka": [
+    "circulatory collapse",
+    "going into shock",
+    "crashing",
+    "poor perfusion"
+   ],
+   "system": "Emergency",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "gums pale, white or grey",
+    "capillary refill slower than 2 seconds",
+    "racing heart, over 180 beats a minute",
+    "pulse feels weak or you can't find it",
+    "ears, paws and legs feel cold",
+    "shivering or body temperature dropping",
+    "breathing fast and shallow",
+    "dull, glazed or not responding",
+    "weak, wobbly or collapsed"
+   ],
+   "whatToDo": "Immediate emergency. Keep her warm with a blanket, minimise handling, give nothing by mouth, and drive straight to a 24-hour hospital while someone phones ahead. Go on the pattern — weakness plus cold extremities plus a racing heart — even if individual numbers look borderline.",
+   "sources": [
+    "Merck Veterinary Manual, triage parameters — https://www.merckvetmanual.com/multimedia/table/parameters-to-evaluate-during-triage",
+    "AVMA first aid — https://www.avma.org/resources-tools/pet-owners/emergencycare/first-aid-tips-pet-owners"
+   ]
+  },
+  {
+   "name": "Slug and snail bait poisoning",
+   "aka": [
+    "metaldehyde",
+    "slug pellets",
+    "snail bait",
+    "slug bait"
+   ],
+   "system": "Poisoning",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "blue, green or brown pellets in her mouth, poo or vomit",
+    "shaking and restless",
+    "tremors running through her whole body",
+    "very hot to the touch",
+    "drooling heavily",
+    "wobbly and uncoordinated",
+    "twitchy, startles at everything",
+    "vomiting",
+    "fast, heavy breathing",
+    "seizures"
+   ],
+   "whatToDo": "Signs can start within minutes and the tremors and overheating can kill quickly — drive straight to an emergency vet rather than watching at home. Call ASPCA Animal Poison Control on 888-426-4435. Do not induce vomiting once she is tremoring.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/toxicology/metaldehyde-poisoning/metaldehyde-poisoning-in-animals",
+    "VCA — https://vcahospitals.com/know-your-pet/metaldehyde-toxicity-slug-bait-poisoning"
+   ]
+  },
+  {
+   "name": "Snake bite",
+   "aka": [
+    "snakebite",
+    "envenomation",
+    "bitten by a snake"
+   ],
+   "system": "Environment",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "sudden yelp and swelling on the face or leg",
+    "two small puncture marks with oozing",
+    "rapid dark swelling spreading from the bite",
+    "bruising around the bite area",
+    "shaky and weak within the hour",
+    "drooling heavily and vomiting",
+    "wobbly back end or unable to stand",
+    "pale gums and racing heart"
+   ],
+   "whatToDo": "Keep her as still and quiet as possible, carry her rather than letting her walk, and get to a vet immediately — antivenom works best in the first few hours. Do not apply a tourniquet, do not cut or suck the wound, and do not use ice.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.msdvetmanual.com/toxicology/snakebite/snakebites-in-animals"
+   ]
+  },
+  {
+   "name": "Something stuck in her mouth or throat",
+   "aka": [
+    "oral foreign body",
+    "stick injury",
+    "bone across the palate",
+    "choking"
+   ],
+   "system": "Mouth",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "pawing at her mouth",
+    "gagging or retching",
+    "sudden heavy drooling",
+    "won't close her mouth",
+    "bone or stick wedged across the roof of the mouth",
+    "object caught between two teeth",
+    "bleeding from the mouth",
+    "coughing or choking after chewing a stick",
+    "swelling under the jaw or throat",
+    "fever a few days after a stick chase"
+   ],
+   "whatToDo": "An emergency — go in now. Do not try to dig an object out with fingers or pliers; you can push it deeper or be bitten. Stick and bone injuries can leave splinters that migrate and abscess days later, so mention any recent stick chewing even if the mouth looks clear.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/respiratory-system/pharyngitis/pharyngeal-trauma-in-animals",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/dog-owners/digestive-disorders-of-dogs/disorders-of-the-mouth-in-dogs"
+   ]
+  },
+  {
+   "name": "Splenic torsion",
+   "aka": [
+    "twisted spleen",
+    "splenic volvulus"
+   ],
+   "system": "Abdominal",
+   "urgency": "emergency",
+   "breedRisk": "high",
+   "breedNote": "Large, deep-chested breeds are over-represented, and it can occur alongside or after bloat.",
+   "signs": [
+    "on-and-off vomiting for a few days",
+    "belly slowly getting bigger",
+    "pale gums",
+    "dark red or brown pee",
+    "weak and off her food",
+    "swollen painful belly on the left side",
+    "restless and can't get comfortable",
+    "fast breathing and racing heart",
+    "seems fine one hour then crashes the next",
+    "collapsed"
+   ],
+   "whatToDo": "Go to an emergency vet now — a twisted spleen can look like a vague slow illness for days then turn into shock without warning. Mention any past bloat episode.",
+   "sources": [
+    "American College of Veterinary Surgeons — https://www.acvs.org/small-animal/splenic-torsion/",
+    "Can Vet J case report — https://pmc.ncbi.nlm.nih.gov/articles/PMC11411475/"
+   ]
+  },
+  {
+   "name": "Sudden blindness",
+   "aka": [
+    "SARDS",
+    "acute vision loss",
+    "went blind suddenly"
+   ],
+   "system": "Eyes",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "Females are affected by SARDS more often than males; among schnauzers it is the Miniature, not the Giant, that is over-represented.",
+   "signs": [
+    "walked into a wall out of nowhere",
+    "blind within days",
+    "pupils wide open and not reacting to light",
+    "startles when you approach",
+    "pacing or disoriented indoors",
+    "eye looks completely normal but she can't see",
+    "suddenly ravenous",
+    "drinking and peeing a lot more",
+    "put on weight quickly"
+   ],
+   "whatToDo": "Get her seen urgently — sudden blindness can mean glaucoma, retinal detachment, high blood pressure or a brain problem, several of which are treatable if caught within hours. If the eyes look normal, ask about an electroretinogram and bloodwork for Cushing's.",
+   "sources": [
+    "ACVO SARDS — https://www.acvo.org/common-conditions-1/2018/2/2/sards",
+    "VCA — https://vcahospitals.com/know-your-pet/sudden-acquired-retinal-degeneration-syndrome-sards"
+   ]
+  },
+  {
+   "name": "Urinary obstruction (blocked bladder)",
+   "aka": [
+    "urethral obstruction",
+    "blocked urethra",
+    "can't pass urine"
+   ],
+   "system": "Urinary",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "straining hard and nothing comes out",
+    "crying or yelping when she tries",
+    "going into position over and over",
+    "belly hard, swollen and painful",
+    "vomiting and off her food",
+    "gone quiet, flat and weak",
+    "hasn't weed at all today",
+    "only a few bloody drops",
+    "collapsed or wobbly"
+   ],
+   "whatToDo": "A genuine emergency — go to a vet or out-of-hours clinic straight away, day or night. A bladder that cannot empty causes kidney damage and dangerous potassium build-up within a day, and it can be fatal.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/urinary-system/urolithiasis-in-small-animals/urethral-obstruction-in-small-animals"
+   ]
+  },
+  {
+   "name": "Xylitol poisoning",
+   "aka": [
+    "birch sugar",
+    "sugar-free gum",
+    "xylitol",
+    "sugar alcohol"
+   ],
+   "system": "Poisoning",
+   "urgency": "emergency",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "chewed sugar-free gum, mints or a peanut butter jar",
+    "sudden collapse after eating gum",
+    "wobbly like she's drunk",
+    "weak and dull within an hour",
+    "vomiting",
+    "trembling or shaking",
+    "seizures",
+    "hard to rouse",
+    "yellow tinge to gums or eyes a day or two later"
+   ],
+   "whatToDo": "This drops blood sugar within 10 to 60 minutes and can damage the liver a day later, so go to a vet now even if she looks fine. Call ASPCA Animal Poison Control on 888-426-4435 or Pet Poison Helpline on 855-764-7661 on the way. Never give anything by mouth if she is already wobbly or seizing.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/toxicology/food-hazards/xylitol-toxicosis-in-dogs",
+    "FDA — https://www.fda.gov/animal-veterinary/animal-health-literacy/paws-xylitol-toxic-dogs"
+   ]
+  },
+  {
+   "name": "Addison's disease",
+   "aka": [
+    "hypoadrenocorticism",
+    "adrenal insufficiency",
+    "the great pretender",
+    "low cortisol"
+   ],
+   "system": "Hormones",
+   "urgency": "same-day",
+   "breedRisk": "general",
+   "breedNote": "Not a listed predisposed breed, though young to middle-aged females are over-represented overall.",
+   "signs": [
+    "on and off vomiting or diarrhoea",
+    "picky, going off her food",
+    "losing weight slowly",
+    "flat and weak, better then worse again",
+    "shivering or trembling",
+    "wobbly on her legs",
+    "drinking and weeing more",
+    "always crashes after stress like boarding or travel",
+    "black tarry stool",
+    "collapse with a slow heart rate"
+   ],
+   "whatToDo": "Get her seen the same day for bloods including electrolytes, and specifically ask about Addison's if she has a history of vague illness that keeps returning. Collapse with a slow heart rate is an emergency needing IV fluids within hours.",
+   "sources": [
+    "AAHA 2023 Endocrinopathies Guidelines — https://www.aaha.org/resources/2023-aaha-selected-endocrinopathies-of-dogs-and-cats-guidelines/canine-hypoadrenocorticism-addisons-disease/",
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-information/addisons-disease"
+   ]
+  },
+  {
+   "name": "Aural haematoma (swollen ear flap)",
+   "aka": [
+    "ear haematoma",
+    "blood blister on the ear",
+    "cauliflower ear"
+   ],
+   "system": "Ears",
+   "urgency": "same-day",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "ear flap swollen up like a pillow or water balloon",
+    "the flap feels squishy, warm and heavy",
+    "she cries when you touch the ear flap",
+    "the swelling came up over a few hours",
+    "days of head shaking just before the swelling",
+    "the ear droops or flops to one side",
+    "on a cropped ear, the standing ear suddenly sags",
+    "the flap looks bruised or purple inside"
+   ],
+   "whatToDo": "Get her in the same day — haematomas are painful, and left alone the flap scars down into a shrunken shape that can narrow the ear canal. The vet must also treat whatever made her shake her head, or it will fill again.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/hematoma-of-the-ear-in-dogs"
+   ]
+  },
+  {
+   "name": "Bacterial ear infection with pus",
+   "aka": [
+    "Pseudomonas ear",
+    "pus in the ear",
+    "severe ear infection"
+   ],
+   "system": "Ears",
+   "urgency": "same-day",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "yellow, green or creamy pus in the ear",
+    "a rotten smell you can smell across the room",
+    "she screams or snaps when the ear is touched",
+    "raw, ulcerated skin inside the ear",
+    "blood-tinged discharge",
+    "the ear canal looks swollen almost shut",
+    "she holds her head down and to one side",
+    "she goes off her food and seems miserable",
+    "the ear has got dramatically worse in a day or two"
+   ],
+   "whatToDo": "Get her seen the same day — painful, pus-filled ears can involve resistant bacteria and can track toward the middle ear. Do not flush or medicate at home; some ear medications are harmful if the eardrum has ruptured.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/ear-disorders/otitis-externa/otitis-externa-in-animals",
+    "Veterinary Partner (VIN) — https://veterinarypartner.vin.com/doc/?id=4951994&pid=19239"
+   ]
+  },
+  {
+   "name": "Bladder stones",
+   "aka": [
+    "uroliths",
+    "urolithiasis",
+    "bladder crystals"
+   ],
+   "system": "Urinary",
+   "urgency": "same-day",
+   "breedRisk": "general",
+   "breedNote": "It is the Miniature Schnauzer, not the Giant Schnauzer, that carries the documented calcium oxalate stone risk.",
+   "signs": [
+    "straining and nothing much comes out",
+    "blood in her wee",
+    "squatting again and again",
+    "crying or whimpering when she wees",
+    "wee dribbles out in a thin stream",
+    "accidents in the house",
+    "belly seems tender when touched",
+    "gritty bits or sand in the wee"
+   ],
+   "whatToDo": "Get her seen the same day for imaging, because stones can move into the urethra and block urine flow. Some types dissolve on a prescription diet and others need removing, so the stone must be analysed.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/urinary-system/urolithiasis-in-small-animals/urolithiasis-in-dogs",
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/struvite-bladder-stones-dogs"
+   ]
+  },
+  {
+   "name": "Broken tooth",
+   "aka": [
+    "fractured tooth",
+    "chipped tooth",
+    "cracked tooth",
+    "exposed pulp"
+   ],
+   "system": "Mouth",
+   "urgency": "same-day",
+   "breedRisk": "moderate",
+   "breedNote": "Risk comes from size and bite force rather than genetics: large, powerful-jawed dogs break teeth more often on hard chews.",
+   "signs": [
+    "broken or chipped tooth",
+    "sharp edge on a tooth",
+    "pink or black dot in the middle of a tooth",
+    "tooth looks grey or purple",
+    "bleeding from the mouth",
+    "chewing on one side",
+    "dropping food",
+    "yelping when she bites down",
+    "swelling under one eye",
+    "pawing at her face"
+   ],
+   "whatToDo": "A broken tooth with any pink, red or dark spot in the middle has an exposed nerve, is painful and will not heal — get it seen the same day. Prevention is the thumbnail rule: if you cannot dent a chew with your thumbnail, it can break a tooth. That rules out antlers, bones, hooves, dried yak chews, ice and rigid nylon.",
+   "sources": [
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-information/risks-fractured-tooth",
+    "VCA — https://vcahospitals.com/know-your-pet/fractured-teeth-in-dogs",
+    "Veterinary Partner (VIN) — https://veterinarypartner.vin.com/default.aspx?pid=19239&catId=254090&id=11619865"
+   ]
+  },
+  {
+   "name": "Burned paw pads",
+   "aka": [
+    "pad burns",
+    "hot pavement",
+    "blistered pads",
+    "sore feet"
+   ],
+   "system": "Environment",
+   "urgency": "same-day",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "limping after hot pavement",
+    "licking or chewing her feet nonstop",
+    "pads look red, shiny or blistered",
+    "chunks of pad peeling away",
+    "won't put a foot down at all",
+    "refuses to walk on the path but fine on grass",
+    "yelps when you touch a paw",
+    "bloody paw prints on the floor"
+   ],
+   "whatToDo": "Cool the feet with cool running water, keep them clean and loosely covered, and stop her licking. Get her seen the same day — burned pads are painful, easily infected, and need proper pain relief rather than home creams.",
+   "sources": [
+    "Merck Veterinary Manual, wound management — https://www.msdvetmanual.com/emergency-medicine-and-critical-care/wound-management-in-small-animals",
+    "VCA — https://vcahospitals.com/know-your-pet/heat-stroke-in-dogs"
+   ]
+  },
+  {
+   "name": "Canine influenza",
+   "aka": [
+    "dog flu",
+    "CIV",
+    "H3N2",
+    "H3N8"
+   ],
+   "system": "Breathing",
+   "urgency": "same-day",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "cough that drags on for weeks",
+    "thick yellow or green nose discharge",
+    "fever and shivering",
+    "very tired, sleeping much more than usual",
+    "off her food",
+    "runny eyes",
+    "breathing faster than normal at rest",
+    "was recently around lots of other dogs",
+    "several dogs in the area are sick at once"
+   ],
+   "whatToDo": "Call the vet the same day and say you suspect flu so they can isolate her on arrival. Treat any fast or laboured breathing, blue or grey gums, or refusal to eat as an emergency, because a small share of dogs develop pneumonia.",
+   "sources": [
+    "AVMA — https://www.avma.org/canine-influenza-faq",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/respiratory-system/respiratory-diseases-of-small-animals/canine-influenza-flu"
+   ]
+  },
+  {
+   "name": "Cruciate ligament rupture",
+   "aka": [
+    "CCL tear",
+    "torn ACL",
+    "cruciate disease",
+    "knee injury"
+   ],
+   "system": "Bones and joints",
+   "urgency": "same-day",
+   "breedRisk": "moderate",
+   "breedNote": "One of the most common orthopaedic disorders in dogs and heavier dogs are over-represented, but the Giant Schnauzer is not among the breeds identified as high-risk in the large prevalence work.",
+   "signs": [
+    "sudden three-legged lameness on a back leg",
+    "toe-touching the ground with one hind leg",
+    "back leg lameness after twisting or skidding",
+    "sits with the sore leg stuck out sideways",
+    "swelling on the inside of the knee",
+    "clicking from the knee when she walks",
+    "won't push off that leg going upstairs",
+    "thigh muscle shrinking on one side"
+   ],
+   "whatToDo": "Have her examined promptly — the knee needs hands-on stability testing and often sedated radiographs, and a big dog with a torn cruciate usually does best with surgery. Crate rest and lead-only movement until she is seen.",
+   "sources": [
+    "ACVS — https://www.acvs.org/small-animal/cranial-cruciate-ligament-disease/",
+    "Witsberger et al., JAVMA 2008 — https://pubmed.ncbi.nlm.nih.gov/18764705/"
+   ]
+  },
+  {
+   "name": "Dehydration",
+   "aka": [
+    "skin tent",
+    "skin turgor",
+    "dry gums",
+    "fluid loss",
+    "sunken eyes"
+   ],
+   "system": "Emergency",
+   "urgency": "same-day",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "skin on the shoulders stays tented when you lift and let go",
+    "gums feel dry, sticky or tacky rather than wet",
+    "eyes look sunken or dull",
+    "hasn't drunk anything for most of a day",
+    "vomiting or diarrhoea that keeps going",
+    "urine looks dark and strong-smelling",
+    "flat, tired and slow to get up"
+   ],
+   "whatToDo": "Lift the loose skin over her shoulder blades and let go — it should snap flat almost instantly. Skin that stays tented, tacky gums or sunken eyes mean a vet the same day, not just a bowl of water. The skin tent is crude and reads falsely normal in young or overweight dogs.",
+   "sources": [
+    "Merck Veterinary Manual, triage parameters — https://www.merckvetmanual.com/multimedia/table/parameters-to-evaluate-during-triage",
+    "AVMA first aid — https://www.avma.org/resources-tools/pet-owners/emergencycare/first-aid-tips-pet-owners"
+   ]
+  },
+  {
+   "name": "Dilated cardiomyopathy (DCM)",
+   "aka": [
+    "DCM",
+    "enlarged heart",
+    "weak heart muscle"
+   ],
+   "system": "Heart",
+   "urgency": "same-day",
+   "breedRisk": "high",
+   "breedNote": "Giant Schnauzers are a recognised DCM breed, and an RBM20 variant associated with DCM has been found in Giant and Standard Schnauzers. The evidence base is small — treat as suggestive rather than settled.",
+   "signs": [
+    "tiring quickly on walks",
+    "breathing fast while asleep",
+    "coughing, worse at night",
+    "belly looks swollen or drum-tight",
+    "fainted or wobbled and went down",
+    "off her food",
+    "losing weight or muscle over the topline",
+    "restless, won't settle at night",
+    "gums look pale or greyish",
+    "won't lie flat on her side"
+   ],
+   "whatToDo": "Get her seen within a day and ask specifically for an echocardiogram plus ECG. Count her breaths per minute while she is asleep and bring that number. Struggling to breathe, blue or white gums, or collapse is an emergency.",
+   "sources": [
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/dilated-cardiomyopathy",
+    "Leach et al., J Vet Cardiol — https://pubmed.ncbi.nlm.nih.gov/34144877/",
+    "OMIA RBM20 — https://omia.org/OMIA002365/9615/"
+   ]
+  },
+  {
+   "name": "Exercise intolerance",
+   "aka": [
+    "heat exhaustion",
+    "tiring on walks",
+    "won't keep going",
+    "exertional heat illness"
+   ],
+   "system": "Environment",
+   "urgency": "same-day",
+   "breedRisk": "moderate",
+   "breedNote": "Exercise, not hot cars, triggers the large majority of canine heat-related illness — so a big working dog encouraged to run in warm weather sits in the higher-exposure group.",
+   "signs": [
+    "lags behind on walks she used to enjoy",
+    "sits or lies down and won't move on",
+    "panting hard long after stopping",
+    "wants to stop in every patch of shade",
+    "takes much longer than usual to settle",
+    "back legs go wobbly near the end of a run",
+    "gums look muddy or pale after exercise",
+    "off her food the evening after a big walk"
+   ],
+   "whatToDo": "Stop the exercise, get her into shade with cool water over her and air moving, and offer small drinks. Book a same-day check — repeated exercise intolerance can be early heat illness, pain, anaemia or heart disease rather than being unfit.",
+   "sources": [
+    "Hall et al., Scientific Reports 2020 — https://www.nature.com/articles/s41598-020-66015-8",
+    "Beard et al., Veterinary Record 2024 — https://bvajournals.onlinelibrary.wiley.com/doi/10.1002/vetr.4153"
+   ]
+  },
+  {
+   "name": "Fainting and irregular heartbeat",
+   "aka": [
+    "syncope",
+    "arrhythmia",
+    "passing out",
+    "skipped beats",
+    "collapse"
+   ],
+   "system": "Heart",
+   "urgency": "same-day",
+   "breedRisk": "moderate",
+   "breedNote": "Ventricular arrhythmias are documented in giant-breed DCM generally and can appear before the heart looks enlarged on ultrasound.",
+   "signs": [
+    "fainted and got straight back up",
+    "went limp for a few seconds",
+    "stumbled or buckled during a walk",
+    "collapsed after excitement or barking",
+    "heartbeat feels irregular under the chest",
+    "sudden weakness then normal again",
+    "gums went white briefly",
+    "wobbly for a moment after standing up"
+   ],
+   "whatToDo": "Book a same-day exam with an ECG, and ask about a 24-hour Holter monitor since intermittent rhythm problems are easily missed on a short trace. Film any episode on your phone if you safely can — it helps tell fainting from a seizure.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/syncope-fainting-in-dogs",
+    "Wess et al., J Vet Cardiol 2017 — https://pubmed.ncbi.nlm.nih.gov/28965673/"
+   ]
+  },
+  {
+   "name": "Frostbite",
+   "aka": [
+    "cold injury",
+    "frozen ear tips",
+    "freezing injury"
+   ],
+   "system": "Environment",
+   "urgency": "same-day",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "ear tips or tail look pale, grey or bluish",
+    "skin feels cold and hard to the touch",
+    "she flinches when the area is touched",
+    "swelling once the area warms up",
+    "blisters on ears, tail or paws",
+    "skin turning black over the following days",
+    "limping after a long spell in snow"
+   ],
+   "whatToDo": "Move her somewhere warm and dry and apply warm — not hot — compresses that feel comfortable on your own hand, then pat dry and go to the vet. Never rub or massage the area, never use a hairdryer, and don't rewarm if she is going straight back out into the cold.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/frostbite-in-dogs"
+   ]
+  },
+  {
+   "name": "Growth plate injury",
+   "aka": [
+    "physeal fracture",
+    "Salter-Harris fracture",
+    "angular limb deformity",
+    "bent leg"
+   ],
+   "system": "Bones and joints",
+   "urgency": "same-day",
+   "breedRisk": "moderate",
+   "breedNote": "Growth plates stay open longest in giant breeds, so her skeleton is vulnerable for longer than a small dog's.",
+   "signs": [
+    "sudden severe limp right after a fall or jump",
+    "won't touch the foot down at all",
+    "swelling right at the wrist or just above the knee",
+    "leg looks bent or twisted compared to the other one",
+    "one front leg turning out more than it used to",
+    "cries when the leg near a joint is handled",
+    "a puppy limp that isn't better in 24 hours",
+    "paw rotating outward as she grows"
+   ],
+   "whatToDo": "Get her seen the same day and keep her confined — growth plate fractures look minor from the outside but can stop a bone growing and leave a permanently bent limb. Radiographs of both legs let the vet compare sides.",
+   "sources": [
+    "ACVS — https://www.acvs.org/small-animal/angular-limb-deformity/",
+    "VCA — https://vcahospitals.com/know-your-pet/angular-limb-deformities-in-dogs"
+   ]
+  },
+  {
+   "name": "Hookworms",
+   "aka": [
+    "ancylostoma",
+    "hooks"
+   ],
+   "system": "Parasites",
+   "urgency": "same-day",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "pale or white gums",
+    "black tarry poop",
+    "bloody diarrhoea",
+    "weak and wobbly puppy",
+    "very tired, sleeps all the time",
+    "not gaining weight",
+    "dry brittle coat",
+    "itchy red paws or belly",
+    "fast breathing",
+    "sudden collapse"
+   ],
+   "whatToDo": "A young puppy with pale gums or black stools can be bleeding internally and needs seeing the same day, sometimes with a transfusion. Bring a stool sample; expect repeat deworming plus year-round prevention.",
+   "sources": [
+    "CAPC — https://capcvet.org/guidelines/hookworms/",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/dog-owners/digestive-disorders-of-dogs/gastrointestinal-parasites-of-dogs"
+   ]
+  },
+  {
+   "name": "Hot spot (acute moist dermatitis)",
+   "aka": [
+    "pyotraumatic dermatitis",
+    "moist eczema",
+    "hot spot"
+   ],
+   "system": "Skin",
+   "urgency": "same-day",
+   "breedRisk": "moderate",
+   "breedNote": "Thick double coats that stay damp after swimming, rain or bathing are a classic setup for hot spots.",
+   "signs": [
+    "red raw patch that appeared overnight",
+    "oozing wet sore under the fur",
+    "she won't let me touch that spot",
+    "hair falling out around a wet patch",
+    "spot getting bigger by the hour",
+    "licking or chewing one place nonstop",
+    "smelly discharge on her cheek or hip",
+    "matted hair stuck over a wound",
+    "appeared after a swim or a bath",
+    "hot to the touch"
+   ],
+   "whatToDo": "Get her seen the same day — these spread fast and are painful, and the area usually needs clipping, cleaning and pain relief. Do not use human antiseptic creams or try to clip a painful spot yourself.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/hot-spots-in-dogs",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/integumentary-system/pyoderma/pyoderma-in-dogs-and-cats"
+   ]
+  },
+  {
+   "name": "Hypertrophic osteodystrophy (HOD)",
+   "aka": [
+    "HOD",
+    "metaphyseal osteopathy"
+   ],
+   "system": "Bones and joints",
+   "urgency": "same-day",
+   "breedRisk": "high",
+   "breedNote": "A disorder of young, growing large- and giant-breed dogs. No Giant Schnauzer prevalence figure exists; breeds most often named are Weimaraner, Great Dane, Boxer and Irish Setter.",
+   "signs": [
+    "hot, swollen, painful bands just above the wrists",
+    "both front legs sore at the same time",
+    "won't stand up or put weight on her legs",
+    "high fever with the limping",
+    "off her food and very flat",
+    "cries when you touch just above the paw joints",
+    "diarrhoea or a snotty nose alongside the lameness",
+    "comes on suddenly in a puppy under six months"
+   ],
+   "whatToDo": "Ring your vet the same day — unlike growing pains, HOD can make a puppy systemically ill and can permanently damage growth plates. She will need radiographs, pain relief and sometimes steroids.",
+   "sources": [
+    "Veterinary Partner (VIN) — https://veterinarypartner.vin.com/default.aspx?pid=19239&id=9655798",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/musculoskeletal-system/osteopathies-in-small-animals/developmental-osteopathies-in-dogs-and-cats"
+   ]
+  },
+  {
+   "name": "Idiopathic epilepsy",
+   "aka": [
+    "primary epilepsy",
+    "genetic epilepsy",
+    "recurrent seizures"
+   ],
+   "system": "Neurological",
+   "urgency": "same-day",
+   "breedRisk": "high",
+   "breedNote": "A pedigree analysis of 285 Giant Schnauzers estimated heritability at 0.78, with average onset around 3 years. The underlying figures come from conference proceedings rather than a peer-reviewed journal paper.",
+   "signs": [
+    "seizures with no obvious trigger",
+    "first fit between six months and six years old",
+    "completely normal and healthy in between",
+    "several seizures bunched into the same day or week",
+    "restless, clingy or hiding just before one",
+    "wobbly, ravenous or confused for hours after",
+    "seizures mostly at night or while resting",
+    "staring spells or snapping at invisible flies"
+   ],
+   "whatToDo": "Book a vet workup after any first seizure and keep a written log of date, length and what she was doing — medication decisions are made on that pattern.",
+   "sources": [
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/idiopathic-epilepsy-dogs",
+    "ACVIM consensus on seizure management, JVIM 2016 — https://onlinelibrary.wiley.com/doi/abs/10.1111/jvim.13841"
+   ]
+  },
+  {
+   "name": "Inherited B12 (cobalamin) malabsorption",
+   "aka": [
+    "Imerslund-Grasbeck syndrome",
+    "IGS",
+    "B12 malabsorption",
+    "cobalamin deficiency"
+   ],
+   "system": "Digestive",
+   "urgency": "same-day",
+   "breedRisk": "high",
+   "breedNote": "Giant Schnauzers carry a breed-specific recessive AMN gene variant causing selective intestinal B12 malabsorption. A DNA test exists.",
+   "signs": [
+    "puppy not growing properly",
+    "failure to thrive",
+    "picky and won't eat",
+    "unusually tired for a puppy",
+    "loose stool since weaning",
+    "pale gums",
+    "thin despite feeding well",
+    "wobbly or confused episodes",
+    "slow to put on weight",
+    "protein found in her urine"
+   ],
+   "whatToDo": "If a young Giant Schnauzer is failing to grow, off her food or lethargic, ask specifically for serum cobalamin, a blood count and a urine protein check. Confirmed cases respond very well to lifelong B12 injections, and parents and littermates can be DNA tested.",
+   "sources": [
+    "OMIA — https://omia.org/OMIA000565/9615/",
+    "Fyfe et al., JVIM 2014 — https://pmc.ncbi.nlm.nih.gov/articles/PMC3959579/",
+    "Kook & Hersberger, JVIM — https://pubmed.ncbi.nlm.nih.gov/31758868/"
+   ]
+  },
+  {
+   "name": "Lymphoma",
+   "aka": [
+    "lymphosarcoma",
+    "LSA",
+    "swollen glands"
+   ],
+   "system": "Cancer",
+   "urgency": "same-day",
+   "breedRisk": "general",
+   "breedNote": "No established Giant Schnauzer predisposition; the breed appears in the literature only as isolated case reports.",
+   "signs": [
+    "hard lumps under the jaw",
+    "swollen glands behind the knees",
+    "lumps on both sides of the neck",
+    "drinking and weeing much more",
+    "losing weight but still eating",
+    "off colour and tired",
+    "swollen face or muzzle",
+    "lumps that appeared over a week or two"
+   ],
+   "whatToDo": "Firm, painless, symmetrical lumps where the glands sit — under the jaw, in front of the shoulders, behind the knees — should be seen within a day or two for a needle sample. Lymphoma responds well to treatment but moves fast, so don't watch and wait.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/lymphoma-in-dogs",
+    "Rodriguez et al., SAVSNET, Vet Comp Oncol 2026 — https://pubmed.ncbi.nlm.nih.gov/41736492/"
+   ]
+  },
+  {
+   "name": "Megaoesophagus",
+   "aka": [
+    "megaesophagus",
+    "dilated oesophagus",
+    "regurgitation disorder"
+   ],
+   "system": "Digestive",
+   "urgency": "same-day",
+   "breedRisk": "general",
+   "breedNote": "Inherited congenital cases are documented in Miniature Schnauzers and some giant-breed families, but not in Giant Schnauzers.",
+   "signs": [
+    "bringing food back up undigested",
+    "regurgitating without heaving",
+    "food comes up in a tube shape",
+    "coughing after eating or drinking",
+    "losing weight but hungry",
+    "bad breath",
+    "noisy or rattly breathing",
+    "runny nose after meals"
+   ],
+   "whatToDo": "Regurgitation (passive, no heaving) is different from vomiting and needs chest imaging plus tests for myasthenia gravis, Addison's and hypothyroidism. Any fever, cough or laboured breathing means aspiration pneumonia — go the same day.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/digestive-system/diseases-of-the-esophagus-in-small-animals/dilatation-of-the-esophagus-in-small-animals",
+    "VCA — https://vcahospitals.com/know-your-pet/megaesophagus"
+   ]
+  },
+  {
+   "name": "Melanoma (mouth, toe or skin)",
+   "aka": [
+    "oral melanoma",
+    "digital melanoma",
+    "black lump",
+    "melanocytic tumour"
+   ],
+   "system": "Cancer",
+   "urgency": "same-day",
+   "breedRisk": "high",
+   "breedNote": "A UK registry of over 1.1 million tumour records named the Giant Schnauzer among the three highest-risk breeds for melanoma, alongside Rottweilers and Shar Peis. The headline odds ratio is for that three-breed group, so it is not certainly this breed's own figure.",
+   "signs": [
+    "dark lump in the mouth",
+    "bad breath that came on suddenly",
+    "drooling or blood-tinged saliva",
+    "dropping food while eating",
+    "a black lump on a toe",
+    "swollen toe with a dark mass",
+    "loose tooth with a lump beside it",
+    "face looks swollen on one side",
+    "black raised lump on the skin",
+    "a dark spot that is growing or spreading"
+   ],
+   "whatToDo": "Look in her mouth whenever you can, and treat any dark or ulcerated mass, or a black lump on a toe, as urgent — oral melanoma spreads early, so days matter. Ask for a biopsy and chest imaging rather than waiting to see whether it grows.",
+   "sources": [
+    "Rodriguez et al., SAVSNET, Vet Comp Oncol 2026 — https://pubmed.ncbi.nlm.nih.gov/41736492/",
+    "VCA — https://vcahospitals.com/know-your-pet/melanoma-in-dogs"
+   ]
+  },
+  {
+   "name": "Middle and inner ear infection",
+   "aka": [
+    "otitis media",
+    "otitis interna",
+    "deep ear infection"
+   ],
+   "system": "Ears",
+   "urgency": "same-day",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "head tilted permanently to one side",
+    "stumbling, circling or falling over",
+    "eyes flicking side to side on their own",
+    "one side of her face droops",
+    "she cannot blink that eye properly",
+    "one pupil looks smaller and the eyelid droops",
+    "she cries when she opens her mouth",
+    "she does not respond to her name anymore",
+    "ear infections that keep coming back",
+    "dry, gunky eye on the same side as the sore ear"
+   ],
+   "whatToDo": "Call the vet today, and go to an emergency clinic if she is falling over, vomiting or cannot stand. Expect a deep ear exam under sedation and possibly imaging — the middle ear cannot be assessed properly in an awake dog.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/ear-disorders/otitis-media-and-interna/otitis-media-and-interna-in-animals",
+    "Veterinary Partner (VIN) — https://veterinarypartner.vin.com/default.aspx?pid=19239&id=10464209"
+   ]
+  },
+  {
+   "name": "Pyelonephritis (kidney infection)",
+   "aka": [
+    "kidney infection",
+    "upper urinary tract infection"
+   ],
+   "system": "Urinary",
+   "urgency": "same-day",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "off her food and low in herself",
+    "feels hot and shivery",
+    "sore over her lower back",
+    "flinches when you touch her sides",
+    "drinking and weeing more",
+    "blood in her wee",
+    "sicky",
+    "a bladder infection that came back",
+    "hunched up and reluctant to move"
+   ],
+   "whatToDo": "Get her seen the same day with a urine sample — kidney infections need a urine culture and a longer antibiotic course than a simple bladder infection. Untreated they can permanently scar the kidneys.",
+   "sources": [
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/pyelonephritis",
+    "IRIS Kidney — https://www.iris-kidney.com/pyelonephritis"
+   ]
+  },
+  {
+   "name": "Ticks and tick-borne disease",
+   "aka": [
+    "lyme",
+    "borreliosis",
+    "ehrlichia",
+    "anaplasma",
+    "tick bite",
+    "deer tick"
+   ],
+   "system": "Parasites",
+   "urgency": "same-day",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "limping that moves leg to leg",
+    "sore and stiff, hates being touched",
+    "fever and shivering",
+    "off food and low energy",
+    "swollen joints",
+    "swollen glands",
+    "walking like she's on eggshells",
+    "nosebleed or pinpoint bruising",
+    "found a tick attached",
+    "pale gums"
+   ],
+   "whatToDo": "Remove attached ticks promptly with tweezers at the skin line, steady and straight out, and note the date. Fever, shifting lameness, bruising or lethargy after tick exposure warrants a same-day visit and a blood test.",
+   "sources": [
+    "CAPC — https://capcvet.org/guidelines/ticks/",
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/lyme-disease"
+   ]
+  },
+  {
+   "name": "Vestibular disease",
+   "aka": [
+    "balance disorder",
+    "head tilt",
+    "old dog vestibular syndrome"
+   ],
+   "system": "Neurological",
+   "urgency": "same-day",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "head tilted to one side",
+    "eyes flicking rapidly side to side",
+    "falling or leaning to one side",
+    "walking in circles always the same way",
+    "rolling over and can't right herself",
+    "staggering like she's drunk",
+    "came on suddenly overnight",
+    "drooling, vomiting or car-sick looking",
+    "won't eat or won't stand up"
+   ],
+   "whatToDo": "Keep her on the floor away from stairs and hard furniture, put food and water within reach, and get her examined the same day — a vet needs to separate benign vestibular disease from an inner ear infection, stroke or brain tumour. Most idiopathic cases start improving within about 72 hours.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/vestibular-disease-in-dogs",
+    "Veterinary Partner (VIN) — https://veterinarypartner.vin.com/default.aspx?pid=19239&id=4951444"
+   ]
+  },
+  {
+   "name": "A lump that needs checking",
+   "aka": [
+    "worrying lump",
+    "new growth",
+    "suspicious mass",
+    "when to worry about a lump",
+    "bump"
+   ],
+   "system": "Cancer",
+   "urgency": "vet-soon",
+   "breedRisk": "high",
+   "breedNote": "In a Swiss registry of 11,740 skin tumours across 227 breeds, the Giant Schnauzer had the highest skin tumour incidence of any breed, roughly four times the all-breed average.",
+   "signs": [
+    "lump that's growing",
+    "a lump that changes size",
+    "lump that's hard and fixed in place",
+    "lump that bleeds or weeps",
+    "sore that won't heal",
+    "lump she won't stop licking",
+    "lump that's grown in under a month",
+    "lump that seems painful",
+    "losing weight alongside a lump",
+    "a lump you can't move under the skin"
+   ],
+   "whatToDo": "Given how tumour-prone this breed is, run a hands-on check monthly including every toe and her mouth, and write down where each lump is and how big it is. Book a needle sample for anything new, growing, hard, fixed, bleeding or non-healing — no vet can tell a benign lump from a malignant one by feel alone.",
+   "sources": [
+    "Graf et al., Swiss Canine Cancer Registry, Vet Pathol 2018 — https://pubmed.ncbi.nlm.nih.gov/30131007/",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/dog-owners/skin-disorders-of-dogs/tumors-of-the-skin-in-dogs"
+   ]
+  },
+  {
+   "name": "Atopic dermatitis (environmental allergy)",
+   "aka": [
+    "atopy",
+    "environmental allergies",
+    "seasonal itching"
+   ],
+   "system": "Skin",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "No documented excess risk in Giant Schnauzers, but the harsh double coat hides early redness so it is often caught late.",
+   "signs": [
+    "chewing her paws",
+    "licking her front legs raw",
+    "rubbing her face on the carpet",
+    "scratching her armpits and groin",
+    "red skin in the bald spots under her belly",
+    "head shaking and dark ear gunk",
+    "itch that comes back every spring",
+    "skin under the beard looks pink",
+    "hair thinning where she licks most",
+    "worse after walks in tall grass"
+   ],
+   "whatToDo": "Book a proper itch workup rather than cycling through shampoos — atopy is lifelong and needs a management plan plus year-round flea control. Ask about Cytopoint, Apoquel, ciclosporin, or allergy testing with immunotherapy if flares are frequent.",
+   "sources": [
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/atopic-dermatitis-atopy",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/integumentary-system/atopic-dermatitis/canine-atopic-dermatitis"
+   ]
+  },
+  {
+   "name": "Chronic inflammatory enteropathy (IBD)",
+   "aka": [
+    "IBD",
+    "inflammatory bowel disease",
+    "chronic enteropathy",
+    "chronic colitis"
+   ],
+   "system": "Digestive",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "Documented predispositions are in German Shepherds, Boxers, Yorkshire Terriers and Soft-Coated Wheaten Terriers, not Giant Schnauzers.",
+   "signs": [
+    "soft stool for weeks",
+    "diarrhoea that keeps coming back",
+    "losing weight but still eating",
+    "vomiting on and off for months",
+    "mucus or slime on the stool",
+    "straining and small frequent poos",
+    "noisy gurgling gut",
+    "dull coat and low energy",
+    "swollen belly or puffy legs"
+   ],
+   "whatToDo": "Signs lasting more than three weeks need a workup — bloods, faecal tests, B12/folate, often imaging or biopsies. Keep a written diary of stool, food and weight, and ask about a therapeutic diet trial before steroids.",
+   "sources": [
+    "ACVIM consensus statement, chronic inflammatory enteropathy — https://academic.oup.com/jvim/article/40/1/aalaf017/8429723",
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/inflammatory-bowel-disease-ibd"
+   ]
+  },
+  {
+   "name": "Chronic kidney disease",
+   "aka": [
+    "CKD",
+    "chronic renal failure",
+    "kidney failure"
+   ],
+   "system": "Urinary",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "drinking far more water than usual",
+    "weeing much more and bigger puddles",
+    "losing weight slowly",
+    "picky with food or off it altogether",
+    "coat looks dull and scruffy",
+    "sicky now and then",
+    "bad breath",
+    "tired, sleeping more, less keen on walks",
+    "occasional accidents overnight",
+    "pale gums"
+   ],
+   "whatToDo": "Book blood and urine tests including urine protein and blood pressure, and start measuring how much water she drinks in 24 hours. Kidney disease is managed rather than cured, and catching it early makes a real difference.",
+   "sources": [
+    "IRIS Kidney staging — https://www.iris-kidney.com/iris-staging-system",
+    "Veterinary Partner (VIN) — https://veterinarypartner.vin.com/doc/?id=4951452"
+   ]
+  },
+  {
+   "name": "Coccidia",
+   "aka": [
+    "coccidiosis",
+    "isospora",
+    "cystoisospora"
+   ],
+   "system": "Parasites",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "watery diarrhoea in a young puppy",
+    "streaks of blood in loose stool",
+    "mucus jelly poop",
+    "started right after coming home",
+    "dehydrated, skin tents up",
+    "sunken eyes and dry gums",
+    "belly pain, hunched up",
+    "vomiting along with diarrhoea",
+    "weak and listless"
+   ],
+   "whatToDo": "Ask for a faecal test and treatment — routine dewormers do not kill coccidia. Go the same day instead if the puppy is limp, dry-gummed or vomiting, because puppies dehydrate fast.",
+   "sources": [
+    "CAPC — https://capcvet.org/guidelines/coccidia/",
+    "VCA — https://vcahospitals.com/know-your-pet/internal-parasites-in-dogs"
+   ]
+  },
+  {
+   "name": "Constipation",
+   "aka": [
+    "obstipation",
+    "can't poo",
+    "blocked up",
+    "straining to defecate"
+   ],
+   "system": "Digestive",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "straining but nothing comes out",
+    "hard dry pellet stools",
+    "hasn't pooed in two days",
+    "crying or hunching when straining",
+    "chalky white stool after eating bones",
+    "off her food and restless",
+    "vomiting with no bowel movement",
+    "swollen or firm belly"
+   ],
+   "whatToDo": "See a vet — straining can equally mean an obstruction, a prostate or pelvic problem, or colitis. Never give over-the-counter laxatives or mineral oil without veterinary direction. Straining plus retching or bloating is an emergency.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/digestive-system/diseases-of-the-large-intestine-in-small-animals/constipation-obstipation-and-megacolon-in-small-animals"
+   ]
+  },
+  {
+   "name": "Cropped or posted ear problems",
+   "aka": [
+    "ear crop",
+    "cropped ears",
+    "posting",
+    "taping",
+    "crop that won't stand"
+   ],
+   "system": "Ears",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "Cropping is common in this breed for the standard look, but AAHA opposes it as a cosmetic procedure and it carries anaesthetic, wound and long-term aftercare costs the natural ear does not.",
+   "signs": [
+    "redness, ooze or pus along the cut edge",
+    "a bad smell coming from the ear edge",
+    "the edge looks dark, dry or dying",
+    "stitches pulled out or gaping",
+    "raw skin or sores where the tape sits",
+    "swelling of the flap above the tape",
+    "the ear feels cold or the tip looks pale",
+    "she keeps scratching the posts off",
+    "the ear tip flops over and will not stand"
+   ],
+   "whatToDo": "Get pus, foul smell, dark or dying edges, or a fever checked the same day. Have looser problems seen within a few days by the vet managing the crop. Never leave a wrap on that is tight, wet or smelly, and do not re-tape over inflamed skin.",
+   "sources": [
+    "AAHA position statement — https://www.aaha.org/ear-croppingtail-docking/",
+    "Mills KE et al. — https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4922641/"
+   ]
+  },
+  {
+   "name": "Cushing's disease",
+   "aka": [
+    "hyperadrenocorticism",
+    "HAC",
+    "overactive adrenal glands",
+    "high cortisol"
+   ],
+   "system": "Hormones",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "No reported Giant Schnauzer predisposition; Poodles, Dachshunds, Boxers and small terriers are the over-represented breeds.",
+   "signs": [
+    "drinking and weeing a lot",
+    "always ravenous, raiding bins",
+    "pot belly or sagging tummy",
+    "panting a lot even when resting",
+    "hair loss over the body but not the head or legs",
+    "thin skin that bruises or tears easily",
+    "muscle wasting over the back and back legs",
+    "cuts and grazes slow to heal",
+    "repeated urine infections"
+   ],
+   "whatToDo": "Book a non-urgent appointment and note how much she drinks in 24 hours. Screening starts with routine bloods and urine before a specific adrenal test. Declare any steroid creams, drops or tablets she has had — they invalidate the results.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/endocrine-system/the-adrenal-glands/cushing-syndrome-hyperadrenocorticism-in-animals",
+    "AAHA 2023 Endocrinopathies Guidelines — https://www.aaha.org/resources/2023-aaha-selected-endocrinopathies-of-dogs-and-cats-guidelines/"
+   ]
+  },
+  {
+   "name": "Damp beard and matted-coat dermatitis",
+   "aka": [
+    "beard dermatitis",
+    "fold pyoderma",
+    "matting sores",
+    "sour beard"
+   ],
+   "system": "Skin",
+   "urgency": "vet-soon",
+   "breedRisk": "high",
+   "breedNote": "A permanently damp beard plus harsh furnishings that mat behind the ears, in the armpits and on the legs make this the breed's most predictable skin problem.",
+   "signs": [
+    "beard smells sour",
+    "beard stays wet after every drink",
+    "pink or brown staining on her chin hair",
+    "red bumpy skin under the beard",
+    "matted behind the ears",
+    "mats in her armpits and back legs",
+    "flinches when I brush her furnishings",
+    "sore red skin found under a mat",
+    "smells musty even after a bath",
+    "crusty skin along her lip folds"
+   ],
+   "whatToDo": "Have painful or tight mats clipped out professionally rather than cut with scissors, and get the skin underneath checked. Prevent it by drying the beard and feet after drinks and walks, keeping the beard trimmed, and brushing furnishings out to the skin several times a week.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/integumentary-system/pyoderma/pyoderma-in-dogs-and-cats",
+    "VCA — https://vcahospitals.com/know-your-pet/pyoderma-in-dogs"
+   ]
+  },
+  {
+   "name": "Degenerative myelopathy",
+   "aka": [
+    "DM",
+    "canine degenerative myelopathy"
+   ],
+   "system": "Neurological",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "The SOD1 variant behind DM appears in many breeds, but Giant Schnauzers were not among the 222 breeds in the largest published survey.",
+   "signs": [
+    "back end slowly getting weaker over months",
+    "scuffing and wearing down her back nails",
+    "knuckling that she doesn't bother to correct",
+    "back legs cross over when she turns",
+    "wobbly but doesn't seem to be in any pain",
+    "struggles to get up off the floor",
+    "one back leg noticeably worse than the other at first",
+    "tail hangs limp and moves less"
+   ],
+   "whatToDo": "Book a vet exam — DM is a diagnosis of exclusion, so painless slow hind-limb weakness still needs imaging to rule out a disc, wobbler syndrome or a tumour first. A cheek-swab SOD1 test shows risk only and cannot confirm the disease.",
+   "sources": [
+    "Zeng R et al., JVIM 2014 — https://academic.oup.com/jvim/article/28/2/515/8452192",
+    "UC Davis Veterinary Genetics Laboratory — https://vgl.ucdavis.edu/test/degenerative-myelopathy",
+    "OFA — https://ofa.org/degenerative-myelopathy/"
+   ]
+  },
+  {
+   "name": "Diabetes mellitus",
+   "aka": [
+    "diabetes",
+    "sugar diabetes",
+    "insulin"
+   ],
+   "system": "Hormones",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "Miniature Schnauzers are strongly over-represented but that risk does not carry across to Giant Schnauzers. Entire bitches are at higher risk than males because of season-related insulin resistance.",
+   "signs": [
+    "drinking and weeing a lot",
+    "wetting indoors or overnight",
+    "hungry all the time but losing weight",
+    "sticky patches where she has weed",
+    "cloudy eyes or bumping into things",
+    "coat looking poor and dull",
+    "sweet or nail-varnish smell on the breath",
+    "suddenly off her food and vomiting",
+    "sudden blindness"
+   ],
+   "whatToDo": "Book blood and urine glucose testing. Caught early this is manageable with twice-daily insulin and a fixed feeding routine. If she goes off food, starts vomiting or smells of acetone, treat it as an emergency — that suggests ketoacidosis.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/endocrine-system/the-pancreas/diabetes-mellitus-in-dogs-and-cats",
+    "AAHA 2018 Diabetes Management Guidelines — https://www.aaha.org/resources/2018-aaha-diabetes-management-guideline-for-dogs-and-cats/"
+   ]
+  },
+  {
+   "name": "Dry eye",
+   "aka": [
+    "KCS",
+    "keratoconjunctivitis sicca",
+    "gunky eyes"
+   ],
+   "system": "Eyes",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "thick yellow or greenish gunk in the corner",
+    "sticky discharge that keeps coming back",
+    "eye looks dull instead of glossy",
+    "red and irritated whites",
+    "blinking or squinting a lot",
+    "brown staining creeping across the eye",
+    "keeps getting eye infections",
+    "eyelids stuck together in the morning"
+   ],
+   "whatToDo": "Ask for a Schirmer tear test — it takes a minute and is the only way to confirm it. Repeated goopy eyes treated as plain infection are very often untreated dry eye. Treatment is usually lifelong ciclosporin or tacrolimus drops.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/keratoconjunctivitis-sicca-kcs-or-dry-eye-in-dogs"
+   ]
+  },
+  {
+   "name": "Ear infection (otitis externa)",
+   "aka": [
+    "ear infection",
+    "otitis",
+    "sore ear",
+    "inflamed ear canal"
+   ],
+   "system": "Ears",
+   "urgency": "vet-soon",
+   "breedRisk": "moderate",
+   "breedNote": "Indirect: Giant Schnauzers have a documented elevated hypothyroidism risk, and endocrine disease is a recognised driver of repeat ear infections. Recurrence should prompt a hunt for a cause rather than another round of drops.",
+   "signs": [
+    "shaking her head over and over",
+    "scratching or pawing at one ear",
+    "rubbing her ear along the couch or carpet",
+    "a bad or sour smell from the ear",
+    "brown, yellow or waxy gunk in the ear",
+    "the inside of the ear flap looks red or puffy",
+    "she flinches or yelps when you touch the ear",
+    "she tilts her head toward the sore side",
+    "the ear feels hot",
+    "one ear looks and smells different from the other"
+   ],
+   "whatToDo": "Book a vet visit within a few days and put nothing in the ear first — not leftover drops, not peroxide, not a cotton bud. The vet needs to see the canal and check the eardrum before choosing treatment. More than two or three infections a year warrants testing for allergies and thyroid disease.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/ear-disorders/otitis-externa/otitis-externa-in-animals",
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-information/itchy-ear-problems",
+    "O'Neill DG et al., otitis externa in the UK — https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8422687/"
+   ]
+  },
+  {
+   "name": "Ear mites",
+   "aka": [
+    "otodectes",
+    "otodectic mange"
+   ],
+   "system": "Ears",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "dry black crumbs like coffee grounds in the ear",
+    "furious, non-stop ear scratching",
+    "violent head shaking",
+    "scabs and scratch wounds around the ear and neck",
+    "both ears affected",
+    "other pets in the house scratching too",
+    "she scratches until the ear bleeds",
+    "hair worn away behind the ears",
+    "started soon after a shelter or kennel"
+   ],
+   "whatToDo": "Book a microscope check of the ear debris — mites need a parasiticide rather than a standard antibiotic drop, and the crumbly discharge is easily confused with yeast. All pets in the household usually need treating together.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/integumentary-system/mange/mange-in-dogs-and-cats",
+    "VCA — https://vcahospitals.com/know-your-pet/ear-mites-otodectes-in-cats-and-dogs"
+   ]
+  },
+  {
+   "name": "Ectopic ureter",
+   "aka": [
+    "ureteral ectopia",
+    "congenital incontinence",
+    "puppy incontinence"
+   ],
+   "system": "Urinary",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "Giant Schnauzers are not among the reported high-risk breeds; Labradors, Golden Retrievers, Huskies and Wheaten Terriers are.",
+   "signs": [
+    "wet since she was a puppy",
+    "never been reliably house-trained",
+    "constant dribbling rather than puddles",
+    "damp back legs and belly all the time",
+    "urine-stained fur around her vulva",
+    "sore red skin from being always wet",
+    "she also squats and wees normally",
+    "keeps getting bladder infections"
+   ],
+   "whatToDo": "Ask about referral for imaging or cystoscopy — this is a plumbing fault present from birth and is usually correctable. Do not accept repeated antibiotic courses alone for a young dog who has leaked her whole life.",
+   "sources": [
+    "Veterinary Partner (VIN) — https://veterinarypartner.vin.com/default.aspx?pid=19239&catId=254103&id=9739266",
+    "VCA — https://vcahospitals.com/know-your-pet/ectopic-ureters-in-dogs"
+   ]
+  },
+  {
+   "name": "Elbow dysplasia",
+   "aka": [
+    "ED",
+    "fragmented coronoid process",
+    "elbow arthritis"
+   ],
+   "system": "Bones and joints",
+   "urgency": "vet-soon",
+   "breedRisk": "moderate",
+   "breedNote": "OFA elbow statistics show 9.9% abnormal in 1,702 Giant Schnauzers, slightly BELOW the 12.0% all-breed average — the common claim that the breed is elbow-prone is not supported by OFA, though elbow screening remains a GSCA/CHIC requirement.",
+   "signs": [
+    "limping on a front leg",
+    "lameness that gets worse after exercise",
+    "stiff front legs first thing in the morning",
+    "holds one front paw out at an odd angle",
+    "elbows held out away from the body",
+    "short choppy stride in front",
+    "reluctant to go down stairs",
+    "started limping as a young dog",
+    "swelling or thickening around the elbow"
+   ],
+   "whatToDo": "Front-leg lameness in a young large-breed dog should not be dismissed as a sprain — ask for elbow radiographs and a referral if the films are unclear. Catching it early widens the surgical options and slows the arthritis that follows.",
+   "sources": [
+    "OFA elbow dysplasia — https://ofa.org/diseases/elbow-dysplasia/",
+    "GSCA Health Statement 2022 — https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2023/05/25082936/Giant-Schnauzer-Health-Statement-November-2022-.pdf"
+   ]
+  },
+  {
+   "name": "Exocrine pancreatic insufficiency (EPI)",
+   "aka": [
+    "EPI",
+    "pancreatic acinar atrophy",
+    "she can't digest her food"
+   ],
+   "system": "Digestive",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "Documented in German Shepherds, Rough Collies and Eurasiers; no elevated risk documented in Giant Schnauzers.",
+   "signs": [
+    "always hungry but losing weight",
+    "huge volumes of loose pale stool",
+    "greasy yellow poo",
+    "ravenous appetite",
+    "eating her own poo",
+    "very smelly gas",
+    "ribs showing despite eating well",
+    "dull greasy coat"
+   ],
+   "whatToDo": "Ask for a fasted serum TLI test plus B12 and folate — a simple blood test, and the diagnosis is easily missed. Treatment is lifelong enzyme replacement with every meal.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/digestive-system/the-exocrine-pancreas/exocrine-pancreatic-insufficiency-in-dogs-and-cats"
+   ]
+  },
+  {
+   "name": "False (phantom) pregnancy",
+   "aka": [
+    "phantom pregnancy",
+    "pseudopregnancy",
+    "false pregnancy"
+   ],
+   "system": "Female",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "milk or clear fluid from her teats when she isn't pregnant",
+    "swollen teats about four to nine weeks after a season",
+    "nesting, digging up bedding, hiding in corners",
+    "carrying a toy around and guarding it",
+    "off her food and a bit flat",
+    "restless, whiny or unusually clingy",
+    "slightly rounder tummy",
+    "licking her own teats constantly"
+   ],
+   "whatToDo": "Most cases settle within two to three weeks. Stop her licking the teats, do not milk them out, and leave the area alone. See a vet if she is genuinely ill, the glands are hot, hard or painful, or the behaviour is distressing her.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/false-pregnancy-or-pseudopregnancy-in-dogs",
+    "UC Davis — https://healthtopics.vetmed.ucdavis.edu/health-topics/canine/canine-pseudopregnancy"
+   ]
+  },
+  {
+   "name": "Fleas and flea allergy dermatitis",
+   "aka": [
+    "fleas",
+    "flea dirt",
+    "flea bite allergy"
+   ],
+   "system": "Parasites",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "itchy all the time",
+    "black pepper specks in the coat",
+    "specks that turn red when wet",
+    "chewing at the base of the tail",
+    "hair loss over the rump and back legs",
+    "red bumps and scabs on the belly",
+    "restless, can't settle",
+    "tiny fast bugs in the fur",
+    "pale gums in a small puppy"
+   ],
+   "whatToDo": "Use a vet-recommended product labelled for her age and weight, and treat every pet in the house plus bedding and carpets for at least three months. Ask the vet to check for tapeworm and, in a heavily infested puppy, anaemia.",
+   "sources": [
+    "CAPC — https://capcvet.org/guidelines/fleas/",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/integumentary-system/fleas-and-flea-allergy-dermatitis/fleas-in-dogs-and-cats"
+   ]
+  },
+  {
+   "name": "Food allergy and adverse food reaction",
+   "aka": [
+    "food allergy",
+    "food intolerance",
+    "food-responsive enteropathy"
+   ],
+   "system": "Digestive",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "itchy skin and loose stool together",
+    "chewing her paws",
+    "recurring ear infections",
+    "soft stool for days",
+    "more than three poos a day",
+    "vomiting after certain foods",
+    "gassy and gurgling",
+    "red itchy belly",
+    "bottom scooting"
+   ],
+   "whatToDo": "Diagnosis is a strict 8-12 week elimination diet trial on a vet-prescribed novel-protein or hydrolysed diet with zero treats, chews or flavoured medications, then rechallenge. Blood, saliva and hair allergy tests do not diagnose food allergy.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/food-allergies-in-dogs",
+    "VCA elimination diet trial — https://vcahospitals.com/know-your-pet/implementing-an-elimination-challenge-diet-trial-dog"
+   ]
+  },
+  {
+   "name": "Giardia",
+   "aka": [
+    "giardiasis",
+    "giardia duodenalis"
+   ],
+   "system": "Parasites",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "In a Giant Schnauzer puppy, diarrhoea and poor growth persisting after parasites are cleared should prompt a B12 check.",
+   "signs": [
+    "greasy soft poop",
+    "really foul smelling diarrhoea",
+    "pale or light coloured stool",
+    "mucus in the poop",
+    "diarrhoea comes and goes for weeks",
+    "gassy and rumbly belly",
+    "not gaining weight despite eating",
+    "still playful but loose stools",
+    "started after daycare, boarding or a puddle"
+   ],
+   "whatToDo": "Bring a fresh stool sample and mention any kennel, dog park or standing water exposure; diagnosis often needs a specific giardia antigen test rather than a routine float. Bathe the rear and clean bedding during treatment.",
+   "sources": [
+    "CAPC — https://capcvet.org/guidelines/giardia/",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/dog-owners/digestive-disorders-of-dogs/gastrointestinal-parasites-of-dogs"
+   ]
+  },
+  {
+   "name": "Gum disease",
+   "aka": [
+    "gingivitis",
+    "periodontal disease",
+    "tartar",
+    "plaque buildup"
+   ],
+   "system": "Mouth",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "Giant breeds are at lower risk than toy breeds. Published Miniature Schnauzer findings do not transfer to Giant Schnauzers.",
+   "signs": [
+    "bad breath",
+    "red gum line",
+    "gums bleed when brushing",
+    "brown or yellow crust on the teeth",
+    "receding gums",
+    "loose or wobbly tooth",
+    "chewing on one side",
+    "dropping food",
+    "drooling more than usual",
+    "pus at the gum line"
+   ],
+   "whatToDo": "Book a dental exam — gingivitis is reversible but periodontitis under the gum line needs an anaesthetic cleaning with dental x-rays, since visible tartar shows only part of the problem. At home, brush daily with dog toothpaste, never human toothpaste.",
+   "sources": [
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/health-topics/canine-health-information/periodontal-disease",
+    "AAHA 2019 Dental Care Guidelines — https://www.aaha.org/resources/2019-aaha-dental-care-guidelines-for-dogs-and-cats/",
+    "VOHC accepted products — https://vohc.org/accepted-products/"
+   ]
+  },
+  {
+   "name": "Heart murmur and valve disease",
+   "aka": [
+    "murmur",
+    "leaky valve",
+    "mitral valve disease",
+    "subaortic stenosis"
+   ],
+   "system": "Heart",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "Degenerative mitral valve disease is mainly a small-breed problem. In a giant breed a new murmur more often points to DCM, subaortic stenosis or anaemia, so it should not be dismissed as 'just a murmur'.",
+   "signs": [
+    "vet heard a murmur",
+    "tiring sooner than she used to",
+    "coughing on and off",
+    "breathing faster while asleep",
+    "fainted during excitement or exercise",
+    "gums slow to pink up when pressed",
+    "less keen on stairs or the car",
+    "quieter than usual for weeks"
+   ],
+   "whatToDo": "Ask for an echocardiogram to find out what the murmur actually is and how large her heart chambers are. Murmur grade alone is a poor guide to severity.",
+   "sources": [
+    "ACVIM consensus guidelines, JVIM 2019 — https://onlinelibrary.wiley.com/doi/10.1111/jvim.15488",
+    "Veterinary Partner (VIN) — https://veterinarypartner.vin.com/default.aspx?pid=19239&id=8526511"
+   ]
+  },
+  {
+   "name": "Heartworm disease",
+   "aka": [
+    "heartworms",
+    "dirofilaria"
+   ],
+   "system": "Parasites",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "soft persistent cough",
+    "tires out on short walks",
+    "breathing hard after mild activity",
+    "won't play like she used to",
+    "losing weight and muscle",
+    "swollen belly",
+    "fainting or collapse",
+    "coughing up blood",
+    "pale or bluish gums",
+    "missed a month of prevention"
+   ],
+   "whatToDo": "Keep her on year-round prevention and test yearly. If doses were missed or signs are showing, book a heartworm test before restarting a preventive. Collapse, blue gums or coughing blood is an emergency.",
+   "sources": [
+    "American Heartworm Society — https://www.heartwormsociety.org/pet-owner-resources/heartworm-basics",
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-information/heartworm-disease"
+   ]
+  },
+  {
+   "name": "Hip dysplasia",
+   "aka": [
+    "CHD",
+    "bad hips",
+    "hip arthritis",
+    "hip laxity"
+   ],
+   "system": "Bones and joints",
+   "urgency": "vet-soon",
+   "breedRisk": "high",
+   "breedNote": "OFA hip statistics list the Giant Schnauzer at 17.5% dysplastic across 5,903 evaluations, above the 14.2% all-breed average, with only 11.9% graded Excellent. Hip screening is a GSCA/CHIC requirement.",
+   "signs": [
+    "bunny hopping with both back legs",
+    "slow and stiff getting up from her bed",
+    "struggling with stairs",
+    "won't jump into the car anymore",
+    "swaying or wobbling in the back end",
+    "a clicking sound from the hips",
+    "sits with her legs flopped out to one side",
+    "stiff and sore the day after a long walk",
+    "flinches or yelps when you touch her hips"
+   ],
+   "whatToDo": "Ask about sedated hip radiographs graded by OFA or PennHIP, and keep her lean — body weight is the single biggest factor you control. Even established hip arthritis responds well to weight management, controlled exercise and modern pain medication.",
+   "sources": [
+    "OFA hip dysplasia — https://ofa.org/diseases/hip-dysplasia/",
+    "GSCA Health Statement 2022 — https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2023/05/25082936/Giant-Schnauzer-Health-Statement-November-2022-.pdf"
+   ]
+  },
+  {
+   "name": "Hypothyroidism and autoimmune thyroiditis",
+   "aka": [
+    "underactive thyroid",
+    "low thyroid",
+    "lymphocytic thyroiditis",
+    "CLT"
+   ],
+   "system": "Hormones",
+   "urgency": "vet-soon",
+   "breedRisk": "high",
+   "breedNote": "Confirmed in the breed: of 236 Giant Schnauzers screened, 7.2% were already hypothyroid and a further 10.0% had raised thyroid autoantibodies, with a DLA risk haplotype identified. OFA thyroid testing is a CHIC requirement for the breed.",
+   "signs": [
+    "putting on weight without eating more",
+    "slowed right down, sleeping more",
+    "coat gone dull, dry and thin",
+    "bald patches on the flanks or tail",
+    "seeking out warm spots, feels the cold",
+    "dark, thickened or greasy flaky skin",
+    "ear and skin infections that keep coming back",
+    "a droopy, sad-looking face",
+    "seasons stopped or irregular"
+   ],
+   "whatToDo": "Ask for a full thyroid panel with free T4, TSH and thyroglobulin autoantibodies — a total T4 alone misses early autoimmune cases. Mention the breed. Do not start any thyroid supplement before testing. Treatment is an inexpensive daily tablet and most dogs visibly improve within weeks.",
+   "sources": [
+    "Ferm et al., J Small Anim Pract 2009 — https://pubmed.ncbi.nlm.nih.gov/19320811/",
+    "Wilbe et al., Tissue Antigens 2010 — https://pubmed.ncbi.nlm.nih.gov/20210920/",
+    "OFA thyroid — https://ofa.org/diseases/thyroid/",
+    "GSCA Health Statement 2022 — https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2023/05/25082936/Giant-Schnauzer-Health-Statement-November-2022-.pdf"
+   ]
+  },
+  {
+   "name": "Kennel cough",
+   "aka": [
+    "CIRDC",
+    "infectious tracheobronchitis",
+    "canine cough"
+   ],
+   "system": "Breathing",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "sudden honking cough",
+    "coughing then retching or gagging",
+    "sounds like something stuck in her throat",
+    "cough gets worse when the lead pulls on her neck",
+    "clear runny nose or sneezing",
+    "started a few days after boarding, daycare or the groomer",
+    "still eating and bright but coughing all night",
+    "low fever or a bit tired",
+    "other dogs she was with are coughing too"
+   ],
+   "whatToDo": "Book a vet visit and keep her away from other dogs — this spreads easily and she may shed for weeks. Go in the same day if she gets a high fever, stops eating, breathes fast or hard at rest, or the cough turns wet, which suggests pneumonia.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/respiratory-system/respiratory-diseases-of-small-animals/kennel-cough",
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/risks-kennel-cough",
+    "AAHA 2022 Canine Vaccination Guidelines — https://www.aaha.org/resources/2022-aaha-canine-vaccination-guidelines/bordetella-canine-parainfluenza-and-canine-influenza/"
+   ]
+  },
+  {
+   "name": "Lump in her mammary chain",
+   "aka": [
+    "breast lump",
+    "mammary mass",
+    "mammary tumour",
+    "milk line lump"
+   ],
+   "system": "Female",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "No confirmed Giant Schnauzer risk in the large insurance datasets. One small single-centre study flagged the breed and has not been replicated.",
+   "signs": [
+    "pea-sized or bigger lump in one of her teat lines",
+    "several lumps along her belly at once",
+    "a lump that has grown noticeably in a few weeks",
+    "hard lump stuck down to the skin or body wall",
+    "red, hot, swollen gland",
+    "ulcerated or weeping skin over a lump",
+    "bloody or yellow fluid from one teat",
+    "swollen back leg near the lump"
+   ],
+   "whatToDo": "Any lump in the mammary chain of an entire bitch needs an appointment rather than watchful waiting — roughly half of canine mammary tumours are malignant, and size at removal strongly affects outcome. Run your hands along both teat lines monthly, especially after each season.",
+   "sources": [
+    "ACVS — https://www.acvs.org/small-animal/mammary-tumors/",
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-information/mammary-cancer",
+    "Beauvais et al., JSAP 2012 — https://onlinelibrary.wiley.com/doi/10.1111/j.1748-5827.2011.01220.x"
+   ]
+  },
+  {
+   "name": "Lump or growth in the mouth",
+   "aka": [
+    "oral mass",
+    "gum growth",
+    "epulis",
+    "mouth warts",
+    "papillomas"
+   ],
+   "system": "Mouth",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "No documented Giant Schnauzer predisposition to oral tumours. The breed's reported cancer risk concerns the toes, not the mouth.",
+   "signs": [
+    "lump or bump on the gum",
+    "cauliflower-like warts on the lips or gums",
+    "swelling on one side of the face",
+    "bleeding from the mouth",
+    "bad breath that keeps getting worse",
+    "drooling, sometimes blood-tinged",
+    "dropping food or eating on one side",
+    "a tooth pushed out of place",
+    "loose tooth with no tartar around it",
+    "losing weight while still interested in food"
+   ],
+   "whatToDo": "Have any mouth lump examined rather than watched — appearance alone cannot tell a harmless growth from a malignant one, and a biopsy settles it. In young puppies, clustered wart-like growths are often viral papillomas that regress on their own.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/digestive-system/diseases-of-the-mouth-in-small-animals/oral-tumors-in-small-animals",
+    "AVDC — https://avdc.org/find-a-veterinary-specialist/"
+   ]
+  },
+  {
+   "name": "Mange (sarcoptic and demodectic)",
+   "aka": [
+    "scabies",
+    "sarcoptes",
+    "demodex",
+    "red mange",
+    "mites"
+   ],
+   "system": "Skin",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "frantic nonstop scratching",
+    "crusty scabby ear edges",
+    "bald patches around the eyes and mouth",
+    "thinning hair on elbows and hocks",
+    "red angry skin",
+    "thick greasy smelly skin",
+    "hair loss without much itching",
+    "sores from chewing herself raw",
+    "people in the house itchy too",
+    "scratches when you rub the ear tip"
+   ],
+   "whatToDo": "Ask for skin scrapings — intensely itchy sarcoptic mange is contagious to people while demodex usually is not, and the two are treated differently. Do not use over-the-counter dips on a puppy.",
+   "sources": [
+    "CAPC sarcoptic — https://capcvet.org/guidelines/sarcoptic-mite/",
+    "CAPC demodex — https://capcvet.org/guidelines/demodex/",
+    "VCA — https://vcahospitals.com/know-your-pet/mange-sarcoptic-in-dogs"
+   ]
+  },
+  {
+   "name": "Mast cell tumour",
+   "aka": [
+    "MCT",
+    "mastocytoma",
+    "the great pretender"
+   ],
+   "system": "Cancer",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "Not a documented Giant Schnauzer risk — Bulldog types and Retrievers carry the high odds.",
+   "signs": [
+    "a lump that changes size",
+    "lump that goes red and angry then calms",
+    "raised pink lump on the skin",
+    "lump she keeps licking",
+    "soft lump that feels like a fatty lump",
+    "swelling that flares after being touched",
+    "lump that suddenly got bigger overnight",
+    "vomiting alongside a skin lump"
+   ],
+   "whatToDo": "Get any lump that changes size, reddens or flares needle-sampled — mast cell tumours mimic harmless fatty lumps and cannot be identified by feel. Avoid squeezing or repeatedly prodding it, which can trigger a histamine flare.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/mast-cell-tumors-in-dogs",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/dog-owners/skin-disorders-of-dogs/tumors-of-the-skin-in-dogs"
+   ]
+  },
+  {
+   "name": "Nail bed cancer (digital squamous cell carcinoma)",
+   "aka": [
+    "subungual SCC",
+    "toe cancer",
+    "nail bed cancer",
+    "digital SCC"
+   ],
+   "system": "Breed-specific",
+   "urgency": "vet-soon",
+   "breedRisk": "high",
+   "breedNote": "The strongest breed link of any condition here. In a review of 278,812 canine biopsies the Giant Schnauzer had the highest odds ratio of any dog for subungual SCC, at 56.7, with a schnauzer-specific KITLG risk marker.",
+   "signs": [
+    "swollen painful toe",
+    "a nail that fell off",
+    "cracked, split or deformed nail",
+    "bleeding or oozing around one nail",
+    "licking or chewing one toe constantly",
+    "limping on one foot",
+    "toe looks red and lumpy",
+    "nail keeps growing back wrong",
+    "toe infection that won't clear up with antibiotics",
+    "a second toe does the same thing months later"
+   ],
+   "whatToDo": "In this breed a nail that splits, falls off, bleeds or leaves a swollen toe needs an x-ray of the toe and a biopsy, not another course of antibiotics. Say the words 'digital squamous cell carcinoma' to your vet — amputating the toe early is usually curative.",
+   "sources": [
+    "Chiu et al., Can Vet J 2022 — https://pubmed.ncbi.nlm.nih.gov/36325409/",
+    "Digital SCC in Giant, Standard and Miniature Schnauzers, Animals 2023 — https://pmc.ncbi.nlm.nih.gov/articles/PMC10295616/",
+    "KITLG variations in Schnauzer breeds, Vet Sci 2023 — https://pmc.ncbi.nlm.nih.gov/articles/PMC9966798/"
+   ]
+  },
+  {
+   "name": "Osteochondritis dissecans (OCD)",
+   "aka": [
+    "OCD",
+    "osteochondrosis",
+    "cartilage flap",
+    "shoulder OCD"
+   ],
+   "system": "Bones and joints",
+   "urgency": "vet-soon",
+   "breedRisk": "moderate",
+   "breedNote": "A disorder of medium, large and rapidly growing dogs. The Giant Schnauzer does not appear in OFA's shoulder OCD breed table, so the risk comes from her size and growth rate rather than the breed.",
+   "signs": [
+    "limp in one front leg between four and eight months old",
+    "lameness that gets worse after play, not better",
+    "shoulder sore when you reach the leg forward",
+    "muscle over the shoulder blade looks smaller on one side",
+    "won't bear full weight on one leg",
+    "stiff after resting following a big play session",
+    "limping that started with no injury you saw",
+    "cries out when the joint is flexed"
+   ],
+   "whatToDo": "Get radiographs of the sore joint — OCD in a fast-growing puppy usually needs arthroscopic or surgical treatment rather than rest alone. Stop forced exercise and check she is on a large- or giant-breed growth diet, since rapid growth and over-nutrition contribute.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/musculoskeletal-system/arthropathies-and-related-disorders-in-small-animals/osteochondrosis-in-dogs",
+    "ACVS — https://www.acvs.org/small-animal/osteochondritis-dissecans/"
+   ]
+  },
+  {
+   "name": "Osteosarcoma (bone cancer)",
+   "aka": [
+    "OSA",
+    "bone cancer",
+    "limp that won't settle"
+   ],
+   "system": "Cancer",
+   "urgency": "vet-soon",
+   "breedRisk": "moderate",
+   "breedNote": "Risk tracks body size rather than this breed specifically: dogs over 40 kg had 45 times the odds of dogs under 10 kg, but Giant Schnauzers were not named among the top-risk breeds.",
+   "signs": [
+    "limping that won't settle",
+    "limp that got worse over weeks",
+    "firm swelling on a leg",
+    "hard lump just above the wrist",
+    "yelping when the leg is touched",
+    "not wanting to jump in the car",
+    "leg gave way suddenly",
+    "limping that painkillers only half fix"
+   ],
+   "whatToDo": "Any limp in a big dog lasting more than two weeks, or any firm swelling on a limb, needs an x-ray rather than another course of rest and painkillers. If the leg gives way suddenly treat it as urgent — weakened bone can fracture.",
+   "sources": [
+    "Edmunds et al., Canine Med Genet 2021 — https://pubmed.ncbi.nlm.nih.gov/33750475/",
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-information/osteosarcoma"
+   ]
+  },
+  {
+   "name": "Panosteitis (growing pains)",
+   "aka": [
+    "pano",
+    "growing pains",
+    "shifting-leg lameness"
+   ],
+   "system": "Bones and joints",
+   "urgency": "vet-soon",
+   "breedRisk": "high",
+   "breedNote": "Affects young, rapidly growing large- and giant-breed dogs, which is exactly her category. There is no registry or breed-specific prevalence figure.",
+   "signs": [
+    "limping that moves between legs week to week",
+    "sudden limp with no injury you saw",
+    "yelps when you squeeze the long bone of a leg",
+    "off her food and a bit feverish with the limp",
+    "flat and sleepy for a few days at a time",
+    "lameness that comes and goes in waves",
+    "worse after a long walk or hard play",
+    "first showed up between five and eighteen months"
+   ],
+   "whatToDo": "See your vet to confirm it is pano and not something needing surgery — diagnosis rests on squeezing the long bones and on radiographs. It is self-limiting and she will outgrow it, but she needs pain relief and rest during flare-ups.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/musculoskeletal-system/osteopathies-in-small-animals/developmental-osteopathies-in-dogs-and-cats",
+    "Veterinary Partner (VIN) — https://veterinarypartner.vin.com/default.aspx?pid=19239&catId=254100&id=4953019"
+   ]
+  },
+  {
+   "name": "Progressive retinal atrophy (PRA-N)",
+   "aka": [
+    "PRA",
+    "PRA-N",
+    "NECAP1",
+    "retinal degeneration",
+    "going blind slowly",
+    "night blindness"
+   ],
+   "system": "Eyes",
+   "urgency": "vet-soon",
+   "breedRisk": "moderate",
+   "breedNote": "The breed's own PRA form is PRA-N (NECAP1), first described in Giant Schnauzers — NOT prcd-PRA, which has no published case series in this breed. Evidence is only three affected dogs from one litter, and the variant is not yet confirmed pathogenic. The CHIC eye requirement is an annual CAER exam by an ophthalmologist, not a DNA test.",
+   "signs": [
+    "bumping into things at dusk",
+    "won't go down stairs in the dark",
+    "nervous or clingy at night",
+    "eyes shine back very brightly",
+    "pupils look wide open all the time",
+    "startles when you walk up to her",
+    "can't find a treat dropped on the floor",
+    "fine in daylight, lost at night"
+   ],
+   "whatToDo": "Book a board-certified veterinary ophthalmologist for a full retinal exam — PRA is painless and easy to miss until vision is far gone. There is no cure, so the work is confirming it, ruling out treatable causes of night blindness, and keeping furniture and routines predictable.",
+   "sources": [
+    "OFA PRA-N — https://ofa.org/progressive-retinal-atrophy-necap1/",
+    "Hitti et al., Genes 2019 — https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6562617/",
+    "OMIA 002198-9615 — https://omia.org/OMIA002198/9615/"
+   ]
+  },
+  {
+   "name": "Puppy vaginitis",
+   "aka": [
+    "juvenile vaginitis",
+    "prepubertal vaginitis",
+    "discharge from her vulva"
+   ],
+   "system": "Female",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "sticky white or yellow discharge from her vulva",
+    "crusty gunk in the hair around her private parts",
+    "licking her private parts a lot",
+    "a faint smell from her back end",
+    "otherwise completely well, eating and playing normally",
+    "scooting her bottom along the floor",
+    "reddened skin folds around the vulva",
+    "no fever and no straining to wee"
+   ],
+   "whatToDo": "Get one vet check to rule out a urine infection, a recessed vulva and a foreign body, then usually just keep the area clean with plain water or unscented wipes. It normally resolves after her first season.",
+   "sources": [
+    "Veterinary Partner (VIN) — https://veterinarypartner.vin.com/default.aspx?pid=19239&id=4952565",
+    "VCA — https://vcahospitals.com/know-your-pet/vaginitis-in-dogs"
+   ]
+  },
+  {
+   "name": "Recognising pain",
+   "aka": [
+    "is she hurting",
+    "sore",
+    "hidden pain",
+    "painful",
+    "discomfort"
+   ],
+   "system": "Emergency",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "hiding and doesn't want to be touched",
+    "hunched back or a tucked-up belly",
+    "won't jump into the car or go up stairs",
+    "slow to get up after lying down",
+    "panting at rest when it isn't hot",
+    "eating less or dropping food",
+    "licking or chewing one spot over and over",
+    "grumbles or snaps when handled in one area",
+    "restless, keeps changing position",
+    "trembling or shaking"
+   ],
+   "whatToDo": "Treat any sudden change in posture, appetite, willingness to move or tolerance of handling as possible pain and book a vet. Never give human painkillers — ibuprofen, paracetamol and aspirin are toxic to dogs. A stoic dog who is still eating and wagging can be in significant pain.",
+   "sources": [
+    "AAHA 2022 Pain Management Guidelines — https://www.aaha.org/resources/2022-aaha-pain-management-guidelines-for-dogs-and-cats/"
+   ]
+  },
+  {
+   "name": "Retained baby teeth",
+   "aka": [
+    "persistent deciduous teeth",
+    "two rows of teeth",
+    "double canines"
+   ],
+   "system": "Mouth",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "Most often reported in toy and flat-faced breeds; Giant Schnauzers have no documented excess risk, but any puppy can be affected.",
+   "signs": [
+    "two teeth in one spot",
+    "two rows of teeth",
+    "baby tooth still there at 6-7 months",
+    "adult canine coming in beside a baby canine",
+    "crowded or crooked front teeth",
+    "food packing between teeth",
+    "bad breath in a young puppy",
+    "red puffy gum around one tooth"
+   ],
+   "whatToDo": "If a baby tooth and its adult replacement are both present at once, book a vet exam rather than waiting. Persistent teeth are usually extracted promptly because crowding traps plaque and can push the adult tooth out of position.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/retained-deciduous-teeth-baby-teeth-in-dogs",
+    "AVDC — https://avdc.org/avdc-nomenclature/"
+   ]
+  },
+  {
+   "name": "Ringworm",
+   "aka": [
+    "dermatophytosis",
+    "fungal skin infection"
+   ],
+   "system": "Skin",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "round bald patch with flaky edges",
+    "crusty scaly spots on her face",
+    "broken stubbly hairs",
+    "hair loss on her muzzle or ears",
+    "brittle crumbly claws",
+    "patches spreading slowly",
+    "not always itchy",
+    "someone in the house has a ring-shaped rash",
+    "spots after time in a kennel or shelter"
+   ],
+   "whatToDo": "See a vet for a fungal culture or PCR before treating — ringworm needs weeks of systemic plus topical antifungal therapy and mimics several other conditions. It is contagious to people, so wear gloves and ask about decontaminating bedding and grooming tools.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/integumentary-system/dermatophytosis/dermatophytosis-in-dogs-and-cats"
+   ]
+  },
+  {
+   "name": "Roundworms",
+   "aka": [
+    "ascarids",
+    "toxocara",
+    "puppy worms",
+    "spaghetti worms"
+   ],
+   "system": "Parasites",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "pot-bellied puppy",
+    "white spaghetti-like worms in poop",
+    "worms in vomit",
+    "dull rough coat",
+    "not growing well",
+    "soft or mucousy stool",
+    "poor appetite but round belly",
+    "coughing in a young puppy",
+    "thin over the ribs"
+   ],
+   "whatToDo": "Bring a fresh stool sample and follow the full deworming series rather than a single dose — most puppies are born already infected. Pick up stool promptly and wash hands, because roundworm eggs can infect people.",
+   "sources": [
+    "CAPC — https://capcvet.org/guidelines/ascarid/",
+    "CDC Toxocariasis — https://www.cdc.gov/toxocariasis/about/index.html",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/digestive-system/gastrointestinal-parasites-of-small-animals/roundworms-in-small-animals"
+   ]
+  },
+  {
+   "name": "Skin infection (pyoderma and yeast)",
+   "aka": [
+    "bacterial folliculitis",
+    "staph infection",
+    "yeast dermatitis",
+    "Malassezia"
+   ],
+   "system": "Skin",
+   "urgency": "vet-soon",
+   "breedRisk": "moderate",
+   "breedNote": "Risk here is coat-driven rather than genetic: a dense double coat, beard and leg furnishings hold moisture against skin.",
+   "signs": [
+    "pimples and scabs along her back",
+    "circular flaky bald patches",
+    "crusty bumps you feel when brushing",
+    "musty or corn-chip smell",
+    "greasy feeling coat",
+    "skin gone thick and grey between her back legs",
+    "red inflamed skin between her toes",
+    "brown waxy ear discharge",
+    "rust-brown stain on her leg hair from licking"
+   ],
+   "whatToDo": "See a vet for skin cytology — bacteria and yeast look similar but need different drugs, and both are almost always secondary to allergy, parasites or a hormonal problem. Expect medicated shampoo plus treatment of the underlying cause, and do not stop antibiotics early.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/integumentary-system/pyoderma/pyoderma-in-dogs-and-cats",
+    "VCA — https://vcahospitals.com/know-your-pet/yeast-dermatitis-in-dogs"
+   ]
+  },
+  {
+   "name": "Tapeworms",
+   "aka": [
+    "dipylidium",
+    "flea tapeworm",
+    "rice worms"
+   ],
+   "system": "Parasites",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "rice grains near the tail",
+    "white moving segments in poop",
+    "sesame seed things in the bed",
+    "scooting on the carpet",
+    "licking or biting at the rear",
+    "fleas or flea dirt in the coat",
+    "occasional loose stool",
+    "otherwise bright and normal"
+   ],
+   "whatToDo": "Tapeworm needs praziquantel, which most general puppy wormers and many monthly preventives do not cover — call the vet rather than reusing a leftover product. Treat fleas at the same time or she will simply be reinfected.",
+   "sources": [
+    "CAPC — https://capcvet.org/guidelines/cestodes/",
+    "VCA — https://vcahospitals.com/know-your-pet/internal-parasites-in-dogs"
+   ]
+  },
+  {
+   "name": "Urethral sphincter mechanism incompetence (leaking urine)",
+   "aka": [
+    "USMI",
+    "spay incontinence",
+    "urethral incontinence",
+    "dribbling"
+   ],
+   "system": "Urinary",
+   "urgency": "vet-soon",
+   "breedRisk": "high",
+   "breedNote": "Giant Schnauzers are named among the breeds over-represented for sphincter mechanism incompetence in the USA, alongside Dobermans. This is incontinence, not infection — a distinction often muddled.",
+   "signs": [
+    "wet patch where she slept",
+    "dribbling urine without knowing it",
+    "damp fur between her back legs",
+    "smells faintly of urine",
+    "licking herself a lot down there",
+    "leaks when she is excited or relaxed",
+    "worse after she was spayed",
+    "she still squats and wees normally otherwise",
+    "red or sore skin around her vulva"
+   ],
+   "whatToDo": "Book a routine vet visit and take a fresh morning urine sample so infection and other causes are ruled out first. This is treatable with medication in most dogs, so it is worth investigating rather than managing with towels.",
+   "sources": [
+    "ACVIM Consensus Statement on Urinary Incontinence in Dogs, JVIM 2024 — https://onlinelibrary.wiley.com/doi/10.1111/jvim.16975",
+    "Chew & DiBartola, WSAVA 2007 (VIN) — https://www.vin.com/apputil/content/defaultadv1.aspx?pId=11242&catId=31928&id=3860881",
+    "VCA — https://vcahospitals.com/know-your-pet/urethral-incontinence-in-dogs"
+   ]
+  },
+  {
+   "name": "Urinary tract infection",
+   "aka": [
+    "UTI",
+    "bladder infection",
+    "cystitis"
+   ],
+   "system": "Urinary",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "No breed predisposition is documented for Giant Schnauzers. Female dogs in general get UTIs more often than males.",
+   "signs": [
+    "squatting again and again",
+    "only a few drops each time",
+    "blood in her wee",
+    "straining and it seems to hurt",
+    "asking to go out much more often",
+    "accidents in the house from a clean dog",
+    "licking herself a lot",
+    "wee smells strong or cloudy",
+    "seems a bit off in herself"
+   ],
+   "whatToDo": "Get her seen within a day or two with a fresh mid-stream urine sample. Antibiotics should be chosen on a urine culture where possible, never guessed or left over from a previous course.",
+   "sources": [
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/urinary-tract-infections",
+    "ISCAID Guidelines, Vet J 2019 — https://www.sciencedirect.com/science/article/abs/pii/S109002331830460X"
+   ]
+  },
+  {
+   "name": "Whipworms",
+   "aka": [
+    "trichuris",
+    "whips"
+   ],
+   "system": "Parasites",
+   "urgency": "vet-soon",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "diarrhoea with fresh blood",
+    "slimy mucus on the poop",
+    "straining to poop",
+    "urgent frequent poops",
+    "diarrhoea that keeps coming back",
+    "losing weight slowly",
+    "gassy and gurgly",
+    "dull coat and low energy"
+   ],
+   "whatToDo": "Ask for a faecal test, and tell the vet if it comes back negative but signs persist — whipworm eggs shed intermittently and are easily missed. Treatment runs over about three months, and eggs survive years in soil.",
+   "sources": [
+    "CAPC — https://capcvet.org/guidelines/trichuris-vulpis/",
+    "VCA — https://vcahospitals.com/know-your-pet/internal-parasites-in-dogs"
+   ]
+  },
+  {
+   "name": "Wobbler syndrome",
+   "aka": [
+    "wobblers",
+    "CSM",
+    "cervical spondylomyelopathy",
+    "neck spinal cord compression"
+   ],
+   "system": "Neurological",
+   "urgency": "vet-soon",
+   "breedRisk": "moderate",
+   "breedNote": "A large- and giant-breed disease, but the breeds named in the literature are Doberman, Great Dane, Mastiff and Rottweiler. Giant Schnauzers are not on that list — this is size-based inference only.",
+   "signs": [
+    "wobbly, drunk-looking back end",
+    "back legs cross over each other when she turns",
+    "long floaty stride behind, short choppy stride in front",
+    "scuffing her nails on the ground",
+    "worn-down toenails on the back feet",
+    "holds her neck low and stiff",
+    "yelps or flinches when her neck is touched",
+    "won't turn her head to take a treat",
+    "legs slide out from under her on smooth floors"
+   ],
+   "whatToDo": "Switch to a chest harness instead of a neck collar, keep her off stairs and slippery floors, and book a vet exam — confirming it needs MRI and usually a neurologist. Go in urgently if she goes down and cannot get up.",
+   "sources": [
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/nervous-system/diseases-of-the-spinal-column-and-cord/degenerative-diseases-of-the-spinal-column-and-cord-in-animals",
+    "da Costa RC, Vet Clin North Am 2010 — https://pubmed.ncbi.nlm.nih.gov/20732597/",
+    "Ohio State University — https://vet.osu.edu/research/wobbler-syndrome"
+   ]
+  },
+  {
+   "name": "Dietary indiscretion (she ate something she shouldn't)",
+   "aka": [
+    "garbage gut",
+    "acute gastroenteritis",
+    "tummy upset"
+   ],
+   "system": "Digestive",
+   "urgency": "monitor",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "vomiting after raiding the bin",
+    "sudden diarrhoea overnight",
+    "eating grass and vomiting",
+    "gurgling noisy stomach",
+    "passing gas and mucus",
+    "off her food for a day",
+    "yellow or foamy vomit",
+    "straining with soft stool",
+    "seems tired but still drinking"
+   ],
+   "whatToDo": "Withhold food for a few hours (never water), then offer small bland meals and watch for 24-48 hours. Call the vet sooner for repeated vomiting, blood, a bloated or painful belly, unproductive retching, or if she cannot keep water down.",
+   "sources": [
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-topics/diarrhea",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/dog-owners/digestive-disorders-of-dogs/disorders-of-the-stomach-and-intestines-in-dogs"
+   ]
+  },
+  {
+   "name": "Her normal vital signs",
+   "aka": [
+    "TPR",
+    "temperature",
+    "heart rate",
+    "resting respiratory rate",
+    "taking her temperature",
+    "baseline"
+   ],
+   "system": "Emergency",
+   "urgency": "monitor",
+   "breedRisk": "general",
+   "breedNote": "As a large breed her resting heart rate normally sits toward the lower end of the range.",
+   "signs": [
+    "breathing more than 35 breaths a minute while fully asleep",
+    "resting breathing rate has climbed above her usual number",
+    "heart rate over 180 or under 60 beats a minute",
+    "pulse in the inner thigh feels weak or you can't find it",
+    "pulse feels irregular or skips",
+    "temperature over 103F (39.4C)",
+    "temperature under 99F (37.2C) and she feels cold",
+    "panting hard when it isn't hot and she hasn't exercised"
+   ],
+   "whatToDo": "Learn her normal numbers while she is well and write them down: temperature 101-102.5F (38.3-39.2C), heart rate 70-120 bpm counted at the femoral pulse in the groin, sleeping breathing rate 18-34 a minute. A change from her own normal is far more useful than any textbook range.",
+   "sources": [
+    "Merck Veterinary Manual, normal values — https://www.merckvetmanual.com/multimedia/table/normal-physiological-values-for-dogs",
+    "UC Davis CVET — https://cvet.vetmed.ucdavis.edu/sites/g/files/dgvnsk13661/files/inline-files/CVET%20Vital%20Signs%2006_2024.pdf"
+   ]
+  },
+  {
+   "name": "Her season (what is normal)",
+   "aka": [
+    "heat",
+    "in season",
+    "oestrus",
+    "estrus",
+    "first season",
+    "bleeding"
+   ],
+   "system": "Female",
+   "urgency": "monitor",
+   "breedRisk": "general",
+   "breedNote": "Large and giant breeds often have a late first season, commonly around 12 to 24 months, and may cycle only once a year rather than twice.",
+   "signs": [
+    "swollen vulva a few days before any blood appears",
+    "bloody discharge that fades to watery pink",
+    "licking herself more than usual",
+    "male dogs suddenly very interested in her",
+    "weeing little and often on walks",
+    "clingy, restless or moody for a couple of weeks",
+    "flagging her tail to one side when touched near her back end",
+    "roughly two to three weeks start to finish"
+   ],
+   "whatToDo": "Write down the first day you see swelling or blood — that date is what lets a vet judge whether a later illness could be pyometra or a phantom pregnancy. Keep her on lead and away from entire males for the whole season and about a week beyond it.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/estrus-cycles-in-dogs",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/dog-owners/reproductive-disorders-of-dogs/reproductive-disorders-of-female-dogs"
+   ]
+  },
+  {
+   "name": "Normal teething",
+   "aka": [
+    "puppy teething",
+    "losing baby teeth"
+   ],
+   "system": "Mouth",
+   "urgency": "monitor",
+   "breedRisk": "general",
+   "breedNote": "",
+   "signs": [
+    "chewing everything in sight",
+    "tiny tooth found on the floor",
+    "small spots of blood on toys",
+    "pink-tinged drool",
+    "gums look red where a tooth is coming in",
+    "eating a little slower for a day or two",
+    "swallowed a baby tooth",
+    "gaps in the front teeth",
+    "sore mouth around 4-6 months"
+   ],
+   "whatToDo": "Baby teeth are normally lost from about 3 to 6 months and swallowed teeth are harmless. Offer soft flexible chew toys. Get it checked if she stops eating, or if a baby tooth is still there once the adult tooth beside it has erupted.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/teeth-teething-and-chewing-in-puppies",
+    "Veterinary Partner (VIN) — https://veterinarypartner.vin.com/default.aspx?pid=19239&catId=102898&id=10282231"
+   ]
+  },
+  {
+   "name": "Osteoarthritis",
+   "aka": [
+    "OA",
+    "arthritis",
+    "degenerative joint disease",
+    "stiff and slowing down"
+   ],
+   "system": "Bones and joints",
+   "urgency": "monitor",
+   "breedRisk": "high",
+   "breedNote": "Her main arthritis driver is over-represented in the breed: OFA records 17.5% hip dysplasia in Giant Schnauzers against 14.2% across all breeds, and developmental joint disease predisposes to early arthritis.",
+   "signs": [
+    "stiff for the first few minutes after a nap",
+    "slower on walks than she used to be",
+    "hesitates at the bottom of the stairs",
+    "needs a run-up or help to get in the car",
+    "sleeps more and plays less",
+    "licking one joint over and over",
+    "grumpy when touched or brushed over the hips",
+    "slipping on smooth floors",
+    "muscle loss over her back end",
+    "worse in cold or damp weather"
+   ],
+   "whatToDo": "Book an arthritis check rather than writing it off as age. Keeping her lean is the single most effective thing, alongside prescription pain relief, controlled exercise and traction on slippery floors.",
+   "sources": [
+    "ACVS — https://www.acvs.org/small-animal/osteoarthritis-in-dogs/",
+    "Cornell Riney Canine Health Center — https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-information/osteoarthritis"
+   ]
+  },
+  {
+   "name": "Seasonal flank alopecia",
+   "aka": [
+    "cyclic flank alopecia",
+    "recurrent flank alopecia"
+   ],
+   "system": "Skin",
+   "urgency": "monitor",
+   "breedRisk": "moderate",
+   "breedNote": "Schnauzers appear on the predisposed-breed list, though most sources do not specify which variety.",
+   "signs": [
+    "bald patches on both flanks",
+    "dark grey or black skin where the hair went",
+    "hair loss with sharp clean edges",
+    "same patches every autumn",
+    "hair grows back in spring",
+    "skin looks normal, just bare",
+    "not itchy at all",
+    "she seems perfectly well otherwise"
+   ],
+   "whatToDo": "Mention it at a routine visit so hypothyroidism, Cushing's and other hair-loss causes can be ruled out. It is cosmetic and often self-resolving; no treatment is required.",
+   "sources": [
+    "VCA — https://vcahospitals.com/know-your-pet/seasonal-flank-alopecia",
+    "Merck Veterinary Manual — https://www.merckvetmanual.com/dog-owners/skin-disorders-of-dogs/congenital-and-inherited-skin-disorders-in-dogs"
+   ]
+  }
+ ]
+}
