@@ -2665,6 +2665,16 @@ function openSheet(which){
   $("#sheetBody").innerHTML = (Sheets[which] || (() => ""))();
   View.bindings();
   if (which === "symptoms") Symptoms.render("", "#symOut");
+  // The phrase file usually doesn't exist yet, so only look for it when
+  // someone opens Backup — otherwise every page load logs a 404.
+  if (which === "sync" && Sync._auth === undefined){
+    Sync.authBlob().then(() => {
+      if ($("#sheet").classList.contains("on") && $("#phraseIn") === null){
+        $("#sheetBody").innerHTML = Sheets.sync();
+        View.bindings();
+      }
+    });
+  }
   $(".veil").classList.add("on");
   $("#sheet").classList.add("on");
   document.body.style.overflow = "hidden";
@@ -3072,7 +3082,7 @@ window.addEventListener("focus", () => Sync.pull());
 
   for (const id of ["#wDate","#mDate","#oDate"]) $(id).value = today();
 
-  if (Sync.on()){ Sync.rest(); Sync.authBlob(); Sync.pull(); }
+  if (Sync.on()){ Sync.rest(); Sync.pull(); }
   if (Repo.adapter.name === "memory"){
     const bar = $("#statusbar");
     bar.hidden = false;
