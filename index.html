@@ -2401,6 +2401,55 @@ const View = {
       : `<div class="empty">Nothing logged. That's a good thing.</div>`;
   },
 
+  /* Her day, rendered wherever it is asked for. The line she is on right now
+     is highlighted, and everything already done is dimmed, so a glance tells
+     you where in the day she is. */
+  routine(sel){
+    const el = $(sel);
+    if (!el) return;
+    const r = live(Repo.state.routine).sort((a,b) => minutesOf(a.time) - minutesOf(b.time));
+    const n = nowMins();
+    let currentId = null;
+    for (const e of r) if (minutesOf(e.time) <= n) currentId = e.id;
+    el.innerHTML = r.length ? r.map(e => {
+      const m = minutesOf(e.time);
+      const cls = e.id === currentId ? " now" : (m < n ? " past" : "");
+      return `<div class="rline${cls}">
+        <span class="dot"></span>
+        <input class="t" type="text" value="${esc(e.time)}" data-edit="routine|${esc(e.id)}|time" aria-label="Time">
+        <input class="w" type="text" value="${esc(e.what)}" data-edit="routine|${esc(e.id)}|what" aria-label="What happens">
+        ${this.del("del-routine", e.id, "step")}
+      </div>`;
+    }).join("") : `<div class="empty">Nothing in her day yet. Add the first thing below.</div>`;
+  },
+
+  clock(){
+    const c = $("#nowClock"), d = $("#dayLabel");
+    if (c) c.textContent = `It's ${clockText()}`;
+    if (d) d.textContent = new Date().toLocaleDateString([], { weekday:"long", day:"numeric", month:"long" });
+    this.routine("#homeRoutine");
+    this.routine("#routineList");
+  },
+
+  training(){
+    const card = c => `
+      <div class="cue">
+        <div class="top">
+          <input class="word" type="text" value="${esc(c.word)}" data-edit="cues|${esc(c.id)}|word" aria-label="Word">
+          ${this.del("del-cue", c.id, c.word)}
+        </div>
+        <input class="means" type="text" value="${esc(c.means || "")}" data-edit="cues|${esc(c.id)}|means" aria-label="What it means">
+        <textarea data-edit="cues|${esc(c.id)}|how" aria-label="How to use it">${esc(c.how || "")}</textarea>
+      </div>`;
+
+    const cues = live(Repo.state.cues);
+    const words = cues.filter(c => c.kind !== "rule");
+    const rules = cues.filter(c => c.kind === "rule");
+    const w = $("#cueList"), rl = $("#ruleList");
+    if (w)  w.innerHTML  = words.length ? words.map(card).join("") : `<div class="empty">No words yet.</div>`;
+    if (rl) rl.innerHTML = rules.length ? rules.map(card).join("") : `<div class="empty">No rules yet.</div>`;
+  },
+
   stages(){
     $("#stagesList").innerHTML = STAGES.map(s => {
       const now = s === currentStage();
