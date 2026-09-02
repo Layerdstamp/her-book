@@ -26,8 +26,8 @@ of, and it is one tap away on purpose.
 
 ## How saving works
 
-`data/record.json` is the shared copy. The page reads it on load and every 45
-seconds, and merges it with whatever is in the browser.
+`data/record.json` is the shared copy. The page reads it on load, when you come
+back to the tab, and on a timer, then merges it with whatever is in the browser.
 
 **Reading needs nothing.** The repository is public, so anyone you send the
 link to sees the current record immediately, with no account and no setup.
@@ -44,6 +44,13 @@ link to sees the current record immediately, with no account and no setup.
 The token is kept in that browser's `localStorage` and is never written into
 the record, so sharing the link never shares your token. A device without one
 still works — it just shows a read-only bar and keeps your entries local.
+
+Reads go through the GitHub API rather than `raw.githubusercontent.com`,
+because raw serves a five-minute cache and would show a sitter stale entries.
+That costs budget: 5,000 calls an hour with a token, 60 per address without
+one. So the page polls every 45 seconds when it can write and every 90 when it
+can't, which is also the minimum gap between automatic reads. If a network does
+run out, it falls back to the cached copy and says so in the bar at the top.
 
 Each save is a commit, so the page waits about six seconds after you stop
 typing before writing. Two people editing at once is handled by the Contents

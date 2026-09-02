@@ -1582,7 +1582,8 @@ function detectRepo(){
 }
 
 const Sync = {
-  status: "off", sha: null, _timer: null, _busy: false,
+  status: "off", sha: null, stale: false, budget: null,
+  _timer: null, _busy: false, _lastPull: 0,
 
   cfg(){
     const saved = Local.data.gh || {}, auto = detectRepo() || {};
@@ -1595,6 +1596,12 @@ const Sync = {
   },
   on(){ const c = this.cfg(); return !!(c.owner && c.repo); },
   canWrite(){ return this.on() && !!this.cfg().token; },
+
+  /* With a token we get 5,000 API calls an hour; without one, 60 per address.
+     45s is 80 an hour, 90s is 40 — both comfortable. This doubles as the
+     minimum gap between automatic pulls, so tab-switching can't burn the
+     smaller budget. */
+  pollMs(){ return this.canWrite() ? 45000 : 90000; },
 
   api(path, opts = {}){
     const c = this.cfg();
@@ -1619,39 +1626,54 @@ const Sync = {
     return b.message || `HTTP ${res.status}`;
   },
 
-  /** Read the shared copy and merge it in. Never writes. */
-  async pull({ quiet = true } = {}){
+  /** Read the shared copy and merge it in. Never writes.
+      `force` is for the buttons — it skips the budget guard. */
+  async pull({ quiet = true, force = false } = {}){
     if (!this.on() || this._busy) return;
+    if (!force && Date.now() - this._lastPull < this.pollMs()) return;
     this._busy = true;
+    this._lastPull = Date.now();
     this.set("syncing");
     try {
       const c = this.cfg();
+      // The same endpoint with or without a token. It has to be the API and
+      // not raw.githubusercontent.com: raw serves a five-minute cache and
+      // ignores a cache-busting query, so a sitter would sit on stale entries.
+      const res = await this.api(`${this.contentsPath()}?ref=${encodeURIComponent(c.branch)}`);
+      const left = Number(res.headers.get("x-ratelimit-remaining"));
+      this.budget = Number.isFinite(left) ? left : null;
+
       let doc = null;
-      if (c.token){
-        const res = await this.api(`${this.contentsPath()}?ref=${encodeURIComponent(c.branch)}`);
-        if (res.status === 404){ this.sha = null; this.rest(); return; }
-        if (!res.ok) throw new Error(await this.problem(res));
+      if (res.status === 404){ this.sha = null; this.rest(); return; }
+      if (res.ok){
         const body = await res.json();
         this.sha = body.sha;
         doc = JSON.parse(b64decode(body.content));
+        this.stale = false;
+      } else if ((res.status === 403 || res.status === 429) && this.budget === 0){
+        doc = await this.fromCdn(c);      // better a late copy than none
       } else {
-        // No token: read the raw file straight off the CDN. Costs nothing and
-        // avoids the API's 60-an-hour limit for unauthenticated callers.
-        const url = `https://raw.githubusercontent.com/${c.owner}/${c.repo}/${c.branch}/${GH_PATH}?t=${Date.now()}`;
-        const res = await fetch(url, { cache:"no-store" });
-        if (res.status === 404){ this.rest(); return; }
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        doc = await res.json();
+        throw new Error(await this.problem(res));
       }
+
       if (doc){
         Repo.state = mergeDocs(Repo.state, migrate(doc));
         await Repo.adapter.set(JSON.stringify(Repo.state));
         View.render();
-        if (!quiet) View.toast("Up to date with GitHub");
+        if (!quiet) View.toast(this.stale ? "Showing a cached copy" : "Up to date with GitHub");
       }
       this.rest();
     } catch (e){ this.set("error", e.message); }
     finally { this._busy = false; }
+  },
+
+  /** Only when the hourly API budget is gone. Can be up to 5 minutes behind. */
+  async fromCdn(c){
+    const res = await fetch(`https://raw.githubusercontent.com/${c.owner}/${c.repo}/${c.branch}/${GH_PATH}`,
+                            { cache:"no-store" });
+    if (!res.ok) throw new Error("rate limited, and the cached copy is unreachable");
+    this.stale = true;
+    return res.json();
   },
 
   /** Every save is a commit, so wait for you to stop before writing. */
@@ -1684,8 +1706,7 @@ const Sync = {
       // Someone committed ahead of us. Take their copy, merge, write again.
       if (res.status === 409 || res.status === 422){
         this.sha = null;
-        this._busy = false;
-        await this.pull();
+        await this.pull({ force:true });
         if (retry) return this.push(false);
         throw new Error("couldn't settle a conflict — try Sync now");
       }
@@ -1696,12 +1717,16 @@ const Sync = {
   },
 
   /** Back to whichever resting state this device is in. */
-  rest(){ this.set(this.canWrite() ? "idle" : "readonly"); },
+  rest(){
+    if (this.stale) return this.set("stale");
+    this.set(this.canWrite() ? "idle" : "readonly");
+  },
 
   set(status, detail = ""){
     this.status = status;
     const msg = {
-      syncing: "Saving to GitHub…",
+      syncing: "Talking to GitHub…",
+      stale: "GitHub is rate-limiting this network, so this copy may be a few minutes old. It will catch up on its own.",
       readonly: "Read-only. You're seeing the shared record — anything you add stays in this browser until you add a token under Backup.",
       error: `GitHub: ${detail}. Your changes are still saved on this device.`
     }[status] || null;
@@ -2250,7 +2275,7 @@ const Actions = {
     const b = $("#ghBranch"); if (b) g.branch = b.value.trim();
     Local.data.gh = g; Local.save();
     Sync.sha = null;
-    await Sync.pull({ quiet:true });
+    await Sync.pull({ quiet:true, force:true });
     if (Sync.canWrite()) await Sync.push();
     openSheet("sync");
     View.toast(Sync.status === "error" ? "Saved, but GitHub refused it — see the status"
@@ -2266,7 +2291,7 @@ const Actions = {
   },
   "sync-now": async () => {
     if (!Sync.on()) return View.toast("No repository set");
-    await Sync.pull({ quiet:false });
+    await Sync.pull({ quiet:false, force:true });
     if (Sync.canWrite()) await Sync.push();
     openSheet("sync");
   }
@@ -2352,8 +2377,11 @@ window.addEventListener("focus", () => Sync.pull());
     bar.hidden = false;
     bar.textContent = "This device can't save — export a backup before you close the tab.";
   }
-  // Poll for peers' edits while the tab is open.
-  setInterval(() => { if (!document.hidden) Sync.pull(); }, 45000);
+  // Poll for peers' edits while the tab is open. Re-read the interval each
+  // time round, because adding a token changes how much budget we have.
+  (function poll(){
+    setTimeout(() => { if (!document.hidden) Sync.pull(); poll(); }, Sync.pollMs());
+  })();
 })();
 </script>
 </body>
