@@ -1,6 +1,20 @@
 {
   "schema": 4,
-  "updatedAt": 0,
-  "name": "",
-  "_ts": {}
+  "updatedAt": 1788370749869,
+  "name": "Røva — test ✓ 🐾",
+  "_ts": {
+    "name": 1788370749869,
+    "care.vetName": 1788370749869
+  },
+  "care": {
+    "vetName": "Ash Grove Veterinary Clinic"
+  },
+  "weights": [
+    {
+      "id": "probe1",
+      "date": "2026-09-02",
+      "lbs": 24.5,
+      "_m": 1788370749869
+    }
+  ]
 }
