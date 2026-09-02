@@ -1,0 +1,2244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Her Book — Giant Schnauzer care record</title>
+<meta name="description" content="Lifelong care guide, vaccine record, feeding log, health log and sitter sheet for a Giant Schnauzer from Down Low Kennels.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cocoa:#4A3A32; --bark:#6E574A; --taupe:#9C8578;
+  --sand:#F7EFE7; --cream:#FFFCF9; --line:#EDE0D4;
+  --blush:#FBEDEE; --rose:#C9838A; --rose-dk:#A8646B;
+  --sage:#7F9C82; --sage-lt:#E7F0E6;
+  --honey:#C99A55; --honey-lt:#FBF1DE;
+  --alert:#C0645B; --alert-lt:#FBE7E3;
+  --r:22px; --r-sm:16px;
+  --shadow:0 2px 12px rgba(122,90,72,.07);
+  --shadow-lift:0 6px 22px rgba(122,90,72,.13);
+  --pad:18px; --tab-h:66px;
+  --ui:'Nunito',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --display:'Fraunces',Georgia,serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--sand);color:var(--cocoa);font-family:var(--ui);
+  font-size:16px;line-height:1.55;padding-bottom:calc(var(--tab-h) + env(safe-area-inset-bottom));
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:660px;margin:0 auto}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:500;letter-spacing:-.005em}
+p{margin:0 0 .85em}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--rose);outline-offset:2px;border-radius:8px}
+a{color:var(--rose-dk);text-underline-offset:3px;text-decoration-thickness:1px}
+.tnum{font-variant-numeric:tabular-nums}
+
+.hero{background:linear-gradient(168deg,#FBF2EC 0%,#F7E8E6 100%);
+  padding:calc(env(safe-area-inset-top) + 16px) var(--pad) 20px;
+  border-bottom-left-radius:30px;border-bottom-right-radius:30px}
+.hero-top{display:flex;align-items:center;gap:14px}
+.avatar{width:56px;height:56px;border-radius:50%;background:var(--blush);
+  display:grid;place-items:center;flex:none;box-shadow:var(--shadow)}
+.avatar svg{width:32px;height:32px;color:var(--rose)}
+.hero h1{font-size:28px;line-height:1.12}
+.hero h1 .ghost{color:var(--taupe);font-style:italic}
+.hero .sub{font-size:14px;color:var(--bark);margin-top:2px}
+.hero-acts{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.pillbtn{background:var(--cream);border-radius:999px;padding:9px 15px;font-size:13.5px;
+  font-weight:600;color:var(--bark);box-shadow:var(--shadow);display:inline-flex;
+  align-items:center;gap:7px}
+.pillbtn:hover{box-shadow:var(--shadow-lift)}
+.pillbtn svg{width:15px;height:15px}
+.pillbtn.urgent{background:var(--alert);color:#fff}
+.pillbtn.urgent:hover{background:#AB554C}
+.facts{display:flex;gap:8px;margin:16px 0 0;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.facts::-webkit-scrollbar{display:none}
+.fact{background:rgba(255,255,255,.72);border-radius:var(--r-sm);padding:9px 14px;flex:none}
+.fact dt{font-size:10.5px;color:var(--taupe);margin:0;font-weight:600}
+.fact dd{margin:1px 0 0;font-size:14px;font-weight:700;white-space:nowrap}
+
+.next{margin:14px auto 0;max-width:660px;background:var(--honey-lt);border-radius:var(--r-sm);
+  padding:13px 16px;display:flex;gap:11px;align-items:flex-start;font-size:14.5px;line-height:1.45}
+@media(max-width:696px){.next{margin-left:var(--pad);margin-right:var(--pad)}}
+.next svg{width:17px;height:17px;flex:none;margin-top:2px;color:var(--honey)}
+.next.overdue{background:var(--alert-lt)} .next.overdue svg{color:var(--alert)}
+.next.clear{background:var(--sage-lt)} .next.clear svg{color:var(--sage)}
+.next b{font-weight:700}
+
+main{padding:0 var(--pad)}
+.panel{display:none;padding:18px 0 44px}
+.panel.on{display:block}
+.card{background:var(--cream);border-radius:var(--r);padding:18px;margin-bottom:14px;box-shadow:var(--shadow)}
+.card>h2{font-size:19px;margin-bottom:4px}
+.card>.hint{font-size:13.5px;color:var(--bark);margin-bottom:14px;line-height:1.5}
+.eyebrow{font-family:var(--ui);font-size:12px;font-weight:700;color:var(--rose-dk);margin-bottom:7px}
+
+.stage{background:linear-gradient(160deg,#FDF6F1,#FBEDEE);border-radius:var(--r);
+  padding:20px;margin-bottom:14px;box-shadow:var(--shadow)}
+.stage h2{font-size:23px;line-height:1.15;margin-bottom:3px}
+.stage .range{font-size:13.5px;color:var(--bark);margin-bottom:14px}
+.stage ul{margin:0;padding:0;list-style:none}
+.stage li{display:flex;gap:10px;align-items:flex-start;font-size:15px;padding:7px 0;line-height:1.45}
+.stage li svg{width:15px;height:15px;flex:none;margin-top:4px;color:var(--rose);opacity:.75}
+.trail{display:flex;gap:5px;margin:16px 0 0}
+.trail div{flex:1;height:6px;border-radius:999px;background:#EFE1D8}
+.trail div.past{background:var(--rose);opacity:.4}
+.trail div.now{background:var(--rose)}
+.trail-lab{display:flex;justify-content:space-between;font-size:10.5px;color:var(--taupe);
+  margin-top:6px;font-weight:600}
+
+.rowitem{display:flex;gap:12px;align-items:flex-start;padding:12px 2px;border-bottom:1px solid var(--line)}
+.rowitem:last-child{border-bottom:0}
+.tick{width:30px;height:30px;border-radius:50%;background:#F4EAE1;flex:none;
+  display:grid;place-items:center;transition:background .18s ease}
+.tick svg{width:16px;height:16px;color:var(--taupe);transition:color .18s ease}
+.tick[aria-pressed=true]{background:var(--sage)}
+.tick[aria-pressed=true] svg{color:#fff}
+.tick:hover{background:#EADCD1}
+.tick[aria-pressed=true]:hover{background:#6F8B72}
+.rowmain{flex:1;min-width:0}
+.rowname{font-size:15px;font-weight:600;line-height:1.35}
+.rowitem.done .rowname{color:var(--taupe);font-weight:500}
+.rowmeta{font-size:12.5px;color:var(--taupe);margin-top:4px;display:flex;gap:8px;
+  flex-wrap:wrap;align-items:center}
+.tag{display:inline-block;font-size:10.5px;padding:3px 9px;border-radius:999px;
+  background:#F4EAE1;color:var(--bark);font-weight:700}
+.tag.k{background:var(--blush);color:var(--rose-dk)}
+.tag.by{background:var(--sage-lt);color:#4E6B52}
+body.guest [data-owner="1"]{opacity:.55;cursor:not-allowed}
+.lab{font-weight:700;color:var(--honey)}
+.lab.over{color:var(--alert)} .lab.given{color:var(--sage)}
+.pair{display:inline-flex;align-items:center;gap:6px}
+.xbtn{flex:none;width:28px;height:28px;border-radius:50%;color:var(--taupe);
+  display:grid;place-items:center;font-size:18px;line-height:1}
+.xbtn:hover{background:var(--alert-lt);color:var(--alert)}
+.prog{height:9px;background:#F1E4DA;border-radius:999px;overflow:hidden;margin:12px 0 6px}
+.prog i{display:block;height:100%;background:var(--sage);border-radius:999px;
+  transition:width .4s cubic-bezier(.3,.8,.4,1)}
+.grouphead{font-size:12.5px;font-weight:700;color:var(--bark);padding:16px 0 8px;
+  border-bottom:1px solid var(--line)}
+
+label.f{display:block;margin-bottom:12px}
+label.f>span{display:block;font-size:12.5px;color:var(--bark);margin-bottom:5px;font-weight:700}
+input[type=text],input[type=date],input[type=number],input[type=url],select,textarea{
+  width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:14px;
+  background:#FDF8F4;font-size:16px;transition:border-color .15s}
+input:focus,select:focus,textarea:focus{border-color:var(--rose);outline:none}
+textarea{min-height:80px;resize:vertical;line-height:1.5}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:11px}
+input[type=date].inline{border:0;border-bottom:1.5px dotted var(--taupe);background:none;
+  padding:0;font-size:12.5px;width:auto;min-width:100px;border-radius:0;
+  color:var(--bark);font-weight:700}
+input[type=date].inline:focus{border-bottom-color:var(--rose)}
+.btn{background:var(--rose);color:#fff;border-radius:999px;padding:13px 20px;font-weight:700;
+  font-size:15px;width:100%;box-shadow:var(--shadow);display:inline-flex;
+  align-items:center;justify-content:center;gap:8px}
+.btn:hover{background:var(--rose-dk)}
+.btn svg{width:16px;height:16px}
+.btn.sm{width:auto;padding:10px 16px;font-size:14px}
+.btn.soft{background:var(--cream);color:var(--bark)}
+.btn.soft:hover{background:#F6EDE6}
+.btnrow{display:flex;gap:9px;flex-wrap:wrap}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip{border-radius:999px;padding:9px 15px;font-size:13.5px;background:#F4EAE1;
+  color:var(--bark);font-weight:600}
+.chip[aria-pressed=true]{background:var(--rose);color:#fff}
+.chip:hover{background:#EADCD1}
+.chip[aria-pressed=true]:hover{background:var(--rose-dk)}
+
+.acc{background:var(--cream);border-radius:var(--r);margin-bottom:11px;
+  box-shadow:var(--shadow);overflow:hidden}
+.acc>summary{list-style:none;cursor:pointer;padding:17px 18px;font-weight:700;
+  font-size:15.5px;display:flex;align-items:center;gap:12px}
+.acc>summary::-webkit-details-marker{display:none}
+.acc>summary .caret{margin-left:auto;width:9px;height:9px;flex:none;
+  border-right:2.2px solid var(--taupe);border-bottom:2.2px solid var(--taupe);
+  transform:rotate(45deg) translateY(-2px);transition:transform .24s ease}
+.acc[open]>summary .caret{transform:rotate(225deg) translateY(-2px)}
+.acc>summary .pawdot{width:26px;height:26px;border-radius:50%;background:var(--blush);
+  display:grid;place-items:center;flex:none}
+.acc>summary .pawdot svg{width:14px;height:14px;color:var(--rose)}
+.acc .body{padding:2px 18px 20px;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:none}}
+
+.book{font-size:16px;line-height:1.65;color:#4E3E36}
+.book p{max-width:66ch}
+.book ul,.book ol{margin:0 0 1em;padding-left:1.3em;max-width:66ch}
+.book li{margin-bottom:.55em}
+.book h4{font-family:var(--display);font-size:17px;font-weight:600;margin:1.4em 0 .5em;color:var(--cocoa)}
+.book strong{font-weight:700}
+.note{background:var(--blush);border-radius:var(--r-sm);padding:14px 16px;margin:0 0 1.1em;
+  font-size:14.5px;line-height:1.55}
+.note.warn{background:var(--honey-lt)}
+.note.stop{background:var(--alert-lt)}
+.note.good{background:var(--sage-lt)}
+.note b{font-weight:700}
+.src{font-size:12px;color:var(--taupe);border-top:1px solid var(--line);
+  padding-top:11px;margin-top:16px;line-height:1.5}
+table.rec{width:100%;border-collapse:collapse;font-size:13.5px}
+table.rec th{text-align:left;font-size:11px;color:var(--bark);padding:0 8px 7px 0;
+  border-bottom:1px solid var(--line);font-weight:700}
+table.rec td{padding:8px 8px 8px 0;border-bottom:1px solid #F4EBE2;vertical-align:top}
+table.rec tr:last-child td{border-bottom:0}
+table.rec td:first-child{white-space:nowrap;color:var(--bark)}
+
+.entry{background:var(--cream);border-radius:var(--r-sm);padding:14px 16px;
+  margin-bottom:10px;box-shadow:var(--shadow)}
+.entry .top{display:flex;gap:10px;align-items:baseline}
+.entry .what{font-weight:700;font-size:15px;flex:1}
+.entry .when{font-size:12.5px;color:var(--taupe);white-space:nowrap}
+.entry .body{font-size:14.5px;color:var(--bark);white-space:pre-wrap;margin-top:4px}
+.entry.sev3{border-left:5px solid var(--alert)}
+.entry.sev2{border-left:5px solid var(--honey)}
+.entry.sev1{border-left:5px solid var(--line)}
+.empty{text-align:center;color:var(--taupe);font-size:14px;padding:28px 16px;
+  background:rgba(255,255,255,.55);border-radius:var(--r-sm)}
+
+.veil{position:fixed;inset:0;background:rgba(74,58,50,.5);z-index:60;display:none}
+.veil.on{display:block}
+.sheet{position:fixed;left:0;right:0;bottom:0;max-height:92vh;overflow-y:auto;
+  background:var(--sand);z-index:61;border-radius:28px 28px 0 0;display:none;
+  padding:0 var(--pad) calc(30px + env(safe-area-inset-bottom));
+  animation:rise .3s cubic-bezier(.2,.75,.3,1)}
+.sheet.on{display:block}
+@keyframes rise{from{transform:translateY(12%);opacity:.6}to{transform:none;opacity:1}}
+.sheet .grab{width:42px;height:5px;background:var(--line);border-radius:999px;margin:10px auto 16px}
+.sheet h2{font-size:23px;margin-bottom:5px}
+.sheet .close{background:var(--cocoa);color:#fff;border-radius:999px;padding:13px;
+  font-weight:700;margin-top:18px;width:100%}
+@media(min-width:660px){.sheet{left:50%;transform:translateX(-50%);max-width:660px;
+  border-radius:28px;bottom:20px}}
+
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(255,252,249,.95);
+  backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;
+  padding-bottom:env(safe-area-inset-bottom)}
+.tabs button{flex:1;padding:9px 1px 10px;color:var(--taupe);font-size:10px;font-weight:700;
+  display:flex;flex-direction:column;align-items:center;gap:4px;min-height:var(--tab-h);position:relative}
+.tabs .ic{width:26px;height:26px;display:grid;place-items:center;border-radius:50%;transition:background .2s}
+.tabs .ic svg{width:19px;height:19px}
+.tabs button[aria-selected=true]{color:var(--rose-dk)}
+.tabs button[aria-selected=true] .ic{background:var(--blush)}
+.badge{position:absolute;top:4px;right:calc(50% - 20px);background:var(--alert);color:#fff;
+  font-size:9.5px;min-width:17px;height:17px;border-radius:999px;display:grid;
+  place-items:center;padding:0 4px;font-weight:800}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--tab-h) + 20px);
+  background:var(--cocoa);color:#fff;padding:12px 20px;border-radius:999px;font-size:14px;
+  font-weight:600;z-index:70;opacity:0;pointer-events:none;transition:opacity .22s;
+  max-width:88vw;text-align:center}
+.toast.on{opacity:1}
+.statusbar{font-size:12px;text-align:center;padding:8px var(--pad);color:var(--bark);
+  background:var(--honey-lt)}
+.statusbar[hidden]{display:none}
+
+@media print{
+  .tabs,.veil,.sheet,.btn,.xbtn,.hero-acts,.statusbar,.tick,.chips,label.f,.next{display:none!important}
+  body{background:#fff;padding:0;font-size:11.5pt}
+  .panel{display:none!important}
+  .panel.printme{display:block!important}
+  .card,.acc,.entry{box-shadow:none;border:1px solid #ddd;break-inside:avoid}
+  .hero{background:#fff;border-radius:0}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-paw" viewBox="0 0 24 24">
+  <ellipse cx="7" cy="8.4" rx="2.1" ry="2.7" fill="currentColor"/>
+  <ellipse cx="12" cy="6.6" rx="2.2" ry="2.9" fill="currentColor"/>
+  <ellipse cx="17" cy="8.4" rx="2.1" ry="2.7" fill="currentColor"/>
+  <ellipse cx="20" cy="13.2" rx="1.9" ry="2.3" fill="currentColor"/>
+  <ellipse cx="4" cy="13.2" rx="1.9" ry="2.3" fill="currentColor"/>
+  <path d="M12 12.2c3.1 0 5.6 2.4 5.6 5 0 2-1.6 3.2-3.6 3.2-1 0-1.4-.3-2-.3s-1 .3-2 .3c-2 0-3.6-1.2-3.6-3.2 0-2.6 2.5-5 5.6-5z" fill="currentColor"/>
+</symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-bell" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0-6 6c0 5-2 6-2 6h16s-2-1-2-6a6 6 0 0 0-6-6zM10.5 20a1.8 1.8 0 0 0 3 0" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.4a4.4 4.4 0 0 1 7.5 3c0 4.9-7.5 9.6-7.5 9.6z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></symbol>
+<symbol id="i-bowl" viewBox="0 0 24 24"><path d="M3.5 11h17c0 4-3.2 7-6.5 7h-4c-3.3 0-6.5-3-6.5-7z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M8 8c0-1.4 1-1.9 1-3M12 8c0-1.4 1-1.9 1-3M16 8c0-1.4 1-1.9 1-3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+<symbol id="i-note" viewBox="0 0 24 24"><path d="M6.5 3h8l5 5v13H6.5z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M14 3v6h5M9.5 13h6M9.5 17h4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 10L12 3.5 20.5 10V20h-17z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M9.5 20v-6h5v6" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+<symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4.5h9a3 3 0 0 1 3 3V21a2.5 2.5 0 0 0-2.5-2H4z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M20 4.5h-4v14.5h1.5A2.5 2.5 0 0 1 20 21z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></symbol>
+<symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 4l9 16H3z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M12 10v4.5M12 17.3v.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+<symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="6" cy="12" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="18" cy="18.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8.4 10.7l7.2-3.9M8.4 13.3l7.2 3.9" stroke="currentColor" stroke-width="1.8"/></symbol>
+<symbol id="i-cog" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 2.8v2.6M12 18.6v2.6M4.5 12H2M22 12h-2.5M6.2 6.2 4.4 4.4M19.6 19.6l-1.8-1.8M17.8 6.2l1.8-1.8M4.4 19.6l1.8-1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+</defs></svg>
+
+<div class="statusbar" id="statusbar" hidden></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="avatar"><svg><use href="#i-paw"/></svg></div>
+      <div style="min-width:0">
+        <h1 id="dogName"><span class="ghost">Give her a name</span></h1>
+        <div class="sub" id="ageLine">Giant Schnauzer</div>
+      </div>
+    </div>
+    <dl class="facts" id="facts"></dl>
+    <div class="hero-acts">
+      <button class="pillbtn urgent" data-act="sheet" data-sheet="bloat"><svg><use href="#i-alert"/></svg>Bloat</button>
+      <button class="pillbtn" data-act="sheet" data-sheet="profile"><svg><use href="#i-paw"/></svg>Her details</button>
+      <button class="pillbtn" data-act="sheet" data-sheet="people"><svg><use href="#i-share"/></svg>Who's using this</button>
+      <button class="pillbtn" data-act="sheet" data-sheet="sync"><svg><use href="#i-cog"/></svg>Backup</button>
+    </div>
+  </div>
+</header>
+
+<div class="next" id="nextStrip"><svg><use href="#i-bell"/></svg><span id="nextText">Loading…</span></div>
+
+<main class="wrap">
+
+<!-- ===================== HOME ===================== -->
+<section class="panel on" id="p-home" role="tabpanel" aria-labelledby="t-home">
+  <div id="stageCard"></div>
+
+  <div class="card">
+    <h2>Weight</h2>
+    <p class="hint" id="weightHint">—</p>
+    <div class="row2">
+      <label class="f"><span>Date</span><input type="date" id="wDate"></label>
+      <label class="f"><span>Pounds</span><input type="number" id="wLbs" step="0.1" min="0" placeholder="24.5"></label>
+    </div>
+    <button class="btn" data-act="add-weight"><svg><use href="#i-paw"/></svg>Add weight</button>
+    <div id="wList" style="margin-top:16px"></div>
+  </div>
+
+  <details class="acc" id="arrivalAcc">
+    <summary><span class="pawdot"><svg><use href="#i-paw"/></svg></span>
+      <span id="arrivalTitle">Settling-in checklist</span><span class="caret"></span></summary>
+    <div class="body"><div id="arrivalList"></div></div>
+  </details>
+</section>
+
+<!-- ===================== VACCINES ===================== -->
+<section class="panel" id="p-vax" role="tabpanel" aria-labelledby="t-vax">
+  <details class="acc">
+    <summary><span class="pawdot"><svg><use href="#i-paw"/></svg></span>
+      Kennel record &amp; everything given before pickup<span class="caret"></span></summary>
+    <div class="body">
+      <h3 style="font-size:17px;margin-bottom:6px">Down Low Kennels</h3>
+      <p style="font-size:14px;color:var(--bark);margin-bottom:14px">
+        Preservation breeders of Giant Schnauzers &amp; Norwich Terriers.<br>
+        Formerly LNL's Giant Schnauzers and T9 Kennels.</p>
+      <table class="rec" style="margin-bottom:20px">
+        <tr><td>Breeders</td><td>Frank Lavoie &amp; Adam Duke</td></tr>
+        <tr><td>Medical director</td><td>Dr. John Mozier, DVM</td></tr>
+        <tr><td>Clinic</td><td>Ash Grove Veterinary Clinic</td></tr>
+        <tr><td>Frank</td><td>Midwest Board of Director, GSCA; President, Ozarks Kennel Club</td></tr>
+        <tr><td>Adam</td><td>Chair, GSCA Health &amp; Hereditary Committee</td></tr>
+        <tr><td>Health testing</td><td>OFA and DNA genetic testing on their dogs — ask them for the parents' results</td></tr>
+      </table>
+      <h4 style="font-family:var(--ui);font-size:13px;color:var(--bark);margin:0 0 9px">Given by the kennel before she came home</h4>
+      <table class="rec"><thead><tr><th>Age</th><th>Date</th><th>Treatment</th></tr></thead>
+        <tbody id="kennelRows"></tbody></table>
+      <div class="note" style="margin-top:18px"><b>Still to go, per their form:</b> DAPP boosters at 13 and 16 weeks,
+        leptospirosis at 16 weeks, rabies between 16 and 20 weeks. All four are in your checklist below with estimated dates.</div>
+      <p style="font-size:13.5px;color:var(--bark);margin:0">They also ask you to keep monthly heartworm prevention going
+        year-round, maintain flea and tick prevention, run routine fecal exams through puppyhood and yearly after,
+        and finish the remaining vaccines with your own vet.</p>
+    </div>
+  </details>
+
+  <div class="card">
+    <h2>Vaccines &amp; parasite control</h2>
+    <p class="hint" id="vaxCount">—</p>
+    <div class="prog"><i id="vaxBar" style="width:0%"></i></div>
+    <div id="vaxList"></div>
+  </div>
+
+  <div class="card">
+    <h2>Add to the checklist</h2>
+    <p class="hint">Tap a suggestion or write your own. These come from the kennel's notes and standard veterinary
+      practice, and they run well past puppyhood — your vet decides what she actually needs and when.</p>
+    <div class="chips" id="vaxSuggest"></div>
+    <label class="f"><span>Treatment</span><input type="text" id="vNew" placeholder="e.g. Lyme vaccine"></label>
+    <div class="row2">
+      <label class="f"><span>Due date</span><input type="date" id="vNewDue"></label>
+      <label class="f"><span>Age note</span><input type="text" id="vNewAge" placeholder="e.g. 6 months"></label>
+    </div>
+    <button class="btn" data-act="add-vax"><svg><use href="#i-paw"/></svg>Add to checklist</button>
+  </div>
+</section>
+
+<!-- ===================== FEEDING ===================== -->
+<section class="panel" id="p-feed" role="tabpanel" aria-labelledby="t-feed">
+  <div class="card">
+    <h2>What she's on now</h2>
+    <p class="hint">Saves as you type. This is also what appears on the care sheet for a sitter.</p>
+    <label class="f"><span>Food</span><input type="text" data-bind="feedPlan.food" placeholder="e.g. Kinetic Puppy 28%"></label>
+    <div class="row2">
+      <label class="f"><span>Amount per meal</span><input type="text" data-bind="feedPlan.amt" placeholder="e.g. 2 cups"></label>
+      <label class="f"><span>Meals per day</span><input type="text" data-bind="feedPlan.meals" placeholder="e.g. 3"></label>
+    </div>
+    <label class="f"><span>Meal times</span><input type="text" data-bind="feedPlan.times" placeholder="e.g. 7am, 1pm, 6pm"></label>
+    <label class="f"><span>Supplements &amp; add-ins</span><input type="text" data-bind="feedPlan.supp" placeholder="e.g. Fido-Vite SportzDog, ½ scoop"></label>
+    <label class="f"><span>Treats she works for</span><input type="text" data-bind="feedPlan.treats" placeholder="For training"></label>
+    <label class="f"><span>Never feed / reacts badly to</span><input type="text" data-bind="feedPlan.avoid" placeholder="Anything she can't have"></label>
+    <label class="f"><span>Notes</span><textarea data-bind="feedPlan.notes" placeholder="Transition plans, what she refuses, how she eats…"></textarea></label>
+  </div>
+
+  <div class="card">
+    <h2>Log a feeding</h2>
+    <p class="hint">Worth logging when something changes — a new food, a refused bowl, a different amount.</p>
+    <div class="row2">
+      <label class="f"><span>Date</span><input type="date" id="mDate"></label>
+      <label class="f"><span>Meal</span><select id="mMeal">
+        <option>Morning</option><option>Midday</option><option>Evening</option><option>Other</option></select></label>
+    </div>
+    <div class="row2">
+      <label class="f"><span>Food</span><input type="text" id="mFood" placeholder="Food given"></label>
+      <label class="f"><span>Amount</span><input type="text" id="mAmt" placeholder="e.g. 2 cups"></label>
+    </div>
+    <label class="f"><span>How it went</span><textarea id="mNote" placeholder="Ate it all in 10 minutes / left half / needed cottage cheese on top…"></textarea></label>
+    <button class="btn" data-act="add-meal"><svg><use href="#i-bowl"/></svg>Save feeding</button>
+  </div>
+  <div id="mList"></div>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-bowl"/></svg></span>
+    How much to feed, by age<span class="caret"></span></summary><div class="body book">
+    <p>The kennel's numbers, and what changes as she grows.</p>
+    <table class="rec" style="margin-bottom:16px">
+      <thead><tr><th>Age</th><th>Meals</th><th>Roughly</th></tr></thead>
+      <tbody>
+        <tr><td>8 wks – 6 mo</td><td>3 a day</td><td>Starts 4–6 cups/day, climbing</td></tr>
+        <tr><td>6 – 8 months</td><td>2–3 a day</td><td>Rising toward 10–14 cups/day</td></tr>
+        <tr><td>8 – 12 months</td><td>2 a day (1 is your call)</td><td>Peak intake</td></tr>
+        <tr><td>1 year and up</td><td>2 a day</td><td>Around 8 cups/day, adjusted to her weight</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li>They offer food three times a day, as much as the puppies will eat in 15–20 minutes.</li>
+      <li>Feed at least twice a day until 8 months old. After that, once a day is your call and fine to do.</li>
+      <li>For her first year, feed as much as she'll eat per feeding.</li>
+      <li>If she won't eat when you first get her home, a spoonful of cottage cheese or canned puppy food can tempt her.</li>
+      <li>You should never be able to see spine, hip bones or ribs.</li>
+      <li>Stay on a large-breed <em>puppy</em> formula until about 18 months, then move to adult food.</li>
+    </ul>
+    <div class="note stop"><b>Do not follow the dog food bag's chart.</b> The kennel is blunt about this — bag amounts
+      aren't written for an active giant breed. They'd rather see a puppy too fat than too thin.</div>
+    <h4>Water</h4>
+    <p>Giant Schnauzers love water and a puppy may over-drink and have accidents around the house. She'll outgrow this
+      between 4 and 6 months. Until then, limiting water can help: roughly 2–3 cups per 10 lb of body weight daily,
+      so a 25 lb puppy needs about 5–8 cups. She grows fast, so adjust as you go — and stop limiting after 6 months.</p>
+    <h4>Raw and kibble</h4>
+    <p>The kennel feeds both and knows raw deeply — ask them. Puppies are weaned onto a raw puppy mix and go home on
+      Kinetic Puppy 28%, sold by Chewy. Pro Plan and Fromm are also named as good kibbles. If you feed raw, the book
+      includes a list of the supplements they use, and they point to the BARF diet by Dr. Ian Billinghurst plus the
+      documentary <em>Pet Fooled</em> on Amazon. If you feed kibble it must be age and size appropriate.</p>
+    <div class="src">Breeder's book, pages 5–6.</div>
+  </div></details>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-paw"/></svg></span>
+    Fido-Vite supplement<span class="caret"></span></summary><div class="body book">
+    <p>The kennel asks you to keep her on Fido-Vite Regular Formula or Fido-Vite SportzDog. Her mother has been on it her
+      whole life and she's had the benefit of it since conception. A brochure with coupon code <strong>DLK</strong> is in
+      the book; you're asked to register for auto-shipment and feed it twice daily.</p>
+    <h4>What it is</h4>
+    <p>A powder you top-dress onto her food: trace minerals, vitamins, prebiotics, probiotics and digestive enzymes,
+      with coconut oil. SportzDog adds glucosamine, chondroitin and DHA omega-3, and is the version aimed at growing,
+      working and performance dogs.</p>
+    <h4>How much</h4>
+    <p>SportzDog is fed at one 1 oz scoop per 40 lb of body weight per day — half a scoop at 20 lb, one scoop at 40 lb,
+      two at 80 lb. Start light and build up over several days rather than a full dose on day one. A splash of water
+      helps her accept it. Store cool and dry; it can be refrigerated or frozen.</p>
+    <div class="note"><b>Ordering:</b>
+      <a href="https://www.drschoicesupplements.com/fido-vite/" target="_blank" rel="noopener">drschoicesupplements.com</a>
+      · 800-639-0249 or 1-608-643-3727 · free shipping over $95. Products with live probiotics ship Monday–Tuesday only
+      in hot months so they don't sit in a warm warehouse over a weekend.</div>
+    <div class="src">Breeder's book page 5; product details and dosing from Doctor's Choice Supplements.</div>
+  </div></details>
+</section>
+
+<!-- ===================== LOG ===================== -->
+<section class="panel" id="p-log" role="tabpanel" aria-labelledby="t-log">
+  <div class="card">
+    <h2>Log something</h2>
+    <p class="hint">Anything you'd want to tell a vet later, or watch for a pattern.</p>
+    <div class="chips" id="oCats"></div>
+    <div class="row2">
+      <label class="f"><span>Date</span><input type="date" id="oDate"></label>
+      <label class="f"><span>How concerning</span><select id="oSev">
+        <option value="1">Just noting it</option>
+        <option value="2" selected>Watching it</option>
+        <option value="3">Worried</option></select></label>
+    </div>
+    <label class="f"><span>What happened</span><textarea id="oNote" placeholder="Soft stool this morning, ate normally, drinking a lot, no vomiting…"></textarea></label>
+    <button class="btn" data-act="add-occ"><svg><use href="#i-note"/></svg>Save to log</button>
+  </div>
+
+  <div class="btnrow" style="margin-bottom:14px">
+    <button class="btn soft sm" data-act="copy-log"><svg><use href="#i-share"/></svg>Copy last 20 for the vet</button>
+  </div>
+  <div id="oList"></div>
+
+  <div class="card">
+    <h2>Call the vet now if you see</h2>
+    <div class="book">
+      <div class="note stop"><b>A swollen, tight belly with unproductive retching</b> — trying to be sick with nothing
+        coming up, drooling, pacing, restlessness, an arched back, collapse. That's bloat. Tap the Bloat button at the
+        top. Minutes matter.</div>
+      <ul>
+        <li>Repeated vomiting, or vomiting and diarrhoea together</li>
+        <li>Bloody or black, tarry stool</li>
+        <li>Diarrhoea past about a day, or any diarrhoea in a puppy who's also flat and off her food</li>
+        <li>Not eating for a whole day, or refusing water</li>
+        <li>Lethargy she can't be roused from, or wobbliness</li>
+        <li>Straining to urinate, going constantly, or blood in her urine — the kennel flags UTIs as common in Giant Schnauzer girls</li>
+        <li>Laboured breathing, pale or grey gums</li>
+        <li>A cough that won't settle, especially after being around other dogs</li>
+        <li>Any seizure</li>
+        <li>Swelling, a lost nail or an odd growth on a toe — this breed has elevated rates of nail-bed cancer, so toes get checked rather than shrugged off</li>
+      </ul>
+      <p style="color:var(--bark)">Puppies get sick fast and have little reserve. When in doubt, phone — a call costs nothing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CARE / KENNELING ===================== -->
+<section class="panel" id="p-care" role="tabpanel" aria-labelledby="t-care">
+  <div class="card">
+    <h2>Care sheet</h2>
+    <p class="hint">Fill this in once and it's ready whenever someone else has her — a sitter, a boarding kennel,
+      family, or you're in hospital and someone has to step in. Print it, or copy it as a message.</p>
+    <div class="btnrow">
+      <button class="btn soft sm" data-act="copy-care"><svg><use href="#i-share"/></svg>Copy as a message</button>
+      <button class="btn soft sm" data-act="print-care">Print this sheet</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>People</h2>
+    <div class="row2">
+      <label class="f"><span>Owner</span><input type="text" data-bind="care.ownerName" placeholder="Your name"></label>
+      <label class="f"><span>Phone</span><input type="text" data-bind="care.ownerPhone"></label>
+    </div>
+    <div class="row2">
+      <label class="f"><span>Backup contact</span><input type="text" data-bind="care.altName" placeholder="Someone else who can decide"></label>
+      <label class="f"><span>Phone</span><input type="text" data-bind="care.altPhone"></label>
+    </div>
+    <label class="f"><span>Regular vet</span><input type="text" data-bind="care.vetName" placeholder="Clinic name"></label>
+    <div class="row2">
+      <label class="f"><span>Vet phone</span><input type="text" data-bind="care.vetPhone"></label>
+      <label class="f"><span>Vet address</span><input type="text" data-bind="care.vetAddr"></label>
+    </div>
+    <label class="f"><span>Emergency / after-hours vet</span><input type="text" data-bind="care.erName" placeholder="24-hour clinic"></label>
+    <div class="row2">
+      <label class="f"><span>Phone</span><input type="text" data-bind="care.erPhone"></label>
+      <label class="f"><span>Address</span><input type="text" data-bind="care.erAddr"></label>
+    </div>
+    <label class="f"><span>Insurance / policy</span><input type="text" data-bind="care.insurance" placeholder="e.g. Trupanion, policy number"></label>
+    <div class="note"><b>Give whoever is minding her written permission to authorise treatment</b> up to an amount
+      you're comfortable with, and tell your vet in advance that this person is allowed to bring her in. Without that,
+      a clinic may not treat her while you're unreachable.</div>
+  </div>
+
+  <div class="card">
+    <h2>Her day</h2>
+    <label class="f"><span>Daily routine</span><textarea data-bind="care.routine" placeholder="7am out to toilet, breakfast, nap in crate. Midday walk. 6pm dinner. Last toilet 10pm. Sleeps in the crate in the kitchen with the door shut."></textarea></label>
+    <label class="f"><span>Toileting</span><textarea data-bind="care.toilet" placeholder="Where she goes, how often, what she does just before she needs out, whether she asks."></textarea></label>
+    <label class="f"><span>Exercise — how much and what kind</span><textarea data-bind="care.exercise" placeholder="How long, on lead or off, where. Note anything she must NOT do yet, like long runs or jumping."></textarea></label>
+    <label class="f"><span>Sleep &amp; crate</span><textarea data-bind="care.crate" placeholder="Where the crate is, whether the door is shut, what settles her."></textarea></label>
+  </div>
+
+  <div class="card">
+    <h2>Handling her</h2>
+    <label class="f"><span>Commands she knows</span><textarea data-bind="care.commands" placeholder="Sit, wait, off, leave it, in your bed, her recall word…"></textarea></label>
+    <label class="f"><span>House rules — keep these consistent</span><textarea data-bind="care.rules" placeholder="Not on furniture. No feeding from the table. Not through a door first. Whatever you've set."></textarea></label>
+    <label class="f"><span>Quirks, triggers, things to avoid</span><textarea data-bind="care.quirks" placeholder="Wary of strangers at the door. Guards her bone. Hates the hoover."></textarea></label>
+    <label class="f"><span>Medication &amp; health notes</span><textarea data-bind="care.meds" placeholder="What she's on, dose, when. Anything a sitter must not miss."></textarea></label>
+    <label class="f"><span>Where things are kept</span><textarea data-bind="care.kit" placeholder="Food bin, lead, poo bags, towels, crate key, spare keys, her records."></textarea></label>
+  </div>
+
+  <div class="card">
+    <h2>What a sitter needs to know</h2>
+    <div class="book">
+      <p>Send this part along with the details above. It doesn't change as she ages.</p>
+      <h4>She's a working guardian, not a soft family pet</h4>
+      <p>Giant Schnauzers are intelligent, confident and strong-willed. They're loyal and biddable with someone calm and
+        consistent, and they'll test anyone who isn't. An adult female is 55–75 lb of muscle. She shouldn't be walked by
+        someone who can't physically hold her, and she shouldn't be left loose with unfamiliar dogs or with children she
+        doesn't know.</p>
+      <h4>Keep her rules identical to home</h4>
+      <p>A week of being allowed on the sofa undoes months of work. Whatever the house rules are, they apply to the
+        sitter too. Say no calmly and mean it; don't repeat a command over and over.</p>
+      <h4>She needs her brain worked, not just her legs</h4>
+      <p>A bored Giant Schnauzer invents jobs, and you won't like the jobs. Short training sessions, sniffing walks,
+        chew items and food puzzles do more than a long march.</p>
+      <div class="note stop"><b>The one emergency to know cold — bloat.</b> Deep-chested breeds like hers can twist
+        their stomach, and it kills within hours. Signs: swollen hard belly, retching with nothing coming up, drooling,
+        pacing, unable to settle, hunched, pale gums, collapse. Go straight to an emergency vet and phone ahead. Don't
+        wait to see if it passes.</div>
+      <div class="note warn"><b>Also worth calling about:</b> not eating for a day, repeated vomiting, bloody diarrhoea,
+        straining to pee or blood in her urine, sudden limping, or a seizure.</div>
+      <h4>Her beard</h4>
+      <p>It collects food and water and turns sour if it's left damp. Wipe it after meals and drinks.</p>
+      <h4>Heat</h4>
+      <p>She's a black dog in a dense double coat and overheats faster than she looks like she should. Walk her in the
+        cool parts of the day in summer, and never leave her in a car.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GUIDE ===================== -->
+<section class="panel" id="p-guide" role="tabpanel" aria-labelledby="t-guide">
+  <p style="font-size:14px;color:var(--bark);margin:0 0 18px">Everything from the book the kennel sent home with her,
+    plus what the links inside it lead to — written for the whole of her life, not just this month.</p>
+
+  <div class="eyebrow">Growing up</div>
+  <div id="stagesList"></div>
+
+  <div class="eyebrow" style="margin-top:24px">From the kennel</div>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-paw"/></svg></span>
+    Down Low's list of recommendations<span class="caret"></span></summary><div class="body book">
+    <div class="note stop"><b>On the ride home, do not let her out on grass in areas with a lot of dog traffic</b> — parvovirus risk.</div>
+    <ol>
+      <li>See your vet within 72 hours of pickup to confirm she's healthy.</li>
+      <li>Activate the Trupanion go-home-day offer. It waives the 30-day waiting period and coverage starts the day she
+        comes home. The kennel states that if insurance isn't activated they are not liable for any health-related issues.</li>
+      <li>Keep vaccinating until 16 weeks old, per your vet's recommendation.</li>
+      <li>Don't take her into high dog-traffic areas until 2 weeks after her final round of vaccines — no parks, dog parks or malls.</li>
+      <li>If she'll attend dog parks, boarding or grooming, she needs the canine influenza vaccine, if it's given in your area.</li>
+      <li>Crate train. The crate will be your best friend and gives her a safe space.</li>
+      <li>Especially in females, keep the feminine parts clean to avoid a UTI. UTIs are common in large breed puppies —
+        make sure she drinks plenty of water and gets outside often.</li>
+      <li>Giant Schnauzer puppies pee a lot, and that's normal. Their bladders are small and they love water.
+        She'll grow out of the piddle phase by 4–6 months.</li>
+    </ol>
+    <div class="src">Breeder's book, pages 5–6.</div>
+  </div></details>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-heart"/></svg></span>
+    Spay, neuter and the stomach tack<span class="caret"></span></summary><div class="body book">
+    <p>The kennel's position: in a large breed it's best to wait until <strong>24 months</strong> to spay, because they
+      need the oestrogen to keep developing their bones. The wider evidence supports that — the hormones of sexual
+      maturity are what signal growth plates to close, and desexing large breeds early is associated with higher rates
+      of joint disorders.</p>
+    <p>They also recommend a <strong>gastropexy</strong> at the same time as the spay — the stomach tacked to the body
+      wall so it can't twist later. As they put it, you're doing surgery anyway, so you might as well do it while she's
+      already under anaesthesia.</p>
+    <div class="note"><b>Why this matters so much for her breed.</b> GDV, or bloat, is one of the most time-critical
+      emergencies in veterinary medicine and it hits large, deep-chested dogs hardest. The stomach fills with gas and
+      rotates, cutting off its own blood supply; without surgery it's fatal, and it can go from first sign to fatal in
+      hours. A gastropexy doesn't stop the stomach filling with gas, but it largely prevents the twist — recurrence
+      after a bloat drops from as high as roughly 75% without a pexy to a few percent with one. It can often be done
+      laparoscopically through two small incisions.</div>
+    <p>There's no proven diet or lifestyle that prevents GDV, though avoiding hard exercise straight after a large meal
+      is sensible. Learn the signs before you need them — they're behind the Bloat button at the top of every screen.</p>
+    <div class="src">Breeder's book page 6; GDV background from ACVS, Cornell Riney Canine Health Center, VCA and
+      BluePearl; desexing timing from UC Davis joint-disorder research.</div>
+  </div></details>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-heart"/></svg></span>
+    Heartworm, fleas and ticks<span class="caret"></span></summary><div class="body book">
+    <p>Heartworm prevention is recommended year-round across almost all of the US. If you have mosquitoes, you need it.
+      The kennel's reasoning is worth understanding: the cure for heartworm is injecting melarsomine into the epaxial
+      muscle next to the spine, and you do not want that going into your dog. Use prevention.</p>
+    <p>They use <strong>Sentinel Plus</strong> and <strong>Interceptor Plus</strong>. Start her on whatever your vet
+      recommends at the first visit. If you're bad at remembering a monthly dose, ProHeart 6 is an injection covering
+      6 months and ProHeart 12 covers 12, though it's newer and few vets carry it. Their caution: a vet may push monthly
+      doses because the margin is higher — and monthly doses also handle almost all intestinal parasites. Do your own research.</p>
+    <div class="note good"><b>The rule of thumb</b> — the American Heartworm Society says "think 12": test every 12
+      months, and give prevention 12 months a year. Test annually even on year-round prevention, because one missed or
+      late dose can leave her unprotected, and she can spit out or vomit a pill without you noticing. Prevention should
+      begin by 8 weeks — hers started at 6.</div>
+    <h4>Fleas and ticks</h4>
+    <p>She had no flea or tick treatment at the kennel because she was too young. Set up a monthly preventative at your
+      first vet visit; most vets will give you a free sample. Ticks carry diseases that can be fatal, such as Lyme and
+      ehrlichiosis, and fleas cause tapeworms. The kennel uses prevention on all their dogs, but says if you only choose
+      one, heartworm prevention matters more. They use NexGard and Simparica on their adults.</p>
+    <div class="note stop"><b>Frontline, Advantage and things like that worked well years ago but are no longer effective.</b></div>
+    <div class="src">Breeder's book page 6; American Heartworm Society guidance.</div>
+  </div></details>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-heart"/></svg></span>
+    Vaccines — what the kennel does and why<span class="caret"></span></summary><div class="body book">
+    <p>They vaccinate for DAPP until 2 years old, then check titer levels. Bordetella yearly, because their dogs are
+      around other dogs. Canine influenza yearly for the same reason. Leptospirosis yearly — lepto is one of the more
+      reactive vaccines, but that doesn't mean it isn't useful. Adam works in veterinary medicine and has seen lepto
+      many times; it's a horrible way to watch an animal die, and they recommend vaccinating because the benefit
+      outweighs the risk. Rabies as required by law. Depending on your area you may need tick-borne illness vaccines
+      such as Lyme.</p>
+    <p>They point you to <a href="https://veterinarypartner.vin.com" target="_blank" rel="noopener">veterinarypartner.vin.com</a>
+      to read up on these diseases and parasites yourself. Their words: these are not a joke, and some are fatal almost
+      75% of the time or more — distemper, parvovirus, adenovirus type 1 and type 2.</p>
+    <h4>Parasites you're most likely to see</h4>
+    <p>Hookworm, roundworm, tapeworm, whipworm and heartworm. Most heartworm preventions such as Sentinel Spectrum take
+      care of all of these. Also read about coccidia, which is a little different.</p>
+    <div class="src">Breeder's book pages 6–7.</div>
+  </div></details>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-heart"/></svg></span>
+    Intestinal parasites<span class="caret"></span></summary><div class="body book">
+    <p>It's common for puppies to carry parasites that pose a risk to puppies and adult dogs. Regular fecal tests matter
+      for catching them early. The kennel tries to prevent them but can't guarantee she'll be free of them — and notes
+      your Trupanion insurance will cover it if needed.</p>
+    <h4>Giardia</h4>
+    <p>Causes gastrointestinal illness. Signs include diarrhoea, vomiting, weight loss and a rough coat.</p>
+    <div class="note"><b>Important about giardia testing.</b> The antigen ELISA tests commonly used to detect giardia
+      can keep showing positive for an extended period — often more than a month after the initial exposure. The test
+      detects giardia antigens, and those can persist in the feces even after her immune system has cleared the active
+      infection. So a positive result doesn't necessarily mean an ongoing active infection; it may be the remnants of a
+      previous exposure.</div>
+    <h4>Coccidia</h4>
+    <p>Single-celled parasites that can cause diarrhoea, dehydration, weight loss in puppies, and even death.</p>
+    <h4>Roundworms (Toxocara canis)</h4>
+    <p>Transmitted to puppies through the mother's milk or in the womb. Signs include a potbellied appearance, diarrhoea,
+      vomiting and a dull coat.</p>
+    <h4>The parasite bloom</h4>
+    <p>Even with preventive dewormers, puppies can get a "parasite bloom" after moving to a new home. Changes in
+      environment, stress and nutrition cause a temporary dip in immunity. This is why regular fecal tests and close
+      monitoring matter in her first few months with you. Reinfection is easy and the life cycle is difficult to break,
+      especially in litters — so if the first vet visit turns up hookworms or roundworms, don't be alarmed.</p>
+    <p>If you see diarrhoea, vomiting or a change in appetite, get her seen promptly. Alongside deworming medication,
+      cleaning up after her and keeping her away from contaminated feces reduces transmission.</p>
+    <div class="src">Breeder's book pages 6 and 12.</div>
+  </div></details>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-heart"/></svg></span>
+    UTIs in Giant Schnauzer girls<span class="caret"></span></summary><div class="body book">
+    <p>Female puppies are more susceptible to urinary tract infections than males, because a female puppy squats low to
+      the ground, which lets bacteria enter the urinary tract. Keeping her sanitary and clean is a must.</p>
+    <p>The most common UTI is an E. coli based infection. Most vets will try amoxicillin or Clavamox, on which symptoms
+      may subside briefly and then return. Most vets without Giant Schnauzer experience will think she has an ectopic
+      ureter or juvenile incontinence. The kennel's experience is that this is usually not the case and that she'll need
+      a stronger antibiotic such as enrofloxacin. Their vet, who has Giant experience, prescribes enrofloxacin for
+      3 weeks — and once the puppy completes that treatment all symptoms subside.</p>
+    <div class="note"><b>Worth showing your vet.</b> If she gets a UTI that keeps returning after a standard antibiotic
+      course, this is the kennel's specific experience with the breed and is worth raising before anyone investigates
+      for anatomical causes.</div>
+    <div class="src">Breeder's book page 8.</div>
+  </div></details>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-paw"/></svg></span>
+    Training your Giant Schnauzer<span class="caret"></span></summary><div class="body book">
+    <p>Giant Schnauzers are an intelligent, confident, strong-willed working breed. They thrive when they have clear
+      leadership, structure and consistent expectations. Training should begin the moment she comes home. What seems
+      cute in a small puppy can quickly become a problem in a powerful adult dog, so it matters to set boundaries from
+      the start.</p>
+    <p>Be consistent with rules and expectations. If a behaviour is not acceptable in an 80–100 pound adult Giant
+      Schnauzer, it should not be allowed as a puppy. Giants are extremely smart and will quickly learn what they can
+      and cannot get away with. Calm, confident leadership paired with positive reinforcement will help her become
+      well-mannered and reliable.</p>
+    <p>Early socialisation, basic obedience training and daily mental and physical exercise are essential for this breed.
+      A well-trained Giant Schnauzer is an incredible partner — loyal, dependable, and eager to work with her owner.</p>
+    <p>Structure, consistency and early training set the foundation for the dog she'll become. Start now; you'll thank
+      yourself later. You must be the alpha and not let her get away with anything, or you'll regret it later.</p>
+    <div class="note warn"><b>The timing problem nobody warns you about.</b> The kennel says keep her out of high
+      dog-traffic areas until two weeks after her last vaccines. But the critical socialisation window, when her brain
+      is wired to accept new things as normal, runs from roughly 3 weeks to 14–16 weeks and then closes for good. Both
+      are true at once. The American Veterinary Society of Animal Behavior's position is that puppies should be
+      socialised before they're fully vaccinated, because behavioural problems, not infectious disease, are the leading
+      cause of death in dogs under three.<br><br>
+      The way through is to socialise <b>without</b> the parvo risk: well-run puppy classes that require proof of
+      vaccination and disinfect their floors, visits to homes of healthy vaccinated dogs, carrying her through new
+      places rather than letting her walk where unknown dogs have been, car rides, and new surfaces, sounds and people
+      at home. Talk it through with your vet — disease risk varies a lot by region.</div>
+    <div class="src">Breeder's book page 7; socialisation guidance from the AVSAB position statement on puppy socialization.</div>
+  </div></details>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-paw"/></svg></span>
+    House training<span class="caret"></span></summary><div class="body book">
+    <p>She'll pee a lot and that's normal for the breed — small bladder, loves water, grows out of it by 4–6 months.</p>
+    <h4>How long she can hold it</h4>
+    <p>Roughly one hour per month of age, plus one. At four months that's a maximum of about five hours. At her age
+      you're realistically taking her out every hour when you can, and getting up in the night until she's old enough
+      to last until morning.</p>
+    <h4>The ten things that make it work</h4>
+    <ol>
+      <li><strong>Take her out constantly.</strong> Every hour when you can, and overnight too.</li>
+      <li><strong>Use a leash even in a fenced yard.</strong> Walk her to the toilet spot, cue her, wait. Same spot every
+        time — the scent of previous visits encourages her. Without a leash a potty break becomes a play session,
+        especially at 2am.</li>
+      <li><strong>Reward the successes.</strong> Praise and a treat right after she goes in the right place. For a
+        late-night trip choose a small food reward or quiet praise rather than a game of tug, which will wake her fully up.</li>
+      <li><strong>Learn her signals.</strong> Sniffing, circling, hunching, starting to squat. Once you know her tells
+        you can predict it — leash on, treats in pocket, straight outside.</li>
+      <li><strong>Crate her when you can't watch her.</strong> Dogs won't usually soil a properly sized crate unless
+        they're ill or have been left too long. Teach her to love the crate so it's a place she chooses to nap.</li>
+      <li><strong>Never scold her for accidents.</strong> Accidents are your miss, not her being bad or vindictive.
+        Don't rub her nose in it. Punishment confuses and frightens her, damages the bond, and can produce a dog who
+        hides to go where you won't see.</li>
+      <li><strong>Clean accidents thoroughly with an enzymatic cleaner</strong> made for pet urine, following the
+        package instructions exactly. Her nose is far more sensitive than yours — if you can't smell it, that doesn't
+        mean she can't, and the scent marker tells her this is the spot.</li>
+      <li><strong>Give her a routine.</strong> Not just potty breaks on a schedule but consistent meals, playtime,
+        walks and naps. Puppies often need to go right after eating and right after waking.</li>
+      <li><strong>No unsupervised freedom in the house.</strong> Every indoor accident is self-rewarding and the scent
+        encourages a repeat. Until she reliably tells you she needs out — barking, sitting at the door — she isn't
+        ready to roam.</li>
+      <li><strong>Build up her tolerance of bad weather.</strong> Many puppies won't go out in rain or snow. Start with
+        short outdoor play sessions in cold or wet weather and gradually extend them.</li>
+    </ol>
+    <h4>Indoor surfaces, if you need them</h4>
+    <p><strong>Paper or pine pellet litter</strong> in a tray deep enough to hold an inch or so — deep enough to be
+      useful, not so deep she can't climb in and out. Never cat litter: clay is tempting to eat and clumping types are
+      dusty. Avoid anything scented. Upside: doesn't resemble rugs or bedding, so she won't confuse the two, and you
+      can lift just the soiled litter out daily. Pine disintegrates when wet and absorbs fast. Downside: heavy bags,
+      and pellets scatter when she plays in them.</p>
+    <p><strong>Disposable pads</strong> are convenient, easy to store and throw away, and come in different sizes.
+      Downside: puppies love shredding them, they can be expensive, and towels, rugs and beds start to look like the
+      same thing to a puppy.</p>
+    <p><strong>Washable cloth pads</strong> — including human hospital pads — have leakproof backing, are machine
+      washable, hard to shred, and save you buying disposables forever. Same confusion risk with rugs, and they need
+      regular laundering.</p>
+    <p><strong>Artificial turf</strong> works well and helps her make the connection to real grass outside. Hoses off
+      and is reusable, but awkward without a hose, and you want a spare while one dries.</p>
+    <p><strong>Sod</strong> is real grass, so she's already familiar with it when she first goes outdoors. But it can't
+      be sterilised, isn't available year-round in much of the country, needs watering, is heavy, and urine eventually
+      kills it.</p>
+    <p><strong>Unprinted newsprint</strong>, sold as packing paper where moving supplies are sold, is clean with no
+      smudgy ink, easy to dispose of and biodegradable. Sizes are irregular, it can be expensive, it's tempting to
+      shred, and it's less absorbent than the alternatives.</p>
+    <div class="src">Breeder's book pages 6 and 27–31. Pages 27–31 reproduce American Kennel Club articles — "The Best
+      Materials to use for Puppy House training" by Hilarie Erb, and potty-training tips by Stephanie Gibeault, MSc,
+      CPDT. Summarised here in plain language; the full articles are on
+      <a href="https://www.akc.org/expert-advice/" target="_blank" rel="noopener">akc.org</a>.</div>
+  </div></details>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-paw"/></svg></span>
+    Gear checklist<span class="caret"></span></summary><div class="body book">
+    <h4>Leashes</h4>
+    <p>A training leash is right for this stage — you're teaching her to heel and walk without tugging. Longer training
+      leashes keep her close but mobile in the backyard. Never leave her unsupervised on one.</p>
+    <h4>Somewhere to sleep</h4>
+    <p>It may take a few tries to find what she likes. Bolster beds help puppies who move a lot in their sleep stay put;
+      elevated beds are off the ground without being ultra-fluffy; some dogs want a thin bed or a blanket close to the
+      floor.</p>
+    <h4>Chew toys</h4>
+    <p>She's going to be teething, so you need puppy teething toys as well as regular chew toys — teething toys relieve
+      sore gums and keep her occupied.</p>
+    <h4>Training treats</h4>
+    <p>Positive reinforcement is how the early lessons stick. Work out which treats she actually likes. Some double as
+      teething relief.</p>
+    <h4>Dental care</h4>
+    <p>Start the routine early — brushing her teeth young is mostly about getting her used to the feeling. Dental treats
+      and dental wipes, including finger-brush forms, help too.</p>
+    <h4>Bowls</h4>
+    <p>She will grow, and for a giant breed that change is fast. Elevated bowls reduce neck strain. An adjustable bowl
+      carries her through all her stages.</p>
+    <h4>Housetraining supplies</h4>
+    <p>A crate to reinforce the schedule, puppy pads, poop bags, and a urine detector for the accidents you can smell
+      but can't find.</p>
+    <h4>Boundaries</h4>
+    <p>Give her access to only part of the house at first and expand gradually — puppy gates for rooms, the crate at
+      certain times of day. If she's allowed on furniture later, a ramp or steps bridge higher surfaces.</p>
+    <div class="src">Breeder's book pages 25–27, reproducing the AKC article "New Puppy Checklist: Gear You'll Need for
+      Your New Dog" by Kaitlyn Arford. Summarised here; full article on
+      <a href="https://www.akc.org/expert-advice/" target="_blank" rel="noopener">akc.org</a>.</div>
+  </div></details>
+
+  <div class="eyebrow" style="margin-top:24px">Her body and coat</div>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-paw"/></svg></span>
+    Grooming, for the next fifteen years<span class="caret"></span></summary><div class="body book">
+    <p>This is not a low-maintenance coat, and it never becomes one. Budget for it as a permanent recurring cost. A
+      Giant Schnauzer left ungroomed turns into a shaggy bear with matted armpits.</p>
+    <h4>The coat</h4>
+    <p>A harsh, wiry topcoat over a soft dense undercoat. It sheds very little, which is exactly why it mats — the dead
+      hair stays in rather than falling out, and has to be taken out by you or a groomer.</p>
+    <h4>Clipping or hand-stripping</h4>
+    <p><strong>Clipping</strong> cuts the outer coat short with electric clippers. Faster, cheaper, and what most pet
+      owners choose. Over time it softens the texture and can dull a black coat toward grey or a reddish tinge.
+      Roughly every 6–8 weeks.</p>
+    <p><strong>Hand-stripping</strong> pulls the dead topcoat out by the root, so the new coat grows back harsh and
+      keeps its colour. It's what show dogs get. It takes far longer, costs considerably more, and not every groomer
+      offers it. Often run as a rolling schedule every few weeks rather than one big session.</p>
+    <p>Whichever you choose, find a groomer who knows the Schnauzer pattern: short body, longer furnishings on the legs
+      and skirt, the flat top on the skull, arched eyebrows and full beard. Bring a photo of what you want.</p>
+    <h4>At home, between grooms</h4>
+    <ul>
+      <li><strong>Comb to the skin</strong>, not just over the top. A slicker lifts the coat; a metal comb is the honest
+        test of whether you actually reached skin. Legs, armpits, belly, skirt and behind the ears are where mats form.</li>
+      <li><strong>An undercoat rake</strong> pulls dead undercoat without cutting the harsh topcoat.</li>
+      <li><strong>The beard is the maintenance hotspot.</strong> It collects food and water. Wipe it after every meal
+        and drink, comb it a couple of times a week, and dry it thoroughly after baths or swimming — a chronically damp
+        beard develops odour and irritated skin underneath.</li>
+      <li><strong>Nails every 3–4 weeks.</strong> On a dog this heavy, nail length changes how the foot strikes the
+        ground and affects her gait and joints.</li>
+      <li><strong>Ears and toes get looked at</strong> every session. This breed has elevated rates of nail-bed cancer,
+        so any swelling, lost nail or odd growth on a toe is a vet visit, not a wait-and-see.</li>
+    </ul>
+    <div class="note good"><b>Start now, while she's small.</b> Grooming is a lifelong handling exercise. Get her used
+      to standing on a table, having her feet held, her face touched and clippers running near her <em>before</em>
+      she's 75 lb and has opinions. Her first professional groom should happen well before she needs one.</div>
+    <div class="src">Grooming practice from Schnauzer-specialist groomers; nail-bed carcinoma risk from the GSCA health
+      statement and breed health literature.</div>
+  </div></details>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-paw"/></svg></span>
+    Exercise and growth plates<span class="caret"></span></summary><div class="body book">
+    <p>The easiest way to damage a giant-breed dog for life is to over-exercise her before she's finished growing.</p>
+    <h4>Why</h4>
+    <p>Growth plates are soft cartilage at the ends of the long bones where new bone is made. While they're open they're
+      much weaker than mature bone. In giant breeds they don't fully close until somewhere around 14–24 months.
+      Repetitive high-impact loading — road running, repeated jumping, agility, long forced marches — can micro-damage
+      them and lead to uneven growth and joint problems that show up years later.</p>
+    <h4>The rule of thumb</h4>
+    <div class="note"><b>Five minutes of formal exercise per month of age, up to twice a day.</b> At 4 months that's
+      about 20 minutes twice daily. "Formal" means lead walks and structured activity — not free play in the garden,
+      which she self-regulates and can do as she likes.</div>
+    <p>The number is a guide rather than a law, and it's argued about. The uncontroversial parts: don't run her on hard
+      surfaces, don't do repetitive jumping, don't do endurance work, and let her choose to stop.</p>
+    <h4>What to do instead</h4>
+    <p>Mental work tires a Giant Schnauzer more reliably than mileage. Sniffing walks where she sets the pace, short
+      training sessions, food puzzles, novel places, gentle play with a well-mannered adult dog. A tired brain is a
+      calm dog.</p>
+    <h4>When she can do more</h4>
+    <p>Wait until at least 18 months before any structured running or jumping programme, and build up gradually even
+      then. If you want to do a real sport with her — protection work, agility, dock diving — ask your vet about
+      X-raying to confirm the growth plates have closed before you start.</p>
+    <p>Watch for limping, stiffness after rest, reluctance to keep going on a walk, or a change in how she moves. Any
+      of those means back off and get her looked at.</p>
+    <div class="src">Growth plate timing and exercise limits from veterinary rehabilitation and orthopaedic sources.</div>
+  </div></details>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-heart"/></svg></span>
+    Adult health — what this breed gets<span class="caret"></span></summary><div class="body book">
+    <p>Knowing the breed's weak points means you catch things early rather than late. None of this is a prediction —
+      it's a watch list.</p>
+    <h4>The parent club's health testing</h4>
+    <p>The GSCA — where Adam chairs the health committee — requires four evaluations for a CHIC number:
+      <strong>hips</strong> (OFA or PennHIP), <strong>elbows</strong> (OFA), an <strong>eye exam</strong> by a
+      board-certified ophthalmologist, and <strong>thyroid</strong> (OFA-approved lab). Strongly recommended on top:
+      a <strong>cardiac</strong> evaluation, preferably an echocardiogram by a cardiologist, and <strong>DNA tests</strong>
+      for progressive retinal atrophy (prcd-PRA) and dilated cardiomyopathy. Ask Frank and Adam for her parents'
+      results — responsible breeders publish them, and they've offered.</p>
+    <h4>Orthopaedic</h4>
+    <p>Hip and elbow dysplasia both run above average in the breed, and osteochondritis dissecans is associated with
+      rapid growth. That's the reason for the feeding and exercise caution in her first two years. Formal OFA hip and
+      elbow scoring is done at 24 months; preliminary films can be taken from 12 months.</p>
+    <h4>Thyroid</h4>
+    <p>Giant Schnauzers rank among the highest breeds for autoimmune thyroiditis. The signs are vague and easy to miss —
+      weight gain without more food, lethargy, a coat that goes dull or thin, skin problems, seeking out warmth. Worth
+      an annual thyroid panel as she reaches adulthood.</p>
+    <h4>Toes</h4>
+    <p>Squamous cell carcinoma of the nail bed occurs at elevated rates in this breed. It looks like a swollen toe, a
+      lost or deformed nail, or a growth. Check her feet whenever you groom, and get anything odd seen promptly.</p>
+    <h4>Bloat</h4>
+    <p>Covered behind the Bloat button and in the spay section. It's the emergency most likely to actually take her,
+      and the gastropexy is what prevents it.</p>
+    <h4>Eyes and heart</h4>
+    <p>Progressive retinal atrophy and dilated cardiomyopathy both exist in the breed, which is why the DNA tests are
+      recommended.</p>
+    <h4>Bleeding</h4>
+    <p>Von Willebrand's disease is documented in Giant Schnauzers. Worth screening before any planned surgery,
+      including her spay.</p>
+    <div class="src">GSCA Giant Schnauzer Health Statement and CHIC requirements; OFA breed statistics; breed health
+      literature.</div>
+  </div></details>
+
+  <div class="eyebrow" style="margin-top:24px">Breed, club and paperwork</div>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-book"/></svg></span>
+    Ear posting — cropped ears<span class="caret"></span></summary><div class="body book">
+    <div class="note"><b>Only relevant if she has cropped ears.</b> If she's a natural-ear puppy, skip to the next section.</div>
+    <h4>Supplies</h4>
+    <ul>
+      <li>Beard trimmers, or a clipper with a #40 blade</li>
+      <li>½" to ⅝" round backer rod (Home Depot, Lowe's, Amazon). You may need the smaller size at first but will move up to ⅝"</li>
+      <li>Zonas tape or sports tape. Never anything plastic or non-breathable. The kennel uses Johnson &amp; Johnson Zonas</li>
+      <li>Elastikon 1" tape, if the base won't stay in the ear canal. Extremely sticky — do not wrap tightly</li>
+      <li>Tincture of benzoin (skin protectant)</li>
+      <li>Torbot bonding cement (skin glue) — you definitely need this</li>
+      <li>Scissors</li>
+    </ul>
+    <h4>Applying the post</h4>
+    <p>The kennel recommends searching for Doberman ear posting "backer rod method" videos and tutorials.</p>
+    <ol>
+      <li>Shave the ears every couple of weeks with beard trimmers or a #40 clipper.</li>
+      <li>Cut the backer rod to length.</li>
+      <li>Roll it twice in duct tape — this gives the post its support.</li>
+      <li>Reverse Zonas or sports tape so the sticky side faces out, covering the entire post.</li>
+      <li>Cut a small diagonal on each post. That cut end goes into the ear canal.</li>
+      <li>Optional but necessary on some Giants: apply benzoin to the ear leather, let it dry, then apply Torbot to the
+        side of the post that will sit against the ear, and Torbot to the inner ear leather where the post will sit —
+        but not down in the ear canal.</li>
+      <li>Gently put the post in the ear, pulling the ear up and tight.</li>
+      <li>Tape the base with Zonas or sports tape, going around the front of the ear where the flap is laid back. Tape
+        loosely. Add another strip to the middle and top of the ear, loosely covering the whole ear. If the post won't
+        stay in the canal, use Elastikon at the base.</li>
+      <li>Squeeze gently on the whole ear once taped, securing tape to ear and post.</li>
+    </ol>
+    <h4>The cross brace</h4>
+    <p>Once both ears are posted you need a cross section holding them upright. The kennel takes a 12–16" piece of Zonas
+      or sports tape, tears it in half down the middle about 3–4", wraps the split area around the base of one ear, then
+      does the same at the other end, adjusting the length so the ears sit high on the head. Fold the tape in half
+      between the ears so it doesn't stick to her.</p>
+    <h4>Changing posts and aftercare</h4>
+    <ul>
+      <li>Take posts down every 5–7 days and leave the ears unposted for 24 hours. Repost for another 5–7 days after that rest.</li>
+      <li>If the ears get wet, take them down at once and repost with fresh supplies.</li>
+      <li>If the ear canals get an odour or seem infected, see a vet — Animax ointment is the best choice and is
+        prescription only. Change posts daily if an ear infection occurs, and don't leave the ears unposted.</li>
+      <li>In extremely hot, wet or humid conditions, repost every 4–5 days to prevent infection.</li>
+      <li>Clean the ear with a dog ear cleaner (Zymox) whenever the posts are down. Highly recommended.</li>
+      <li>Keep going until the ears stay standing normally after her adult teeth are in. Some ears take 12–18 months to stand.</li>
+    </ul>
+    <div class="note"><b>Disclaimer from the kennel.</b> Down Low Kennels and its affiliates are not responsible for any
+      outcome of ear cropping. They are not licensed veterinarians and the advice is based on their own experience and
+      practices. They highly recommend you seek a vet experienced in ear cropping and posting. This is what they see
+      working best for their dogs; there are several ways to post ears and they encourage you to do what's best for you
+      and your pet.</div>
+    <div class="src">Breeder's book pages 9–10.</div>
+  </div></details>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-book"/></svg></span>
+    Natural ears — correcting a badly carried ear<span class="caret"></span></summary><div class="body book">
+    <h4>Supplies</h4>
+    <ul>
+      <li>Beard trimmer or clipper with #40 blade — shave the ears every couple of weeks</li>
+      <li>Zonas tape (sports tape)</li>
+      <li>Speed-sew glue (fabric glue, available on Amazon)</li>
+    </ul>
+    <h4>What a correct Giant Schnauzer ear looks like</h4>
+    <p>Symmetrically hanging ears, set high and V-shaped. The fold for the pendant should be level with, or hardly
+      higher than, the skull; the ears then drop forward with the inner edge of the V touching the temple.</p>
+    <p>Because some countries have historically allowed cropping, the natural correctly hanging ear was often neglected
+      by breeders — cropping artificially solved a breeding problem. The source of this page notes that 80% or more of
+      the Giant Schnauzers they bred have ears matching the correct description, because they decided back in 1976 to
+      stop cropping and select for the correct hanging ear.</p>
+    <h4>When ears "fly"</h4>
+    <p>It happens mainly during teething that one or both of a young dog's ears start to fly. A little help is then
+      needed to lead the muscles of the ears in an identical and correct direction.</p>
+    <p>If her ears deviate, you need a roll of Elastoplast stretch fabric, 25mm x 3m, manufactured by Smith &amp; Nephew
+      and available at any chemist.</p>
+    <ol>
+      <li>Following the longitudinal direction of the ear, stick about 4cm of the tape on the inner side of the first ear.</li>
+      <li>Unroll the tape just long enough to pass under the chin — <em>without</em> making it too tight.</li>
+      <li>Join the other ear and stick about 4cm to its inner side.</li>
+      <li>Fold the free part of the elastoplast together so it sticks to itself rather than to her hair.</li>
+      <li>On each ear add a short piece of elastoplast to make the adhesion more solid, long enough to turn around the
+        existing strap.</li>
+    </ol>
+    <p>If you're lucky the tape can stay on for a week. If it peels off, replace it, until the ears are carried
+      correctly. It is absolutely imperative that you <strong>don't</strong> make the strap too tight under the chin —
+      just touching is all right.</p>
+    <div class="src">Breeder's book page 11.</div>
+  </div></details>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-book"/></svg></span>
+    The breed standard<span class="caret"></span></summary><div class="body book">
+    <p>The official AKC standard, in short. It's the picture the breed is judged against, and it explains why she's
+      built the way she is.</p>
+    <h4>Overall</h4>
+    <p>A larger, more powerful version of the Standard Schnauzer — bold and valiant, robust, strongly built, nearly
+      square in proportion of body length to height at the withers. Active, sturdy, well muscled. Temperament combines
+      spirit and alertness with intelligence and reliability: composed, watchful, courageous, easily trained, deeply
+      loyal to family, playful, amiable in repose, and a commanding figure when aroused. The sound temperament, rugged
+      build and dense weather-resistant wiry coat make for one of the most useful, powerful and enduring working breeds.</p>
+    <h4>Head</h4>
+    <p>Strong, rectangular, elongated; narrowing slightly from ears to eyes and again from eyes to nose tip. Head length
+      is about half the length of the back. Skull moderately broad between the ears, flat on top, skin unwrinkled,
+      cheeks flat. Muzzle strong, ending in a moderately blunt wedge; nose large, black and full. Bite: a full
+      complement of sound white teeth — 6/6 incisors, 2/2 canines, 8/8 premolars, 4/6 molars — with a scissors bite.
+      Overshot or undershot is a disqualifying fault. Eyes medium size, dark brown, deep-set, oval. Ears when cropped
+      are identical in shape and length with pointed tips, carried perpendicularly at the inner edges; uncropped they
+      are V-shaped button ears of medium length and thickness, set high and carried rather high and close to the head.</p>
+    <h4>Body</h4>
+    <p>Compact, substantial, short-coupled and strong. Height at the withers equals body length from breastbone to
+      point of rump. Chest medium in width, ribs well sprung, oval in cross section, deep through the brisket. Back
+      short, straight, strong and firm. Tail set moderately high and carried high in excitement; docked to the second
+      or not more than the third joint.</p>
+    <h4>Gait and coat</h4>
+    <p>The trot is the gait it's judged at — free, balanced and vigorous, with good reach in front and driving power
+      behind, single-tracking at a fast trot with the back staying strong, firm and flat. Coat hard, wiry and very
+      dense: a soft undercoat with a harsh outer coat that stands slightly up off the back when seen against the grain.
+      Coarse hair on top of the head; harsh beard and eyebrows are the Schnauzer hallmark.</p>
+    <h4>Colour and size</h4>
+    <p>Solid black or pepper and salt. Black should be a truly pure black; a small white spot on the breast is
+      permitted, any other markings are disqualifying faults. Height at the withers: males 25½–27½ inches, females
+      23½–25½ inches, with the mediums preferred. Size alone should never take precedence over type, balance,
+      soundness and temperament.</p>
+    <h4>Faults</h4>
+    <p>Any deviation from the described dog is penalised to the extent of the deviation. A judge dismisses any shy or
+      vicious Giant Schnauzer. Shyness: refusing to stand for examination, repeatedly shrinking from the judge, fearing
+      approach from the rear, or shying markedly at sudden and unusual noises. Viciousness: attacking or attempting to
+      attack the judge or handler. An aggressive or belligerent attitude towards other dogs is not deemed viciousness.
+      Disqualifications: overshot or undershot; markings other than specified.</p>
+    <div class="src">Breeder's book pages 16–17, reproducing the AKC official breed standard. Condensed here; the full
+      standard is on <a href="https://www.akc.org/dog-breeds/giant-schnauzer/" target="_blank" rel="noopener">akc.org</a>.</div>
+  </div></details>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-book"/></svg></span>
+    Giant Schnauzer Club of America<span class="caret"></span></summary><div class="body book">
+    <p>Frank and Adam are both highly active in the GSCA and invite you to ask them about the club.</p>
+    <p>The Giant Schnauzer Club of America, Inc. was established in 1962 as a non-profit and became the AKC parent club
+      for the breed in 1966. It's responsible for the official breed standard, educates judges, breeders and the public,
+      and has hosted Specialty events annually since 1968. There are over 400 GSCA members in the United States as well
+      as Canada, Mexico and Japan.</p>
+    <p>Membership is open to anyone in good standing with the AKC who subscribes to the club's purposes and agrees to
+      abide by its Constitution &amp; Bylaws, Standing Rules and Code of Ethics. It isn't restricted by country of residency.</p>
+    <h4>The club's three objectives</h4>
+    <ul>
+      <li>Preserve and improve the character and conformation of the Giant Schnauzer</li>
+      <li>Conduct dog shows, obedience trials and sanctioned matches</li>
+      <li>Protect and advance the breed</li>
+    </ul>
+    <h4>What membership gets you</h4>
+    <ul>
+      <li>Mailed copies of the club magazine <em>Giant Steps</em>, plus monthly newsletters by email</li>
+      <li>Voting rights (US residents) and a say in the biannual election of board officers and regional directors</li>
+      <li>Eligibility for annual awards — top 10 in conformation, companion and performance activities</li>
+      <li>Congratulatory awards for earning new AKC titles on your Giant</li>
+      <li>Discounted rates on certain educational materials and publications</li>
+      <li>Giant Schnauzer University webinars and recordings of previous sessions</li>
+      <li>Access to the members-only area of the GSCA website</li>
+      <li>Opportunities to serve on committees, host specialty events and give feedback</li>
+    </ul>
+    <h4>Joining</h4>
+    <p>Complete the online membership application thoroughly and accurately — a sloppy application can be delayed or
+      refused. There's a non-refundable $25 processing fee, plus dues for the current year based on membership type and
+      prorated depending on whether you apply before or after June 1. No action is taken until the total is paid; you
+      can pay by card, PayPal or Venmo, or contact the Treasurer to arrange otherwise. If your application isn't
+      approved, dues are refunded.</p>
+    <p>You need two sponsors — members in good standing for at least a year — who each complete an online sponsor form.
+      If you don't know two members, the regional director for your area can help. Your name and location are published
+      in the next monthly newsletter, and members then have 30 days to submit concerns in writing. After that the board
+      elects applicants by meeting or email vote; a two-thirds affirmative vote confirms membership. The process can
+      take 2–3 months once your application and both sponsor forms are in.</p>
+    <div class="src">Breeder's book page 18.</div>
+  </div></details>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-share"/></svg></span>
+    Insurance, contacts and links<span class="caret"></span></summary><div class="body book">
+    <div class="note stop"><b>Trupanion go-home-day offer — time critical.</b> The offer waives the standard waiting
+      periods so coverage starts the moment you activate, with no upfront payment for the first 30 days. It has to be
+      activated within 24 hours either side of the day she left the breeder. The kennel states that if insurance isn't
+      activated they are not liable for any health-related issues, so if you haven't done it, check where you stand.
+      Owner activation:
+      <a href="https://www.trupanion.com/certificates/go-home-day-offer" target="_blank" rel="noopener">trupanion.com/certificates/go-home-day-offer</a>
+      or 855.405.3753. The breeder support line printed in your book is 855.266.2154 — Frank and Adam can look up your code.</div>
+    <h4>Links from the book</h4>
+    <ul>
+      <li><a href="https://www.drschoicesupplements.com/fido-vite/" target="_blank" rel="noopener">Doctor's Choice Supplements — Fido-Vite</a> · coupon code DLK · 800-639-0249</li>
+      <li><a href="https://veterinarypartner.vin.com" target="_blank" rel="noopener">Veterinary Partner (VIN)</a> — the kennel's recommended reading on diseases and parasites</li>
+      <li><a href="https://www.akc.org/expert-advice/" target="_blank" rel="noopener">AKC Expert Advice</a> — source of the article pages in the book; the kennel recommends searching it with video when you have questions</li>
+      <li><a href="https://www.heartwormsociety.org/pet-owner-resources/heartworm-basics" target="_blank" rel="noopener">American Heartworm Society</a></li>
+      <li><a href="https://www.giantschnauzerclubofamerica.com/" target="_blank" rel="noopener">Giant Schnauzer Club of America</a></li>
+      <li><a href="https://ofa.org/" target="_blank" rel="noopener">OFA</a> — health testing databases, to look up her parents</li>
+      <li><em>Pet Fooled</em> — documentary on Amazon, recommended before you decide on raw</li>
+      <li>The BARF diet, Dr. Ian Billinghurst — the raw feeding reference they point to</li>
+    </ul>
+    <h4>Their closing note</h4>
+    <p>"We don't warn you of these things to scare you, only to let you know ways to prevent problems down the road."
+      They have many more recommendations and are always there to help.</p>
+    <div class="src">Breeder's book pages 5–7, 12, 25; Trupanion offer terms from trupanion.com.</div>
+  </div></details>
+
+  <details class="acc"><summary><span class="pawdot"><svg><use href="#i-book"/></svg></span>
+    What's missing from this guide<span class="caret"></span></summary><div class="body book">
+    <p>The scans cover pages 5–12, 16–18 and 25–31 of the book. Pages 1–4, 13–15 and 19–24 weren't scanned, so nothing
+      from them is here. Page 13 onwards likely continues from the parasites section, and 19–24 sits between the GSCA
+      pages and the article reprints. Scan them and they can be added.</p>
+    <p>The book also refers to a physical list of raw-feeding supplements and the Fido-Vite brochure enclosed in it,
+      neither of which is in the scans.</p>
+  </div></details>
+</section>
+</main>
+
+<div class="veil" data-act="close-sheet"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" tabindex="-1">
+  <div class="grab"></div>
+  <div id="sheetBody"></div>
+  <button class="close" data-act="close-sheet">Close</button>
+</div>
+
+<nav class="tabs" role="tablist" aria-label="Sections">
+  <button role="tab" id="t-home"  aria-selected="true"  data-tab="home"><span class="ic"><svg><use href="#i-home"/></svg></span>Home</button>
+  <button role="tab" id="t-vax"   aria-selected="false" data-tab="vax"><span class="ic"><svg><use href="#i-check"/></svg></span><span id="vaxBadge"></span>Vaccines</button>
+  <button role="tab" id="t-feed"  aria-selected="false" data-tab="feed"><span class="ic"><svg><use href="#i-bowl"/></svg></span>Feeding</button>
+  <button role="tab" id="t-log"   aria-selected="false" data-tab="log"><span class="ic"><svg><use href="#i-note"/></svg></span>Log</button>
+  <button role="tab" id="t-care"  aria-selected="false" data-tab="care"><span class="ic"><svg><use href="#i-heart"/></svg></span>Care</button>
+  <button role="tab" id="t-guide" aria-selected="false" data-tab="guide"><span class="ic"><svg><use href="#i-book"/></svg></span>Guide</button>
+</nav>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+/* =====================================================================
+   Her Book — Giant Schnauzer care record
+
+   Storage model
+   -------------
+   The record is SHARED. Everyone who opens this file writes into the same
+   document, so a sitter's notes survive and show up for the owner.
+
+   Concurrency is handled with last-writer-wins per field rather than per
+   document, so two people editing different things never wipe each other:
+     - scalar fields carry a timestamp in `_ts` keyed by path
+     - list items carry `_m` (modified) and merge by id
+     - deletes are tombstones (`_del`), so a delete isn't resurrected by a
+       merge with a peer who still has the item
+
+   Owner control
+   -------------
+   The first person to set an owner code becomes the owner. Anyone can read
+   and add; only the owner can edit her details or delete anything. This is
+   a soft lock in the UI, not encryption — see the note in the People sheet.
+
+   Sync credentials are deliberately kept OUT of the shared document and
+   stored locally, so sharing the record never leaks the owner token.
+   ===================================================================== */
+
+const DOB  = "2026-06-25";
+const CHIP = "956200000033176";
+const SCHEMA = 4;
+const KEY = "her-book-v4";
+const LOCAL_KEY = "her-book-local-v4";   // device-only: sync creds, who I am, owner flag
+
+const KENNEL_GIVEN = [
+  ["Pyrantel deworming","2 weeks","2026-07-09"],
+  ["Pyrantel deworming","3 weeks","2026-07-16"],
+  ["Pyrantel deworming","4 weeks","2026-07-23"],
+  ["DP vaccine (distemper / parvovirus)","4 weeks","2026-07-23"],
+  ["Panacur (fenbendazole) — day 1 of 5","5 weeks","2026-07-30"],
+  ["Panacur — day 2 of 5","5 weeks","2026-07-31"],
+  ["Panacur — day 3 of 5","5 weeks","2026-08-01"],
+  ["Panacur — day 4 of 5","5 weeks","2026-08-02"],
+  ["Panacur — day 5 of 5","5 weeks","2026-08-03"],
+  ["Bordetella vaccine","6 weeks","2026-08-06"],
+  ["Heartworm prevention started","6 weeks","2026-08-06"],
+  ["DAPP vaccine","7 weeks","2026-08-13"],
+  ["Drontal Plus (dewormer)","8 weeks","2026-08-20"],
+  ["DAPP booster","10 weeks","2026-08-30"]
+];
+const KENNEL_UPCOMING = [
+  ["DAPP booster","13 weeks",13],
+  ["DAPP booster","16 weeks",16],
+  ["Leptospirosis vaccine","16 weeks",16],
+  ["Rabies vaccine","16–20 weeks",16]
+];
+const SUGGESTIONS = [
+  ["First vet wellness exam","within 72 hrs of pickup"],
+  ["Fecal exam",""],
+  ["Canine influenza vaccine","if boarding, grooming or dog parks"],
+  ["Monthly heartworm prevention","year-round"],
+  ["Flea & tick preventative","start at first vet visit"],
+  ["Heartworm test","annually from 7 months"],
+  ["Bordetella booster","yearly"],
+  ["Leptospirosis booster","yearly"],
+  ["Lyme vaccine","area dependent"],
+  ["Rabies booster","per state law"],
+  ["First professional groom","4–5 months"],
+  ["Check for retained baby teeth","6 months"],
+  ["Hip & elbow prelim x-rays","12 months"],
+  ["Spay + gastropexy","kennel advises 24 months"],
+  ["OFA hips & elbows","24 months"],
+  ["Thyroid panel","annually as an adult"],
+  ["DAPP titer check","at 2 years"],
+  ["Annual dental check",""]
+];
+const ARRIVAL = [
+  "Vet visit booked within 72 hours of pickup",
+  "Trupanion go-home-day offer activated",
+  "Emergency vet number saved in my phone",
+  "Microchip registered in my name",
+  "Crate set up and introduced",
+  "Enzymatic cleaner bought",
+  "Puppy class booked",
+  "Fido-Vite ordered — coupon DLK",
+  "Monthly heartworm prevention set up with the vet",
+  "Asked the kennel for the parents' OFA and DNA results",
+  "Care sheet filled in, in case someone else has to take her"
+];
+const CATS = ["Stool","Vomiting","Appetite","Energy","Urination","Skin / coat","Ears","Toes / nails","Limping","Cough","Behaviour","Other"];
+
+const STAGES = [
+  { name:"Settling in", from:0, to:112, short:"8–16 weeks",
+    blurb:"The window that shapes who she becomes. Almost everything you do now pays off for a decade.",
+    points:[
+      "Socialisation is the priority — new people, surfaces, sounds and places, safely. This window closes around 14–16 weeks and does not reopen.",
+      "Finish the vaccine series through 16 weeks before high dog-traffic places.",
+      "Crate training, house training, her name, and getting her used to being handled and groomed.",
+      "Three meals a day, as much as she'll eat in 15–20 minutes.",
+      "Free play only. No lead marches, no running, no jumping.",
+      "Expect a lot of weeing. It's normal for the breed and it passes."
+    ]},
+  { name:"Teething and testing", from:112, to:183, short:"4–6 months",
+    blurb:"Adult teeth arrive, chewing peaks, and the puppy manners start slipping.",
+    points:[
+      "Adult teeth come in around 4–6 months. Check none of the baby teeth are retained — mention it at her next visit.",
+      "Chewing hits its worst. Give her legal things to destroy or she'll pick her own.",
+      "The piddle phase ends. You can stop limiting water after 6 months.",
+      "House training should consolidate now — keep the routine tight rather than easing off.",
+      "Book her first professional groom so she learns the table while she's still small.",
+      "Still no forced exercise. Five minutes per month of age, twice a day, is the guide."
+    ]},
+  { name:"Adolescence", from:183, to:548, short:"6–18 months",
+    blurb:"The hardest stretch. She'll get bigger, bolder, and briefly forget everything she knows.",
+    points:[
+      "Expect regression. Recall falls apart, rules get tested, and a second fear period is common somewhere in here.",
+      "Her guarding instinct emerges. This is when consistent structure stops being optional.",
+      "Growth plates stay open to roughly 14–24 months. No jogging, agility or repetitive jumping yet.",
+      "Two meals a day minimum until 8 months. Stay on large-breed puppy food to about 18 months.",
+      "Keep training short, frequent and rewarding. Work her brain — a bored Giant invents jobs.",
+      "Talk to your vet about spay timing. The kennel advises waiting to 24 months, and asking for a gastropexy at the same time.",
+      "Preliminary hip and elbow x-rays are possible from 12 months."
+    ]},
+  { name:"Young adult", from:548, to:1095, short:"18 months – 3 years",
+    blurb:"She's grown into herself. Now you can build real fitness.",
+    points:[
+      "Close to full size by 18–24 months, though muscle and coat keep filling out.",
+      "Growth plates have closed — you can start building endurance, gradually.",
+      "Switch to adult food if you haven't already.",
+      "Formal OFA hip and elbow scoring is done from 24 months.",
+      "Get a thyroid baseline. This breed ranks high for autoimmune thyroiditis.",
+      "Annual heartworm test, fecal exam, and vaccines or titers.",
+      "Give her a job — obedience, tracking, protection sport, or just demanding daily work."
+    ]},
+  { name:"Adult", from:1095, to:2555, short:"3 – 7 years",
+    blurb:"Steady years. The work now is keeping her lean and catching things early.",
+    points:[
+      "Keep her lean. Weight is the single biggest lever on how her joints age.",
+      "Annual bloodwork including thyroid, plus a dental check.",
+      "Check her toes every groom — nail-bed cancer is elevated in this breed.",
+      "Grooming every 6–8 weeks clipped, or a rolling strip. It never stops.",
+      "Stay alert to bloat for her whole life, especially if she never had the gastropexy.",
+      "Keep training. A Giant Schnauzer without a job finds one."
+    ]},
+  { name:"Senior", from:2555, to:99999, short:"7 years and up",
+    blurb:"Slower, greyer, still opinionated. Small changes matter more now.",
+    points:[
+      "Move to twice-yearly vet checks with senior bloodwork.",
+      "Watch for new lumps, changes in drinking or urination, stiffness, or confusion at night.",
+      "Joint support and a soft, supportive bed. Keep her moving — little and often beats one long walk.",
+      "Weight control matters more than ever, and her appetite may change.",
+      "Keep her mind busy. Scent work is gentle on the body and good for the brain.",
+      "Dental disease gets serious in older dogs. Don't skip it."
+    ]}
+];
+
+/* Every scalar path that merges by timestamp. */
+const SCALAR_PATHS = [
+  "name", "ownerCode",
+  ...["food","amt","meals","times","supp","treats","avoid","notes"].map(k => `feedPlan.${k}`),
+  ...["ownerName","ownerPhone","altName","altPhone","vetName","vetPhone","vetAddr",
+      "erName","erPhone","erAddr","insurance","routine","toilet","exercise","crate",
+      "commands","rules","quirks","meds","kit"].map(k => `care.${k}`)
+];
+const LISTS = ["vaccines","weights","meals","occ"];
+
+/* ------------------------------------------------------------- helpers */
+const $  = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+const pad2 = n => String(n).padStart(2, "0");
+const iso = d => `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+const today = () => iso(new Date());
+const parseDay = s => { const [y, m, d] = String(s).split("-").map(Number); return new Date(y, m - 1, d); };
+const daysBetween = (a, b) => Math.round((parseDay(b) - parseDay(a)) / 86400000);
+const addDays = (s, n) => { const d = parseDay(s); d.setDate(d.getDate() + n); return iso(d); };
+
+const MONTHS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const fmt = s => { const p = String(s || "").split("-"); return p.length === 3 ? `${MONTHS[+p[1]-1]} ${+p[2]}, ${p[0]}` : (s || ""); };
+const fmtShort = s => { const p = String(s || "").split("-"); return p.length === 3 ? `${MONTHS[+p[1]-1]} ${+p[2]}` : (s || ""); };
+
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+const uid = () => (crypto.randomUUID ? crypto.randomUUID().slice(0, 12)
+                                     : "x" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6));
+const ageDays = () => Math.max(0, daysBetween(DOB, today()));
+
+function ageText(){
+  const d = ageDays();
+  if (d < 120) return `${Math.floor(d / 7)} weeks old`;
+  const mo = Math.floor(d / 30.44);
+  return mo < 24 ? `${mo} months old` : `${Math.floor(mo / 12)} years old`;
+}
+const currentStage = () => {
+  const d = ageDays();
+  return STAGES.find(s => d >= s.from && d < s.to) || STAGES[STAGES.length - 1];
+};
+const getPath = (o, p) => p.split(".").reduce((x, k) => (x == null ? x : x[k]), o);
+function setPath(obj, path, value){
+  const keys = path.split("."), last = keys.pop();
+  let cur = obj;
+  for (const k of keys){
+    if (typeof cur[k] !== "object" || cur[k] === null) cur[k] = {};
+    cur = cur[k];
+  }
+  cur[last] = value;
+}
+
+/* ------------------------------------------------------ device-local */
+/* Never shared: sync tokens, who I am on this device, whether I'm owner. */
+const Local = {
+  data: { me: "", isOwner: false, sync: { url:"", id:"", token:"" } },
+  load(){
+    try {
+      const raw = localStorage.getItem(LOCAL_KEY);
+      if (raw) this.data = { ...this.data, ...JSON.parse(raw) };
+    } catch { /* defaults */ }
+    return this.data;
+  },
+  save(){
+    try { localStorage.setItem(LOCAL_KEY, JSON.stringify(this.data)); } catch { /* private mode */ }
+  }
+};
+
+/* ---------------------------------------------------------- adapters */
+/* SharedAdapter is the important one: window.storage with shared=true means
+   every person opening this record reads and writes the same document.     */
+const SharedAdapter = {
+  name: "shared",
+  available: () => typeof window.storage?.get === "function",
+  async get(){ try { return (await window.storage.get(KEY, true))?.value ?? null; } catch { return null; } },
+  async set(v){ await window.storage.set(KEY, v, true); }
+};
+const LocalAdapter = {
+  name: "this device only",
+  available(){ try { localStorage.setItem("__t","1"); localStorage.removeItem("__t"); return true; } catch { return false; } },
+  async get(){ return localStorage.getItem(KEY); },
+  async set(v){ localStorage.setItem(KEY, v); }
+};
+const MemoryAdapter = (() => {
+  let v = null;
+  return { name:"memory", available: () => true, async get(){ return v; }, async set(x){ v = x; } };
+})();
+const pickAdapter = () => [SharedAdapter, LocalAdapter, MemoryAdapter].find(a => a.available()) || MemoryAdapter;
+
+/* ------------------------------------------------------------- state */
+function seedVaccines(){
+  const t = 0;   // seeds are the lowest possible timestamp so any edit beats them
+  return [
+    ...KENNEL_GIVEN.map(([name, age, date], i) =>
+      ({ id:`k${i}`, name, age, date, due:"", done:true, kennel:true, _m:t })),
+    ...KENNEL_UPCOMING.map(([name, age, wk], i) =>
+      ({ id:`u${i}`, name, age, date:"", due:addDays(DOB, wk*7), done:false, kennel:true, _m:t }))
+  ];
+}
+const blankState = () => ({
+  schema: SCHEMA, updatedAt: 0,
+  name: "", ownerCode: "",
+  vaccines: seedVaccines(), arrival: {}, weights: [], meals: [], occ: [],
+  feedPlan: { food:"", amt:"", meals:"", times:"", supp:"", treats:"", avoid:"", notes:"" },
+  care: {},
+  _ts: {}
+});
+
+function migrate(doc){
+  const base = blankState();
+  if (!doc || typeof doc !== "object") return base;
+  const out = { ...base, ...doc };
+  out.feedPlan = { ...base.feedPlan, ...(doc.feedPlan || {}) };
+  out.care     = { ...base.care,     ...(doc.care     || {}) };
+  out._ts      = { ...(doc._ts || {}) };
+  delete out.sync;                                   // v3 kept tokens in the doc; they move to Local
+  for (const k of LISTS) if (!Array.isArray(out[k])) out[k] = base[k];
+  if (!out.vaccines.length) out.vaccines = seedVaccines();
+  for (const k of LISTS) for (const it of out[k]) if (typeof it._m !== "number") it._m = 0;
+
+  // arrival was a plain {index: bool} map before v4
+  const arr = doc.arrival || doc.starters || {};
+  out.arrival = {};
+  for (const [k, v] of Object.entries(arr)){
+    out.arrival[k] = (v && typeof v === "object") ? v : { v: !!v, _m: 0 };
+  }
+  out.schema = SCHEMA;
+  return out;
+}
+
+/* -------------------------------------------------------------- merge */
+/* Field-level last-writer-wins. Never destructive: an item present in
+   either side survives unless it carries a tombstone.                    */
+function mergeDocs(mine, theirs){
+  if (!theirs) return mine;
+  if (!mine) return theirs;
+  const out = migrate(structuredClone(theirs));
+  out._ts = { ...(theirs._ts || {}) };
+
+  for (const path of SCALAR_PATHS){
+    const mt = mine._ts?.[path] ?? -1, tt = theirs._ts?.[path] ?? -1;
+    if (mt >= tt){
+      const v = getPath(mine, path);
+      if (v !== undefined){ setPath(out, path, v); out._ts[path] = mt; }
+    }
+  }
+
+  for (const list of LISTS){
+    const byId = new Map();
+    for (const it of (theirs[list] || [])) byId.set(it.id, it);
+    for (const it of (mine[list] || [])){
+      const other = byId.get(it.id);
+      if (!other || (it._m ?? 0) >= (other._m ?? 0)) byId.set(it.id, it);
+    }
+    out[list] = [...byId.values()];
+  }
+
+  out.arrival = { ...(theirs.arrival || {}) };
+  for (const [k, v] of Object.entries(mine.arrival || {})){
+    const other = out.arrival[k];
+    if (!other || (v._m ?? 0) >= (other._m ?? 0)) out.arrival[k] = v;
+  }
+
+  out.updatedAt = Math.max(mine.updatedAt || 0, theirs.updatedAt || 0);
+  return out;
+}
+/** Tombstoned items stay in storage so deletes propagate, but never render. */
+const live = list => (list || []).filter(x => !x._del);
+
+/* -------------------------------------------------------------- repo */
+const Repo = {
+  state: blankState(),
+  adapter: MemoryAdapter,
+  _timer: null, _writing: false, _again: false,
+
+  async init(){
+    this.adapter = pickAdapter();
+    let parsed = null;
+    try {
+      const raw = await this.adapter.get();
+      if (raw) parsed = JSON.parse(raw);
+    } catch { /* defaults */ }
+    this.state = migrate(parsed);
+    return this.state;
+  },
+
+  isOwner(){ return !this.state.ownerCode || Local.data.isOwner; },
+
+  /** Stamp a scalar edit so the merge knows how fresh it is. */
+  stamp(path){ this.state._ts[path] = Date.now(); },
+
+  update(fn, { render = true } = {}){
+    fn(this.state);
+    this.state.updatedAt = Date.now();
+    this.persist();
+    if (render) View.render();
+  },
+
+  persist(){
+    clearTimeout(this._timer);
+    this._timer = setTimeout(() => this._flush(), 250);
+  },
+
+  /** Read-modify-write: merge into whatever is in shared storage right now. */
+  async _flush(){
+    if (this._writing){ this._again = true; return; }
+    this._writing = true;
+    try {
+      let current = null;
+      try {
+        const raw = await this.adapter.get();
+        if (raw) current = JSON.parse(raw);
+      } catch { /* treat as empty */ }
+      const merged = mergeDocs(this.state, current);
+      this.state = merged;
+      await this.adapter.set(JSON.stringify(merged));
+      View.render();
+      Sync.queue();
+    } catch (e){
+      console.error("save failed", e);
+      View.toast("Couldn't save — your changes are only on screen");
+    } finally {
+      this._writing = false;
+      if (this._again){ this._again = false; this._flush(); }
+    }
+  },
+
+  /** Pull peers' changes without writing. */
+  async refresh(){
+    try {
+      const raw = await this.adapter.get();
+      if (!raw) return;
+      const merged = mergeDocs(this.state, JSON.parse(raw));
+      if (JSON.stringify(merged) !== JSON.stringify(this.state)){
+        this.state = merged;
+        View.render();
+      }
+    } catch { /* offline is fine */ }
+  }
+};
+
+/* -------------------------------------------------------------- sync */
+/* Optional Cloudflare backend, for when the file is hosted rather than
+   opened here. Credentials live in Local, never in the shared document. */
+const Sync = {
+  status: "off", _timer: null,
+  cfg(){ return Local.data.sync || {}; },
+  on(){ const c = this.cfg(); return !!(c.url && c.id && c.token); },
+
+  queue(){
+    if (!this.on()) return;
+    clearTimeout(this._timer);
+    this._timer = setTimeout(() => this.push(), 1200);
+  },
+
+  async req(path, opts = {}){
+    const c = this.cfg();
+    const res = await fetch(c.url.replace(/\/+$/, "") + path, {
+      ...opts,
+      headers: { "content-type":"application/json", Authorization:`Bearer ${c.token}`, ...(opts.headers || {}) }
+    });
+    const body = await res.json().catch(() => ({}));
+    if (!res.ok) throw Object.assign(new Error(body?.error?.message || `HTTP ${res.status}`), { status: res.status });
+    return body;
+  },
+
+  async pull({ quiet = true } = {}){
+    if (!this.on()) return;
+    this.set("syncing");
+    try {
+      const r = await this.req(`/v1/records/${this.cfg().id}`);
+      if (r.doc){
+        const merged = mergeDocs(Repo.state, migrate(r.doc));
+        Repo.state = merged;
+        await Repo.adapter.set(JSON.stringify(merged));
+        View.render();
+        if (!quiet) View.toast("Merged the server copy");
+      }
+      this.set(r.role === "view" ? "readonly" : "idle");
+    } catch (e){ this.set("error", e.message); }
+  },
+
+  async push(){
+    if (!this.on() || this.status === "readonly") return;
+    this.set("syncing");
+    try {
+      await this.req(`/v1/records/${this.cfg().id}`, {
+        method:"PUT", body: JSON.stringify({ doc: Repo.state, baseUpdatedAt: Repo.state.updatedAt })
+      });
+      this.set("idle");
+    } catch (e){
+      if (e.status === 409) return this.pull({ quiet:false });
+      if (e.status === 403) return this.set("readonly");
+      this.set("error", e.message);
+    }
+  },
+
+  set(status, detail = ""){
+    this.status = status;
+    const msg = {
+      syncing:"Syncing…",
+      readonly:"Read-only copy — you can see everything, but changes won't sync back.",
+      error:`Sync problem: ${detail}. Your changes are still saved here.`
+    }[status] || null;
+    const bar = $("#statusbar");
+    bar.hidden = !msg;
+    if (msg) bar.textContent = msg;
+  }
+};
+
+/* -------------------------------------------------------------- view */
+const View = {
+  render(){
+    this.header(); this.next(); this.home();
+    this.vaccines(); this.feeding(); this.log(); this.bindings();
+    document.body.classList.toggle("guest", !Repo.isOwner());
+  },
+
+  header(){
+    const s = Repo.state;
+    $("#dogName").innerHTML = s.name ? esc(s.name) : '<span class="ghost">Give her a name</span>';
+    $("#ageLine").textContent = `Giant Schnauzer · black female · ${ageText()}`;
+    $("#facts").innerHTML = [
+      ["Born", fmt(DOB)], ["Stage", currentStage().name], ["Microchip", CHIP], ["Breeder","Down Low Kennels"]
+    ].map(([k, v]) => `<div class="fact"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("");
+  },
+
+  next(){
+    const pending = live(Repo.state.vaccines).filter(v => !v.done);
+    const dated = pending.filter(v => v.due).sort((a,b) => a.due < b.due ? -1 : 1);
+    const overdue = dated.filter(v => daysBetween(today(), v.due) < 0).length;
+    const strip = $("#nextStrip"), text = $("#nextText");
+    strip.className = "next";
+    if (!dated.length){
+      text.textContent = pending.length
+        ? `${pending.length} item${pending.length > 1 ? "s" : ""} on the checklist with no date set.`
+        : "Nothing outstanding on the vaccine checklist.";
+      if (!pending.length) strip.classList.add("clear");
+    } else {
+      const n = dated[0], diff = daysBetween(today(), n.due);
+      if (diff < 0){ strip.classList.add("overdue"); text.innerHTML = `<b>${esc(n.name)}</b> was due ${fmt(n.due)} — ${Math.abs(diff)} days ago.`; }
+      else if (diff === 0){ strip.classList.add("overdue"); text.innerHTML = `<b>${esc(n.name)}</b> is due today.`; }
+      else text.innerHTML = `Next: <b>${esc(n.name)}</b> around ${fmt(n.due)} — in ${diff} days.`;
+    }
+    $("#vaxBadge").innerHTML = overdue ? `<span class="badge">${overdue}</span>` : "";
+  },
+
+  home(){
+    const stage = currentStage(), d = ageDays();
+    const idx = STAGES.indexOf(stage), nextStage = STAGES[idx + 1];
+    $("#stageCard").innerHTML = `
+      <div class="stage">
+        <div class="eyebrow">Where she is now</div>
+        <h2>${esc(stage.name)}</h2>
+        <div class="range">${esc(stage.short)} · ${esc(stage.blurb)}</div>
+        <ul>${stage.points.map(p => `<li><svg><use href="#i-paw"/></svg><span>${esc(p)}</span></li>`).join("")}</ul>
+        <div class="trail">${STAGES.map((s,i) =>
+          `<div class="${i<idx?"past":i===idx?"now":""}" title="${esc(s.name)}"></div>`).join("")}</div>
+        <div class="trail-lab"><span>${esc(STAGES[0].short)}</span><span>${esc(STAGES[STAGES.length-1].short)}</span></div>
+        ${nextStage ? `<p style="font-size:13.5px;color:var(--bark);margin:14px 0 0">Next up:
+          <strong>${esc(nextStage.name)}</strong> in about ${Math.max(0, Math.round((stage.to-d)/7))} weeks.</p>` : ""}
+      </div>`;
+
+    const w = live(Repo.state.weights).sort((a,b) => a.date < b.date ? 1 : -1);
+    $("#weightHint").textContent = w.length
+      ? `Latest: ${w[0].lbs} lb on ${fmtShort(w[0].date)}. Adult females usually settle around 55–75 lb, still filling out to 18–24 months.`
+      : "Adult females usually settle around 55–75 lb and keep filling out to 18–24 months. You should never see her spine, hip bones or ribs.";
+    $("#wList").innerHTML = w.length
+      ? `<table class="rec"><thead><tr><th>Date</th><th>Weight</th><th>Change</th><th></th></tr></thead><tbody>` +
+        w.map((e,i) => {
+          const prev = w[i+1], ch = prev ? Math.round((e.lbs - prev.lbs)*10)/10 : null;
+          return `<tr><td class="tnum">${fmtShort(e.date)}</td><td class="tnum">${e.lbs} lb</td>
+            <td class="tnum" style="color:var(--taupe)">${ch === null ? "—" : (ch >= 0 ? "+" : "") + ch}</td>
+            <td style="text-align:right">${this.del("del-weight", e.id, "weight")}</td></tr>`;
+        }).join("") + `</tbody></table>`
+      : `<div class="empty">No weights yet. Weigh her at each vet visit.</div>`;
+
+    const doneCount = Object.values(Repo.state.arrival).filter(x => x?.v).length;
+    $("#arrivalTitle").textContent = `Settling-in checklist · ${doneCount} of ${ARRIVAL.length}`;
+    $("#arrivalAcc").style.display = (doneCount === ARRIVAL.length && ageDays() > 180) ? "none" : "";
+    $("#arrivalList").innerHTML = ARRIVAL.map((s,i) => {
+      const on = !!Repo.state.arrival[i]?.v;
+      return `<div class="rowitem${on ? " done" : ""}">
+        <button class="tick" data-act="tick-arrival" data-id="${i}" aria-pressed="${on}" aria-label="${esc(s)}">
+          <svg><use href="#i-check"/></svg></button>
+        <div class="rowmain"><div class="rowname">${esc(s)}</div></div></div>`;
+    }).join("");
+  },
+
+  /** Delete buttons only exist for the owner. */
+  del(act, id, label){
+    return Repo.isOwner()
+      ? `<button class="xbtn" data-act="${act}" data-id="${id}" aria-label="Delete ${esc(label)}">&times;</button>` : "";
+  },
+
+  byline(e){
+    return e.by ? `<span class="tag by">${esc(e.by)}</span>` : "";
+  },
+
+  vaxRow(v){
+    const bits = [];
+    if (v.age) bits.push(`<span class="tag">${esc(v.age)}</span>`);
+    if (v.kennel) bits.push(`<span class="tag k">kennel</span>`);
+    if (v.done){
+      bits.push(`<span class="pair"><span class="lab given">given</span>
+        <input class="inline" type="date" data-date="${v.id}" value="${esc(v.date||"")}" aria-label="Date given for ${esc(v.name)}"></span>`);
+    } else {
+      const over = v.due && daysBetween(today(), v.due) < 0;
+      bits.push(`<span class="pair"><span class="lab${over?" over":""}">${over?"overdue":"due"}</span>
+        <input class="inline" type="date" data-due="${v.id}" value="${esc(v.due||"")}" aria-label="Due date for ${esc(v.name)}"></span>`);
+    }
+    bits.push(this.byline(v));
+    return `<div class="rowitem${v.done ? " done" : ""}">
+      <button class="tick" data-act="tick-vax" data-id="${v.id}" aria-pressed="${v.done}" aria-label="Mark ${esc(v.name)}">
+        <svg><use href="#i-check"/></svg></button>
+      <div class="rowmain"><div class="rowname">${esc(v.name)}</div><div class="rowmeta">${bits.join(" ")}</div></div>
+      ${v.kennel && v.done ? "" : this.del("del-vax", v.id, v.name)}
+    </div>`;
+  },
+
+  vaccines(){
+    const all = live(Repo.state.vaccines);
+    const pending = all.filter(v => !v.done).sort((a,b) => (!a.due) - (!b.due) || (a.due < b.due ? -1 : 1));
+    const done = all.filter(v => v.done).sort((a,b) => (a.date||"") < (b.date||"") ? -1 : 1);
+    $("#vaxList").innerHTML =
+      `<div class="grouphead">Still to do — ${pending.length}</div>` +
+      (pending.length ? pending.map(v => this.vaxRow(v)).join("") : `<div class="empty">Nothing outstanding.</div>`) +
+      `<div class="grouphead">Done — ${done.length}</div>` + done.map(v => this.vaxRow(v)).join("");
+    $("#vaxBar").style.width = all.length ? `${Math.round(done.length/all.length*100)}%` : "0%";
+    $("#vaxCount").textContent = `${done.length} of ${all.length} recorded. Tick an item to log it, and set the date it was actually given.`;
+
+    if (!$("#vaxSuggest").children.length){
+      $("#vaxSuggest").innerHTML = SUGGESTIONS.map((s,i) =>
+        `<button class="chip" data-act="suggest-vax" data-id="${i}">${esc(s[0])}</button>`).join("");
+    }
+    if (!$("#kennelRows").children.length){
+      $("#kennelRows").innerHTML = KENNEL_GIVEN.map(([n,a,d]) =>
+        `<tr><td>${esc(a)}</td><td class="tnum">${fmtShort(d)}</td><td>${esc(n)}</td></tr>`).join("");
+    }
+  },
+
+  feeding(){
+    const m = live(Repo.state.meals).sort((a,b) => a.date < b.date ? 1 : -1);
+    $("#mList").innerHTML = m.length ? m.map(e => `
+      <div class="entry"><div class="top">
+        <span class="what">${esc(e.meal)}${e.food ? " · " + esc(e.food) : ""}</span>
+        <span class="when tnum">${fmtShort(e.date)}</span>
+        ${this.del("del-meal", e.id, "feeding")}</div>
+        ${e.amt ? `<div class="body">${esc(e.amt)}</div>` : ""}
+        ${e.note ? `<div class="body">${esc(e.note)}</div>` : ""}
+        ${e.by ? `<div class="rowmeta">${this.byline(e)}</div>` : ""}</div>`).join("")
+      : `<div class="empty">No feedings logged yet.</div>`;
+  },
+
+  log(){
+    if (!$("#oCats").children.length){
+      $("#oCats").innerHTML = CATS.map(c =>
+        `<button class="chip" data-act="cat" data-id="${esc(c)}" aria-pressed="false">${esc(c)}</button>`).join("");
+    }
+    const o = live(Repo.state.occ).sort((a,b) => a.date < b.date ? 1 : -1);
+    $("#oList").innerHTML = o.length ? o.map(e => `
+      <div class="entry sev${e.sev}"><div class="top">
+        <span class="what">${e.cats?.length ? esc(e.cats.join(", ")) : "Note"}</span>
+        <span class="when tnum">${fmtShort(e.date)}</span>
+        ${this.del("del-occ", e.id, "log entry")}</div>
+        ${e.note ? `<div class="body">${esc(e.note)}</div>` : ""}
+        ${e.by ? `<div class="rowmeta">${this.byline(e)}</div>` : ""}</div>`).join("")
+      : `<div class="empty">Nothing logged. That's a good thing.</div>`;
+  },
+
+  stages(){
+    $("#stagesList").innerHTML = STAGES.map(s => {
+      const now = s === currentStage();
+      return `<details class="acc"${now ? " open" : ""}>
+        <summary><span class="pawdot"><svg><use href="#i-paw"/></svg></span>
+          ${esc(s.name)} · ${esc(s.short)}${now ? " — she's here" : ""}<span class="caret"></span></summary>
+        <div class="body book"><p>${esc(s.blurb)}</p><ul>${s.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>
+      </details>`;
+    }).join("");
+  },
+
+  bindings(){
+    const locked = !Repo.isOwner();
+    for (const el of $$("[data-bind]")){
+      if (document.activeElement === el) continue;
+      el.value = getPath(Repo.state, el.dataset.bind) ?? "";
+      if (el.dataset.owner === "1") el.disabled = locked;
+    }
+  },
+
+  toast(msg){
+    const t = $("#toast");
+    t.textContent = msg; t.classList.add("on");
+    clearTimeout(this._t);
+    this._t = setTimeout(() => t.classList.remove("on"), 2200);
+  },
+
+  switchTab(tab){
+    for (const b of $$(".tabs button")) b.setAttribute("aria-selected", String(b.dataset.tab === tab));
+    for (const p of $$(".panel")) p.classList.toggle("on", p.id === `p-${tab}`);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }
+};
+
+/* -------------------------------------------------------- sheets */
+const Sheets = {
+  bloat: () => `
+    <h2 id="sheetTitle">Bloat (GDV)</h2>
+    <p style="font-size:14px;color:var(--bark);margin-bottom:16px">The emergency a Giant Schnauzer owner has to know
+      cold. Large, deep-chested dogs are at highest risk, and it can go from first sign to fatal in hours.</p>
+    <div class="book">
+      <div class="note stop"><b>Signs — go now, don't wait and see</b>
+        <ul style="margin:.6em 0 0;padding-left:1.2em">
+          <li>Retching or trying to vomit with nothing coming up</li>
+          <li>A swollen, hard, distended belly</li>
+          <li>Restlessness, pacing, unable to settle</li>
+          <li>Drooling more than normal</li>
+          <li>Standing hunched or with an arched back, clearly in pain</li>
+          <li>Fast or laboured breathing</li>
+          <li>Pale gums, weakness, collapse</li>
+        </ul></div>
+      <p><strong>What to do:</strong> phone the nearest emergency vet, say you suspect GDV in a large deep-chested dog
+        and that you're on your way so they can prepare. Go straight there. Don't try to make her vomit and don't wait
+        to see if it passes.</p>
+      <p><strong>Why speed matters:</strong> the stomach fills with gas and rotates, cutting off its own blood supply
+        and blocking blood returning to the heart. Shock develops fast. Treated early, many dogs recover fully.</p>
+      <p><strong>Prevention:</strong> ask for a gastropexy when she's spayed. The kennel recommends it and it's the
+        single most effective preventive measure. Avoid hard exercise straight after a big meal.</p>
+    </div>
+    <div class="card"><h2 style="font-size:17px">Your emergency vet</h2>
+      <p class="hint">Fill this in now, not at 2am. It also appears on the care sheet.</p>
+      <label class="f"><span>Clinic</span><input type="text" data-bind="care.erName"></label>
+      <div class="row2">
+        <label class="f"><span>Phone</span><input type="text" data-bind="care.erPhone"></label>
+        <label class="f"><span>Address</span><input type="text" data-bind="care.erAddr"></label>
+      </div>
+    </div>`,
+
+  people: () => {
+    const owned = !!Repo.state.ownerCode;
+    const isOwner = Repo.isOwner();
+    return `
+    <h2 id="sheetTitle">Who's using this</h2>
+    <p style="font-size:14px;color:var(--bark);margin-bottom:16px">This record is shared. Anything you add stays and
+      shows up for everyone else with the link.</p>
+    <div class="card">
+      <h2 style="font-size:17px">Your name</h2>
+      <p class="hint">Tagged onto anything you add, so the owner can see who logged what.</p>
+      <label class="f"><span>Name</span><input type="text" id="meName" value="${esc(Local.data.me)}" placeholder="e.g. Sam"></label>
+      <button class="btn sm" data-act="save-me">Save</button>
+    </div>
+    <div class="card">
+      <h2 style="font-size:17px">${owned ? (isOwner ? "You're the owner" : "Owner access") : "Claim ownership"}</h2>
+      ${!owned ? `
+        <p class="hint">Set a code and you become the owner. After that only someone with the code can edit her
+          details or delete entries — everyone else can still read and add.</p>
+        <label class="f"><span>New owner code</span><input type="text" id="ownerNew" placeholder="Pick something you'll remember"></label>
+        <button class="btn sm" data-act="claim-owner">Become the owner</button>`
+      : isOwner ? `
+        <p class="hint">You can edit and delete anything. Sign out here if you're handing the phone to someone else.</p>
+        <button class="btn soft sm" data-act="drop-owner">Sign out of owner mode</button>`
+      : `
+        <p class="hint">You can read everything and add entries. Enter the owner code to edit or delete.</p>
+        <label class="f"><span>Owner code</span><input type="text" id="ownerTry" placeholder="Owner code"></label>
+        <button class="btn sm" data-act="try-owner">Unlock</button>`}
+      <div class="note" style="margin-top:14px"><b>Be realistic about this lock.</b> It stops a sitter deleting things
+        by accident. It is not encryption — the record travels with the file, so anyone you give the link to can read
+        all of it, and someone determined could get past the code. Don't put anything in here you'd mind them seeing.</div>
+    </div>`;
+  },
+
+  sync: () => `
+    <h2 id="sheetTitle">Backup &amp; hosting</h2>
+    <p style="font-size:14px;color:var(--bark);margin-bottom:16px">Storage: <strong>${esc(Repo.adapter.name)}</strong>.
+      ${Repo.adapter.name === "shared"
+        ? "Everyone with this record reads and writes the same copy."
+        : "This copy is on this device only. Deploy the API below to share it."}</p>
+    <div class="card">
+      <h2 style="font-size:17px">Backup</h2>
+      <div class="btnrow">
+        <button class="btn soft sm" data-act="export">Export backup</button>
+        <button class="btn soft sm" data-act="import">Import backup</button>
+      </div>
+      <p class="hint" style="margin:12px 0 0">Import merges into what's here rather than replacing it, so you can't
+        lose someone else's entries by restoring an old file.</p>
+    </div>
+    <div class="card">
+      <h2 style="font-size:17px">Self-hosted API</h2>
+      <p class="hint">Connect this to share one record across phones, and to hand a sitter a read-only copy.
+        Without it, everything you add stays on this device only. Tokens are stored on this device and never travel
+        inside the shared record.</p>
+      <label class="f"><span>API base URL</span><input type="url" id="syncUrl" value="${esc(Local.data.sync.url)}" placeholder="https://puppy-record-api.you.workers.dev"></label>
+      <label class="f"><span>Record id</span><input type="text" id="syncId" value="${esc(Local.data.sync.id)}"></label>
+      <label class="f"><span>Token</span><input type="text" id="syncToken" value="${esc(Local.data.sync.token)}"></label>
+      <div class="btnrow">
+        <button class="btn sm" data-act="save-sync">Save</button>
+        <button class="btn soft sm" data-act="sync-now">Sync now</button>
+        <button class="btn soft sm" data-act="sync-create">Create a record</button>
+      </div>
+      <p class="hint" style="margin:12px 0 0">Status: <strong>${esc(Sync.on() ? Sync.status : "not connected")}</strong></p>
+    </div>`,
+
+  profile: () => `
+    <h2 id="sheetTitle">Her details</h2>
+    <p style="font-size:14px;color:var(--bark);margin-bottom:16px">Her birthday and microchip come from the kennel
+      record and don't change.${Repo.isOwner() ? "" : " Only the owner can rename her."}</p>
+    <div class="card">
+      <label class="f"><span>Name</span><input type="text" data-bind="name" data-owner="1" placeholder="What do you call her?"></label>
+      <table class="rec">
+        <tr><td>Breed</td><td>Giant Schnauzer</td></tr>
+        <tr><td>Sex / colour</td><td>Female, black</td></tr>
+        <tr><td>Born</td><td>${fmt(DOB)}</td></tr>
+        <tr><td>Age</td><td>${ageText()}</td></tr>
+        <tr><td>Life stage</td><td>${esc(currentStage().name)}</td></tr>
+        <tr><td>Microchip</td><td class="tnum">${CHIP}</td></tr>
+        <tr><td>Breeder</td><td>Down Low Kennels</td></tr>
+      </table>
+    </div>`
+};
+
+let lastFocus = null;
+function openSheet(which){
+  lastFocus = document.activeElement;
+  $("#sheetBody").innerHTML = (Sheets[which] || (() => ""))();
+  View.bindings();
+  $(".veil").classList.add("on");
+  $("#sheet").classList.add("on");
+  document.body.style.overflow = "hidden";
+  $("#sheet").focus();
+}
+function closeSheet(){
+  $(".veil").classList.remove("on");
+  $("#sheet").classList.remove("on");
+  document.body.style.overflow = "";
+  lastFocus?.focus?.();
+}
+
+/* ------------------------------------------------------------ actions */
+let pickedCats = [];
+const now = () => Date.now();
+const mine = extra => ({ id: uid(), _m: now(), by: Local.data.me || "", ...extra });
+
+function ownerOnly(fn){
+  return (...a) => {
+    if (!Repo.isOwner()) return View.toast("Only the owner can delete — open Who's using this");
+    fn(...a);
+  };
+}
+/** Tombstone rather than splice, so the delete survives a merge. */
+function tombstone(list, id){
+  Repo.update(s => {
+    const it = s[list].find(x => x.id === id);
+    if (it){ it._del = true; it._m = now(); }
+  });
+  View.toast("Deleted");
+}
+
+const Actions = {
+  "close-sheet": closeSheet,
+  sheet: el => openSheet(el.dataset.sheet),
+
+  "tick-arrival": el => Repo.update(s => {
+    const k = el.dataset.id;
+    s.arrival[k] = { v: !s.arrival[k]?.v, _m: now() };
+  }),
+  "tick-vax": el => Repo.update(s => {
+    const v = s.vaccines.find(x => x.id === el.dataset.id);
+    if (!v) return;
+    v.done = !v.done; v._m = now();
+    if (v.done && !v.date) v.date = today();
+    if (v.done && !v.by) v.by = Local.data.me || "";
+  }),
+  "del-vax":    ownerOnly(el => tombstone("vaccines", el.dataset.id)),
+  "del-weight": ownerOnly(el => tombstone("weights",  el.dataset.id)),
+  "del-meal":   ownerOnly(el => tombstone("meals",    el.dataset.id)),
+  "del-occ":    ownerOnly(el => tombstone("occ",      el.dataset.id)),
+
+  "suggest-vax": el => {
+    const [name, age] = SUGGESTIONS[+el.dataset.id];
+    Repo.update(s => s.vaccines.push(mine({ name, age, date:"", due:"", done:false, kennel:false })));
+    View.toast("Added to the checklist");
+  },
+  "add-vax": () => {
+    const name = $("#vNew").value.trim();
+    if (!name) return View.toast("Give it a name first");
+    Repo.update(s => s.vaccines.push(mine({
+      name, age: $("#vNewAge").value.trim(), date:"", due: $("#vNewDue").value, done:false, kennel:false })));
+    $("#vNew").value = $("#vNewAge").value = $("#vNewDue").value = "";
+    View.toast("Added");
+  },
+
+  "add-weight": () => {
+    const date = $("#wDate").value, lbs = parseFloat($("#wLbs").value);
+    if (!date || !(lbs > 0)) return View.toast("Add a date and a weight");
+    Repo.update(s => s.weights.push(mine({ date, lbs: Math.round(lbs*10)/10 })));
+    $("#wLbs").value = "";
+    View.toast("Weight saved");
+  },
+
+  "add-meal": () => {
+    const date = $("#mDate").value;
+    if (!date) return View.toast("Pick a date");
+    Repo.update(s => s.meals.push(mine({ date, meal: $("#mMeal").value,
+      food: $("#mFood").value.trim(), amt: $("#mAmt").value.trim(), note: $("#mNote").value.trim() })));
+    $("#mFood").value = Repo.state.feedPlan.food || "";
+    $("#mAmt").value = ""; $("#mNote").value = "";
+    View.toast("Feeding saved");
+  },
+
+  cat: el => {
+    const c = el.dataset.id, i = pickedCats.indexOf(c);
+    i > -1 ? pickedCats.splice(i,1) : pickedCats.push(c);
+    el.setAttribute("aria-pressed", String(i === -1));
+  },
+  "add-occ": () => {
+    const date = $("#oDate").value, note = $("#oNote").value.trim();
+    if (!date || (!note && !pickedCats.length)) return View.toast("Add a date and what happened");
+    Repo.update(s => s.occ.push(mine({ date, cats:[...pickedCats], sev:+$("#oSev").value, note })));
+    $("#oNote").value = ""; pickedCats = [];
+    for (const c of $$("#oCats .chip")) c.setAttribute("aria-pressed","false");
+    View.toast("Logged");
+  },
+
+  /* --- identity & ownership --- */
+  "save-me": () => {
+    Local.data.me = $("#meName").value.trim();
+    Local.save();
+    View.toast(Local.data.me ? `Hello, ${Local.data.me}` : "Name cleared");
+    closeSheet();
+  },
+  "claim-owner": () => {
+    const code = $("#ownerNew").value.trim();
+    if (code.length < 4) return View.toast("Use at least 4 characters");
+    Repo.update(s => { s.ownerCode = code; Repo.stamp("ownerCode"); });
+    Local.data.isOwner = true; Local.save();
+    View.render();
+    openSheet("people");
+    View.toast("You're the owner");
+  },
+  "try-owner": () => {
+    const code = $("#ownerTry").value.trim();
+    if (code && code === Repo.state.ownerCode){
+      Local.data.isOwner = true; Local.save();
+      View.render(); openSheet("people"); View.toast("Unlocked");
+    } else View.toast("That code doesn't match");
+  },
+  "drop-owner": () => {
+    Local.data.isOwner = false; Local.save();
+    View.render(); openSheet("people"); View.toast("Signed out of owner mode");
+  },
+
+  /* --- sharing helpers --- */
+  "copy-log": () => {
+    const o = live(Repo.state.occ).sort((a,b) => a.date < b.date ? 1 : -1).slice(0,20);
+    if (!o.length) return View.toast("Nothing to copy yet");
+    const sev = ["","noting","watching","worried"];
+    const L = [`${Repo.state.name || "Puppy"} — health log`,
+      `Giant Schnauzer female, born ${fmt(DOB)} (${ageText()})`, `Microchip ${CHIP}`, ""];
+    for (const e of o){
+      L.push(`${fmt(e.date)} — ${e.cats.join(", ") || "note"} (${sev[e.sev] || ""})${e.by ? " — logged by " + e.by : ""}`);
+      if (e.note) L.push(`   ${e.note}`);
+    }
+    copyText(L.join("\n"), `Copied ${o.length} entries`);
+  },
+
+  "copy-care": () => {
+    const s = Repo.state, c = s.care || {}, f = s.feedPlan || {};
+    const L = [], add = (k, v) => { if (v) L.push(`${k}: ${v}`); };
+    L.push(`CARE SHEET — ${s.name || "Giant Schnauzer puppy"}`);
+    L.push(`Giant Schnauzer, black female, born ${fmt(DOB)} (${ageText()})`);
+    L.push(`Microchip ${CHIP}`, "");
+    L.push("FEEDING");
+    add("Food", f.food); add("Amount per meal", f.amt); add("Meals per day", f.meals);
+    add("Meal times", f.times); add("Supplements", f.supp); add("Treats", f.treats);
+    add("Never feed", f.avoid); add("Notes", f.notes);
+    L.push("", "ROUTINE");
+    add("Daily routine", c.routine); add("Toileting", c.toilet);
+    add("Exercise", c.exercise); add("Crate and sleep", c.crate);
+    L.push("", "HANDLING");
+    add("Commands she knows", c.commands); add("House rules", c.rules);
+    add("Quirks and triggers", c.quirks); add("Medication", c.meds);
+    add("Where things are", c.kit);
+    L.push("", "CONTACTS");
+    add("Owner", [c.ownerName, c.ownerPhone].filter(Boolean).join(" — "));
+    add("Backup", [c.altName, c.altPhone].filter(Boolean).join(" — "));
+    add("Vet", [c.vetName, c.vetPhone, c.vetAddr].filter(Boolean).join(" — "));
+    add("Emergency vet", [c.erName, c.erPhone, c.erAddr].filter(Boolean).join(" — "));
+    add("Insurance", c.insurance);
+    L.push("", "EMERGENCY — BLOAT");
+    L.push("Deep-chested breed. If her belly is swollen and hard, she retches with nothing coming up,");
+    L.push("drools, paces, can't settle, or collapses — go to an emergency vet immediately and phone ahead.");
+    L.push("Do not wait to see if it passes.");
+    copyText(L.join("\n"), "Care sheet copied");
+  },
+  "print-care": () => {
+    for (const p of $$(".panel")) p.classList.remove("printme");
+    $("#p-care").classList.add("printme");
+    window.print();
+  },
+
+  export: () => {
+    const blob = new Blob([JSON.stringify(Repo.state, null, 2)], { type:"application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `${(Repo.state.name || "puppy").toLowerCase().replace(/\s+/g,"-")}-record-${today()}.json`;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    View.toast("Backup downloaded");
+  },
+  import: () => $("#importFile").click(),
+
+  "save-sync": () => {
+    Local.data.sync = {
+      url: $("#syncUrl").value.trim(), id: $("#syncId").value.trim(), token: $("#syncToken").value.trim() };
+    Local.save();
+    View.toast("Saved on this device");
+    openSheet("sync");
+  },
+  "sync-now": async () => {
+    if (!Sync.on()) return View.toast("Fill in the URL, id and token first");
+    await Sync.pull({ quiet:false });
+    await Sync.push();
+    View.toast("Synced");
+  },
+  "sync-create": async () => {
+    const url = $("#syncUrl")?.value.trim() || Local.data.sync.url;
+    if (!url) return View.toast("Enter the API base URL first");
+    try {
+      const res = await fetch(url.replace(/\/+$/,"") + "/v1/records", {
+        method:"POST", headers:{ "content-type":"application/json" },
+        body: JSON.stringify({ doc: Repo.state }) });
+      const b = await res.json();
+      if (!res.ok) throw new Error(b?.error?.message || "Couldn't create the record");
+      Local.data.sync = { url, id: b.id, token: b.ownerToken };
+      Local.save();
+      openSheet("sync");
+      window.prompt("Record created. Save the read-only token — it's the one you give a sitter, and you won't see it again:", b.viewToken);
+      View.toast("Record created");
+    } catch (e){ View.toast(e.message); }
+  }
+};
+
+function copyText(text, okMsg){
+  const ok = () => View.toast(okMsg);
+  const fallback = () => {
+    const ta = document.createElement("textarea");
+    ta.value = text; ta.style.cssText = "position:fixed;opacity:0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); ok(); }
+    catch { View.toast("Couldn't copy — select the text manually"); }
+    ta.remove();
+  };
+  if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(ok, fallback);
+  else fallback();
+}
+
+/* ------------------------------------------------------- event wiring */
+document.addEventListener("click", e => {
+  const tab = e.target.closest("[data-tab]");
+  if (tab){ View.switchTab(tab.dataset.tab); return; }
+  const el = e.target.closest("[data-act]");
+  if (!el) return;
+  const fn = Actions[el.dataset.act];
+  if (fn){ e.preventDefault(); fn(el); }
+});
+
+document.addEventListener("change", e => {
+  const t = e.target;
+  if (t.dataset.date) Repo.update(s => {
+    const v = s.vaccines.find(x => x.id === t.dataset.date); if (v){ v.date = t.value; v._m = now(); } });
+  else if (t.dataset.due) Repo.update(s => {
+    const v = s.vaccines.find(x => x.id === t.dataset.due); if (v){ v.due = t.value; v._m = now(); } });
+});
+
+document.addEventListener("input", e => {
+  const t = e.target;
+  if (!t.dataset.bind) return;
+  if (t.dataset.owner === "1" && !Repo.isOwner()) return;
+  Repo.update(s => { setPath(s, t.dataset.bind, t.value); Repo.stamp(t.dataset.bind); }, { render:false });
+  if (t.dataset.bind === "name") View.header();
+});
+
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeSheet(); });
+
+// Pick up other people's changes when you come back to the tab.
+document.addEventListener("visibilitychange", () => { if (!document.hidden) Repo.refresh(); });
+window.addEventListener("focus", () => Repo.refresh());
+
+/* --------------------------------------------------------------- boot */
+(async function boot(){
+  const fileInput = Object.assign(document.createElement("input"),
+    { type:"file", accept:"application/json", id:"importFile", hidden:true });
+  fileInput.addEventListener("change", function(){
+    const f = this.files?.[0];
+    if (!f) return;
+    const r = new FileReader();
+    r.onload = () => {
+      try {
+        const obj = JSON.parse(r.result);
+        if (!obj || typeof obj !== "object") throw new Error("bad");
+        Repo.update(s => Object.assign(s, mergeDocs(migrate(obj), s)));
+        View.toast("Backup merged in");
+      } catch { View.toast("That file isn't a valid backup"); }
+    };
+    r.readAsText(f);
+    this.value = "";
+  });
+  document.body.appendChild(fileInput);
+
+  Local.load();
+  await Repo.init();
+  View.render();
+  View.stages();
+
+  for (const id of ["#wDate","#mDate","#oDate"]) $(id).value = today();
+
+  if (Sync.on()){ Sync.set("idle"); Sync.pull(); }
+  else if (Repo.adapter.name === "memory"){
+    const bar = $("#statusbar");
+    bar.hidden = false;
+    bar.textContent = "This device can't save — export a backup before you close the tab.";
+  }
+  // Poll for peers' edits while the tab is open.
+  setInterval(() => { if (!document.hidden) Repo.refresh(); }, 20000);
+})();
+</script>
+</body>
+</html>
