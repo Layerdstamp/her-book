@@ -1835,6 +1835,54 @@ const Repo = {
    rejected write we pull, merge, and write again.                          */
 
 const GH_PATH = "data/record.json";
+const GH_AUTH = "data/auth.json";
+
+/* The shared phrase.
+   ------------------
+   A page served from GitHub Pages is static, so it has nowhere to keep a
+   secret. Instead the write token is encrypted under a phrase and the
+   ciphertext is committed alongside the record. Anyone with the link and the
+   phrase decrypts it in their own browser and can save; anyone with only the
+   link can read, which is exactly what a sitter should have.
+
+   The phrase is generated rather than chosen — 80 bits from a 32-symbol
+   alphabet — because the ciphertext is public and a phrase someone invented
+   would be guessable offline. PBKDF2 at 600k iterations then makes each guess
+   expensive on top of that.                                                 */
+
+const KDF_ITERATIONS = 600000;
+const b64 = buf => btoa(String.fromCharCode(...new Uint8Array(buf)));
+const unb64 = str => Uint8Array.from(atob(str), c => c.charCodeAt(0));
+
+async function deriveKey(phrase, salt){
+  const base = await crypto.subtle.importKey(
+    "raw", new TextEncoder().encode(loose(phrase)), "PBKDF2", false, ["deriveKey"]);
+  return crypto.subtle.deriveKey(
+    { name:"PBKDF2", salt, iterations:KDF_ITERATIONS, hash:"SHA-256" },
+    base, { name:"AES-GCM", length:256 }, false, ["encrypt","decrypt"]);
+}
+async function sealToken(token, phrase){
+  const salt = crypto.getRandomValues(new Uint8Array(16));
+  const iv   = crypto.getRandomValues(new Uint8Array(12));
+  const key  = await deriveKey(phrase, salt);
+  const ct   = await crypto.subtle.encrypt({ name:"AES-GCM", iv }, key,
+                                           new TextEncoder().encode(token));
+  return { v:1, kdf:"PBKDF2-SHA256", iterations:KDF_ITERATIONS,
+           salt:b64(salt), iv:b64(iv), ct:b64(ct) };
+}
+async function openToken(blob, phrase){
+  const key = await deriveKey(phrase, unb64(blob.salt));
+  const pt  = await crypto.subtle.decrypt({ name:"AES-GCM", iv:unb64(blob.iv) },
+                                          key, unb64(blob.ct));
+  return new TextDecoder().decode(pt);
+}
+/* No 0/O/1/I — this gets read aloud and typed on phones. 256 is a multiple of
+   32, so the modulo is unbiased. */
+function newPhrase(){
+  const A = "23456789ABCDEFGHJKLMNPQRSTUVWXYZ";
+  const b = crypto.getRandomValues(new Uint8Array(16));
+  return [...b].map(x => A[x % 32]).join("").match(/.{4}/g).join("-");
+}
 
 /** base64 <-> UTF-8, chunked so a long record can't overflow the stack. */
 function b64encode(str){
@@ -1874,6 +1922,49 @@ const Sync = {
   },
   on(){ const c = this.cfg(); return !!(c.owner && c.repo); },
   canWrite(){ return this.on() && !!this.cfg().token; },
+
+  /* Is there a phrase-protected token published for this record? */
+  async authBlob(){
+    if (this._auth !== undefined) return this._auth;
+    this._auth = null;
+    const c = this.cfg();
+    if (!this.on()) return null;
+    try {
+      const r = await fetch(`https://raw.githubusercontent.com/${c.owner}/${c.repo}/${c.branch}/${GH_AUTH}?t=${Date.now()}`,
+                            { cache:"no-store" });
+      if (r.ok) this._auth = await r.json();
+    } catch { /* offline */ }
+    return this._auth;
+  },
+
+  /* Turn a phrase into write access on this device. */
+  async unlock(phrase){
+    const blob = await this.authBlob();
+    if (!blob) throw new Error("no shared phrase has been set up for this record");
+    const token = await openToken(blob, phrase).catch(() => { throw new Error("that phrase doesn't match"); });
+    Local.data.gh = { ...(Local.data.gh || {}), token };
+    Local.save();
+    this.sha = null;
+    return true;
+  },
+
+  /* Publish a new phrase, sealing the token this device already holds. */
+  async publishPhrase(phrase){
+    const c = this.cfg();
+    if (!c.token) throw new Error("this device has no token to share");
+    const blob = await sealToken(c.token, phrase);
+    let sha = null;
+    const head = await this.api(`/repos/${c.owner}/${c.repo}/contents/${GH_AUTH}?ref=${encodeURIComponent(c.branch)}`);
+    if (head.ok) sha = (await head.json()).sha;
+    const body = { message: "Update the shared phrase",
+                   content: b64encode(JSON.stringify(blob, null, 2) + "\n"),
+                   branch: c.branch };
+    if (sha) body.sha = sha;
+    const res = await this.api(`/repos/${c.owner}/${c.repo}/contents/${GH_AUTH}`, {
+      method:"PUT", headers:{ "content-type":"application/json" }, body: JSON.stringify(body) });
+    if (!res.ok) throw new Error(await this.problem(res));
+    this._auth = blob;
+  },
 
   /* With a token we get 5,000 API calls an hour; without one, 60 per address.
      45s is 80 an hour, 90s is 40 — both comfortable. This doubles as the
@@ -2389,6 +2480,27 @@ const Sheets = {
         browser alone and never written into the record.</div>
     </div>
 
+    ${!writes && Sync._auth ? `
+    <div class="card">
+      <h2 style="font-size:17px">Got the phrase?</h2>
+      <p class="hint">Whoever set this record up can give you a phrase. Enter it once on this device and
+        everything you add saves for everyone.</p>
+      <label class="f"><span>Shared phrase</span>
+        <input type="text" id="phraseIn" placeholder="XXXX-XXXX-XXXX-XXXX" autocomplete="off" spellcheck="false"></label>
+      <button class="btn sm" data-act="use-phrase">Unlock saving</button>
+    </div>` : ""}
+
+    ${writes ? `
+    <div class="card">
+      <h2 style="font-size:17px">Let other people save</h2>
+      <p class="hint">Generates a phrase and locks your token behind it. Anyone you give the link
+        <em>and</em> the phrase to can then save permanently — no GitHub account, no setup.</p>
+      <button class="btn sm" data-act="make-phrase">${Sync._auth ? "Replace the phrase" : "Create a phrase"}</button>
+      <div class="note" style="margin-top:14px">Your token is encrypted with the phrase before it is published, so
+        the link alone is still read-only. Treat the phrase like a key: anyone who has it can edit her record, and
+        replacing it does not lock out someone who already used the old one on their device.</div>
+    </div>` : ""}
+
     <div class="card">
       <h2 style="font-size:17px">Giving someone the record</h2>
       <p class="hint">Send them this page's link. They see everything, live, with nothing to set up — and they can't
@@ -2835,6 +2947,27 @@ const Actions = {
                                        : Sync.canWrite() ? "Saved — this device can write now"
                                                          : "Saved on this device");
   },
+  "use-phrase": async () => {
+    const p = $("#phraseIn")?.value.trim();
+    if (!p) return View.toast("Enter the phrase first");
+    View.toast("Checking…");
+    try {
+      await Sync.unlock(p);
+      await Sync.pull({ quiet:true, force:true });
+      openSheet("sync");
+      View.toast("Unlocked — this device can save now");
+    } catch (e){ View.toast(e.message); }
+  },
+  "make-phrase": async () => {
+    const phrase = newPhrase();
+    View.toast("Publishing…");
+    try {
+      await Sync.publishPhrase(phrase);
+      openSheet("sync");
+      window.prompt("Share this phrase with anyone who should be able to save. It is not stored anywhere you can read it again — write it down now:", phrase);
+      View.toast("Phrase published");
+    } catch (e){ View.toast(e.message); }
+  },
   "drop-gh": () => {
     Local.data.gh = { ...(Local.data.gh || {}), token:"" };
     Local.save();
@@ -2939,7 +3072,7 @@ window.addEventListener("focus", () => Sync.pull());
 
   for (const id of ["#wDate","#mDate","#oDate"]) $(id).value = today();
 
-  if (Sync.on()){ Sync.rest(); Sync.pull(); }
+  if (Sync.on()){ Sync.rest(); Sync.authBlob(); Sync.pull(); }
   if (Repo.adapter.name === "memory"){
     const bar = $("#statusbar");
     bar.hidden = false;
