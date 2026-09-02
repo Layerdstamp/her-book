@@ -1,6 +1,20 @@
 {
   "schema": 4,
-  "updatedAt": 0,
-  "name": "",
-  "_ts": {}
+  "updatedAt": 1788371122702,
+  "name": "Freshness Probe",
+  "care": {
+    "vetName": "Ash Grove Veterinary Clinic"
+  },
+  "weights": [
+    {
+      "id": "p9",
+      "date": "2026-09-01",
+      "lbs": 21.3,
+      "_m": 1788371122702
+    }
+  ],
+  "_ts": {
+    "name": 1788371122702,
+    "care.vetName": 1788371122702
+  }
 }
