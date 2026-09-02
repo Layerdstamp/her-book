@@ -1,6 +1,20 @@
 {
   "schema": 4,
-  "updatedAt": 0,
-  "name": "",
-  "_ts": {}
+  "updatedAt": 1788370827052,
+  "name": "Sync Probe",
+  "care": {
+    "vetName": "Ash Grove Veterinary Clinic"
+  },
+  "weights": [
+    {
+      "id": "probe9",
+      "date": "2026-09-01",
+      "lbs": 21.3,
+      "_m": 1788370827052
+    }
+  ],
+  "_ts": {
+    "name": 1788370827052,
+    "care.vetName": 1788370827052
+  }
 }
