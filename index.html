@@ -136,24 +136,24 @@ input[type=date].inline{border:0;border-bottom:1.5px dotted var(--taupe);backgro
 input[type=date].inline:focus{border-bottom-color:var(--rose)}
 /* Every action button is a paw print: four toe pads sitting on the main pad.
    --paw drives both halves so a hover or a variant recolours them together. */
-.btn{--paw:var(--rose);--toes:56px;
+.btn{--paw:var(--rose);--toes:70px;
   position:relative;margin-top:15px;background:var(--paw);color:#fff;
   border-radius:26px 26px 21px 21px;padding:13px 20px;font-weight:700;
   font-size:15px;width:100%;box-shadow:var(--shadow);display:inline-flex;
   align-items:center;justify-content:center;gap:8px;
   transition:background .18s ease,transform .12s ease,box-shadow .18s ease}
-.btn::before{content:"";position:absolute;left:50%;top:-9px;
-  transform:translateX(-50%);width:var(--toes);height:15px;pointer-events:none;
+.btn::before{content:"";position:absolute;left:50%;top:-13px;
+  transform:translateX(-50%);width:var(--toes);height:22px;pointer-events:none;
   background:
-    radial-gradient(ellipse 11% 44% at 8%  72%,var(--paw) 99%,transparent 100%),
-    radial-gradient(ellipse 12% 48% at 36% 34%,var(--paw) 99%,transparent 100%),
-    radial-gradient(ellipse 12% 48% at 64% 34%,var(--paw) 99%,transparent 100%),
-    radial-gradient(ellipse 11% 44% at 92% 72%,var(--paw) 99%,transparent 100%);
+    radial-gradient(ellipse 13% 30% at 7%  76%,var(--paw) 99%,transparent 100%),
+    radial-gradient(ellipse 14% 34% at 35% 50%,var(--paw) 99%,transparent 100%),
+    radial-gradient(ellipse 14% 34% at 65% 50%,var(--paw) 99%,transparent 100%),
+    radial-gradient(ellipse 13% 30% at 93% 76%,var(--paw) 99%,transparent 100%);
   background-repeat:no-repeat;transition:background .18s ease}
 .btn:hover{--paw:var(--rose-dk);box-shadow:var(--shadow-lift)}
 .btn:active{transform:translateY(1px) scale(.994)}
 .btn svg{width:16px;height:16px}
-.btn.sm{width:auto;padding:10px 16px;font-size:14px;--toes:42px;margin-top:13px}
+.btn.sm{width:auto;padding:10px 16px;font-size:14px;--toes:52px;margin-top:14px}
 .btn.soft{--paw:var(--cream);color:var(--bark)}
 .btn.soft:hover{--paw:#F6EDE6}
 @media (prefers-reduced-motion:reduce){
