@@ -276,6 +276,21 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
 .rline .w{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;
   padding:8px 10px;font-size:14.5px;background:var(--cream)}
 .rline input:focus{outline:2px solid var(--rose);outline-offset:0}
+/* Vet log */
+.asked .qtext{text-decoration:line-through;color:var(--taupe)}
+.qtext{width:100%;border:0;background:none;padding:2px 0;font-size:15px;line-height:1.4}
+.qtext:focus{outline:none;border-bottom:2px solid var(--rose)}
+.said{background:var(--sage-lt);border-left:3px solid var(--sage);border-radius:0 12px 12px 0;
+  padding:11px 13px;margin-bottom:9px}
+.said .top{display:flex;gap:8px;align-items:baseline;margin-bottom:5px}
+.said .who{font-weight:700;font-size:13.5px;color:#4E6B52;flex:1}
+.said .when{font-size:12px;color:var(--taupe)}
+.said textarea{width:100%;border:1px solid rgba(127,156,130,.35);border-radius:10px;
+  padding:8px 10px;font-size:14px;line-height:1.5;background:rgba(255,255,255,.6);
+  resize:vertical;min-height:58px}
+.visit .u{background:var(--bark);color:#fff}
+.seclead{font-size:13.5px;color:var(--bark);margin:0 0 12px;line-height:1.5}
+
 /* Symptom index — deliberately dense. You read this while worried. */
 .symwrap{position:relative}
 .symq{width:100%;font-size:16px;padding:13px 14px 13px 40px;border:2px solid var(--line);
@@ -571,9 +586,50 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
 
 <!-- ===================== LOG ===================== -->
 <section class="panel" id="p-log" role="tabpanel" aria-labelledby="t-log">
+
   <div class="card">
-    <h2>Log something</h2>
-    <p class="hint">Anything you'd want to tell a vet later, or watch for a pattern.</p>
+    <h2>To ask the vet</h2>
+    <p class="seclead">Add a question the moment it occurs to you. By the time you are standing in
+      the consulting room you will have forgotten two of them.</p>
+    <div id="askList"></div>
+    <label class="f"><span>What do you want to ask?</span>
+      <input type="text" id="aNote" placeholder="e.g. Is she drinking more than she should be?"></label>
+    <button class="btn" data-act="add-ask"><svg><use href="#i-note"/></svg>Add a question</button>
+    <div class="btnrow" style="margin-top:12px">
+      <button class="btn soft sm" data-act="copy-prep"><svg><use href="#i-share"/></svg>Copy everything for the appointment</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Vet visits</h2>
+    <p class="seclead">Every appointment and what came of it. Tap one to fill in what happened.</p>
+    <div id="visitList"></div>
+    <div class="row2">
+      <label class="f"><span>Date</span><input type="date" id="vsDate"></label>
+      <label class="f"><span>Clinic or vet</span><input type="text" id="vsWho" placeholder="Ash Grove Veterinary Clinic"></label>
+    </div>
+    <label class="f"><span>What it was for</span><input type="text" id="vsReason" placeholder="e.g. 13-week vaccines"></label>
+    <button class="btn" data-act="add-visit"><svg><use href="#i-heart"/></svg>Log a visit</button>
+  </div>
+
+  <div class="card">
+    <h2>What the vet said</h2>
+    <p class="seclead">Their instructions, kept separate from your own notes so nobody has to guess
+      later who said what. These also go onto the care sheet for a sitter.</p>
+    <div id="adviceList"></div>
+    <div class="row2">
+      <label class="f"><span>Date</span><input type="date" id="dvDate"></label>
+      <label class="f"><span>Who said it</span><input type="text" id="dvWho" placeholder="Dr. Mozier"></label>
+    </div>
+    <label class="f"><span>What they said</span>
+      <textarea id="dvNote" placeholder="Stay on large-breed puppy food to 18 months. Recheck the ear in two weeks."></textarea></label>
+    <button class="btn" data-act="add-advice"><svg><use href="#i-book"/></svg>Save what they said</button>
+  </div>
+
+  <div class="card">
+    <h2>What you've noticed</h2>
+    <p class="seclead">Your own observations — anything you would want to tell a vet later, or watch
+      for a pattern in.</p>
     <div class="chips" id="oCats"></div>
     <div class="row2">
       <label class="f"><span>Date</span><input type="date" id="oDate"></label>
@@ -584,10 +640,9 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
     </div>
     <label class="f"><span>What happened</span><textarea id="oNote" placeholder="Soft stool this morning, ate normally, drinking a lot, no vomiting…"></textarea></label>
     <button class="btn" data-act="add-occ"><svg><use href="#i-note"/></svg>Save to log</button>
-  </div>
-
-  <div class="btnrow" style="margin-bottom:14px">
-    <button class="btn soft sm" data-act="copy-log"><svg><use href="#i-share"/></svg>Copy last 20 for the vet</button>
+    <div class="btnrow" style="margin-top:12px">
+      <button class="btn soft sm" data-act="copy-log"><svg><use href="#i-share"/></svg>Copy the last 20 observations</button>
+    </div>
   </div>
   <div id="oList"></div>
 
@@ -1324,7 +1379,7 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
   <button role="tab" id="t-home"  aria-selected="true"  data-tab="home"><span class="ic"><svg><use href="#i-home"/></svg></span>Home</button>
   <button role="tab" id="t-vax"   aria-selected="false" data-tab="vax"><span class="ic"><svg><use href="#i-check"/></svg></span><span id="vaxBadge"></span>Vaccines</button>
   <button role="tab" id="t-feed"  aria-selected="false" data-tab="feed"><span class="ic"><svg><use href="#i-bowl"/></svg></span>Feeding</button>
-  <button role="tab" id="t-log"   aria-selected="false" data-tab="log"><span class="ic"><svg><use href="#i-note"/></svg></span>Log</button>
+  <button role="tab" id="t-log"   aria-selected="false" data-tab="log"><span class="ic"><svg><use href="#i-note"/></svg></span><span id="askBadge"></span>Log</button>
   <button role="tab" id="t-train" aria-selected="false" data-tab="train"><span class="ic"><svg><use href="#i-paw"/></svg></span>Training</button>
   <button role="tab" id="t-care"  aria-selected="false" data-tab="care"><span class="ic"><svg><use href="#i-heart"/></svg></span>Care</button>
   <button role="tab" id="t-guide" aria-selected="false" data-tab="guide"><span class="ic"><svg><use href="#i-book"/></svg></span>Guide</button>
@@ -1553,7 +1608,7 @@ const SCALAR_PATHS = [
       "erName","erPhone","erAddr","insurance","routine","toilet","exercise","crate",
       "commands","rules","quirks","meds","kit"].map(k => `care.${k}`)
 ];
-const LISTS = ["vaccines","weights","meals","occ","routine","cues"];
+const LISTS = ["vaccines","weights","meals","occ","routine","cues","ask","visits","advice"];
 
 /* ------------------------------------------------------------- helpers */
 const $  = (s, r = document) => r.querySelector(s);
@@ -1692,6 +1747,7 @@ const blankState = () => ({
   name: "", ownerCode: "",
   vaccines: seedVaccines(), arrival: {}, weights: [], meals: [], occ: [],
   routine: seedRoutine(), cues: seedCues(),
+  ask: [], visits: [], advice: [],
   feedPlan: { food:"", amt:"", meals:"", times:"", supp:"", treats:"", avoid:"", notes:"" },
   care: {},
   _ts: {}
@@ -2269,7 +2325,72 @@ const View = {
       $("#oCats").innerHTML = CATS.map(c =>
         `<button class="chip" data-act="cat" data-id="${esc(c)}" aria-pressed="false">${esc(c)}</button>`).join("");
     }
-    const o = live(Repo.state.occ).sort((a,b) => a.date < b.date ? 1 : -1);
+
+    /* Questions: unanswered first, newest first within each group. */
+    const ask = live(Repo.state.ask).sort((a, b) =>
+      (a.asked === b.asked) ? (a.date < b.date ? 1 : -1) : (a.asked ? 1 : -1));
+    const open = ask.filter(a => !a.asked).length;
+    $("#askList").innerHTML = ask.length ? ask.map(e => `
+      <div class="rowitem${e.asked ? " done asked" : ""}">
+        <button class="tick" data-act="tick-ask" data-id="${esc(e.id)}" aria-pressed="${!!e.asked}"
+                aria-label="Mark as asked">
+          <svg><use href="#i-check"/></svg></button>
+        <div class="rowmain">
+          <input class="qtext" type="text" value="${esc(e.note)}" data-edit="ask|${esc(e.id)}|note"
+                 aria-label="Question for the vet">
+          <div class="rowmeta">
+            <span class="tag">${e.asked ? "asked " + esc(fmtShort(e.askedOn || e.date)) : "added " + esc(fmtShort(e.date))}</span>
+            ${this.byline(e)}
+          </div>
+        </div>
+        ${this.del("del-ask", e.id, "question")}
+      </div>`).join("")
+      : `<div class="empty">Nothing to ask yet. Add anything you'd otherwise forget.</div>`;
+    $("#askBadge").innerHTML = open ? `<span class="badge">${open}</span>` : "";
+
+    /* Visits. */
+    const vs = live(Repo.state.visits).sort((a, b) => a.date < b.date ? 1 : -1);
+    $("#visitList").innerHTML = vs.length ? vs.map(e => `
+      <details class="sym visit">
+        <summary>
+          <span class="u">${esc(fmtShort(e.date))}</span>
+          <span style="flex:1;min-width:0">
+            <span class="nm">${esc(e.reason || "Visit")}</span>
+            ${e.who ? `<div class="why">${esc(e.who)}</div>` : ""}
+          </span>
+        </summary>
+        <div class="body">
+          <div class="row2">
+            <label class="f"><span>Date</span><input type="date" value="${esc(e.date)}" data-edit="visits|${esc(e.id)}|date"></label>
+            <label class="f"><span>Clinic or vet</span><input type="text" value="${esc(e.who || "")}" data-edit="visits|${esc(e.id)}|who"></label>
+          </div>
+          <label class="f"><span>What it was for</span><input type="text" value="${esc(e.reason || "")}" data-edit="visits|${esc(e.id)}|reason"></label>
+          <label class="f"><span>What happened</span><textarea data-edit="visits|${esc(e.id)}|outcome" placeholder="Weighed 24 lb. Second DAPP given. Ear looked clear.">${esc(e.outcome || "")}</textarea></label>
+          <div class="row2">
+            <label class="f"><span>Cost</span><input type="text" value="${esc(e.cost || "")}" data-edit="visits|${esc(e.id)}|cost"></label>
+            <label class="f"><span>Come back on</span><input type="date" value="${esc(e.next || "")}" data-edit="visits|${esc(e.id)}|next"></label>
+          </div>
+          <div class="btnrow"><button class="btn soft sm" data-act="copy-visit" data-id="${esc(e.id)}">Copy this visit</button>
+            ${this.del("del-visit", e.id, "visit")}</div>
+        </div>
+      </details>`).join("")
+      : `<div class="empty">No visits logged yet.</div>`;
+
+    /* What the vet said — visually distinct, because it isn't your opinion. */
+    const adv = live(Repo.state.advice).sort((a, b) => a.date < b.date ? 1 : -1);
+    $("#adviceList").innerHTML = adv.length ? adv.map(e => `
+      <div class="said">
+        <div class="top">
+          <span class="who">${esc(e.who || "The vet")}</span>
+          <span class="when tnum">${esc(fmtShort(e.date))}</span>
+          ${this.del("del-advice", e.id, "note")}
+        </div>
+        <textarea data-edit="advice|${esc(e.id)}|note" aria-label="What the vet said">${esc(e.note || "")}</textarea>
+      </div>`).join("")
+      : `<div class="empty">Nothing recorded yet.</div>`;
+
+    /* Your own observations. */
+    const o = live(Repo.state.occ).sort((a, b) => a.date < b.date ? 1 : -1);
     $("#oList").innerHTML = o.length ? o.map(e => `
       <div class="entry sev${e.sev}"><div class="top">
         <span class="what">${e.cats?.length ? esc(e.cats.join(", ")) : "Note"}</span>
@@ -2278,55 +2399,6 @@ const View = {
         ${e.note ? `<div class="body">${esc(e.note)}</div>` : ""}
         ${e.by ? `<div class="rowmeta">${this.byline(e)}</div>` : ""}</div>`).join("")
       : `<div class="empty">Nothing logged. That's a good thing.</div>`;
-  },
-
-  /* Her day, rendered wherever it is asked for. The line she is on right now
-     is highlighted, and everything already done is dimmed, so a glance tells
-     you where in the day she is. */
-  routine(sel){
-    const el = $(sel);
-    if (!el) return;
-    const r = live(Repo.state.routine).sort((a,b) => minutesOf(a.time) - minutesOf(b.time));
-    const n = nowMins();
-    let currentId = null;
-    for (const e of r) if (minutesOf(e.time) <= n) currentId = e.id;
-    el.innerHTML = r.length ? r.map(e => {
-      const m = minutesOf(e.time);
-      const cls = e.id === currentId ? " now" : (m < n ? " past" : "");
-      return `<div class="rline${cls}">
-        <span class="dot"></span>
-        <input class="t" type="text" value="${esc(e.time)}" data-edit="routine|${esc(e.id)}|time" aria-label="Time">
-        <input class="w" type="text" value="${esc(e.what)}" data-edit="routine|${esc(e.id)}|what" aria-label="What happens">
-        ${this.del("del-routine", e.id, "step")}
-      </div>`;
-    }).join("") : `<div class="empty">Nothing in her day yet. Add the first thing below.</div>`;
-  },
-
-  clock(){
-    const c = $("#nowClock"), d = $("#dayLabel");
-    if (c) c.textContent = `It's ${clockText()}`;
-    if (d) d.textContent = new Date().toLocaleDateString([], { weekday:"long", day:"numeric", month:"long" });
-    this.routine("#homeRoutine");
-    this.routine("#routineList");
-  },
-
-  training(){
-
-    const card = c => `
-      <div class="cue">
-        <div class="top">
-          <input class="word" type="text" value="${esc(c.word)}" data-edit="cues|${esc(c.id)}|word" aria-label="Word">
-          ${this.del("del-cue", c.id, c.word)}
-        </div>
-        <input class="means" type="text" value="${esc(c.means || "")}" data-edit="cues|${esc(c.id)}|means" aria-label="What it means">
-        <textarea data-edit="cues|${esc(c.id)}|how" aria-label="How to use it">${esc(c.how || "")}</textarea>
-      </div>`;
-
-    const cues = live(Repo.state.cues);
-    const words = cues.filter(c => c.kind !== "rule");
-    const rules = cues.filter(c => c.kind === "rule");
-    $("#cueList").innerHTML  = words.length ? words.map(card).join("") : `<div class="empty">No words yet.</div>`;
-    $("#ruleList").innerHTML = rules.length ? rules.map(card).join("") : `<div class="empty">No rules yet.</div>`;
   },
 
   stages(){
@@ -2373,7 +2445,7 @@ const View = {
     if (d !== this._day){
       const was = this._day;
       this._day = d;
-      for (const id of ["#wDate","#mDate","#oDate"]){
+      for (const id of ["#wDate","#mDate","#oDate","#vsDate","#dvDate"]){
         const el = $(id);
         if (el && (!el.value || el.value === was)) el.value = d;
       }
@@ -2810,6 +2882,95 @@ const Actions = {
     copyText(L.join("\n"), "Routine and words copied");
   },
 
+  "add-ask": () => {
+    const note = $("#aNote").value.trim();
+    if (!note) return View.toast("Type the question first");
+    Repo.update(s => s.ask.push(mine({ date: today(), note, asked: false })));
+    $("#aNote").value = "";
+    View.toast("Added to the list");
+  },
+  "tick-ask": el => Repo.update(s => {
+    const a = s.ask.find(x => x.id === el.dataset.id);
+    if (!a) return;
+    a.asked = !a.asked;
+    a.askedOn = a.asked ? today() : "";
+    a._m = now();
+  }),
+  "del-ask": ownerOnly(el => tombstone("ask", el.dataset.id)),
+
+  "add-visit": () => {
+    const date = $("#vsDate").value;
+    if (!date) return View.toast("Pick a date");
+    Repo.update(s => s.visits.push(mine({ date, who: $("#vsWho").value.trim(),
+      reason: $("#vsReason").value.trim(), outcome: "", cost: "", next: "" })));
+    $("#vsWho").value = $("#vsReason").value = "";
+    View.toast("Visit logged");
+  },
+  "del-visit": ownerOnly(el => tombstone("visits", el.dataset.id)),
+
+  "add-advice": () => {
+    const note = $("#dvNote").value.trim();
+    if (!note) return View.toast("Type what they said");
+    Repo.update(s => s.advice.push(mine({ date: $("#dvDate").value || today(),
+      who: $("#dvWho").value.trim(), note })));
+    $("#dvNote").value = "";
+    View.toast("Saved");
+  },
+  "del-advice": ownerOnly(el => tombstone("advice", el.dataset.id)),
+
+  "copy-visit": el => {
+    const v = live(Repo.state.visits).find(x => x.id === el.dataset.id);
+    if (!v) return;
+    const L = [`${Repo.state.name || "Her"} — vet visit ${fmt(v.date)}`];
+    if (v.who) L.push(`Seen at: ${v.who}`);
+    if (v.reason) L.push(`Reason: ${v.reason}`);
+    if (v.outcome) L.push("", v.outcome);
+    if (v.cost) L.push("", `Cost: ${v.cost}`);
+    if (v.next) L.push(`Back on: ${fmt(v.next)}`);
+    copyText(L.join("\n"), "Visit copied");
+  },
+
+  /* Everything the vet will actually want, in one paste. */
+  "copy-prep": () => {
+    const s = Repo.state, c = s.care || {}, f = s.feedPlan || {};
+    const L = [`${s.name || "Puppy"} — notes for the appointment`,
+               `Giant Schnauzer, black female, born ${fmt(DOB)} (${ageText()})`,
+               `Microchip ${CHIP}`, ""];
+
+    const open = live(s.ask).filter(a => !a.asked);
+    if (open.length){
+      L.push("WHAT I WANT TO ASK");
+      open.forEach((a, i) => L.push(`  ${i + 1}. ${a.note}`));
+      L.push("");
+    }
+
+    const w = live(s.weights).sort((a, b) => a.date < b.date ? 1 : -1)[0];
+    if (w) L.push(`WEIGHT: ${w.lbs} lb on ${fmt(w.date)}`);
+    if (f.food) L.push(`FEEDING: ${f.food}${f.amt ? ", " + f.amt : ""}${f.meals ? ", " + f.meals + " a day" : ""}`);
+    if (c.meds) L.push(`MEDICATION: ${c.meds}`);
+
+    const due = live(s.vaccines).filter(v => !v.done && v.due)
+      .sort((a, b) => a.due < b.due ? -1 : 1)[0];
+    if (due) L.push(`NEXT DUE: ${due.name}, around ${fmt(due.due)}`);
+
+    const o = live(s.occ).sort((a, b) => a.date < b.date ? 1 : -1).slice(0, 15);
+    if (o.length){
+      const sev = ["", "noting", "watching", "worried"];
+      L.push("", "WHAT I'VE NOTICED");
+      for (const e of o){
+        L.push(`  ${fmt(e.date)} — ${e.cats.join(", ") || "note"} (${sev[e.sev] || ""})`);
+        if (e.note) L.push(`     ${e.note}`);
+      }
+    }
+
+    const lastVisit = live(s.visits).sort((a, b) => a.date < b.date ? 1 : -1)[0];
+    if (lastVisit) L.push("", `LAST SEEN: ${fmt(lastVisit.date)}${lastVisit.who ? " at " + lastVisit.who : ""}${lastVisit.reason ? " — " + lastVisit.reason : ""}`);
+    const lastAdv = live(s.advice).sort((a, b) => a.date < b.date ? 1 : -1)[0];
+    if (lastAdv) L.push(`LAST ADVICE (${fmt(lastAdv.date)}${lastAdv.who ? ", " + lastAdv.who : ""}): ${lastAdv.note}`);
+
+    copyText(L.join("\n"), open.length ? `Copied, including ${open.length} question${open.length === 1 ? "" : "s"}` : "Copied");
+  },
+
   "add-weight": () => {
     const date = $("#wDate").value, lbs = parseFloat($("#wLbs").value);
     if (!date || !(lbs > 0)) return View.toast("Add a date and a weight");
@@ -2918,6 +3079,11 @@ const Actions = {
         L.push(`  ${c.word} — ${c.means || ""}`.trimEnd());
         if (c.how) L.push(`    ${c.how}`);
       }
+    }
+    const adv = live(s.advice).sort((a, b) => a.date < b.date ? 1 : -1).slice(0, 5);
+    if (adv.length){
+      L.push("", "WHAT THE VET HAS SAID — follow these");
+      for (const a of adv) L.push(`  ${fmt(a.date)}${a.who ? " (" + a.who + ")" : ""}: ${a.note}`);
     }
     L.push("", "EMERGENCY — BLOAT");
     L.push("Deep-chested breed. If her belly is swollen and hard, she retches with nothing coming up,");
@@ -3080,7 +3246,7 @@ window.addEventListener("focus", () => Sync.pull());
   View.stages();
   Symptoms.render("", "#symOutg");
 
-  for (const id of ["#wDate","#mDate","#oDate"]) $(id).value = today();
+  for (const id of ["#wDate","#mDate","#oDate","#vsDate","#dvDate"]) $(id).value = today();
 
   if (Sync.on()){ Sync.rest(); Sync.pull(); }
   if (Repo.adapter.name === "memory"){
