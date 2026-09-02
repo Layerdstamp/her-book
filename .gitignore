@@ -1,9 +1,7 @@
-# Cloudflare Worker deps + local state (the API in api/ is optional)
-node_modules/
-.wrangler/
-.dev.vars
-
 # OS / editor noise
 .DS_Store
 Thumbs.db
 *.log
+
+# Never commit an exported backup — this repository is public
+*-record-*.json

@@ -4,11 +4,11 @@ A lifelong care record for one Giant Schnauzer — vaccine checklist, weight and
 feeding logs, health log, a sitter care sheet, and the whole of her breeder's
 book written up and sourced.
 
-**Live: https://layerdstamp.github.io/her-book/**
+**Open it: https://layerdstamp.github.io/her-book/**
 
-It is one self-contained HTML file. No build step, no framework, no bundler.
-Open `index.html` from anywhere — a phone, a laptop, a USB stick — and it works
-exactly the same as the hosted copy.
+Everything lives in this repository. The page is `index.html`, the record is
+[`data/record.json`](data/record.json), and GitHub is the only thing it talks
+to — no server, no database, no third party.
 
 ## What's in it
 
@@ -21,81 +21,69 @@ exactly the same as the hosted copy.
 | **Care** | The sitter handoff sheet. Fill in once, then copy or print it |
 | **Guide** | The breeder's book, cited, plus grooming, growth plates, breed health and the AKC standard |
 
-A **Bloat** button sits on every screen. It is the emergency this breed dies of,
-and it is one tap away on purpose.
+A **Bloat** button sits on every screen. It is the emergency this breed dies
+of, and it is one tap away on purpose.
 
-## Where the data goes
+## How saving works
 
-Nothing leaves the browser unless you connect the optional API.
+`data/record.json` is the shared copy. The page reads it on load and every 45
+seconds, and merges it with whatever is in the browser.
 
-1. **`window.storage`** — used when the file runs somewhere that provides it.
-   Everyone opening the record reads and writes the same copy.
-2. **`localStorage`** — the fallback, and what the GitHub Pages site uses.
-   Saved on that device, in that browser, only.
-3. **Memory** — last resort. The app puts a warning bar at the top telling you
-   to export a backup before closing the tab.
+**Reading needs nothing.** The repository is public, so anyone you send the
+link to sees the current record immediately, with no account and no setup.
 
-Conflicts resolve per field rather than per document, so two people editing
-different things never overwrite each other. Scalars carry a timestamp, list
-items merge by id, and deletes are tombstones so a merge can't resurrect them.
+**Writing needs a token**, once per device:
 
-**Because Pages hosting falls back to `localStorage`, the record does not
-follow you between phones on its own.** Two ways to move it:
+1. On GitHub go to **Settings → Developer settings → Personal access tokens →
+   Fine-grained tokens → Generate new token**.
+2. Point it at **`Layerdstamp/her-book` only**.
+3. Give it exactly one permission: **Repository permissions → Contents →
+   Read and write**.
+4. Open the site, tap **Backup**, paste it in, tap **Save token**.
 
-- **Export / Import** in the Backup sheet. Import *merges* rather than
-  replaces, so restoring an old file can't wipe someone else's entries.
-- **Deploy the API** in [`api/`](api/) and connect it. That gives you one
-  shared record across devices plus a read-only link for a sitter.
+The token is kept in that browser's `localStorage` and is never written into
+the record, so sharing the link never shares your token. A device without one
+still works — it just shows a read-only bar and keeps your entries local.
+
+Each save is a commit, so the page waits about six seconds after you stop
+typing before writing. Two people editing at once is handled by the Contents
+API's compare-and-set: a write carries the blob sha it was based on, GitHub
+refuses a stale one, and the page pulls, merges and writes again.
+
+Underneath that, conflicts resolve per field rather than per document, so two
+people editing different things never overwrite each other. Scalars carry a
+timestamp, list items merge by id, and deletes are tombstones so a merge can't
+resurrect them.
+
+## Read-only is the sitter mode
+
+Whoever has the link can read everything and type into the page, but without a
+token nothing they add leaves their browser. If you want a sitter's notes to
+come back to you, they need a token of their own — which means write access,
+so only give one to someone you'd trust with the repository.
+
+## Privacy
+
+**This repository is public, and so is the record.** Her vet, your phone
+numbers, the health log and anything else typed into the app are readable by
+anyone, and every version stays in the commit history even after you delete
+it. Treat the whole record as published. `.gitignore` blocks exported backup
+files from being committed by accident.
 
 ## Running it locally
-
-Just open the file:
 
 ```bash
 start index.html
 ```
 
-Or serve it, if you want a real origin:
-
-```bash
-npx serve .
-```
-
-## The optional API
-
-[`api/`](api/) is a Cloudflare Worker backed by D1. It is not needed for the
-app to work and GitHub Pages cannot host it — it deploys separately. See
-[`api/README.md`](api/README.md) for the endpoints and
-[`DEPLOY.md`](DEPLOY.md) for the steps.
-
-One thing to know: the Worker's CORS allowlist has to name this site's origin
-or the browser will block every call. It is already set in
-`api/wrangler.jsonc`:
-
-```
-"ALLOWED_ORIGINS": "https://layerdstamp.github.io,https://her-book.pages.dev"
-```
-
-An origin is scheme + host with no path, so it is
-`https://layerdstamp.github.io` even though the site lives at
-`/her-book/`. Redeploy the Worker after changing it.
+Opened as a file it can't work out which repository to use, so the Backup
+sheet grows an owner/repository/branch box. Fill that in and it syncs from
+there too.
 
 ## Layout
 
 ```
-index.html          the whole app
-.nojekyll           stops GitHub Pages running the file through Jekyll
-DEPLOY.md           deploying the optional API
-api/                Cloudflare Worker + D1 (optional)
-  src/worker.js     the API
-  schema.sql        one table, two indexes
-  wrangler.jsonc    bindings and the CORS allowlist
-  test.mjs          endpoint tests
+index.html          the whole app — no build step, no dependencies
+data/record.json    the record; the page reads and writes this
+.nojekyll           stops GitHub Pages running the files through Jekyll
 ```
-
-## A note on privacy
-
-The page is public and so is this repository. Her date of birth and microchip
-number are written into `index.html`, and anything typed into the app on a
-device stays in that browser — but anything committed here is visible to
-everyone. Don't commit an exported backup.

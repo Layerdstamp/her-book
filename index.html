@@ -1167,8 +1167,11 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
 
    Storage model
    -------------
-   The record is SHARED. Everyone who opens this file writes into the same
-   document, so a sitter's notes survive and show up for the owner.
+   The record lives in GitHub, as data/record.json in the repository that
+   serves this page. That file is the shared copy: everyone who opens the
+   page reads it, so a sitter's notes survive and show up for the owner.
+   localStorage is only a cache, so the page opens instantly and keeps
+   working with no signal.
 
    Concurrency is handled with last-writer-wins per field rather than per
    document, so two people editing different things never wipe each other:
@@ -1183,8 +1186,10 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
    and add; only the owner can edit her details or delete anything. This is
    a soft lock in the UI, not encryption — see the note in the People sheet.
 
-   Sync credentials are deliberately kept OUT of the shared document and
-   stored locally, so sharing the record never leaks the owner token.
+   Writing needs a GitHub token with Contents write on that one repository.
+   It is entered once per device and kept in localStorage there, never
+   written into the record, so sharing the page never leaks it. No token
+   means read-only, which is exactly what you want a sitter to have.
    ===================================================================== */
 
 const DOB  = "2026-06-25";
@@ -1369,7 +1374,7 @@ function setPath(obj, path, value){
 /* ------------------------------------------------------ device-local */
 /* Never shared: sync tokens, who I am on this device, whether I'm owner. */
 const Local = {
-  data: { me: "", isOwner: false, sync: { url:"", id:"", token:"" } },
+  data: { me: "", isOwner: false, gh: { token:"", owner:"", repo:"", branch:"" } },
   load(){
     try {
       const raw = localStorage.getItem(LOCAL_KEY);
@@ -1383,16 +1388,10 @@ const Local = {
 };
 
 /* ---------------------------------------------------------- adapters */
-/* SharedAdapter is the important one: window.storage with shared=true means
-   every person opening this record reads and writes the same document.     */
-const SharedAdapter = {
-  name: "shared",
-  available: () => typeof window.storage?.get === "function",
-  async get(){ try { return (await window.storage.get(KEY, true))?.value ?? null; } catch { return null; } },
-  async set(v){ await window.storage.set(KEY, v, true); }
-};
+/* The on-device cache. GitHub is the source of truth; this is what makes
+   the page open instantly and keep working with no signal.               */
 const LocalAdapter = {
-  name: "this device only",
+  name: "this device",
   available(){ try { localStorage.setItem("__t","1"); localStorage.removeItem("__t"); return true; } catch { return false; } },
   async get(){ return localStorage.getItem(KEY); },
   async set(v){ localStorage.setItem(KEY, v); }
@@ -1401,7 +1400,7 @@ const MemoryAdapter = (() => {
   let v = null;
   return { name:"memory", available: () => true, async get(){ return v; }, async set(x){ v = x; } };
 })();
-const pickAdapter = () => [SharedAdapter, LocalAdapter, MemoryAdapter].find(a => a.available()) || MemoryAdapter;
+const pickAdapter = () => [LocalAdapter, MemoryAdapter].find(a => a.available()) || MemoryAdapter;
 
 /* ------------------------------------------------------------- state */
 function seedVaccines(){
@@ -1541,82 +1540,170 @@ const Repo = {
     }
   },
 
-  /** Pull peers' changes without writing. */
-  async refresh(){
-    try {
-      const raw = await this.adapter.get();
-      if (!raw) return;
-      const merged = mergeDocs(this.state, JSON.parse(raw));
-      if (JSON.stringify(merged) !== JSON.stringify(this.state)){
-        this.state = merged;
-        View.render();
-      }
-    } catch { /* offline is fine */ }
-  }
+
 };
 
-/* -------------------------------------------------------------- sync */
-/* Optional Cloudflare backend, for when the file is hosted rather than
-   opened here. Credentials live in Local, never in the shared document. */
+/* ------------------------------------------------------------- github */
+/* GitHub is where her record lives: data/record.json in the repository that
+   serves this page.
+
+   Reading needs nothing at all — the repository is public, so a sitter just
+   opens the link. Writing needs a personal access token with Contents write
+   on that one repository, entered once per device.
+
+   Concurrency is the Contents API's own compare-and-set: every write sends
+   the blob sha it was based on, and GitHub refuses a stale one. That is the
+   same shape the old backend had, so the merge above is unchanged — on a
+   rejected write we pull, merge, and write again.                          */
+
+const GH_PATH = "data/record.json";
+
+/** base64 <-> UTF-8, chunked so a long record can't overflow the stack. */
+function b64encode(str){
+  const bytes = new TextEncoder().encode(str);
+  let bin = "";
+  for (let i = 0; i < bytes.length; i += 0x8000){
+    bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+  }
+  return btoa(bin);
+}
+function b64decode(b64){
+  const bin = atob(String(b64).replace(/\s/g, ""));
+  return new TextDecoder().decode(Uint8Array.from(bin, c => c.charCodeAt(0)));
+}
+
+/** Work out the repository from the URL, so there is nothing to configure:
+    layerdstamp.github.io/her-book/ -> layerdstamp / her-book. */
+function detectRepo(){
+  const m = /^([^.]+)\.github\.io$/i.exec(location.hostname);
+  if (!m) return null;
+  const seg = location.pathname.split("/").filter(Boolean)[0];
+  return { owner: m[1], repo: seg || `${m[1]}.github.io`, branch: "main" };
+}
+
 const Sync = {
-  status: "off", _timer: null,
-  cfg(){ return Local.data.sync || {}; },
-  on(){ const c = this.cfg(); return !!(c.url && c.id && c.token); },
+  status: "off", sha: null, _timer: null, _busy: false,
 
-  queue(){
-    if (!this.on()) return;
-    clearTimeout(this._timer);
-    this._timer = setTimeout(() => this.push(), 1200);
+  cfg(){
+    const saved = Local.data.gh || {}, auto = detectRepo() || {};
+    return {
+      owner:  saved.owner  || auto.owner  || "",
+      repo:   saved.repo   || auto.repo   || "",
+      branch: saved.branch || auto.branch || "main",
+      token:  saved.token  || ""
+    };
   },
+  on(){ const c = this.cfg(); return !!(c.owner && c.repo); },
+  canWrite(){ return this.on() && !!this.cfg().token; },
 
-  async req(path, opts = {}){
+  api(path, opts = {}){
     const c = this.cfg();
-    const res = await fetch(c.url.replace(/\/+$/, "") + path, {
-      ...opts,
-      headers: { "content-type":"application/json", Authorization:`Bearer ${c.token}`, ...(opts.headers || {}) }
-    });
-    const body = await res.json().catch(() => ({}));
-    if (!res.ok) throw Object.assign(new Error(body?.error?.message || `HTTP ${res.status}`), { status: res.status });
-    return body;
+    const headers = { Accept:"application/vnd.github+json", "X-GitHub-Api-Version":"2022-11-28", ...(opts.headers || {}) };
+    if (c.token) headers.Authorization = `Bearer ${c.token}`;
+    return fetch("https://api.github.com" + path, { ...opts, headers, cache:"no-store" });
   },
 
+  contentsPath(){
+    const c = this.cfg();
+    return `/repos/${c.owner}/${c.repo}/contents/${GH_PATH}`;
+  },
+
+  async problem(res){
+    const b = await res.json().catch(() => ({}));
+    if (res.status === 401) return "that token was rejected — check it hasn't expired";
+    if (res.status === 403 || res.status === 429){
+      return /rate limit/i.test(b.message || "") ? "rate limited, try again shortly"
+                                                 : "that token can't write to this repository";
+    }
+    if (res.status === 404) return "repository or file not found";
+    return b.message || `HTTP ${res.status}`;
+  },
+
+  /** Read the shared copy and merge it in. Never writes. */
   async pull({ quiet = true } = {}){
-    if (!this.on()) return;
+    if (!this.on() || this._busy) return;
+    this._busy = true;
     this.set("syncing");
     try {
-      const r = await this.req(`/v1/records/${this.cfg().id}`);
-      if (r.doc){
-        const merged = mergeDocs(Repo.state, migrate(r.doc));
-        Repo.state = merged;
-        await Repo.adapter.set(JSON.stringify(merged));
-        View.render();
-        if (!quiet) View.toast("Merged the server copy");
+      const c = this.cfg();
+      let doc = null;
+      if (c.token){
+        const res = await this.api(`${this.contentsPath()}?ref=${encodeURIComponent(c.branch)}`);
+        if (res.status === 404){ this.sha = null; this.rest(); return; }
+        if (!res.ok) throw new Error(await this.problem(res));
+        const body = await res.json();
+        this.sha = body.sha;
+        doc = JSON.parse(b64decode(body.content));
+      } else {
+        // No token: read the raw file straight off the CDN. Costs nothing and
+        // avoids the API's 60-an-hour limit for unauthenticated callers.
+        const url = `https://raw.githubusercontent.com/${c.owner}/${c.repo}/${c.branch}/${GH_PATH}?t=${Date.now()}`;
+        const res = await fetch(url, { cache:"no-store" });
+        if (res.status === 404){ this.rest(); return; }
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        doc = await res.json();
       }
-      this.set(r.role === "view" ? "readonly" : "idle");
+      if (doc){
+        Repo.state = mergeDocs(Repo.state, migrate(doc));
+        await Repo.adapter.set(JSON.stringify(Repo.state));
+        View.render();
+        if (!quiet) View.toast("Up to date with GitHub");
+      }
+      this.rest();
+    } catch (e){ this.set("error", e.message); }
+    finally { this._busy = false; }
+  },
+
+  /** Every save is a commit, so wait for you to stop before writing. */
+  queue(){
+    if (!this.canWrite()) return;
+    clearTimeout(this._timer);
+    this._timer = setTimeout(() => this.push(), 6000);
+  },
+
+  async push(retry = true){
+    if (!this.canWrite()) return;
+    this.set("syncing");
+    try {
+      const c = this.cfg();
+      if (this.sha === null){
+        const head = await this.api(`${this.contentsPath()}?ref=${encodeURIComponent(c.branch)}`);
+        this.sha = head.ok ? (await head.json()).sha : null;
+      }
+      const body = {
+        message: `${Repo.state.name || "Her"} record — ${new Date().toISOString().slice(0,10)}`,
+        content: b64encode(JSON.stringify(Repo.state, null, 2) + "\n"),
+        branch: c.branch
+      };
+      if (this.sha) body.sha = this.sha;
+
+      const res = await this.api(this.contentsPath(), {
+        method:"PUT", headers:{ "content-type":"application/json" }, body: JSON.stringify(body)
+      });
+
+      // Someone committed ahead of us. Take their copy, merge, write again.
+      if (res.status === 409 || res.status === 422){
+        this.sha = null;
+        this._busy = false;
+        await this.pull();
+        if (retry) return this.push(false);
+        throw new Error("couldn't settle a conflict — try Sync now");
+      }
+      if (!res.ok) throw new Error(await this.problem(res));
+      this.sha = (await res.json())?.content?.sha || null;
+      this.rest();
     } catch (e){ this.set("error", e.message); }
   },
 
-  async push(){
-    if (!this.on() || this.status === "readonly") return;
-    this.set("syncing");
-    try {
-      await this.req(`/v1/records/${this.cfg().id}`, {
-        method:"PUT", body: JSON.stringify({ doc: Repo.state, baseUpdatedAt: Repo.state.updatedAt })
-      });
-      this.set("idle");
-    } catch (e){
-      if (e.status === 409) return this.pull({ quiet:false });
-      if (e.status === 403) return this.set("readonly");
-      this.set("error", e.message);
-    }
-  },
+  /** Back to whichever resting state this device is in. */
+  rest(){ this.set(this.canWrite() ? "idle" : "readonly"); },
 
   set(status, detail = ""){
     this.status = status;
     const msg = {
-      syncing:"Syncing…",
-      readonly:"Read-only copy — you can see everything, but changes won't sync back.",
-      error:`Sync problem: ${detail}. Your changes are still saved here.`
+      syncing: "Saving to GitHub…",
+      readonly: "Read-only. You're seeing the shared record — anything you add stays in this browser until you add a token under Backup.",
+      error: `GitHub: ${detail}. Your changes are still saved on this device.`
     }[status] || null;
     const bar = $("#statusbar");
     bar.hidden = !msg;
@@ -1885,36 +1972,66 @@ const Sheets = {
     </div>`;
   },
 
-  sync: () => `
-    <h2 id="sheetTitle">Backup &amp; hosting</h2>
-    <p style="font-size:14px;color:var(--bark);margin-bottom:16px">Storage: <strong>${esc(Repo.adapter.name)}</strong>.
-      ${Repo.adapter.name === "shared"
-        ? "Everyone with this record reads and writes the same copy."
-        : "This copy is on this device only. Deploy the API below to share it."}</p>
+  sync: () => {
+    const c = Sync.cfg(), auto = detectRepo(), writes = Sync.canWrite();
+    const where = c.owner && c.repo ? `${c.owner}/${c.repo}` : "no repository yet";
+    return `
+    <h2 id="sheetTitle">Backup &amp; sync</h2>
+    <p style="font-size:14px;color:var(--bark);margin-bottom:16px">Her record lives in GitHub, as
+      <strong>${esc(GH_PATH)}</strong> in <strong>${esc(where)}</strong>. Everyone who opens this page reads
+      that same copy.</p>
+
     <div class="card">
-      <h2 style="font-size:17px">Backup</h2>
+      <h2 style="font-size:17px">${writes ? "This device can save" : "This device is read-only"}</h2>
+      <p class="hint">${writes
+        ? "Anything you add is committed to GitHub a few seconds after you stop typing."
+        : "You can read everything and add entries, but they stay in this browser until you paste in a token."}</p>
+      <label class="f"><span>GitHub token</span>
+        <input type="password" id="ghToken" value="${esc(c.token)}" placeholder="github_pat_…" autocomplete="off" spellcheck="false"></label>
+      <div class="btnrow">
+        <button class="btn sm" data-act="save-gh">Save token</button>
+        <button class="btn soft sm" data-act="sync-now">Sync now</button>
+        ${c.token ? `<button class="btn soft sm" data-act="drop-gh">Remove token</button>` : ""}
+      </div>
+      <p class="hint" style="margin:12px 0 0">Status: <strong>${esc(Sync.on() ? Sync.status : "no repository")}</strong></p>
+      <div class="note" style="margin-top:14px"><b>Making a token.</b> On GitHub: Settings → Developer settings →
+        Personal access tokens → Fine-grained tokens → Generate new token. Point it at
+        <strong>${esc(where)}</strong> only, and give it one permission —
+        <strong>Repository permissions → Contents → Read and write</strong>. Paste it above. It is kept in this
+        browser alone and never written into the record.</div>
+    </div>
+
+    <div class="card">
+      <h2 style="font-size:17px">Giving someone the record</h2>
+      <p class="hint">Send them this page's link. They see everything, live, with nothing to set up — and they can't
+        change it, because they have no token.</p>
+      <div class="note stop"><b>The repository is public.</b> Everything in here — her vet, your phone numbers, the
+        health log — can be read by anyone, and stays in the commit history even after you delete it. Keep anything
+        you wouldn't publish out of the record.</div>
+    </div>
+
+    <div class="card">
+      <h2 style="font-size:17px">Backup file</h2>
       <div class="btnrow">
         <button class="btn soft sm" data-act="export">Export backup</button>
         <button class="btn soft sm" data-act="import">Import backup</button>
       </div>
-      <p class="hint" style="margin:12px 0 0">Import merges into what's here rather than replacing it, so you can't
-        lose someone else's entries by restoring an old file.</p>
+      <p class="hint" style="margin:12px 0 0">Import merges into what's here rather than replacing it, so restoring an
+        old file can't wipe someone else's entries.</p>
     </div>
+    ${auto ? "" : `
     <div class="card">
-      <h2 style="font-size:17px">Self-hosted API</h2>
-      <p class="hint">Connect this to share one record across phones, and to hand a sitter a read-only copy.
-        Without it, everything you add stays on this device only. Tokens are stored on this device and never travel
-        inside the shared record.</p>
-      <label class="f"><span>API base URL</span><input type="url" id="syncUrl" value="${esc(Local.data.sync.url)}" placeholder="https://puppy-record-api.you.workers.dev"></label>
-      <label class="f"><span>Record id</span><input type="text" id="syncId" value="${esc(Local.data.sync.id)}"></label>
-      <label class="f"><span>Token</span><input type="text" id="syncToken" value="${esc(Local.data.sync.token)}"></label>
-      <div class="btnrow">
-        <button class="btn sm" data-act="save-sync">Save</button>
-        <button class="btn soft sm" data-act="sync-now">Sync now</button>
-        <button class="btn soft sm" data-act="sync-create">Create a record</button>
+      <h2 style="font-size:17px">Repository</h2>
+      <p class="hint">This page isn't being served from GitHub Pages, so it can't work out which repository to use.
+        Fill it in and it will sync from here too.</p>
+      <div class="row2">
+        <label class="f"><span>Owner</span><input type="text" id="ghOwner" value="${esc(c.owner)}" placeholder="layerdstamp"></label>
+        <label class="f"><span>Repository</span><input type="text" id="ghRepo" value="${esc(c.repo)}" placeholder="her-book"></label>
       </div>
-      <p class="hint" style="margin:12px 0 0">Status: <strong>${esc(Sync.on() ? Sync.status : "not connected")}</strong></p>
-    </div>`,
+      <label class="f"><span>Branch</span><input type="text" id="ghBranch" value="${esc(c.branch)}" placeholder="main"></label>
+      <button class="btn sm" data-act="save-gh">Save repository</button>
+    </div>`}`;
+  },
 
   profile: () => `
     <h2 id="sheetTitle">Her details</h2>
@@ -2125,34 +2242,33 @@ const Actions = {
   },
   import: () => $("#importFile").click(),
 
-  "save-sync": () => {
-    Local.data.sync = {
-      url: $("#syncUrl").value.trim(), id: $("#syncId").value.trim(), token: $("#syncToken").value.trim() };
-    Local.save();
-    View.toast("Saved on this device");
+  "save-gh": async () => {
+    const g = { ...(Local.data.gh || {}) };
+    const t = $("#ghToken");  if (t) g.token  = t.value.trim();
+    const o = $("#ghOwner");  if (o) g.owner  = o.value.trim();
+    const r = $("#ghRepo");   if (r) g.repo   = r.value.trim();
+    const b = $("#ghBranch"); if (b) g.branch = b.value.trim();
+    Local.data.gh = g; Local.save();
+    Sync.sha = null;
+    await Sync.pull({ quiet:true });
+    if (Sync.canWrite()) await Sync.push();
     openSheet("sync");
+    View.toast(Sync.status === "error" ? "Saved, but GitHub refused it — see the status"
+                                       : Sync.canWrite() ? "Saved — this device can write now"
+                                                         : "Saved on this device");
+  },
+  "drop-gh": () => {
+    Local.data.gh = { ...(Local.data.gh || {}), token:"" };
+    Local.save();
+    Sync.rest();
+    openSheet("sync");
+    View.toast("Token removed from this device");
   },
   "sync-now": async () => {
-    if (!Sync.on()) return View.toast("Fill in the URL, id and token first");
+    if (!Sync.on()) return View.toast("No repository set");
     await Sync.pull({ quiet:false });
-    await Sync.push();
-    View.toast("Synced");
-  },
-  "sync-create": async () => {
-    const url = $("#syncUrl")?.value.trim() || Local.data.sync.url;
-    if (!url) return View.toast("Enter the API base URL first");
-    try {
-      const res = await fetch(url.replace(/\/+$/,"") + "/v1/records", {
-        method:"POST", headers:{ "content-type":"application/json" },
-        body: JSON.stringify({ doc: Repo.state }) });
-      const b = await res.json();
-      if (!res.ok) throw new Error(b?.error?.message || "Couldn't create the record");
-      Local.data.sync = { url, id: b.id, token: b.ownerToken };
-      Local.save();
-      openSheet("sync");
-      window.prompt("Record created. Save the read-only token — it's the one you give a sitter, and you won't see it again:", b.viewToken);
-      View.toast("Record created");
-    } catch (e){ View.toast(e.message); }
+    if (Sync.canWrite()) await Sync.push();
+    openSheet("sync");
   }
 };
 
@@ -2199,8 +2315,8 @@ document.addEventListener("input", e => {
 document.addEventListener("keydown", e => { if (e.key === "Escape") closeSheet(); });
 
 // Pick up other people's changes when you come back to the tab.
-document.addEventListener("visibilitychange", () => { if (!document.hidden) Repo.refresh(); });
-window.addEventListener("focus", () => Repo.refresh());
+document.addEventListener("visibilitychange", () => { if (!document.hidden) Sync.pull(); });
+window.addEventListener("focus", () => Sync.pull());
 
 /* --------------------------------------------------------------- boot */
 (async function boot(){
@@ -2230,14 +2346,14 @@ window.addEventListener("focus", () => Repo.refresh());
 
   for (const id of ["#wDate","#mDate","#oDate"]) $(id).value = today();
 
-  if (Sync.on()){ Sync.set("idle"); Sync.pull(); }
-  else if (Repo.adapter.name === "memory"){
+  if (Sync.on()){ Sync.rest(); Sync.pull(); }
+  if (Repo.adapter.name === "memory"){
     const bar = $("#statusbar");
     bar.hidden = false;
     bar.textContent = "This device can't save — export a backup before you close the tab.";
   }
   // Poll for peers' edits while the tab is open.
-  setInterval(() => { if (!document.hidden) Repo.refresh(); }, 20000);
+  setInterval(() => { if (!document.hidden) Sync.pull(); }, 45000);
 })();
 </script>
 </body>
