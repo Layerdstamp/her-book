@@ -592,25 +592,10 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
   <div id="oList"></div>
 
   <div class="card">
-    <h2>Call the vet now if you see</h2>
-    <div class="book">
-      <div class="note stop"><b>A swollen, tight belly with unproductive retching</b> — trying to be sick with nothing
-        coming up, drooling, pacing, restlessness, an arched back, collapse. That's bloat. Tap the Bloat button at the
-        top. Minutes matter.</div>
-      <ul>
-        <li>Repeated vomiting, or vomiting and diarrhoea together</li>
-        <li>Bloody or black, tarry stool</li>
-        <li>Diarrhoea past about a day, or any diarrhoea in a puppy who's also flat and off her food</li>
-        <li>Not eating for a whole day, or refusing water</li>
-        <li>Lethargy she can't be roused from, or wobbliness</li>
-        <li>Straining to urinate, going constantly, or blood in her urine — the kennel flags UTIs as common in Giant Schnauzer girls</li>
-        <li>Laboured breathing, pale or grey gums</li>
-        <li>A cough that won't settle, especially after being around other dogs</li>
-        <li>Any seizure</li>
-        <li>Swelling, a lost nail or an odd growth on a toe — this breed has elevated rates of nail-bed cancer, so toes get checked rather than shrugged off</li>
-      </ul>
-      <p style="color:var(--bark)">Puppies get sick fast and have little reserve. When in doubt, phone — a call costs nothing.</p>
-    </div>
+    <h2>Worried about something?</h2>
+    <p class="hint">Describe what you can see and the index will tell you how urgent it might be and what to ask
+      the vet for. Puppies get ill fast and have little reserve — when in doubt, phone. A call costs nothing.</p>
+    <button class="btn" data-act="sheet" data-sheet="symptoms"><svg><use href="#i-alert"/></svg>Look up a symptom</button>
   </div>
 </section>
 
@@ -702,7 +687,8 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
 
   <div class="card">
     <h2>Her day</h2>
-    <label class="f"><span>Daily routine</span><textarea data-bind="care.routine" placeholder="7am out to toilet, breakfast, nap in crate. Midday walk. 6pm dinner. Last toilet 10pm. Sleeps in the crate in the kitchen with the door shut."></textarea></label>
+    <div class="note"><b>Her daily routine lives on the home page</b>, so there is only ever one copy of it. It is
+      already included when you copy or print this sheet.</div>
     <label class="f"><span>Toileting</span><textarea data-bind="care.toilet" placeholder="Where she goes, how often, what she does just before she needs out, whether she asks."></textarea></label>
     <label class="f"><span>Exercise — how much and what kind</span><textarea data-bind="care.exercise" placeholder="How long, on lead or off, where. Note anything she must NOT do yet, like long runs or jumping."></textarea></label>
     <label class="f"><span>Sleep &amp; crate</span><textarea data-bind="care.crate" placeholder="Where the crate is, whether the door is shut, what settles her."></textarea></label>
@@ -710,8 +696,8 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
 
   <div class="card">
     <h2>Handling her</h2>
-    <label class="f"><span>Commands she knows</span><textarea data-bind="care.commands" placeholder="Sit, wait, off, leave it, in your bed, her recall word…"></textarea></label>
-    <label class="f"><span>House rules — keep these consistent</span><textarea data-bind="care.rules" placeholder="Not on furniture. No feeding from the table. Not through a door first. Whatever you've set."></textarea></label>
+    <div class="note"><b>The words she knows and the house rules live on the Training page</b> — edit them there and
+      everyone sees the same version. They are included when you copy or print this sheet.</div>
     <label class="f"><span>Quirks, triggers, things to avoid</span><textarea data-bind="care.quirks" placeholder="Wary of strangers at the door. Guards her bone. Hates the hoover."></textarea></label>
     <label class="f"><span>Medication &amp; health notes</span><textarea data-bind="care.meds" placeholder="What she's on, dose, when. Anything a sitter must not miss."></textarea></label>
     <label class="f"><span>Where things are kept</span><textarea data-bind="care.kit" placeholder="Food bin, lead, poo bags, towels, crate key, spare keys, her records."></textarea></label>
@@ -732,7 +718,8 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
       <h4>She needs her brain worked, not just her legs</h4>
       <p>A bored Giant Schnauzer invents jobs, and you won't like the jobs. Short training sessions, sniffing walks,
         chew items and food puzzles do more than a long march.</p>
-      <div class="note stop"><b>The one emergency to know cold — bloat.</b> Deep-chested breeds like hers can twist
+      <div class="note stop"><b>The one emergency to know cold — bloat.</b> Tap <b>Something's wrong</b> at the top
+        of any screen and type what you can see. Deep-chested breeds like hers can twist
         their stomach, and it kills within hours. Signs: swollen hard belly, retching with nothing coming up, drooling,
         pacing, unable to settle, hunched, pale gums, collapse. Go straight to an emergency vet and phone ahead. Don't
         wait to see if it passes.</div>
@@ -805,7 +792,8 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
       after a bloat drops from as high as roughly 75% without a pexy to a few percent with one. It can often be done
       laparoscopically through two small incisions.</div>
     <p>There's no proven diet or lifestyle that prevents GDV, though avoiding hard exercise straight after a large meal
-      is sensible. Learn the signs before you need them — they're behind the Bloat button at the top of every screen.</p>
+      is sensible. Learn the signs before you need them — search "retching" or "swollen belly" under
+      <b>Something's wrong</b>.</p>
     <div class="src">Breeder's book page 6; GDV background from ACVS, Cornell Riney Canine Health Center, VCA and
       BluePearl; desexing timing from UC Davis joint-disorder research.</div>
   </div></details>
@@ -878,17 +866,24 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
 
   <details class="acc"><summary><span class="pawdot"><svg><use href="#i-heart"/></svg></span>
     UTIs in Giant Schnauzer girls<span class="caret"></span></summary><div class="body book">
-    <p>Female puppies are more susceptible to urinary tract infections than males, because a female puppy squats low to
-      the ground, which lets bacteria enter the urinary tract. Keeping her sanitary and clean is a must.</p>
-    <p>The most common UTI is an E. coli based infection. Most vets will try amoxicillin or Clavamox, on which symptoms
-      may subside briefly and then return. Most vets without Giant Schnauzer experience will think she has an ectopic
-      ureter or juvenile incontinence. The kennel's experience is that this is usually not the case and that she'll need
-      a stronger antibiotic such as enrofloxacin. Their vet, who has Giant experience, prescribes enrofloxacin for
-      3 weeks — and once the puppy completes that treatment all symptoms subside.</p>
-    <div class="note"><b>Worth showing your vet.</b> If she gets a UTI that keeps returning after a standard antibiotic
-      course, this is the kennel's specific experience with the breed and is worth raising before anyone investigates
-      for anatomical causes.</div>
-    <div class="src">Breeder's book page 8.</div>
+    <p><b>The kennel's account.</b> Female puppies squat low to the ground, which lets bacteria reach the urinary
+      tract, so keeping her clean matters. They say the usual culprit is E. coli, that amoxicillin or Clavamox often
+      settles it only briefly, and that vets without Giant experience tend to suspect an ectopic ureter or juvenile
+      incontinence. Their own vet prescribes enrofloxacin for three weeks, after which symptoms resolve.</p>
+    <div class="note warn"><b>What the evidence actually supports.</b> We went looking for the claim that urinary tract
+      <em>infections</em> are unusually common in this breed and could not find it in any authoritative source. Cornell
+      says UTIs are commoner in females generally, with no breed effect. What genuinely does name Giant Schnauzers is a
+      different condition — <b>urethral sphincter mechanism incompetence</b>, a leaking-urine problem rather than an
+      infection, where the breed is reported among the over-represented breeds in the USA alongside Dobermans. Note
+      too that the calcium-oxalate bladder stone risk people repeat for "schnauzers" belongs to the
+      <em>Miniature</em> Schnauzer, not to her.</div>
+    <p>So both things are worth telling your vet, but as two separate stories: a genuine infection that keeps returning
+      deserves a urine culture rather than another guessed antibiotic, and steady dribbling — especially in her sleep —
+      is an incontinence question, not an infection one. Repeated courses of a strong antibiotic without a culture is
+      the thing to avoid.</p>
+    <div class="src">Breeder's book page 8. Countered against Cornell Riney Canine Health Center on urinary tract
+      infections, the 2024 ACVIM consensus statement on urinary incontinence in dogs, and Chew &amp; DiBartola (WSAVA
+      2007) on sphincter mechanism incompetence.</div>
   </div></details>
 
   <details class="acc"><summary><span class="pawdot"><svg><use href="#i-paw"/></svg></span>
@@ -1097,7 +1092,7 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
     <p>Squamous cell carcinoma of the nail bed occurs at elevated rates in this breed. It looks like a swollen toe, a
       lost or deformed nail, or a growth. Check her feet whenever you groom, and get anything odd seen promptly.</p>
     <h4>Bloat</h4>
-    <p>Covered behind the Bloat button and in the spay section. It's the emergency most likely to actually take her,
+    <p>Covered under <b>Something's wrong</b> and in the spay section. It's the emergency most likely to actually take her,
       and the gastropexy is what prevents it.</p>
     <h4>Eyes and heart</h4>
     <p>Progressive retinal atrophy and dilated cardiomyopathy both exist in the breed, which is why the DNA tests are
@@ -2778,10 +2773,9 @@ const Actions = {
     add("Meal times", f.times); add("Supplements", f.supp); add("Treats", f.treats);
     add("Never feed", f.avoid); add("Notes", f.notes);
     L.push("", "ROUTINE");
-    add("Daily routine", c.routine); add("Toileting", c.toilet);
+    add("Toileting", c.toilet);
     add("Exercise", c.exercise); add("Crate and sleep", c.crate);
     L.push("", "HANDLING");
-    add("Commands she knows", c.commands); add("House rules", c.rules);
     add("Quirks and triggers", c.quirks); add("Medication", c.meds);
     add("Where things are", c.kit);
     L.push("", "CONTACTS");
