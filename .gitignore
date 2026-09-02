@@ -5,3 +5,6 @@ Thumbs.db
 
 # Never commit an exported backup — this repository is public
 *-record-*.json
+
+# wrangler CLI cache — holds the Cloudflare account id
+.wrangler/
