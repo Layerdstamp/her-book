@@ -134,14 +134,32 @@ input[type=date].inline{border:0;border-bottom:1.5px dotted var(--taupe);backgro
   padding:0;font-size:12.5px;width:auto;min-width:100px;border-radius:0;
   color:var(--bark);font-weight:700}
 input[type=date].inline:focus{border-bottom-color:var(--rose)}
-.btn{background:var(--rose);color:#fff;border-radius:999px;padding:13px 20px;font-weight:700;
+/* Every action button is a paw print: four toe pads sitting on the main pad.
+   --paw drives both halves so a hover or a variant recolours them together. */
+.btn{--paw:var(--rose);--toes:56px;
+  position:relative;margin-top:15px;background:var(--paw);color:#fff;
+  border-radius:26px 26px 21px 21px;padding:13px 20px;font-weight:700;
   font-size:15px;width:100%;box-shadow:var(--shadow);display:inline-flex;
-  align-items:center;justify-content:center;gap:8px}
-.btn:hover{background:var(--rose-dk)}
+  align-items:center;justify-content:center;gap:8px;
+  transition:background .18s ease,transform .12s ease,box-shadow .18s ease}
+.btn::before{content:"";position:absolute;left:50%;top:-9px;
+  transform:translateX(-50%);width:var(--toes);height:15px;pointer-events:none;
+  background:
+    radial-gradient(ellipse 11% 44% at 8%  72%,var(--paw) 99%,transparent 100%),
+    radial-gradient(ellipse 12% 48% at 36% 34%,var(--paw) 99%,transparent 100%),
+    radial-gradient(ellipse 12% 48% at 64% 34%,var(--paw) 99%,transparent 100%),
+    radial-gradient(ellipse 11% 44% at 92% 72%,var(--paw) 99%,transparent 100%);
+  background-repeat:no-repeat;transition:background .18s ease}
+.btn:hover{--paw:var(--rose-dk);box-shadow:var(--shadow-lift)}
+.btn:active{transform:translateY(1px) scale(.994)}
 .btn svg{width:16px;height:16px}
-.btn.sm{width:auto;padding:10px 16px;font-size:14px}
-.btn.soft{background:var(--cream);color:var(--bark)}
-.btn.soft:hover{background:#F6EDE6}
+.btn.sm{width:auto;padding:10px 16px;font-size:14px;--toes:42px;margin-top:13px}
+.btn.soft{--paw:var(--cream);color:var(--bark)}
+.btn.soft:hover{--paw:#F6EDE6}
+@media (prefers-reduced-motion:reduce){
+  .btn,.btn::before{transition:none}
+  .btn:active{transform:none}
+}
 .btnrow{display:flex;gap:9px;flex-wrap:wrap}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
 .chip{border-radius:999px;padding:9px 15px;font-size:13.5px;background:#F4EAE1;
@@ -1360,6 +1378,11 @@ const currentStage = () => {
   const d = ageDays();
   return STAGES.find(s => d >= s.from && d < s.to) || STAGES[STAGES.length - 1];
 };
+/* Codes and names people type should not punish a stray capital or a double
+   space. Compare through this, never with a bare ===. */
+const loose = v => String(v ?? "").trim().replace(/\s+/g, " ").toLowerCase();
+const looseEq = (a, b) => loose(a) === loose(b);
+
 const getPath = (o, p) => p.split(".").reduce((x, k) => (x == null ? x : x[k]), o);
 function setPath(obj, path, value){
   const keys = path.split("."), last = keys.pop();
@@ -2197,7 +2220,7 @@ const Actions = {
   },
   "try-owner": () => {
     const code = $("#ownerTry").value.trim();
-    if (code && code === Repo.state.ownerCode){
+    if (code && looseEq(code, Repo.state.ownerCode)){
       Local.data.isOwner = true; Local.save();
       View.render(); openSheet("people"); View.toast("Unlocked");
     } else View.toast("That code doesn't match");
