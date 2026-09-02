@@ -240,6 +240,42 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
 .tabs .ic svg{width:19px;height:19px}
 .tabs button[aria-selected=true]{color:var(--rose-dk)}
 .tabs button[aria-selected=true] .ic{background:var(--blush)}
+/* Seven tabs is tight on a narrow phone. */
+@media(max-width:410px){
+  .tabs button{font-size:9px;gap:3px}
+  .tabs .ic{width:24px;height:24px}
+  .tabs .ic svg{width:18px;height:18px}
+}
+
+/* Training */
+.cue{background:var(--cream);border:1px solid var(--line);border-radius:var(--r-sm);
+  padding:13px 14px;margin-bottom:10px}
+.cue .top{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.cue .word{flex:1;font-family:var(--display);font-size:18px;font-weight:600;
+  border:0;background:none;padding:2px 0;width:100%}
+.cue .word:focus{outline:none;border-bottom:2px solid var(--rose)}
+.cue .means{width:100%;border:0;background:none;font-size:13.5px;color:var(--rose-dk);
+  font-weight:700;padding:2px 0;margin-bottom:6px}
+.cue .means:focus{outline:none;border-bottom:1px solid var(--rose)}
+.cue textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:9px 11px;
+  font-size:14px;line-height:1.5;background:var(--sand);resize:vertical;min-height:70px}
+.rline{display:flex;gap:9px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line)}
+.rline:last-child{border-bottom:0}
+.rline.past{opacity:.45}
+.rline.now{background:var(--blush);border-radius:14px;border-bottom-color:transparent;
+  padding:9px 8px;margin:2px -8px}
+.rline.now .t{border-color:var(--rose);color:var(--rose-dk)}
+.rline .dot{width:7px;height:7px;border-radius:50%;flex:none;background:transparent}
+.rline.now .dot{background:var(--rose);box-shadow:0 0 0 4px rgba(201,131,138,.22)}
+.clockline{display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+  margin-bottom:10px}
+.clockline .nowt{font-family:var(--display);font-size:20px;font-weight:600}
+.clockline .lab{font-size:12px;color:var(--taupe);font-weight:700}
+.rline .t{width:96px;flex:none;font-weight:700;font-size:13.5px;border:1px solid var(--line);
+  border-radius:10px;padding:8px 9px;background:var(--cream);text-align:center}
+.rline .w{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;
+  padding:8px 10px;font-size:14.5px;background:var(--cream)}
+.rline input:focus{outline:2px solid var(--rose);outline-offset:0}
 .badge{position:absolute;top:4px;right:calc(50% - 20px);background:var(--alert);color:#fff;
   font-size:9.5px;min-width:17px;height:17px;border-radius:999px;display:grid;
   place-items:center;padding:0 4px;font-weight:800}
@@ -325,6 +361,21 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
 
 <!-- ===================== HOME ===================== -->
 <section class="panel on" id="p-home" role="tabpanel" aria-labelledby="t-home">
+  <div class="card">
+    <div class="clockline">
+      <span class="nowt" id="nowClock">—</span>
+      <span class="lab" id="dayLabel"></span>
+    </div>
+    <h2>Her day</h2>
+    <p class="hint">Tap any line to change it. Whatever is written here is what everyone should be doing.</p>
+    <div id="homeRoutine"></div>
+    <div class="row2" style="margin-top:12px">
+      <label class="f"><span>Time</span><input type="text" id="hTime" placeholder="7:00am"></label>
+      <label class="f"><span>What happens</span><input type="text" id="hWhat" placeholder="Walk"></label>
+    </div>
+    <button class="btn" data-act="add-routine"><svg><use href="#i-paw"/></svg>Add to her day</button>
+  </div>
+
   <div id="stageCard"></div>
 
   <div class="card">
@@ -526,6 +577,54 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
       </ul>
       <p style="color:var(--bark)">Puppies get sick fast and have little reserve. When in doubt, phone — a call costs nothing.</p>
     </div>
+  </div>
+</section>
+
+<!-- ===================== TRAINING ===================== -->
+<section class="panel" id="p-train" role="tabpanel" aria-labelledby="t-train">
+  <div class="card">
+    <h2>Why this page exists</h2>
+    <p class="hint" style="margin-bottom:0">She learns from whoever is in the room. If one person lets her jump up
+      and another tells her off for it, she doesn't learn a rule — she learns that people are unpredictable. Everything
+      here is editable. If we change how we do something, change it here so the next person does it the same way.</p>
+  </div>
+
+  <div class="card">
+    <h2>Her day</h2>
+    <p class="hint">Times are a guide, order matters more. Tap anything to change it.</p>
+    <div id="routineList"></div>
+    <div class="row2" style="margin-top:12px">
+      <label class="f"><span>Time</span><input type="text" id="rTime" placeholder="7:00am"></label>
+      <label class="f"><span>What happens</span><input type="text" id="rWhat" placeholder="Walk"></label>
+    </div>
+    <button class="btn" data-act="add-routine"><svg><use href="#i-paw"/></svg>Add to her day</button>
+  </div>
+
+  <div class="card">
+    <h2>Words she knows</h2>
+    <p class="hint">The word, what it means to her, and exactly how to use it. Say it the same way she has always
+      heard it.</p>
+    <div id="cueList"></div>
+    <label class="f"><span>New word</span><input type="text" id="cWord" placeholder="e.g. Wait"></label>
+    <label class="f"><span>What it means</span><input type="text" id="cMeans" placeholder="Stop where you are."></label>
+    <label class="f"><span>How to use it</span><textarea id="cHow" placeholder="When to say it, how to reward it, what not to do."></textarea></label>
+    <button class="btn" data-act="add-cue"><svg><use href="#i-paw"/></svg>Add a word</button>
+  </div>
+
+  <div class="card">
+    <h2>How we handle things</h2>
+    <p class="hint">Not words — the rules everyone in the house sticks to.</p>
+    <div id="ruleList"></div>
+    <label class="f"><span>Situation</span><input type="text" id="kWord" placeholder="e.g. She jumps on visitors"></label>
+    <label class="f"><span>In one line</span><input type="text" id="kMeans" placeholder="Four feet on the floor gets attention."></label>
+    <label class="f"><span>What we do</span><textarea id="kHow" placeholder="Exactly what everyone should do."></textarea></label>
+    <button class="btn" data-act="add-rule"><svg><use href="#i-paw"/></svg>Add a rule</button>
+  </div>
+
+  <div class="card">
+    <h2>Hand this to a sitter or trainer</h2>
+    <p class="hint">Copies her whole day and every word she knows as plain text.</p>
+    <button class="btn soft" data-act="copy-train"><svg><use href="#i-share"/></svg>Copy her routine and words</button>
   </div>
 </section>
 
@@ -1184,6 +1283,7 @@ table.rec td:first-child{white-space:nowrap;color:var(--bark)}
   <button role="tab" id="t-vax"   aria-selected="false" data-tab="vax"><span class="ic"><svg><use href="#i-check"/></svg></span><span id="vaxBadge"></span>Vaccines</button>
   <button role="tab" id="t-feed"  aria-selected="false" data-tab="feed"><span class="ic"><svg><use href="#i-bowl"/></svg></span>Feeding</button>
   <button role="tab" id="t-log"   aria-selected="false" data-tab="log"><span class="ic"><svg><use href="#i-note"/></svg></span>Log</button>
+  <button role="tab" id="t-train" aria-selected="false" data-tab="train"><span class="ic"><svg><use href="#i-paw"/></svg></span>Training</button>
   <button role="tab" id="t-care"  aria-selected="false" data-tab="care"><span class="ic"><svg><use href="#i-heart"/></svg></span>Care</button>
   <button role="tab" id="t-guide" aria-selected="false" data-tab="guide"><span class="ic"><svg><use href="#i-book"/></svg></span>Guide</button>
 </nav>
@@ -1283,6 +1383,59 @@ const ARRIVAL = [
   "Asked the kennel for the parents' OFA and DNA results",
   "Care sheet filled in, in case someone else has to take her"
 ];
+/* Her routine and her words. These seed the record; everything is editable in
+   the app, and edits win over a seed because a seed carries _m: 0. */
+const SEED_ROUTINE = [
+  ["6:00am",  "Out to the toilet, first thing"],
+  ["7:00am",  "Walk — within an hour of coming out of the crate"],
+  ["7:30am",  "Breakfast — 1 cup"],
+  ["9:00am",  "Toilet — back porch"],
+  ["11:00am", "Nap in the crate"],
+  ["1:00pm",  "Up, and straight out to the toilet"],
+  ["3:00pm",  "Second walk"],
+  ["4:00pm",  "Dinner"],
+  ["5:00pm",  "Crate for 30 minutes (shower)"],
+  ["6:00pm",  "Third walk"],
+  ["8:00pm",  "Toilet"],
+  ["9:00pm",  "Toilet"],
+  ["10:00pm", "Play, then a short walk"],
+  ["10:45pm", "Wind down, treats"],
+  ["11:00pm", "Into the crate for the night"]
+];
+
+const SEED_CUES = [
+  ["word", "Star, come", "Come to me, right now.",
+   "Say it once, brightly. Treat and praise every single time she arrives — every time, for months. Never call her over to do something she dislikes, and never call her to tell her off. That teaches her the word is a trap and it stops working."],
+  ["word", "Sit", "Put your bottom on the floor.",
+   "Hold a treat at her nose and move it slowly back over her head. Her bottom goes down as her head comes up. Say \u201csit\u201d once as it touches the floor, then give the treat. Don\u2019t push her bottom down — she should work it out herself, and pressing on a growing puppy\u2019s hips isn\u2019t good for her."],
+  ["word", "Go potty", "This is where you toilet.",
+   "Say it once, quietly, as she starts — not before. Treat within two seconds of her finishing, outside, not when you get back indoors. Same spot every time, on the lead even in the garden. Stand still and be boring until she goes."],
+  ["word", "Outside", "We\u2019re going out for the toilet.",
+   "Keep this for toilet trips only, so it doesn\u2019t blur into \u201cwalk\u201d. Lead on, straight to the spot, no play until she has been."],
+  ["word", "Walk", "We\u2019re going for a proper walk.",
+   "If she plants herself, keep a light steady pressure on the lead and wait. Never drag her. The moment she moves on her own, let the lead go slack and praise. A slack lead is the reward."],
+  ["word", "Good girl", "That. Exactly that.",
+   "Only when she is actually doing the right thing. Never in the same breath as a correction, and never while she is biting or barking. Used loosely it stops meaning anything."],
+  ["word", "Treat", "Food is coming.",
+   "Only say it when a treat really is coming."],
+  ["word", "Off", "Take your mouth or your paws off that.",
+   "Teeth on skin ends the game instantly. Stand up, fold your arms and walk away for twenty seconds, then come back and offer a chew. No poking, no scruff, no shouting — on a guarding breed that teaches her hands are a threat, which is the opposite of what we want."],
+  ["word", "Leave it", "Don\u2019t touch that.",
+   "Say it once, make the thing boring, and pay her for looking away. Trade for something better rather than pulling it out of her mouth."],
+  ["word", "Let\u2019s go", "We\u2019re moving on. Nothing here to worry about.",
+   "For cars, mowers, other dogs, strangers, sudden noise. She checks your face before she decides. Stay loose, keep breathing, keep walking. A tight lead and a sharp breath tells her the thing really is a threat."],
+  ["word", "Settle", "Lie down and switch off.",
+   "Catch it rather than ask for it. When she chooses to lie down and relax on her own, mark it quietly and drop a treat between her paws."],
+  ["rule", "She barks or nudges for attention", "It gets her nothing.",
+   "Look away, no talking, no eye contact, no pushing her off — all of that is attention. The second she is calm, pay her. Attention given to barking buys more barking."],
+  ["rule", "What we reward, she repeats", "Every pet, word and tone is teaching her.",
+   "If she toilets indoors and someone fusses over her, she learns that is a good place to go. Before you react to anything she does, ask whether you want more of it."],
+  ["rule", "We all use the same words", "Consistency matters more than the words themselves.",
+   "One word per thing, said the same way by everyone in the house. Say it once or twice, then give her a few seconds to think. Repeating it over and over just becomes noise."],
+  ["rule", "Corrections", "Interrupt and redirect. Nothing physical.",
+   "No smacking, poking, scruff grabs or rolling her over. The evidence on this is one-sided: aversive handling raises stress hormones, makes dogs more pessimistic, and is linked to more aggression, not less. Interrupt with a neutral sound, show her what to do instead, then pay her for doing it."]
+];
+
 const CATS = ["Stool","Vomiting","Appetite","Energy","Urination","Skin / coat","Ears","Toes / nails","Limping","Cough","Behaviour","Other"];
 
 const STAGES = [
@@ -1358,7 +1511,7 @@ const SCALAR_PATHS = [
       "erName","erPhone","erAddr","insurance","routine","toilet","exercise","crate",
       "commands","rules","quirks","meds","kit"].map(k => `care.${k}`)
 ];
-const LISTS = ["vaccines","weights","meals","occ"];
+const LISTS = ["vaccines","weights","meals","occ","routine","cues"];
 
 /* ------------------------------------------------------------- helpers */
 const $  = (s, r = document) => r.querySelector(s);
@@ -1390,6 +1543,16 @@ const currentStage = () => {
   const d = ageDays();
   return STAGES.find(s => d >= s.from && d < s.to) || STAGES[STAGES.length - 1];
 };
+const nowMins = () => { const d = new Date(); return d.getHours() * 60 + d.getMinutes(); };
+const clockText = () => new Date().toLocaleTimeString([], { hour:"numeric", minute:"2-digit" });
+/* "in 25 minutes", "in 3 hours" — for something still ahead of us today. */
+function untilText(mins){
+  if (mins <= 0) return "now";
+  if (mins < 60) return `in ${mins} minute${mins === 1 ? "" : "s"}`;
+  const h = Math.floor(mins / 60), m = mins % 60;
+  return `in ${h} hour${h === 1 ? "" : "s"}${m ? ` ${m} min` : ""}`;
+}
+
 /* "3 minutes ago" rather than a bare timestamp — a notification should say
    how old it is, so a stale one is obvious instead of looking current. */
 function relTime(ts){
@@ -1465,10 +1628,28 @@ function seedVaccines(){
       ({ id:`u${i}`, name, age, date:"", due:addDays(DOB, wk*7), done:false, kennel:true, _m:t }))
   ];
 }
+function seedRoutine(){
+  return SEED_ROUTINE.map(([time, what], i) => ({ id:`r${i}`, time, what, _m:0 }));
+}
+function seedCues(){
+  return SEED_CUES.map(([kind, word, means, how], i) => ({ id:`c${i}`, kind, word, means, how, _m:0 }));
+}
+
+/* "6:00am", "6-9am", "11pm" -> minutes past midnight, for sorting only. */
+function minutesOf(str){
+  const m = /(\d{1,2})(?::(\d{2}))?\s*(am|pm)?/i.exec(String(str || ""));
+  if (!m) return 1e6;
+  let h = +m[1] % 12;
+  if (/pm/i.test(m[3] || "")) h += 12;
+  if (!m[3] && +m[1] === 24) h = 24;
+  return h * 60 + (+m[2] || 0);
+}
+
 const blankState = () => ({
   schema: SCHEMA, updatedAt: 0,
   name: "", ownerCode: "",
   vaccines: seedVaccines(), arrival: {}, weights: [], meals: [], occ: [],
+  routine: seedRoutine(), cues: seedCues(),
   feedPlan: { food:"", amt:"", meals:"", times:"", supp:"", treats:"", avoid:"", notes:"" },
   care: {},
   _ts: {}
@@ -1484,6 +1665,8 @@ function migrate(doc){
   delete out.sync;                                   // v3 kept tokens in the doc; they move to Local
   for (const k of LISTS) if (!Array.isArray(out[k])) out[k] = base[k];
   if (!out.vaccines.length) out.vaccines = seedVaccines();
+  if (!out.routine.length)  out.routine  = seedRoutine();
+  if (!out.cues.length)     out.cues     = seedCues();
   for (const k of LISTS) for (const it of out[k]) if (typeof it._m !== "number") it._m = 0;
 
   // arrival was a plain {index: bool} map before v4
@@ -1792,7 +1975,7 @@ const Sync = {
 const View = {
   render(){
     this.header(); this.next(); this.home();
-    this.vaccines(); this.feeding(); this.log(); this.bindings();
+    this.vaccines(); this.feeding(); this.log(); this.training(); this.clock(); this.bindings();
     document.body.classList.toggle("guest", !Repo.isOwner());
   },
 
@@ -1805,38 +1988,40 @@ const View = {
     ].map(([k, v]) => `<div class="fact"><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("");
   },
 
+  /* The strip is about her day, not her paperwork. An overdue vaccine still
+     gets a quiet trailing clause, because missing one matters — but the
+     vaccine count lives on its own tab badge. */
   next(){
     const snoozed = Local.data.snoozed || {};
     const hidden = v => snoozed[v.id] && today() < snoozed[v.id];
-    const pending = live(Repo.state.vaccines).filter(v => !v.done);
-    const dated = pending.filter(v => v.due && !hidden(v)).sort((a,b) => a.due < b.due ? -1 : 1);
-    const overdue = dated.filter(v => daysBetween(today(), v.due) < 0).length;
+    const overdue = live(Repo.state.vaccines)
+      .filter(v => !v.done && v.due && !hidden(v) && daysBetween(today(), v.due) < 0);
+
+    const r = live(Repo.state.routine).sort((a,b) => minutesOf(a.time) - minutesOf(b.time));
+    const n = nowMins();
+    const ahead = r.find(e => minutesOf(e.time) > n);
     const strip = $("#nextStrip"), text = $("#nextText");
     strip.className = "next";
 
-    let body, snoozeFor = null;
-    if (!dated.length){
-      const rest = pending.filter(v => !hidden(v)).length;
-      body = rest
-        ? `${rest} item${rest > 1 ? "s" : ""} on the checklist with no date set.`
-        : "Nothing outstanding on the vaccine checklist.";
-      if (!rest) strip.classList.add("clear");
+    let body;
+    if (ahead){
+      body = `Next: <b>${esc(ahead.what)}</b> at ${esc(ahead.time)} — ${esc(untilText(minutesOf(ahead.time) - n))}.`;
+    } else if (r.length){
+      strip.classList.add("clear");
+      body = `That's her day done. First tomorrow: <b>${esc(r[0].what)}</b> at ${esc(r[0].time)}.`;
     } else {
-      const n = dated[0], diff = daysBetween(today(), n.due);
-      if (diff <= 0){
-        strip.classList.add("overdue");
-        snoozeFor = n.id;
-        body = diff === 0
-          ? `<b>${esc(n.name)}</b> is due today.`
-          : `<b>${esc(n.name)}</b> was due ${fmt(n.due)} — ${Math.abs(diff)} days ago.`;
-      } else {
-        body = `Next: <b>${esc(n.name)}</b> around ${fmt(n.due)} — in ${diff} days.`;
-      }
+      body = "No routine set yet — add her day on the home page.";
     }
-    text.innerHTML = body +
-      `<span class="ago">Checked ${esc(relTime(Repo.state.updatedAt || Date.now()) || "just now")}</span>` +
-      (snoozeFor ? `<button class="snooze" data-act="snooze" data-id="${esc(snoozeFor)}">Remind me in 3 days</button>` : "");
-    $("#vaxBadge").innerHTML = overdue ? `<span class="badge">${overdue}</span>` : "";
+
+    let tail = "";
+    if (overdue.length){
+      strip.classList.add("overdue");
+      const v = overdue[0];
+      tail = `<button class="snooze" data-act="snooze" data-id="${esc(v.id)}">Hide for 3 days</button>`;
+      body += ` <span style="opacity:.85">Also overdue: ${esc(v.name)}.</span>`;
+    }
+    text.innerHTML = body + `<span class="ago">${esc(clockText())} · updated ${esc(relTime(Repo.state.updatedAt) || "just now")}</span>` + tail;
+    $("#vaxBadge").innerHTML = overdue.length ? `<span class="badge">${overdue.length}</span>` : "";
   },
 
   home(){
@@ -1962,6 +2147,55 @@ const View = {
       : `<div class="empty">Nothing logged. That's a good thing.</div>`;
   },
 
+  /* Her day, rendered wherever it is asked for. The line she is on right now
+     is highlighted, and everything already done is dimmed, so a glance tells
+     you where in the day she is. */
+  routine(sel){
+    const el = $(sel);
+    if (!el) return;
+    const r = live(Repo.state.routine).sort((a,b) => minutesOf(a.time) - minutesOf(b.time));
+    const n = nowMins();
+    let currentId = null;
+    for (const e of r) if (minutesOf(e.time) <= n) currentId = e.id;
+    el.innerHTML = r.length ? r.map(e => {
+      const m = minutesOf(e.time);
+      const cls = e.id === currentId ? " now" : (m < n ? " past" : "");
+      return `<div class="rline${cls}">
+        <span class="dot"></span>
+        <input class="t" type="text" value="${esc(e.time)}" data-edit="routine|${esc(e.id)}|time" aria-label="Time">
+        <input class="w" type="text" value="${esc(e.what)}" data-edit="routine|${esc(e.id)}|what" aria-label="What happens">
+        ${this.del("del-routine", e.id, "step")}
+      </div>`;
+    }).join("") : `<div class="empty">Nothing in her day yet. Add the first thing below.</div>`;
+  },
+
+  clock(){
+    const c = $("#nowClock"), d = $("#dayLabel");
+    if (c) c.textContent = `It's ${clockText()}`;
+    if (d) d.textContent = new Date().toLocaleDateString([], { weekday:"long", day:"numeric", month:"long" });
+    this.routine("#homeRoutine");
+    this.routine("#routineList");
+  },
+
+  training(){
+
+    const card = c => `
+      <div class="cue">
+        <div class="top">
+          <input class="word" type="text" value="${esc(c.word)}" data-edit="cues|${esc(c.id)}|word" aria-label="Word">
+          ${this.del("del-cue", c.id, c.word)}
+        </div>
+        <input class="means" type="text" value="${esc(c.means || "")}" data-edit="cues|${esc(c.id)}|means" aria-label="What it means">
+        <textarea data-edit="cues|${esc(c.id)}|how" aria-label="How to use it">${esc(c.how || "")}</textarea>
+      </div>`;
+
+    const cues = live(Repo.state.cues);
+    const words = cues.filter(c => c.kind !== "rule");
+    const rules = cues.filter(c => c.kind === "rule");
+    $("#cueList").innerHTML  = words.length ? words.map(card).join("") : `<div class="empty">No words yet.</div>`;
+    $("#ruleList").innerHTML = rules.length ? rules.map(card).join("") : `<div class="empty">No rules yet.</div>`;
+  },
+
   stages(){
     $("#stagesList").innerHTML = STAGES.map(s => {
       const now = s === currentStage();
@@ -1998,7 +2232,22 @@ const View = {
 
   /* Re-render anything showing a relative time, so "just now" doesn't sit
      there lying half an hour later. */
-  tick(){ this.status(); this.next(); },
+  /* Everything that shows a time re-renders on the clock, so nothing on the
+     page can quietly go stale while it sits open. Crossing midnight is a full
+     re-render, because her age and every "today" default changes. */
+  tick(){
+    const d = today();
+    if (d !== this._day){
+      const was = this._day;
+      this._day = d;
+      for (const id of ["#wDate","#mDate","#oDate"]){
+        const el = $(id);
+        if (el && (!el.value || el.value === was)) el.value = d;
+      }
+      if (was) return this.render();
+    }
+    this.status(); this.next(); this.clock(); this.header();
+  },
 
   toast(msg){
     const t = $("#toast");
@@ -2244,6 +2493,62 @@ const Actions = {
     View.toast("Added");
   },
 
+  /* One handler for both copies of the add row — home and training. */
+  "add-routine": () => {
+    const t = $("#hTime")?.value.trim() || $("#rTime")?.value.trim() || "";
+    const w = $("#hWhat")?.value.trim() || $("#rWhat")?.value.trim() || "";
+    if (!w) return View.toast("Say what happens");
+    Repo.update(s => s.routine.push(mine({ time: t || "—", what: w })));
+    for (const id of ["#hTime","#hWhat","#rTime","#rWhat"]){ const el = $(id); if (el) el.value = ""; }
+    View.toast("Added to her day");
+  },
+  "add-cue": () => {
+    const word = $("#cWord").value.trim();
+    if (!word) return View.toast("Give it a word first");
+    Repo.update(s => s.cues.push(mine({ kind:"word", word,
+      means: $("#cMeans").value.trim(), how: $("#cHow").value.trim() })));
+    $("#cWord").value = $("#cMeans").value = $("#cHow").value = "";
+    View.toast("Word added");
+  },
+  "add-rule": () => {
+    const word = $("#kWord").value.trim();
+    if (!word) return View.toast("Name the situation first");
+    Repo.update(s => s.cues.push(mine({ kind:"rule", word,
+      means: $("#kMeans").value.trim(), how: $("#kHow").value.trim() })));
+    $("#kWord").value = $("#kMeans").value = $("#kHow").value = "";
+    View.toast("Rule added");
+  },
+  "del-routine": ownerOnly(el => tombstone("routine", el.dataset.id)),
+  "del-cue":     ownerOnly(el => tombstone("cues",    el.dataset.id)),
+
+  "copy-train": () => {
+    const s = Repo.state;
+    const L = [`${s.name || "Her"} — routine and words`, ""];
+    L.push("HER DAY");
+    for (const e of live(s.routine).sort((a,b) => minutesOf(a.time) - minutesOf(b.time))){
+      L.push(`  ${e.time}  ${e.what}`);
+    }
+    const words = live(s.cues).filter(c => c.kind !== "rule");
+    const rules = live(s.cues).filter(c => c.kind === "rule");
+    if (words.length){
+      L.push("", "WORDS SHE KNOWS");
+      for (const c of words){
+        L.push("", `  ${c.word} — ${c.means || ""}`.trimEnd());
+        if (c.how) L.push(`    ${c.how}`);
+      }
+    }
+    if (rules.length){
+      L.push("", "HOW WE HANDLE THINGS");
+      for (const c of rules){
+        L.push("", `  ${c.word} — ${c.means || ""}`.trimEnd());
+        if (c.how) L.push(`    ${c.how}`);
+      }
+    }
+    L.push("", "Please stick to these exactly. She learns from whoever is in the room,",
+               "and being inconsistent is harder on her than being strict.");
+    copyText(L.join("\n"), "Routine and words copied");
+  },
+
   "add-weight": () => {
     const date = $("#wDate").value, lbs = parseFloat($("#wLbs").value);
     if (!date || !(lbs > 0)) return View.toast("Add a date and a weight");
@@ -2341,6 +2646,19 @@ const Actions = {
     add("Vet", [c.vetName, c.vetPhone, c.vetAddr].filter(Boolean).join(" — "));
     add("Emergency vet", [c.erName, c.erPhone, c.erAddr].filter(Boolean).join(" — "));
     add("Insurance", c.insurance);
+    const rt = live(s.routine).sort((a,b) => minutesOf(a.time) - minutesOf(b.time));
+    if (rt.length){
+      L.push("", "HER DAY");
+      for (const e of rt) L.push(`  ${e.time}  ${e.what}`);
+    }
+    const cu = live(s.cues);
+    if (cu.length){
+      L.push("", "WORDS AND RULES — please keep these identical");
+      for (const c of cu){
+        L.push(`  ${c.word} — ${c.means || ""}`.trimEnd());
+        if (c.how) L.push(`    ${c.how}`);
+      }
+    }
     L.push("", "EMERGENCY — BLOAT");
     L.push("Deep-chested breed. If her belly is swollen and hard, she retches with nothing coming up,");
     L.push("drools, paces, can't settle, or collapses — go to an emergency vet immediately and phone ahead.");
@@ -2420,14 +2738,27 @@ document.addEventListener("click", e => {
 
 document.addEventListener("change", e => {
   const t = e.target;
+  // Re-sort her day only once the field is left, not on every keystroke.
+  if (t.dataset.edit){ editItem(t); View.training(); View.clock(); View.next(); return; }
   if (t.dataset.date) Repo.update(s => {
     const v = s.vaccines.find(x => x.id === t.dataset.date); if (v){ v.date = t.value; v._m = now(); } });
   else if (t.dataset.due) Repo.update(s => {
     const v = s.vaccines.find(x => x.id === t.dataset.due); if (v){ v.due = t.value; v._m = now(); } });
 });
 
+/* Any field carrying data-edit="list|id|field" edits that item in place, so
+   everything on the Training page is changeable without a form. */
+function editItem(t){
+  const [list, id, field] = String(t.dataset.edit).split("|");
+  Repo.update(s => {
+    const it = (s[list] || []).find(x => x.id === id);
+    if (it){ it[field] = t.value; it._m = now(); }
+  }, { render:false });
+}
+
 document.addEventListener("input", e => {
   const t = e.target;
+  if (t.dataset.edit){ editItem(t); return; }
   if (!t.dataset.bind) return;
   if (t.dataset.owner === "1" && !Repo.isOwner()) return;
   Repo.update(s => { setPath(s, t.dataset.bind, t.value); Repo.stamp(t.dataset.bind); }, { render:false });
@@ -2474,7 +2805,9 @@ window.addEventListener("focus", () => Sync.pull());
     bar.hidden = false;
     bar.textContent = "This device can't save — export a backup before you close the tab.";
   }
-  // Keep every "x minutes ago" honest without re-rendering the whole page.
+  // Keep every "x minutes ago" and every "in 25 minutes" honest, and roll the
+  // whole page over at midnight.
+  View._day = today();
   setInterval(() => View.tick(), 30000);
 
   // Poll for peers' edits while the tab is open. Re-read the interval each
